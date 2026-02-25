@@ -21,3 +21,4 @@ format:
   html:
     toc: true
     number-sections: true
+    theme: yeti

@@ -5,10 +5,8 @@ title: "Einführung"
 ## Was ist R?
 
 -   Programmiersprache und Umgebung für statistische Berechnungen und grafische Darstellungen
--   Interaktive Skriptsprache für
-    -   statistische Auswertung
-    -   grafische Darstellung, Visualisierung z.B. Streudiagramme, Boxplots, Histogramme
-    -   Programmierung (imperativ ähnlich zu Python; teilweise funktionale Aspekte)
+-   Interaktive Skriptsprache für statistische Auswertung, grafische Darstellung, Visualisierung 
+-   Programmierung (imperativ ähnlich zu Python; teilweise funktionale Aspekte)
 -   Plattformunabhängig (verfügbar für Windows, macOS, Linux)
 
 ### Warum R?
