@@ -1,0 +1,11 @@
+---
+title: "Willkommen"
+---
+
+Dieses Skript begleitet die Vorlesung **R Programmierung**.
+
+## Inhalte
+
+- Einführung in R
+- Datentransformationen
+
