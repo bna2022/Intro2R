@@ -1,0 +1,66 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Programmierung",
+    "section": "",
+    "text": "0.1 Inhalte\nDieses Skript begleitet die Vorlesung R Programmierung.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#inhalte",
+    "href": "index.html#inhalte",
+    "title": "R Programmierung",
+    "section": "",
+    "text": "Einführung in R\nDatentransformationen",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html",
+    "href": "chapters/01-einfuehrung.html",
+    "title": "2  Einführung",
+    "section": "",
+    "text": "2.1 Was ist R?\nR ist eine Programmiersprache für Statistik und Datenanalyse.",
+    "crumbs": [
+      "Tutorials",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#erste-schritte",
+    "href": "chapters/01-einfuehrung.html#erste-schritte",
+    "title": "2  Einführung",
+    "section": "2.2 Erste Schritte",
+    "text": "2.2 Erste Schritte\n1 + 1",
+    "crumbs": [
+      "Tutorials",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-datentransformationen.html",
+    "href": "chapters/02-datentransformationen.html",
+    "title": "3  Kapitel 2: Datentransformationen",
+    "section": "",
+    "text": "3.1 ```markdown\nchapters/02-datentransformationen.qmd",
+    "crumbs": [
+      "Tutorials",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Kapitel 2: Datentransformationen</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-datentransformationen.html#title-datentransformationen",
+    "href": "chapters/02-datentransformationen.html#title-datentransformationen",
+    "title": "3  Kapitel 2: Datentransformationen",
+    "section": "3.2 title: “Datentransformationen”",
+    "text": "3.2 title: “Datentransformationen”",
+    "crumbs": [
+      "Tutorials",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Kapitel 2: Datentransformationen</span>"
+    ]
+  }
+]
