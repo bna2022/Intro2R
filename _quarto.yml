@@ -20,4 +20,4 @@ book:
 format:
   html:
     toc: true
-    theme: yeti
+    theme: cosmo

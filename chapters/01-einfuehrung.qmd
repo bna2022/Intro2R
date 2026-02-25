@@ -2,7 +2,7 @@
 title: "Einführung"
 ---
 
-### Was ist R?
+## Was ist R?
 
 R ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.
 
@@ -10,14 +10,19 @@ Als interaktive Skriptsprache erlaubt R ein schrittweises Arbeiten mit Daten: Be
 
 Ein weiterer Pluspunkt ist die Plattformunabhängigkeit. R läuft gleichermaßen unter Windows, macOS und Linux, sodass Projekte problemlos auf unterschiedlichen Systemen bearbeitet und geteilt werden können.
 
+## Kurze Einführung in R und RStudio
+
 ### R und RStudio installieren
 
-Um mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. Ergänzend dazu empfiehlt sich die Installation von RStudio.
+Um mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. 
 
 -   R: <https://cloud.r-project.org>
+
+Ergänzend dazu empfiehlt sich die Installation von RStudio. RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.
+
 -   RStudio: <https://www.rstudio.com>
 
-RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.
+
 
 ### Aufruf und Bedienung
 

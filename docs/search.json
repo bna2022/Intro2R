@@ -24,7 +24,7 @@
     "href": "chapters/01-einfuehrung.html",
     "title": "2  Einführung",
     "section": "",
-    "text": "2.0.1 Was ist R?\nR ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.\nAls interaktive Skriptsprache erlaubt R ein schrittweises Arbeiten mit Daten: Berechnungen können direkt ausgeführt, Ergebnisse sofort überprüft und Grafiken unmittelbar erzeugt werden. Die Programmierung folgt dabei überwiegend einem imperativen Ansatz, ähnlich wie bei Python. Es werden aber auch funktionale Konzepte aufgegriffen, was insbesondere bei komplexeren Analysen von Vorteil ist.\nEin weiterer Pluspunkt ist die Plattformunabhängigkeit. R läuft gleichermaßen unter Windows, macOS und Linux, sodass Projekte problemlos auf unterschiedlichen Systemen bearbeitet und geteilt werden können.\n\n\n2.0.2 R und RStudio installieren\nUm mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. Ergänzend dazu empfiehlt sich die Installation von RStudio.\n\nR: https://cloud.r-project.org\nRStudio: https://www.rstudio.com\n\nRStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.\n\n\n2.0.3 Aufruf und Bedienung\n\nWindows: Öffnen Sie Ihren Ordner mit der R Installation, z.B. C:\\Program Files\\R\\R-4.4.1\\bin und klicken Sie auf R\nLinux: Öffnen Sie ein Terminal, geben Sie den Befehl R und Return ein.",
+    "text": "2.1 Was ist R?\nR ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.\nAls interaktive Skriptsprache erlaubt R ein schrittweises Arbeiten mit Daten: Berechnungen können direkt ausgeführt, Ergebnisse sofort überprüft und Grafiken unmittelbar erzeugt werden. Die Programmierung folgt dabei überwiegend einem imperativen Ansatz, ähnlich wie bei Python. Es werden aber auch funktionale Konzepte aufgegriffen, was insbesondere bei komplexeren Analysen von Vorteil ist.\nEin weiterer Pluspunkt ist die Plattformunabhängigkeit. R läuft gleichermaßen unter Windows, macOS und Linux, sodass Projekte problemlos auf unterschiedlichen Systemen bearbeitet und geteilt werden können.",
     "crumbs": [
       "Kapitel",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
@@ -36,6 +36,39 @@
     "title": "2  Einführung",
     "section": "",
     "text": "2.1.1 R und RStudio installieren\nUm mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. Ergänzend dazu empfiehlt sich die Installation von RStudio.\n\nR: https://cloud.r-project.org\nRStudio: https://www.rstudio.com\n\nRStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.\n\n\n2.1.2 Aufruf und Bedienung\n\nWindows: Öffnen Sie Ihren Ordner mit der R Installation, z.B. C:\\Program Files\\R\\R-4.4.1\\bin und klicken Sie auf R\nLinux: Öffnen Sie ein Terminal, geben Sie den Befehl R und Return ein.",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#r-und-rstudio-installieren",
+    "href": "chapters/01-einfuehrung.html#r-und-rstudio-installieren",
+    "title": "2  Einführung",
+    "section": "2.2 R und RStudio installieren",
+    "text": "2.2 R und RStudio installieren\nUm mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. Ergänzend dazu empfiehlt sich die Installation von RStudio.\n\nR: https://cloud.r-project.org\nRStudio: https://www.rstudio.com\n\nRStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#aufruf-und-bedienung",
+    "href": "chapters/01-einfuehrung.html#aufruf-und-bedienung",
+    "title": "2  Einführung",
+    "section": "2.3 Aufruf und Bedienung",
+    "text": "2.3 Aufruf und Bedienung\n\nWindows: Öffnen Sie Ihren Ordner mit der R Installation, z.B. C:\\Program Files\\R\\R-4.4.1\\bin und klicken Sie auf R\nLinux: Öffnen Sie ein Terminal, geben Sie den Befehl R und Return ein.",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#kurze-einführung-in-r-und-rstudio",
+    "href": "chapters/01-einfuehrung.html#kurze-einführung-in-r-und-rstudio",
+    "title": "2  Einführung",
+    "section": "2.2 Kurze Einführung in R und RStudio",
+    "text": "2.2 Kurze Einführung in R und RStudio\n\n2.2.1 R und RStudio installieren\nUm mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden.\n\nR: https://cloud.r-project.org\n\nErgänzend dazu empfiehlt sich die Installation von RStudio. RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.\n\nRStudio: https://www.rstudio.com\n\n\n\n2.2.2 Aufruf und Bedienung\n\nWindows: Öffnen Sie Ihren Ordner mit der R Installation, z.B. C:\\Program Files\\R\\R-4.4.1\\bin und klicken Sie auf R\nLinux: Öffnen Sie ein Terminal, geben Sie den Befehl R und Return ein.",
     "crumbs": [
       "Kapitel",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
