@@ -2,29 +2,22 @@
 title: "Einführung"
 ---
 
-## Was ist R?
+### Was ist R?
 
--   Programmiersprache und Umgebung für statistische Berechnungen und grafische Darstellungen
--   Interaktive Skriptsprache für statistische Auswertung, grafische Darstellung, Visualisierung 
--   Programmierung (imperativ ähnlich zu Python; teilweise funktionale Aspekte)
--   Plattformunabhängig (verfügbar für Windows, macOS, Linux)
+R ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.
 
-### Warum R?
+Als interaktive Skriptsprache erlaubt R ein schrittweises Arbeiten mit Daten: Berechnungen können direkt ausgeführt, Ergebnisse sofort überprüft und Grafiken unmittelbar erzeugt werden. Die Programmierung folgt dabei überwiegend einem imperativen Ansatz, ähnlich wie bei Python. Es werden aber auch funktionale Konzepte aufgegriffen, was insbesondere bei komplexeren Analysen von Vorteil ist.
 
--   Kostenlos (<http://www.r-project.org>)
--   Großer Nutzerkreis und viele Ressourcen (Foren, Tutorials)
--   Umfangreiche Bibliotheken für statistische Analysen und Visualisierungen
--   Möglichkeit der Erstellung interaktiver Visualisierungen (z.B. Shiny)
--   Leichter Import und Export von Daten
--   Reproduzierbarkeit von Ergebnissen
+Ein weiterer Pluspunkt ist die Plattformunabhängigkeit. R läuft gleichermaßen unter Windows, macOS und Linux, sodass Projekte problemlos auf unterschiedlichen Systemen bearbeitet und geteilt werden können.
 
 ### R und RStudio installieren
 
+Um mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden. Ergänzend dazu empfiehlt sich die Installation von RStudio.
+
 -   R: <https://cloud.r-project.org>
 -   RStudio: <https://www.rstudio.com>
-    -   RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen
-    -   R wird automatisch gestartet, wenn Sie RStudio starten
--   Video Tutorials: <https://learnr-examples.shinyapps.io/ex-setup-r>
+
+RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.
 
 ### Aufruf und Bedienung
 
