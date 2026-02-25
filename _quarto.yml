@@ -1,0 +1,23 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "R Programmierung"
+  subtitle: "Tutorials"
+  author: "Beate Navarro Bullock"
+  date: last-modified
+
+  chapters:
+    - index.qmd
+    - part: "Tutorials"
+      chapters:
+        - chapters/01-einfuehrung.qmd
+        - chapters/02-datentransformationen.qmd
+
+  search: true
+
+format:
+  html:
+    toc: true
+    number-sections: true

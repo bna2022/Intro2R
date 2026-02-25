@@ -1,0 +1,12 @@
+---
+title: "Einführung"
+---
+
+## Was ist R?
+
+R ist eine Programmiersprache für Statistik und Datenanalyse.
+
+## Erste Schritte
+
+```{r}
+1 + 1
