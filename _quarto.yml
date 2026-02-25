@@ -10,7 +10,7 @@ book:
 
   chapters:
     - index.qmd
-    - part: "Tutorials"
+    - part: "Kapitel"
       chapters:
         - chapters/01-einfuehrung.qmd
         - chapters/02-datentransformationen.qmd
