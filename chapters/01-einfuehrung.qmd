@@ -4,9 +4,31 @@ title: "Einführung"
 
 ## Was ist R?
 
-R ist eine Programmiersprache für Statistik und Datenanalyse.
+-   Programmiersprache und Umgebung für statistische Berechnungen und grafische Darstellungen
+-   Interaktive Skriptsprache für
+    -   statistische Auswertung
+    -   grafische Darstellung, Visualisierung z.B. Streudiagramme, Boxplots, Histogramme
+    -   Programmierung (imperativ ähnlich zu Python; teilweise funktionale Aspekte)
+-   Plattformunabhängig (verfügbar für Windows, macOS, Linux)
 
-## Erste Schritte
+### Warum R?
 
-```{r}
-1 + 1
+-   Kostenlos (<http://www.r-project.org>)
+-   Großer Nutzerkreis und viele Ressourcen (Foren, Tutorials)
+-   Umfangreiche Bibliotheken für statistische Analysen und Visualisierungen
+-   Möglichkeit der Erstellung interaktiver Visualisierungen (z.B. Shiny)
+-   Leichter Import und Export von Daten
+-   Reproduzierbarkeit von Ergebnissen
+
+### R und RStudio installieren
+
+-   R: <https://cloud.r-project.org>
+-   RStudio: <https://www.rstudio.com>
+    -   RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen
+    -   R wird automatisch gestartet, wenn Sie RStudio starten
+-   Video Tutorials: <https://learnr-examples.shinyapps.io/ex-setup-r>
+
+### Aufruf und Bedienung
+
+-   **Windows**: Öffnen Sie Ihren Ordner mit der R Installation, z.B. `C:\Program Files\R\R-4.4.1\bin` und klicken Sie auf R
+-   **Linux**: Öffnen Sie ein Terminal, geben Sie den Befehl `R` und `Return` ein.
