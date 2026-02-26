@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Datentransformationen – R Programmierung</title>
+<title>3&nbsp; Datenstrukturen – R Programmierung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,6 +106,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-einfuehrung.html">Kapitel</a></li><li class="breadcrumb-item"><a href="../chapters/02-daten-repräsentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datentransformationen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-einfuehrung.html">Kapitel</a></li><li class="breadcrumb-item"><a href="../chapters/02-daten-repräsentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datenstrukturen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/02-daten-repräsentieren.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datentransformationen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datenstrukturen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -148,15 +212,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#objekte-funktionen-und-zuweisungen" id="toc-objekte-funktionen-und-zuweisungen" class="nav-link active" data-scroll-target="#objekte-funktionen-und-zuweisungen"><span class="header-section-number">3.1</span> Objekte, Funktionen und Zuweisungen</a>
+  <ul class="collapse">
+  <li><a href="#was-ist-ein-r-objekt" id="toc-was-ist-ein-r-objekt" class="nav-link" data-scroll-target="#was-ist-ein-r-objekt"><span class="header-section-number">3.1.1</span> Was ist ein R Objekt?</a></li>
+  <li><a href="#funktionen-in-r" id="toc-funktionen-in-r" class="nav-link" data-scroll-target="#funktionen-in-r"><span class="header-section-number">3.1.2</span> Funktionen in R</a></li>
+  <li><a href="#variablen-und-zuweisungen" id="toc-variablen-und-zuweisungen" class="nav-link" data-scroll-target="#variablen-und-zuweisungen"><span class="header-section-number">3.1.3</span> Variablen und Zuweisungen</a></li>
+  <li><a href="#zuweisungen" id="toc-zuweisungen" class="nav-link" data-scroll-target="#zuweisungen"><span class="header-section-number">3.1.4</span> Zuweisungen</a></li>
+  <li><a href="#benennung-von-variablen" id="toc-benennung-von-variablen" class="nav-link" data-scroll-target="#benennung-von-variablen"><span class="header-section-number">3.1.5</span> Benennung von Variablen</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-einfuehrung.html">Kapitel</a></li><li class="breadcrumb-item"><a href="../chapters/02-daten-repräsentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datentransformationen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-einfuehrung.html">Kapitel</a></li><li class="breadcrumb-item"><a href="../chapters/02-daten-repräsentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datenstrukturen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datentransformationen</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Datenstrukturen</span></h1>
 </div>
 
 
@@ -173,8 +250,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="objekte-funktionen-und-zuweisungen" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="objekte-funktionen-und-zuweisungen"><span class="header-section-number">3.1</span> Objekte, Funktionen und Zuweisungen</h2>
+<p>Wir haben sie im letzten Kapitel schon kennengelernt: Objekte, Funktionen und Zuweisungen. Jetzt wollen wir noch einmal etwas genauer auf diese Begriffe eingehen. Das Verständnis dieser Konzepte bildet die Grundlage für alle weiteren Schritte in R.</p>
+<section id="was-ist-ein-r-objekt" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="was-ist-ein-r-objekt"><span class="header-section-number">3.1.1</span> Was ist ein R Objekt?</h3>
+<p>Um Berechnungen in R zu verstehen, sind zwei Leitsätze hilfreich:</p>
+<blockquote class="blockquote">
+<p><em>Everything that exists is an object.</em><br>
+<em>Everything that happens is a function call.</em><br>
+— John Chambers</p>
+</blockquote>
+<p>Objekte sind ein fundamentales Konzept in R. Tatsächlich gilt: <strong>Alles ist ein Objekt</strong> – Zahlen, Zeichenketten, Vektoren, Funktionen und sogar ganze Datensätze.</p>
+<p>Jedes Objekt existiert im Arbeitsspeicher von R und kann dort weiterverwendet, verändert oder gelöscht werden.</p>
+</section>
+<section id="funktionen-in-r" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="funktionen-in-r"><span class="header-section-number">3.1.2</span> Funktionen in R</h3>
+<p>Funktionen sind vordefinierte oder selbst geschriebene <strong>Algorithmen</strong>, die einen oder mehrere <strong>Eingabewerte (Input)</strong> verarbeiten und daraus einen <strong>Ausgabewert (Output)</strong> erzeugen.</p>
+<p>Ein einfaches Beispiel ist die Addition zweier Zahlen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>R gibt das Ergebnis <code>5</code> zwar direkt aus, es wird jedoch nicht gespeichert. Nach der Berechnung ist das Resultat nicht mehr verfügbar.</p>
+</section>
+<section id="variablen-und-zuweisungen" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="variablen-und-zuweisungen"><span class="header-section-number">3.1.3</span> Variablen und Zuweisungen</h3>
+<p>Um Zwischenergebnisse oder ganze Datensätze weiterverwenden zu können, müssen sie in Variablen gespeichert werden. Der Vorgang, bei dem einem Objekt ein Name zugewiesen wird, heißt Zuweisung (engl. <em>assignment</em>).</p>
+<p>Eine Möglichkeit ist die Verwendung der Funktion <code>assign()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="st">"ergebnis"</span>, <span class="dv">2</span><span class="sc">+</span><span class="dv">3</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  ergebnis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>Häufiger wird jedoch der Zuweisungsoperator <code>&lt;-</code> verwendet:</p>
+<p><strong>Beispiele:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nach einer Zuweisung ist ein Symbol (z. B. <code>x</code>) mit einem konkreten Wert im Arbeitsspeicher von R verknüpft. Dieses Objekt kann anschließend in weiteren Berechnungen verwendet werden.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Warum <code>&lt;-</code> als Zuweisungsoperator?</strong></p>
+<p>Die Verwendung der Zeichenfolge <code>&lt;-</code> als Zuweisungsoperator wirkt auf den ersten Blick ungewohnt, da in vielen Programmiersprachen stattdessen das Gleichheitszeichen <code>=</code> verwendet wird. Der Operator <code>&lt;-</code> hat jedoch mehrere Vorteile. Er macht die Richtung der Zuweisung klar sichtbar: Ein Wert wird einem Namen zugewiesen, nicht umgekehrt.</p>
+<p>Historisch stammt <code>&lt;-</code> aus der Programmiersprache S, aus der R hervorgegangen ist. S wiederum übernahm diesen Operator aus der Sprache APL, für die es spezielle Tastaturen mit einer eigenen <code>&lt;-</code>-Taste gab. Hinzu kommt, dass das Gleichheitszeichen <code>=</code> ursprünglich bereits für Vergleiche reserviert war. Zwar erlaubt R seit 2001 auch Zuweisungen mit <code>=</code>, dennoch gilt <code>&lt;-</code> aufgrund der besseren Lesbarkeit und klareren Semantik weiterhin als empfohlener Standard.</p>
+</div>
+</div>
+<p>Quelle: <a href="https://graebnerc.github.io/RforSocioEcon/basics.html#es:objekte">R für sozioökonomische Forschung</a></p>
+</section>
+<section id="zuweisungen" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="zuweisungen"><span class="header-section-number">3.1.4</span> Zuweisungen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Ein Objekt wird erstellt, nämlich <code>c(1,2,3)</code></li>
+<li>Das Objekt wird einem Namen zugewiesen, <span class="math inline">\(x\)</span></li>
+</ul>
+<div id="fig-r-konsole" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-konsole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/ObjektValue.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-konsole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Beispiel für eine Zuweisung
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="benennung-von-variablen" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="benennung-von-variablen"><span class="header-section-number">3.1.5</span> Benennung von Variablen</h3>
+<p>Beim Arbeiten mit R ist eine korrekte und sinnvolle Benennung von Variablen besonders wichtig.<br>
+Variablennamen dienen dazu, Objekte im Arbeitsspeicher eindeutig zu identifizieren und später wiederzuverwenden.</p>
+<section id="groß--und-kleinschreibung" class="level4" data-number="3.1.5.1">
+<h4 data-number="3.1.5.1" class="anchored" data-anchor-id="groß--und-kleinschreibung"><span class="header-section-number">3.1.5.1</span> Groß- und Kleinschreibung</h4>
+<p>R unterscheidet strikt zwischen Groß- und Kleinschreibung. Das bedeutet, dass unterschiedliche Schreibweisen auch unterschiedliche Variablen bezeichnen:</p>
+<ul>
+<li><code>x1</code> und <code>X1</code> sind zwei verschiedene Variablen</li>
+<li>Gleiches gilt für Funktionsnamen</li>
+</ul>
+</section>
+<section id="erlaubte-zeichen" class="level4" data-number="3.1.5.2">
+<h4 data-number="3.1.5.2" class="anchored" data-anchor-id="erlaubte-zeichen"><span class="header-section-number">3.1.5.2</span> Erlaubte Zeichen</h4>
+<p>Variablennamen dürfen ausschließlich bestehen aus:</p>
+<ul>
+<li>Buchstaben (<code>a</code>–<code>z</code>, <code>A</code>–<code>Z</code>)</li>
+<li>Zahlen (<code>0</code>–<code>9</code>)</li>
+<li>den Sonderzeichen <code>.</code> (Punkt) und <code>_</code> (Unterstrich)</li>
+</ul>
+<p>Dabei gelten folgende Regeln:</p>
+<ul>
+<li>Variablennamen <strong>dürfen nicht mit einer Zahl beginnen</strong></li>
+<li>Variablennamen <strong>dürfen nicht mit einem Punkt <code>.</code> beginnen</strong></li>
+</ul>
+<p>Beispiele für gültige Variablennamen sind:</p>
+<ul>
+<li><code>x1</code></li>
+<li><code>X1</code></li>
+<li><code>min.dist</code></li>
+<li><code>Best.gene</code></li>
+</ul>
+</section>
+<section id="ungültige-namen-und-fehlermeldungen" class="level4" data-number="3.1.5.3">
+<h4 data-number="3.1.5.3" class="anchored" data-anchor-id="ungültige-namen-und-fehlermeldungen"><span class="header-section-number">3.1.5.3</span> Ungültige Namen und Fehlermeldungen</h4>
+<p>Bestimmte Bezeichnungen sind in R <strong>reserviert</strong> und dürfen nicht als Variablennamen verwendet werden.<br>
+Dazu gehören unter anderem logische Konstanten wie <code>TRUE</code> und <code>FALSE</code>.</p>
+<p>Wird dennoch versucht, einer solchen Bezeichnung einen Wert zuzuweisen, gibt R eine Fehlermeldung aus: <code>TRUE &lt;- 5   # Signalwort, welches nicht verwendet werden darf     #&gt; Error in TRUE &lt;- 5: invalid (do_set) left-hand side to assignment</code></p>
+<p>Diese Fehlermeldung weist darauf hin, dass die linke Seite der Zuweisung ungültig ist.</p>
+<p>Alle aktuell im Arbeitsspeicher vorhandenen Objekte werden in RStudio im Bereich Environment angezeigt. Zusätzlich kann die Funktion <code>ls()</code> verwendet werden, um alle aktuellen Namenszuweisungen in der Konsole auszugeben:</p>
+<div id="fig-r-variable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/Variable.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Beispiel für eine Zuweisung
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Gute Variablennamen</strong></p>
+<ul>
+<li>Verwenden Sie sprechende Namen, die den Inhalt beschreiben (z. B. alter, gewicht_kg).</li>
+<li>Vermeiden Sie sehr kurze oder nichtssagende Namen wie x oder tmp, außer bei kurzen Beispielen.</li>
+<li>Bleiben Sie bei einer einheitlichen Schreibweise (z. B. Unterstriche oder Punkte).</li>
+<li>Nutzen Sie keine reservierten Wörter oder Funktionsnamen als Variablennamen.</li>
+<li>Gut gewählte Namen verbessern die Lesbarkeit und Wartbarkeit von Code erheblich.</li>
+</ul>
+</div>
+</div>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
