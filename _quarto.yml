@@ -12,6 +12,7 @@ book:
     - index.qmd
     - part: "Kapitel"
       chapters:
+        - chapters/01-einfuehrung.qmd
         - chapters/02-datentransformationen.qmd
 
   search: true
