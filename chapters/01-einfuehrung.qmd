@@ -40,3 +40,167 @@ Beispiel Ausgabe:
 
 Die letzten Kommandos abrufen und ändern mit den Cursor-Tasten → ↓ ↑ ←
 ```
+
+### Beispiel für eine IDE - RStudio
+
+![Beispiel für die Oberfläche von RStudio](../figures/RStudio.png){#fig-rstudio}
+
+## R als Taschenrechner
+
+### Kommentare in R mit `#`
+
+-   Kommentare lassen sich mit Hilfe des Hash-Zeichens `#` einleiten
+-   Alle Zeichen nach dem `#` werden von R ignoriert
+
+```{r echo = TRUE}
+5-1/2 # first calculate 1/2, then 5-0.5 = 4.5
+```
+
+Im Allgemeinen ist das Hinzufügen von Kommentaren zu Codes eine sehr gute Praxis, da es die Lesbarkeit erheblich verbessert und die Zusammenarbeit erleichtert.
+
+### Einfache arithmetische Ausdrücke
+
+R erlaubt die direkte Auswertung arithmetischer Ausdrücke, wie man sie aus der Mathematik kennt. Dazu gehören die grundlegenden Rechenoperatoren:
+
+-   Addition `+`
+-   Subtraktion `-`
+-   Multiplikation `*`
+-   Division `/`
+-   Potenzen `^`
+-   Klammern `()`
+
+Diese Operatoren können beliebig kombiniert werden, um auch komplexere Ausdrücke zu berechnen. R wertet solche Ausdrücke sofort aus und gibt das numerische Ergebnis zurück.
+
+**Beispiel**
+
+```{r}
+(1 + 2) / (4 - 1.2) * 2^10
+```
+
+Hier werden zunächst die Ausdrücke in Klammern berechnet, anschließend die Division durchgeführt und das Ergebnis mit einer Potenz multipliziert.
+
+### Mathematische Funktionen
+
+Neben arithmetischen Operatoren stellt R zahlreiche mathematische Funktionen zur Verfügung. Dazu gehören unter anderem:
+
+-   `sin(x)` für den Sinus
+-   `cos(x)` für den Kosinus
+-   `log(x)` für den natürlichen Logarithmus
+-   sowie viele weitere Funktionen
+
+Mathematische Funktionen werden in R immer mit runden Klammern aufgerufen. Die Argumente der Funktion stehen dabei innerhalb der Klammern.
+
+**Beispiel**
+
+```{r}
+log(10) / 2.5
+```
+
+In diesem Beispiel wird zunächst der natürliche Logarithmus von 10 berechnet.\
+Das Ergebnis wird anschließend durch 2.5 dividiert.
+
+::: callout-warning
+### Achtung
+
+In R bezeichnet `log(x)` standardmäßig den **natürlichen Logarithmus** (Basis (e)).\
+Der Logarithmus zur Basis 10 muss explizit mit `log10(x)` berechnet werden.
+:::
+
+### Prioritäten von Operatoren
+
+Wie in der Mathematik gelten auch in R feste Bindungsprioritäten für Operatoren. Besonders wichtig ist dabei die Regel „Punkt vor Strich“:
+
+Multiplikation und Division haben eine höhere Priorität als Addition und Subtraktion.
+
+**Beispiel**
+
+```{r}
+1 + 2 * 3
+```
+
+Dieser Ausdruck wird von R interpretiert als:
+
+```{r}
+1 + (2 * 3)
+```
+
+und **nicht** als:
+
+```{r}
+(1 + 2) * 3
+```
+
+### Operatoren und Operanden
+
+Operatoren verknüpfen oder verändern **Operanden**, also Zahlen oder Ausdrücke. Man unterscheidet in R zwischen **binären** und **unären** Operatoren.
+
+#### Binäre Operatoren
+
+Binäre Operatoren stehen zwischen zwei Argumenten (A und B). Typische Beispiele sind:
+
+- `+`, `-`, `*`, `/`, `^`, `<-`
+
+Binäre Operatoren können sich außerdem darin unterscheiden, **in welcher Richtung sie ausgewertet werden** (Assoziativität).
+
+##### Linksassoziative Operatoren
+
+Die meisten Operatoren sind **linksassoziativ**, das heißt, sie werden von links nach rechts ausgewertet. Dazu zählen:
+
+- `+`, `-`, `*`, `/`
+
+**Beispiel**
+
+```{r}
+1 / 2 / 3
+```
+
+Dieser Ausdruck wird von R interpretiert als:
+
+```{r}
+(1 / 2) / 3
+```
+
+#### Rechtsassoziative Operatoren
+
+Einige Operatoren sind **rechtsassoziativ**, insbesondere der Potenzoperator `^`.
+
+##### Beispiel
+
+```{r}
+2^3^4
+```
+
+Dieser Ausdruck wird interpretiert als:
+
+```{r}
+2^(3^4)
+```
+
+und nicht als:
+
+```{r}
+(2^3)^4
+```
+
+#### Unäre Operatoren
+
+Unäre Operatoren haben nur **ein einziges Argument**. Sie stehen dadurch entweder **vor** oder **nach** einem Ausdruck.
+
+Ein typisches Beispiel ist der logische Negationsoperator `!`, der einen Wahrheitswert umkehrt.
+
+**Beispiel**
+
+```{r}
+!TRUE
+```
+
+---
+
+:::callout-tip
+**Merksätze**
+
+- **Binäre Operatoren** verbinden zwei Operanden.
+- **Unäre Operatoren** arbeiten mit genau einem Operanden.
+- Die **Assoziativität** bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.
+- Im Zweifel sorgen **Klammern** für Klarheit.
+:::
