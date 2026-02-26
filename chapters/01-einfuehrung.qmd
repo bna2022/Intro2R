@@ -331,7 +331,7 @@ Potenzen und logarithmische Funktionen werden in R verwendet, um mit sehr große
 ::: {.callout-note}
 **Wissenschaftliche Notation**  
 Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.  
-Die e-Notation hat dabei **keinen Bezug zur natürlichen Zahl \( e \)**.
+Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl \( e \).
 
 \[
 100000 = 1 \times 10^5 = 1\text{e}+05
@@ -352,3 +352,87 @@ In R können Potenzen mit dem Operator `^` berechnet werden.
 x <- 1 * 10^5
 format(x, scientific = FALSE)
 ```
+
+R stellt logarithmische Funktionen für verschiedene Basen bereit, wobei die gebräuchlichsten die Basis 10, die Basis 2 sowie die natürliche Basis \( e \) sind.
+
+**Basis 10**
+
+Der Logarithmus zur Basis 10 wird mit der Funktion `log10()` berechnet.  
+Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmten Wert zu erhalten.
+
+```{r echo = TRUE}
+10^6
+```
+
+```{r echo = TRUE}
+#log10(x) = log(x, 10)
+log10(1e6)  
+```
+Im Beispiel ergibt sich der Wert `6`, da `10^6=1000000`.
+
+**Basis 2**
+
+Der Logarithmus zur Basis 2 wird mit der Funktion `log2()` berechnet.
+
+```{r echo = TRUE}
+2^10
+```
+
+```{r echo = TRUE}
+log2(1024)  #log2(x) = log(x, 2)
+```
+Hier ergibt sich der Wert `10`, da  `2^10=1024`.
+
+**Natürlicher Logarithmus von $x$ zur Basis e**
+
+```{r echo = TRUE}
+exp(1)
+```
+
+```{r echo = TRUE}
+#log(x) = log(x,exp(1))
+log(exp(1))  
+```
+
+## Hilfe in R
+
+R verfügt über ein umfangreiches integriertes Hilfesystem, das es ermöglicht, Informationen zu Funktionen, Paketen und allgemeinen Themen direkt aus der Arbeitsumgebung heraus abzurufen.  
+Gerade beim Lernen und bei der täglichen Arbeit ist dieses Hilfesystem eine zentrale Unterstützung.
+
+### Hilfe zu einzelnen Kommandos
+
+Um Hilfe zu einer bestimmten Funktion oder einem Kommando zu erhalten, kann der Funktionsname direkt abgefragt werden. Dies öffnet eine Hilfeseite mit Beschreibung, Argumenten, Rückgabewerten und Beispielen.
+
+```{r echo=TRUE, eval=FALSE}
+?mean
+```
+
+Alternativ kann die Funktion `help()` verwendet werden:
+
+```{r echo=TRUE, eval=FALSE}
+help("mean")
+```
+
+Beide Varianten sind äquivalent und liefern dieselbe Hilfeseite. Mit `help.search()` kann gezielt nach Stichwörtern gesucht werden. Dies ist besonders hilfreich, wenn der genaue Funktionsname nicht bekannt ist.
+
+```{r echo=TRUE, eval=FALSE}
+help.search("mean")
+```
+
+## Übungen
+
+### Übung 1
+Berechnen Sie:
+
+1.  $\frac{1}{2} \cdot \frac{1+2+3+4}{2+4+6}$
+2.  $e$
+3.  $\sqrt{2}$
+4.  $\sqrt[3]{8}$
+5.  $log_2(8)$
+
+### Übung 2
+
+1.  Wie erhalten Sie Hilfe zu der Funktion `floor`?
+2.  Berechnen Sie das Quadrat von $\pi$ und runden Sie auf 4 Ziffern
+    nach dem Dezimalpunkt
+3.  Berechnen Sie den Logarithmus von 1 Milliarde mit Basis 1000.
