@@ -13,7 +13,8 @@ book:
     - part: "Kapitel"
       chapters:
         - chapters/01-einfuehrung.qmd
-        - chapters/02-datentransformationen.qmd
+        - chapters/02-daten-repräsentieren.qmd
+        - chapters/03-daten-transformieren.qmd
 
   search: true
 

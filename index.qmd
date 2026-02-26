@@ -3,5 +3,3 @@ title: "Intro"
 ---
 
 Dieses Skript begleitet die Vorlesung **R Programmierung**.
-
-## Inhalte
