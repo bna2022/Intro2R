@@ -1,0 +1,45 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Programmierung",
+    "section": "",
+    "text": "0.1 Inhalte\nDieses Skript begleitet die Vorlesung R Programmierung.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Intro</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html",
+    "href": "chapters/01-einfuehrung.html",
+    "title": "2  Einführung",
+    "section": "",
+    "text": "2.1 Was ist R?\nR ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.\nAls interaktive Skriptsprache erlaubt R ein schrittweises Arbeiten mit Daten: Berechnungen können direkt ausgeführt, Ergebnisse sofort überprüft und Grafiken unmittelbar erzeugt werden. Die Programmierung folgt dabei überwiegend einem imperativen Ansatz, ähnlich wie bei Python. Es werden aber auch funktionale Konzepte aufgegriffen, was insbesondere bei komplexeren Analysen von Vorteil ist.\nEin weiterer Pluspunkt ist die Plattformunabhängigkeit. R läuft gleichermaßen unter Windows, macOS und Linux, sodass Projekte problemlos auf unterschiedlichen Systemen bearbeitet und geteilt werden können.",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#kurze-einführung-in-r-und-rstudio",
+    "href": "chapters/01-einfuehrung.html#kurze-einführung-in-r-und-rstudio",
+    "title": "2  Einführung",
+    "section": "2.2 Kurze Einführung in R und RStudio",
+    "text": "2.2 Kurze Einführung in R und RStudio\n\n2.2.1 R und RStudio installieren\nUm mit R zu arbeiten, wird zunächst die Programmiersprache selbst installiert. Die jeweils aktuelle Version kann von der offiziellen Download-Seite bezogen werden.\nR: https://cloud.r-project.org\nErgänzend dazu empfiehlt sich die Installation von RStudio. RStudio ist eine grafische Oberfläche für R mit praktischen Zusatzfunktionen. R wird automatisch gestartet, wenn Sie RStudio starten.\nRStudio: https://www.rstudio.com\n\n\n2.2.2 Aufruf und Bedienung\n\nWindows: Öffnen Sie Ihren Ordner mit der R Installation, z.B. C:\\Program Files\\R\\R-4.4.1\\bin und klicken Sie auf R\nLinux: Öffnen Sie ein Terminal, geben Sie den Befehl R und Return ein.\n\n\n\n\n\n\n\nFigure 2.1: R-Konsole\n\n\n\nKommandoeingabe am Prompt `&gt;`\n\nBeispiel Eingabe: \n`&gt; 1+2 &lt;Return&gt;`\n\nBeispiel Ausgabe: \n`[1] 3`\n\nDie letzten Kommandos abrufen und ändern mit den Cursor-Tasten → ↓ ↑ ←\n\n\n2.2.3 Beispiel für eine IDE - RStudio\n\n\n\n\n\n\nFigure 2.2: Beispiel für die Oberfläche von RStudio",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-einfuehrung.html#r-als-taschenrechner",
+    "href": "chapters/01-einfuehrung.html#r-als-taschenrechner",
+    "title": "2  Einführung",
+    "section": "2.3 R als Taschenrechner",
+    "text": "2.3 R als Taschenrechner\n\n2.3.1 Kommentare in R mit #\n\nKommentare lassen sich mit Hilfe des Hash-Zeichens # einleiten\nAlle Zeichen nach dem # werden von R ignoriert\n\n\n5-1/2 # first calculate 1/2, then 5-0.5 = 4.5\n\n[1] 4.5\n\n\nIm Allgemeinen ist das Hinzufügen von Kommentaren zu Codes eine sehr gute Praxis, da es die Lesbarkeit erheblich verbessert und die Zusammenarbeit erleichtert.\n\n\n2.3.2 Einfache arithmetische Ausdrücke\nR erlaubt die direkte Auswertung arithmetischer Ausdrücke, wie man sie aus der Mathematik kennt. Dazu gehören die grundlegenden Rechenoperatoren:\n\nAddition +\nSubtraktion -\nMultiplikation *\nDivision /\nPotenzen ^\nKlammern ()\n\nDiese Operatoren können beliebig kombiniert werden, um auch komplexere Ausdrücke zu berechnen. R wertet solche Ausdrücke sofort aus und gibt das numerische Ergebnis zurück.\nBeispiel\n\n(1 + 2) / (4 - 1.2) * 2^10\n\n[1] 1097.143\n\n\nHier werden zunächst die Ausdrücke in Klammern berechnet, anschließend die Division durchgeführt und das Ergebnis mit einer Potenz multipliziert.\n\n\n2.3.3 Mathematische Funktionen\nNeben arithmetischen Operatoren stellt R zahlreiche mathematische Funktionen zur Verfügung. Dazu gehören unter anderem:\n\nsin(x) für den Sinus\ncos(x) für den Kosinus\nlog(x) für den natürlichen Logarithmus\nsowie viele weitere Funktionen\n\nMathematische Funktionen werden in R immer mit runden Klammern aufgerufen. Die Argumente der Funktion stehen dabei innerhalb der Klammern.\nBeispiel\n\nlog(10) / 2.5\n\n[1] 0.921034\n\n\nIn diesem Beispiel wird zunächst der natürliche Logarithmus von 10 berechnet.\nDas Ergebnis wird anschließend durch 2.5 dividiert.\n\n\n\n\n\n\nWarningAchtung\n\n\n\nIn R bezeichnet log(x) standardmäßig den natürlichen Logarithmus (Basis (e)).\nDer Logarithmus zur Basis 10 muss explizit mit log10(x) berechnet werden.\n\n\n\n\n2.3.4 Prioritäten von Operatoren\nWie in der Mathematik gelten auch in R feste Bindungsprioritäten für Operatoren. Besonders wichtig ist dabei die Regel „Punkt vor Strich“:\nMultiplikation und Division haben eine höhere Priorität als Addition und Subtraktion.\nBeispiel\n\n1 + 2 * 3\n\n[1] 7\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n1 + (2 * 3)\n\n[1] 7\n\n\nund nicht als:\n\n(1 + 2) * 3\n\n[1] 9\n\n\n\n\n2.3.5 Operatoren und Operanden\nOperatoren verknüpfen oder verändern Operanden, also Zahlen oder Ausdrücke. Man unterscheidet in R zwischen binären und unären Operatoren.\n\n2.3.5.1 Binäre Operatoren\nBinäre Operatoren stehen zwischen zwei Argumenten (A und B). Typische Beispiele sind:\n\n+, -, *, /, ^, &lt;-\n\nBinäre Operatoren können sich außerdem darin unterscheiden, in welcher Richtung sie ausgewertet werden (Assoziativität).\n\n2.3.5.1.1 Linksassoziative Operatoren\nDie meisten Operatoren sind linksassoziativ, das heißt, sie werden von links nach rechts ausgewertet. Dazu zählen:\n\n+, -, *, /\n\nBeispiel\n\n1 / 2 / 3\n\n[1] 0.1666667\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n(1 / 2) / 3\n\n[1] 0.1666667\n\n\n\n\n\n2.3.5.2 Rechtsassoziative Operatoren\nEinige Operatoren sind rechtsassoziativ, insbesondere der Potenzoperator ^.\n\n2.3.5.2.1 Beispiel\n\n2^3^4\n\n[1] 2.417852e+24\n\n\nDieser Ausdruck wird interpretiert als:\n\n2^(3^4)\n\n[1] 2.417852e+24\n\n\nund nicht als:\n\n(2^3)^4\n\n[1] 4096\n\n\n\n\n\n2.3.5.3 Unäre Operatoren\nUnäre Operatoren haben nur ein einziges Argument. Sie stehen dadurch entweder vor oder nach einem Ausdruck.\nEin typisches Beispiel ist der logische Negationsoperator !, der einen Wahrheitswert umkehrt.\nBeispiel\n\n!TRUE\n\n[1] FALSE\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nMerksätze\n\nBinäre Operatoren verbinden zwei Operanden.\nUnäre Operatoren arbeiten mit genau einem Operanden.\nDie Assoziativität bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.\nIm Zweifel sorgen Klammern für Klarheit.",
+    "crumbs": [
+      "Kapitel",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  }
+]

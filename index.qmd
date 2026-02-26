@@ -1,12 +1,7 @@
 ---
-title: "Willkommen"
-numbered: false
+title: "Intro"
 ---
 
 Dieses Skript begleitet die Vorlesung **R Programmierung**.
 
 ## Inhalte
-
-- Einführung in R
-- Datentransformationen
-
