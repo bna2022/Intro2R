@@ -138,7 +138,7 @@ Operatoren verknüpfen oder verändern **Operanden**, also Zahlen oder Ausdrück
 
 Binäre Operatoren stehen zwischen zwei Argumenten (A und B). Typische Beispiele sind:
 
-- `+`, `-`, `*`, `/`, `^`, `<-`
+-   `+`, `-`, `*`, `/`, `^`, `<-`
 
 Binäre Operatoren können sich außerdem darin unterscheiden, **in welcher Richtung sie ausgewertet werden** (Assoziativität).
 
@@ -146,7 +146,7 @@ Binäre Operatoren können sich außerdem darin unterscheiden, **in welcher Rich
 
 Die meisten Operatoren sind **linksassoziativ**, das heißt, sie werden von links nach rechts ausgewertet. Dazu zählen:
 
-- `+`, `-`, `*`, `/`
+-   `+`, `-`, `*`, `/`
 
 **Beispiel**
 
@@ -194,30 +194,30 @@ Ein typisches Beispiel ist der logische Negationsoperator `!`, der einen Wahrhei
 !TRUE
 ```
 
----
+------------------------------------------------------------------------
 
-:::callout-tip
+::: callout-tip
 **Merksätze**
 
-- **Binäre Operatoren** verbinden zwei Operanden.
-- **Unäre Operatoren** arbeiten mit genau einem Operanden.
-- Die **Assoziativität** bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.
-- Im Zweifel sorgen **Klammern** für Klarheit.
+-   **Binäre Operatoren** verbinden zwei Operanden.
+-   **Unäre Operatoren** arbeiten mit genau einem Operanden.
+-   Die **Assoziativität** bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.
+-   Im Zweifel sorgen **Klammern** für Klarheit.
 :::
 
 #### Operatoren als Funktionen
 
 In R gibt es keinen grundlegenden Unterschied zwischen Operatoren und Funktionen. Jeder Operator ist intern eine Funktion und kann auch als solche aufgerufen werden.
 
-Ein Operator wie `+` kann daher direkt als Funktion verwendet werden.  
+Ein Operator wie `+` kann daher direkt als Funktion verwendet werden.\
 Dabei gilt:
 
-- Der Operator muss in Backticks (`` ` ``) gesetzt werden
-- Die Argumente werden wie bei einem normalen Funktionsaufruf übergeben
+-   Der Operator muss in Backticks (`` ` ``) gesetzt werden
+-   Die Argumente werden wie bei einem normalen Funktionsaufruf übergeben
 
 **Beispiel**
 
-```r
+``` r
 # Verwendung als Operator
 7 + 3
 
@@ -228,8 +228,8 @@ Dabei gilt:
 7 + 3 == `+`(7, 3)
 ```
 
-::: {.callout-note}
-Dieses Prinzip gilt nicht nur für `+`, sondern für alle Operatoren in R, zum Beispiel  
+::: callout-note
+Dieses Prinzip gilt nicht nur für `+`, sondern für alle Operatoren in R, zum Beispiel\
 `-`, `*`, `/`, `==` und `<-`.
 :::
 
@@ -237,33 +237,32 @@ Dieses Prinzip gilt nicht nur für `+`, sondern für alle Operatoren in R, zum B
 
 **Arithmetische Operatoren**
 
-
 Arithmetische Operatoren werden in R zur Durchführung mathematischer Berechnungen mit numerischen Werten verwendet.
 
-| Operatoren   | Bedeutung                                              |
-|--------------|--------------------------------------------------------|
-| `+`, `-`     | Addition, Subtraktion                                  |
-| `*`, `/`     | Multiplikation, Division                               |
-| `^`, `**`    | Potenz (*x* hoch *y*)                                  |
-| `x %/% y`    | Ganzzahlige Division (`5 %/% 2 == 2`)                  |
-| `x %% y`     | Modulo (x mod y) (`5 %% 2 == 1`)                       |
-| `x %*% y`    | Matrixmultiplikation (`c(5, 3) %*% c(2, 4) == 22`)     |
+| Operatoren | Bedeutung                                          |
+|------------|----------------------------------------------------|
+| `+`, `-`   | Addition, Subtraktion                              |
+| `*`, `/`   | Multiplikation, Division                           |
+| `^`, `**`  | Potenz (*x* hoch *y*)                              |
+| `x %/% y`  | Ganzzahlige Division (`5 %/% 2 == 2`)              |
+| `x %% y`   | Modulo (x mod y) (`5 %% 2 == 1`)                   |
+| `x %*% y`  | Matrixmultiplikation (`c(5, 3) %*% c(2, 4) == 22`) |
 
 **Logische Operatoren**
 
 Logische Operatoren dienen in R dazu, Werte zu vergleichen und logische Ausdrücke zu formulieren, die entweder `TRUE` oder `FALSE` ergeben.
 
-| Operatoren | Bedeutung                         |
-|------------|-----------------------------------|
-| `<`        | Kleiner                           |
-| `<=`       | Kleiner gleich                    |
-| `>`        | Grösser                           |
-| `>=`       | Grösser gleich                    |
-| `==`       | Gleich (testet auf Äquivalenz)    |
-| `!=`       | Ungleich                          |
-| `!x`       | Nicht *x* (Verneinung)            |
-| `x \| y`   | *x* ODER *y*                      |
-| `x & y`    | *x* UND *y*                       |
+| Operatoren | Bedeutung                      |
+|------------|--------------------------------|
+| `<`        | Kleiner                        |
+| `<=`       | Kleiner gleich                 |
+| `>`        | Grösser                        |
+| `>=`       | Grösser gleich                 |
+| `==`       | Gleich (testet auf Äquivalenz) |
+| `!=`       | Ungleich                       |
+| `!x`       | Nicht *x* (Verneinung)         |
+| `x \| y`   | *x* ODER *y*                   |
+| `x & y`    | *x* UND *y*                    |
 
 ### Einfache Kommandos in R
 
@@ -275,7 +274,7 @@ R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der **En
 
 #### Arbeiten mit Vektoren
 
-Eine der zentralen Datenstrukturen in R ist der **Vektor**.  
+Eine der zentralen Datenstrukturen in R ist der **Vektor**.\
 Vektoren werden mit der Funktion `c()` (combine) erzeugt.
 
 Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen `x` gespeichert:
@@ -284,7 +283,7 @@ Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen 
 x <- c(1, 2, 5, 7)
 ```
 
-Die Zuweisung erfolgt in R mit dem Operator `<-`.  
+Die Zuweisung erfolgt in R mit dem Operator `<-`.\
 Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.
 
 Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:
@@ -305,12 +304,14 @@ mean(x)
 #### Standardabweichung
 
 Die Standardabweichung eines Vektors wird mit der Funktion `sd()` bestimmt.
+
 ```{r echo=TRUE, tidy=TRUE}
 x <- c(1, 2, 5, 7)
 sd(x)
 ```
 
 #### Runden auf die nächstgelegene Zahl
+
 Die Funktion `round()` rundet auf die nächstgelegene ganze Zahl.
 
 ```{r echo=TRUE, tidy=TRUE}
@@ -322,28 +323,23 @@ Standardmäßig wird auf eine ganze Zahl gerundet. Im Beispiel ergibt sich für 
 ```{r echo=TRUE, tidy=TRUE}
 round(7/3, digits=3)
 ```
+
 Hier wird auf drei Dezimalstellen gerundet, was den Wert `2.333` ergibt.
 
 #### Potenzen und Logarithmen
 
 Potenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.
 
-::: {.callout-note}
-**Wissenschaftliche Notation**  
-Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.  
-Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl \( e \).
+::: callout-note
+**Wissenschaftliche Notation**\
+Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.\
+Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).
 
-\[
-100000 = 1 \times 10^5 = 1\text{e}+05
-\]
+\[ 100000 = 1 \times 10\^5 = 1\text{e}+05 \]
 
-\[
-20000 = 2 \times 10^4 = 2\text{e}+04
-\]
+\[ 20000 = 2 \times 10\^4 = 2\text{e}+04 \]
 
-\[
-0.0012 = 1.2 \times 10^{-3} = 1.2\text{e}-03
-\]
+\[ 0.0012 = 1.2 \times 10\^{-3} = 1.2\text{e}-03 \]
 :::
 
 In R können Potenzen mit dem Operator `^` berechnet werden.
@@ -353,11 +349,11 @@ x <- 1 * 10^5
 format(x, scientific = FALSE)
 ```
 
-R stellt logarithmische Funktionen für verschiedene Basen bereit, wobei die gebräuchlichsten die Basis 10, die Basis 2 sowie die natürliche Basis \( e \) sind.
+R stellt logarithmische Funktionen für verschiedene Basen bereit, wobei die gebräuchlichsten die Basis 10, die Basis 2 sowie die natürliche Basis ( e ) sind.
 
 **Basis 10**
 
-Der Logarithmus zur Basis 10 wird mit der Funktion `log10()` berechnet.  
+Der Logarithmus zur Basis 10 wird mit der Funktion `log10()` berechnet.\
 Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmten Wert zu erhalten.
 
 ```{r echo = TRUE}
@@ -368,6 +364,7 @@ Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmt
 #log10(x) = log(x, 10)
 log10(1e6)  
 ```
+
 Im Beispiel ergibt sich der Wert `6`, da `10^6=1000000`.
 
 **Basis 2**
@@ -381,9 +378,10 @@ Der Logarithmus zur Basis 2 wird mit der Funktion `log2()` berechnet.
 ```{r echo = TRUE}
 log2(1024)  #log2(x) = log(x, 2)
 ```
-Hier ergibt sich der Wert `10`, da  `2^10=1024`.
 
-**Natürlicher Logarithmus von $x$ zur Basis e**
+Hier ergibt sich der Wert `10`, da `2^10=1024`.
+
+**Natürlicher Logarithmus von** $x$ zur Basis e
 
 ```{r echo = TRUE}
 exp(1)
@@ -396,7 +394,7 @@ log(exp(1))
 
 ## Hilfe in R
 
-R verfügt über ein umfangreiches integriertes Hilfesystem, das es ermöglicht, Informationen zu Funktionen, Paketen und allgemeinen Themen direkt aus der Arbeitsumgebung heraus abzurufen.  
+R verfügt über ein umfangreiches integriertes Hilfesystem, das es ermöglicht, Informationen zu Funktionen, Paketen und allgemeinen Themen direkt aus der Arbeitsumgebung heraus abzurufen.\
 Gerade beim Lernen und bei der täglichen Arbeit ist dieses Hilfesystem eine zentrale Unterstützung.
 
 ### Hilfe zu einzelnen Kommandos
@@ -421,7 +419,8 @@ help.search("mean")
 
 ## Übungen
 
-### Übung 1
+**Übung 1**
+
 Berechnen Sie:
 
 1.  $\frac{1}{2} \cdot \frac{1+2+3+4}{2+4+6}$
@@ -430,9 +429,8 @@ Berechnen Sie:
 4.  $\sqrt[3]{8}$
 5.  $log_2(8)$
 
-### Übung 2
+**Übung 2**
 
 1.  Wie erhalten Sie Hilfe zu der Funktion `floor`?
-2.  Berechnen Sie das Quadrat von $\pi$ und runden Sie auf 4 Ziffern
-    nach dem Dezimalpunkt
+2.  Berechnen Sie das Quadrat von $\pi$ und runden Sie auf 4 Ziffern nach dem Dezimalpunkt
 3.  Berechnen Sie den Logarithmus von 1 Milliarde mit Basis 1000.
