@@ -204,3 +204,26 @@ Ein typisches Beispiel ist der logische Negationsoperator `!`, der einen Wahrhei
 - Die **Assoziativität** bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.
 - Im Zweifel sorgen **Klammern** für Klarheit.
 :::
+
+#### Operatoren als Funktionen
+
+In R gibt es **keinen grundlegenden Unterschied zwischen Operatoren und Funktionen**. Jeder Operator ist intern eine Funktion und kann auch als solche aufgerufen werden.
+
+Ein Operator wie `+` kann daher **direkt als Funktion verwendet werden**.  
+Dabei gilt:
+
+- Der Operator **muss in Backticks** (`` ` ``) gesetzt werden
+- Die Argumente werden wie bei einem normalen Funktionsaufruf übergeben
+
+**Beispiel**
+
+```r
+# Verwendung als Operator
+7 + 3
+
+# Verwendung als Funktionsaufruf
+`+`(7, 3)
+
+# Beide Schreibweisen sind äquivalent
+7 + 3 == `+`(7, 3)
+```

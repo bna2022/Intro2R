@@ -464,6 +464,25 @@ Tip
 </ul>
 </div>
 </div>
+</section>
+<section id="operatoren-als-funktionen" class="level4" data-number="2.3.5.4">
+<h4 data-number="2.3.5.4" class="anchored" data-anchor-id="operatoren-als-funktionen"><span class="header-section-number">2.3.5.4</span> Operatoren als Funktionen</h4>
+<p>In R gibt es <strong>keinen grundlegenden Unterschied zwischen Operatoren und Funktionen</strong>. Jeder Operator ist intern eine Funktion und kann auch als solche aufgerufen werden.</p>
+<p>Ein Operator wie <code>+</code> kann daher <strong>direkt als Funktion verwendet werden</strong>.<br>
+Dabei gilt:</p>
+<ul>
+<li>Der Operator <strong>muss in Backticks</strong> (<code>`</code>) gesetzt werden</li>
+<li>Die Argumente werden wie bei einem normalen Funktionsaufruf übergeben</li>
+</ul>
+<p><strong>Beispiel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwendung als Operator</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwendung als Funktionsaufruf</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">+</span><span class="st">`</span>(<span class="dv">7</span>, <span class="dv">3</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Beide Schreibweisen sind äquivalent</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">==</span> <span class="st">`</span><span class="at">+</span><span class="st">`</span>(<span class="dv">7</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
