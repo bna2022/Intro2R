@@ -1,0 +1,11 @@
+/* Titelblock im Banner: alles weiß erzwingen */
+.quarto-title-banner,
+.quarto-title-banner * {
+  color: #fff !important;
+}
+
+/* optional: bessere Lesbarkeit */
+.quarto-title-banner .title,
+.quarto-title-banner .subtitle {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.65);
+}

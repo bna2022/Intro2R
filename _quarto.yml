@@ -4,17 +4,15 @@ project:
 
 book:
   title: "R Programmierung"
-  subtitle: "Tutorials"
+  subtitle: "Ein praxisorientierter Einstieg in die Datenanalyse mit R für Bio- und Medizininformatik"
   author: "Beate Navarro Bullock"
   date: last-modified
 
   chapters:
     - index.qmd
-    - part: "Kapitel"
-      chapters:
-        - chapters/01-einfuehrung.qmd
-        - chapters/02-daten-repräsentieren.qmd
-        - chapters/03-daten-transformieren.qmd
+    - chapters/01-einfuehrung.qmd
+    - chapters/02-daten-repräsentieren.qmd
+    - chapters/03-daten-transformieren.qmd
 
   search: true
 
@@ -23,3 +21,5 @@ format:
     toc: true
     theme: cosmo
     number-sections: true
+    title-block-banner: figures/r-banner.png
+    css: styles.css

@@ -1,5 +1,5 @@
 ---
-title: "Intro"
+title: "Willkommen"
 ---
 
 Dieses Skript begleitet die Vorlesung **R Programmierung**.
