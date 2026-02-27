@@ -9,3 +9,17 @@
 .quarto-title-banner .subtitle {
   text-shadow: 0 2px 8px rgba(0,0,0,0.65);
 }
+
+.quarto-title-banner {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.quarto-title-banner .title {
+  font-size: clamp(1.8rem, 3vw, 2.0rem);
+  margin-bottom: 0.3rem;
+}
+
+.quarto-title-banner .subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
