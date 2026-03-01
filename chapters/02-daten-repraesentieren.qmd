@@ -223,10 +223,7 @@ pythagoras <- function(kathete_1, kathete_2){
 pythagoras(2, 4)
 ```
 
-### Übung 3
-1. Schreiben Sie eine Funktion mit dem Namen `myFunc`, die die Summe der Parameter x und y zurückgibt
-2. Spezifizieren Sie als Default Werte für x und y jeweils 0
-3. Wenn die Summe > 20 ist, soll die Funktion ``Hey, voll viel" zurückgeben. Sonst "Eher wenig". 
+
 
 ### Einfache Datentypen
 
@@ -358,3 +355,446 @@ R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, daru
 - `is.na()` – prüft, ob ein Wert fehlt (NA)
 - `is.numeric()` - prüft, ob ein Objekt numerisch ist
 - `as.integer()` - wandelt einen Wert in einen Integer um
+
+## Vektoren
+
+### Übersicht
+
+![Aufteilung der Vektoren](../figures/Vektor.png){#fig-vektor}
+Vektoren sind die zentrale Datenstruktur in R, da viele Funktionen automatisch elementweise auf Vektoren arbeiten.
+
+Man unterscheidet zwei wichtige Typen:
+
+- **Atomare Vektoren** enthalten Elemente des gleichen Datentyps (z. B. nur Zahlen, nur Zeichenketten oder nur logische Werte).
+- **Listen** können Elemente unterschiedlicher Datentypen enthalten, z. B. Zahlen, Zeichenketten oder sogar andere Vektoren.
+
+![Beispiele für atomare Vektoren und Listen; Quelle: Generiert mit ChatGPT](../figures/VektorList.png){#fig-vektorlist}
+
+### Erzeugen von Vektoren
+
+Es gibt verschiedene Möglichkeiten, Vektoren in R zu erzeugen.
+
+Mit `c()` (combine):
+Mit der Funktion `c()` können mehrere Werte zu einem Vektor zusammengefasst werden.
+
+```{r echo = TRUE}
+c(1,1.5,2)
+```
+Hier wird ein numerischer Vektor mit drei Elementen erzeugt.
+
+Mit `double()`:
+Die Funktion `double(n)` erzeugt einen numerischen Vektor der Länge $n$, dessen Elemente zunächst alle den Wert 0 haben.
+```{r echo = TRUE}
+double(5)
+```
+Dies ist z. B. nützlich, wenn man einen Vektor vorab reservieren möchte.
+ 
+Mit dem Sequenzoperator `:`:
+Mit `:` kann man eine einfache Folge von ganzen Zahlen erzeugen.
+```{r echo = TRUE}
+1:5
+```
+
+Mit `rep()`:
+Die Funktion `rep()` wiederholt einen Wert oder einen Vektor eine bestimmte Anzahl von Malen.
+```{r echo = TRUE}
+rep(3,5)
+```
+Hier wird die Zahl 3 fünfmal wiederholt.
+
+Mit `seq()`:
+Mit `seq()` kann man allgemeinere Zahlenfolgen erzeugen.
+```{r echo = TRUE}
+seq(0,0.6, 0.2)
+```
+Hier beginnt die Folge bei 0, endet bei 0.6 und erhöht sich jeweils um 0.2.
+
+### Indizierung
+Mit Hilfe von Indizes kann man auf einzelne Elemente eines Vektors zugreifen.
+In R beginnt die Zählung bei 1 (nicht bei 0 wie in manchen anderen Programmiersprachen).
+
+Für einen Vektor `x` mit der Länge `length(x)` sind daher die gültigen Indizes `1...length(x)`.
+Der Zugriff auf Elemente erfolgt mit eckigen Klammern.
+  
+```{r echo = TRUE,tidy = TRUE}
+x <- c(1.7, 3.8, 4.2, 5.7)
+x[2] # zweites Element 
+x[2:3] # Elemente 2 bis 3
+x[c(4,4,1)] # Auswahl mehrerer Positionen (auch mehrfach möglich)
+x[-c(1,2)] # entferne Elemente an Position 1 und 2
+```
+
+::: {.callout-note}
+## Merksatz zur Indizierung
+
+- `x[i]` → einzelnes Element  
+- `x[i:j]` → zusammenhängender Bereich  
+- `x[c(...)]` → beliebige Auswahl  
+- `x[-i]` → Ausschluss von Positionen
+:::  
+
+### Logische Indizierung
+
+In R können Vektoren nicht nur über numerische Positionen, sondern auch über logische Werte (`TRUE` und `FALSE`) indiziert werden. Dabei bestimmt jeder logische Wert, ob ein Element ausgewählt wird oder nicht.
+
+- `TRUE` → Element wird ausgewählt  
+- `FALSE` → Element wird nicht ausgewählt  
+
+Der logische Vektor muss dabei die gleiche Länge wie der Vektor haben, auf den er angewendet wird.
+
+**Beispiel**
+
+```r
+x <- c(1.7, 0.5, -0.7, 0, 2.8, 0.2)
+x[c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE)]
+```
+Der logische Indexvektor entscheidet, welche Werte aus `x` übernommen werden.
+
+| Position | Wert in `x` | Logischer Wert | Ergebnis |
+|---|---|---|---|
+|1|1.7|TRUE|wird übernommen|
+|2|0.5|TRUE|wird übernommen|
+|3|-0.7|FALSE|wird ignoriert|
+|4|0|FALSE|wird ignoriert|
+|5|2.8|TRUE|wird übernommen|
+|6|0.2|TRUE|wird übernommen|
+
+Das Ergebnis lautet:
+
+```r
+[1] 1.7 0.5 2.8 0.2
+```
+
+**Merksatz**
+
+> **Ein logischer Vektor wirkt wie ein Filter:**  
+> `TRUE` lässt ein Element passieren, `FALSE` entfernt es.
+
+#### Filtern von Vektoren mit Bedingungen
+
+Eine sehr häufige Anwendung der logischen Indizierung ist das Filtern von Vektoren anhand von Bedingungen. Dabei wird eine Bedingung auf jedes Element eines Vektors angewendet. Das Ergebnis ist ein **logischer Vektor**, der anschließend als Index verwendet werden kann.
+
+**Beispiel**
+
+```r
+x <- c(0.3, 0.1, 5.7, -1.0)
+y <- c(2, 3, 1, 5)
+
+x > 0
+```
+
+Der Ausdruck `x > 0` überprüft für jedes Element von `x`, ob es größer als 0 ist.  
+Das Ergebnis ist ein logischer Vektor:
+
+```r
+[1] TRUE TRUE TRUE FALSE
+```
+
+Dieser logische Vektor kann direkt als Index verwendet werden:
+
+```r
+x[x > 0]
+```
+
+Ergebnis:
+
+```r
+[1] 0.3 0.1 5.7
+```
+
+Alle Werte von `x`, die größer als 0 sind, werden ausgewählt.
+
+---
+
+**Merksatz**
+
+> Eine Bedingung erzeugt einen logischen Vektor, der direkt zum Filtern eines Vektors verwendet werden kann.
+
+---
+
+#### Positionen mit `which()`
+
+Manchmal interessiert nicht der Wert selbst, sondern **an welcher Position im Vektor** sich ein Element befindet, das eine bestimmte Bedingung erfüllt. Dafür gibt es die Funktion `which()`.
+
+**Beispiel**
+
+```r
+which(x > 0)
+```
+
+Ergebnis:
+
+```r
+[1] 1 2 3
+```
+
+Das bedeutet: Die ersten drei Elemente von `x` sind größer als 0.
+
+---
+
+**Merksatz**
+
+> `which()` gibt die Positionen der Elemente zurück, die eine Bedingung erfüllen.
+
+---
+
+#### Konkatenierung von Vektoren
+
+Mit der Funktion `c()` (combine) können mehrere Vektoren zu einem neuen Vektor zusammengefügt werden.
+
+**Beispiel**
+
+```r
+c(x, y)
+```
+
+Ergebnis:
+
+```r
+[1] 0.3 0.1 5.7 -1.0 2 3 1 5
+```
+
+Die Elemente des zweiten Vektors werden dabei einfach an den ersten Vektor angehängt.
+
+---
+
+**Merksatz**
+
+> Mit `c()` können mehrere Werte oder Vektoren zu einem neuen Vektor kombiniert werden.
+
+---
+
+### Skalare Operationen
+  
+**Skalare** Operationen werden für jedes Element einzeln durchgeführt.
+  
+```{r echo = TRUE}
+x <- c(1,1.5,2)
+x+2
+```
+  
+```{r echo = TRUE}
+x-2
+```
+  
+```{r echo = TRUE}
+x*2
+```
+  
+```{r echo = TRUE}
+x/2
+```
+
+### Arithmetik mit Vektoren
+
+In R können **arithmetische Operationen direkt auf Vektoren** angewendet werden.  
+Dabei werden die Operationen **elementweise** ausgeführt. Das bedeutet, dass die entsprechenden Elemente zweier Vektoren miteinander verrechnet werden.
+
+#### Arithmetik auf Vektoren gleicher Länge
+
+Wenn zwei Vektoren **dieselbe Länge** besitzen, werden ihre Elemente paarweise kombiniert.
+
+**Beispiel: Addition**
+
+```{r echo=TRUE}
+c(1,2,3) + c(1.2,-0.5,-0.1)
+```
+
+**Beispiel: Subtraktion**
+
+```{r echo=TRUE}
+c(1,2,3) - c(1.2,-0.5,-0.1)
+```
+
+**Beispiel: Multiplikation**
+
+```{r echo=TRUE}
+c(1,2,3) * c(1.2,-0.5,-0.1)
+```
+
+**Beispiel: Division**
+
+```{r echo=TRUE}
+c(1,2,3) / c(1.2,-0.5,-0.1)
+```
+
+**Merksatz**
+
+> Arithmetische Operationen auf Vektoren werden elementweise ausgeführt.
+
+---
+
+### Arithmetik mit Vektoren unterschiedlicher Länge (Recycling)
+
+Sind die Vektoren unterschiedlich lang, verwendet R das sogenannte **Recycling-Prinzip**.  
+Dabei wird der kürzere Vektor wiederholt, bis er die Länge des längeren Vektors erreicht.
+
+**Beispiel**
+
+```{r echo=TRUE}
+c(1,1,1,1,1) * c(1,2,3)
+```
+
+Intern interpretiert R dies als:
+
+```{r echo=TRUE}
+c(1,1,1,1,1) * c(1,2,3,1,2)
+```
+
+
+
+**Merksatz**
+
+> Ist ein Vektor kürzer, wird er in R automatisch wiederholt (Recycling).
+
+---
+
+### Funktionen auf Vektoren
+
+Viele mathematische Funktionen können sowohl mit **einzelnen Zahlen (Skalaren)** als auch mit **Vektoren** arbeiten.
+
+#### Skalare Funktionen auf Vektoren
+
+Eine skalare Funktion hat mathematisch die Form
+
+$$f:\mathbb{R} \rightarrow \mathbb{R}$$
+
+Sie wird auf jedes Element eines Vektors einzeln angewendet.
+
+**Beispiel: Eingabe eines Skalars**
+
+```r
+exp(1)
+```
+
+**Beispiel: Eingabe eines Vektors**
+
+```r
+exp(c(0,1,2,3))
+```
+
+Das Ergebnis enthält die Exponentialfunktion für jedes einzelne Element.
+
+**Merksatz**
+
+> Viele Funktionen in R arbeiten automatisch elementweise auf Vektoren.
+
+---
+
+#### Vektorwertige Eingaben
+
+Einige Funktionen erwarten **Vektoren als Argumente** und berechnen daraus einen einzelnen Wert.
+
+Mathematisch entspricht dies Funktionen der Form
+
+$$f:\mathbb{R}^n \rightarrow \mathbb{R}$$
+
+**Beispiel: Mittelwert**
+
+```{r echo=TRUE}
+mean(c(1.2,-0.5,-0.1))
+```
+
+Der Mittelwert fasst mehrere Werte zu einer einzelnen Kennzahl zusammen.
+
+---
+
+**Beispiel: Korrelation**
+
+```{r echo=TRUE}
+cor(c(1.2,-0.5,-0.1), c(2.2,0.5,0.9))
+```
+
+Die Funktion `cor()` berechnet die Korrelation zwischen zwei Vektoren, also ein Maß für den linearen Zusammenhang zwischen zwei Variablen.
+
+---
+
+**Beispiel: Skalarprodukt**
+
+```{r echo=TRUE}
+c(1,2,3) %*% c(1.2,-0.5,-0.1)
+```
+
+Das Skalarprodukt multipliziert die entsprechenden Elemente und summiert anschließend die Ergebnisse.
+
+**Merksatz**
+
+> Einige Funktionen verarbeiten ganze Vektoren und geben eine einzelne Kennzahl zurück.
+
+---
+
+#### Länge eines Vektors bestimmen
+
+```r
+a <- c(1,2,3)
+length(a)
+```
+
+Die Funktion `length()` gibt die Anzahl der Elemente eines Vektors zurück.
+
+### Wichtige Funktionen für Vektoren
+
+| Operator/Funktion | Bedeutung |
+|---|---|
+| `1:5` | erzeugt den Vektor `1 2 3 4 5` |
+| `seq(from,to,by)` | erzeugt eine lineare Sequenz von Werten |
+| `rep(0.3,4)` | wiederholt einen Wert mehrfach |
+| `c(1,3,9)` | erzeugt einen Vektor |
+| | kombiniert mehrere Werte oder Vektoren |
+| `logical(n)` | logischer Vektor der Länge `n` |
+| `integer(n)` | Ganzzahlvektor der Länge `n` |
+| `double(n)` | numerischer Vektor der Länge `n` |
+| `character(n)` | Zeichenkettenvektor der Länge `n` |
+| `length(v)` | Länge eines Vektors |
+| `names(v)` | Namen der Vektorelemente |
+
+---
+  
+## Übungen
+
+**Übung 1**
+
+1. Schreiben Sie eine Funktion mit dem Namen `myFunc`, die die Summe der Parameter x und y zurückgibt
+2. Spezifizieren Sie als Default Werte für x und y jeweils 0
+3. Wenn die Summe > 20 ist, soll die Funktion ``Hey, voll viel" zurückgeben. Sonst "Eher wenig". 
+
+**Übung 2**
+
+In einer klinischen Studie werden bei mehreren Patientinnen und Patienten die **C-reaktiven Proteinwerte (CRP)** im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:
+
+```r
+crp <- c(2.1, 8.4, 0.6, 12.3, 3.2, 15.7, 1.0)
+```
+
+In vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.
+
+Bearbeiten Sie folgende Aufgaben:
+
+1. Erstellen Sie einen logischen Vektor, der überprüft, welche CRP-Werte größer als 5 mg/L sind.
+2. Filtern Sie alle CRP-Werte über 5 mg/L aus dem Vektor.  
+3. Bestimmen Sie mit `which()` die Positionen der Patientinnen und Patienten, bei denen der CRP-Wert über 5 mg/L liegt.  
+4. In einer zweiten Messung werden zusätzliche CRP-Werte erhoben:
+
+```r
+crp_neu <- c(4.3, 9.8)
+```
+
+Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.
+
+**Übung 3**
+
+In einem Datensatz sind die **Herzfrequenzen (in Schlägen pro Minute)** von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.
+
+```r
+ruhe <- c(68, 72, 75)
+belastung <- c(95, 102, 110)
+```
+
+Bearbeiten Sie folgende Aufgaben:
+
+1. Berechnen Sie die **Differenz zwischen Belastungs- und Ruhepuls** für jede Person.  
+2. Berechnen Sie das **Produkt der beiden Vektoren**.  
+3. Bestimmen Sie den **Mittelwert des Belastungspulses**.  
+4. Berechnen Sie das **Skalarprodukt** der beiden Vektoren.
+
+---

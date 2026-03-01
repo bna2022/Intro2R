@@ -155,7 +155,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-daten-repräsentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-daten-repraesentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -210,7 +210,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02-daten-repräsentieren.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/02-daten-repraesentieren.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></span></a>
   </div>
 </li>
@@ -253,12 +253,14 @@ window.Quarto = {
   <li><a href="#übersicht" id="toc-übersicht" class="nav-link" data-scroll-target="#übersicht"><span class="header-section-number">3.3.1</span> Übersicht</a></li>
   <li><a href="#erzeugen-von-vektoren" id="toc-erzeugen-von-vektoren" class="nav-link" data-scroll-target="#erzeugen-von-vektoren"><span class="header-section-number">3.3.2</span> Erzeugen von Vektoren</a></li>
   <li><a href="#indizierung" id="toc-indizierung" class="nav-link" data-scroll-target="#indizierung"><span class="header-section-number">3.3.3</span> Indizierung</a></li>
+  <li><a href="#logische-indizierung" id="toc-logische-indizierung" class="nav-link" data-scroll-target="#logische-indizierung"><span class="header-section-number">3.3.4</span> Logische Indizierung</a></li>
+  <li><a href="#skalare-operationen" id="toc-skalare-operationen" class="nav-link" data-scroll-target="#skalare-operationen"><span class="header-section-number">3.3.5</span> Skalare Operationen</a></li>
+  <li><a href="#arithmetik-mit-vektoren" id="toc-arithmetik-mit-vektoren" class="nav-link" data-scroll-target="#arithmetik-mit-vektoren"><span class="header-section-number">3.3.6</span> Arithmetik mit Vektoren</a></li>
+  <li><a href="#arithmetik-mit-vektoren-unterschiedlicher-länge-recycling" id="toc-arithmetik-mit-vektoren-unterschiedlicher-länge-recycling" class="nav-link" data-scroll-target="#arithmetik-mit-vektoren-unterschiedlicher-länge-recycling"><span class="header-section-number">3.3.7</span> Arithmetik mit Vektoren unterschiedlicher Länge (Recycling)</a></li>
+  <li><a href="#funktionen-auf-vektoren" id="toc-funktionen-auf-vektoren" class="nav-link" data-scroll-target="#funktionen-auf-vektoren"><span class="header-section-number">3.3.8</span> Funktionen auf Vektoren</a></li>
+  <li><a href="#wichtige-funktionen-für-vektoren" id="toc-wichtige-funktionen-für-vektoren" class="nav-link" data-scroll-target="#wichtige-funktionen-für-vektoren"><span class="header-section-number">3.3.9</span> Wichtige Funktionen für Vektoren</a></li>
   </ul></li>
-  <li><a href="#logische-indizierung" id="toc-logische-indizierung" class="nav-link" data-scroll-target="#logische-indizierung"><span class="header-section-number">3.4</span> Logische Indizierung</a>
-  <ul class="collapse">
-  <li><a href="#merksatz" id="toc-merksatz" class="nav-link" data-scroll-target="#merksatz"><span class="header-section-number">3.4.1</span> Merksatz</a></li>
-  </ul></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.5</span> Übungen</a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.4</span> Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -881,9 +883,8 @@ Figure&nbsp;3.4: Beispiele für atomare Vektoren und Listen; Quelle: Generiert m
 </div>
 </div>
 </section>
-</section>
-<section id="logische-indizierung" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="logische-indizierung"><span class="header-section-number">3.4</span> Logische Indizierung</h2>
+<section id="logische-indizierung" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="logische-indizierung"><span class="header-section-number">3.3.4</span> Logische Indizierung</h3>
 <p>In R können Vektoren nicht nur über numerische Positionen, sondern auch über logische Werte (<code>TRUE</code> und <code>FALSE</code>) indiziert werden. Dabei bestimmt jeder logische Wert, ob ein Element ausgewählt wird oder nicht.</p>
 <ul>
 <li><code>TRUE</code> → Element wird ausgewählt<br>
@@ -945,17 +946,325 @@ Figure&nbsp;3.4: Beispiele für atomare Vektoren und Listen; Quelle: Generiert m
 </table>
 <p>Das Ergebnis lautet:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1.7</span> <span class="fl">0.5</span> <span class="fl">2.8</span> <span class="fl">0.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="merksatz" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="merksatz"><span class="header-section-number">3.4.1</span> Merksatz</h3>
+<p><strong>Merksatz</strong></p>
 <blockquote class="blockquote">
 <p><strong>Ein logischer Vektor wirkt wie ein Filter:</strong><br>
 <code>TRUE</code> lässt ein Element passieren, <code>FALSE</code> entfernt es.</p>
 </blockquote>
+<section id="filtern-von-vektoren-mit-bedingungen" class="level4" data-number="3.3.4.1">
+<h4 data-number="3.3.4.1" class="anchored" data-anchor-id="filtern-von-vektoren-mit-bedingungen"><span class="header-section-number">3.3.4.1</span> Filtern von Vektoren mit Bedingungen</h4>
+<p>Eine sehr häufige Anwendung der logischen Indizierung ist das Filtern von Vektoren anhand von Bedingungen. Dabei wird eine Bedingung auf jedes Element eines Vektors angewendet. Das Ergebnis ist ein <strong>logischer Vektor</strong>, der anschließend als Index verwendet werden kann.</p>
+<p><strong>Beispiel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">5.7</span>, <span class="sc">-</span><span class="fl">1.0</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Der Ausdruck <code>x &gt; 0</code> überprüft für jedes Element von <code>x</code>, ob es größer als 0 ist.<br>
+Das Ergebnis ist ein logischer Vektor:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span> <span class="cn">TRUE</span> <span class="cn">TRUE</span> <span class="cn">FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dieser logische Vektor kann direkt als Index verwendet werden:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.3</span> <span class="fl">0.1</span> <span class="fl">5.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Alle Werte von <code>x</code>, die größer als 0 sind, werden ausgewählt.</p>
+<hr>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Eine Bedingung erzeugt einen logischen Vektor, der direkt zum Filtern eines Vektors verwendet werden kann.</p>
+</blockquote>
+<hr>
+</section>
+<section id="positionen-mit-which" class="level4" data-number="3.3.4.2">
+<h4 data-number="3.3.4.2" class="anchored" data-anchor-id="positionen-mit-which"><span class="header-section-number">3.3.4.2</span> Positionen mit <code>which()</code></h4>
+<p>Manchmal interessiert nicht der Wert selbst, sondern <strong>an welcher Position im Vektor</strong> sich ein Element befindet, das eine bestimmte Bedingung erfüllt. Dafür gibt es die Funktion <code>which()</code>.</p>
+<p><strong>Beispiel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das bedeutet: Die ersten drei Elemente von <code>x</code> sind größer als 0.</p>
+<hr>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p><code>which()</code> gibt die Positionen der Elemente zurück, die eine Bedingung erfüllen.</p>
+</blockquote>
+<hr>
+</section>
+<section id="konkatenierung-von-vektoren" class="level4" data-number="3.3.4.3">
+<h4 data-number="3.3.4.3" class="anchored" data-anchor-id="konkatenierung-von-vektoren"><span class="header-section-number">3.3.4.3</span> Konkatenierung von Vektoren</h4>
+<p>Mit der Funktion <code>c()</code> (combine) können mehrere Vektoren zu einem neuen Vektor zusammengefügt werden.</p>
+<p><strong>Beispiel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.3</span> <span class="fl">0.1</span> <span class="fl">5.7</span> <span class="sc">-</span><span class="fl">1.0</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Elemente des zweiten Vektors werden dabei einfach an den ersten Vektor angehängt.</p>
+<hr>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Mit <code>c()</code> können mehrere Werte oder Vektoren zu einem neuen Vektor kombiniert werden.</p>
+</blockquote>
+<hr>
 </section>
 </section>
-<section id="übungen" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.5</span> Übungen</h2>
-<p><strong>Übung 1</strong> 1. Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt 2. Spezifizieren Sie als Default Werte für x und y jeweils 0 3. Wenn die Summe &gt; 20 ist, soll die Funktion ``Hey, voll viel” zurückgeben. Sonst “Eher wenig”.</p>
+<section id="skalare-operationen" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="skalare-operationen"><span class="header-section-number">3.3.5</span> Skalare Operationen</h3>
+<p><strong>Skalare</strong> Operationen werden für jedes Element einzeln durchgeführt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.0 3.5 4.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x<span class="dv">-2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.0 -0.5  0.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">*</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3 4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">/</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.50 0.75 1.00</code></pre>
+</div>
+</div>
+</section>
+<section id="arithmetik-mit-vektoren" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="arithmetik-mit-vektoren"><span class="header-section-number">3.3.6</span> Arithmetik mit Vektoren</h3>
+<p>In R können <strong>arithmetische Operationen direkt auf Vektoren</strong> angewendet werden.<br>
+Dabei werden die Operationen <strong>elementweise</strong> ausgeführt. Das bedeutet, dass die entsprechenden Elemente zweier Vektoren miteinander verrechnet werden.</p>
+<section id="arithmetik-auf-vektoren-gleicher-länge" class="level4" data-number="3.3.6.1">
+<h4 data-number="3.3.6.1" class="anchored" data-anchor-id="arithmetik-auf-vektoren-gleicher-länge"><span class="header-section-number">3.3.6.1</span> Arithmetik auf Vektoren gleicher Länge</h4>
+<p>Wenn zwei Vektoren <strong>dieselbe Länge</strong> besitzen, werden ihre Elemente paarweise kombiniert.</p>
+<p><strong>Beispiel: Addition</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.2 1.5 2.9</code></pre>
+</div>
+</div>
+<p><strong>Beispiel: Subtraktion</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2  2.5  3.1</code></pre>
+</div>
+</div>
+<p><strong>Beispiel: Multiplikation</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1.2 -1.0 -0.3</code></pre>
+</div>
+</div>
+<p><strong>Beispiel: Division</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">/</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   0.8333333  -4.0000000 -30.0000000</code></pre>
+</div>
+</div>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Arithmetische Operationen auf Vektoren werden elementweise ausgeführt.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="arithmetik-mit-vektoren-unterschiedlicher-länge-recycling" class="level3" data-number="3.3.7">
+<h3 data-number="3.3.7" class="anchored" data-anchor-id="arithmetik-mit-vektoren-unterschiedlicher-länge-recycling"><span class="header-section-number">3.3.7</span> Arithmetik mit Vektoren unterschiedlicher Länge (Recycling)</h3>
+<p>Sind die Vektoren unterschiedlich lang, verwendet R das sogenannte <strong>Recycling-Prinzip</strong>.<br>
+Dabei wird der kürzere Vektor wiederholt, bis er die Länge des längeren Vektors erreicht.</p>
+<p><strong>Beispiel</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in c(1, 1, 1, 1, 1) * c(1, 2, 3): Länge des längeren Objektes
+     ist kein Vielfaches der Länge des kürzeren Objektes</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 1 2</code></pre>
+</div>
+</div>
+<p>Intern interpretiert R dies als:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 1 2</code></pre>
+</div>
+</div>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Ist ein Vektor kürzer, wird er in R automatisch wiederholt (Recycling).</p>
+</blockquote>
+<hr>
+</section>
+<section id="funktionen-auf-vektoren" class="level3" data-number="3.3.8">
+<h3 data-number="3.3.8" class="anchored" data-anchor-id="funktionen-auf-vektoren"><span class="header-section-number">3.3.8</span> Funktionen auf Vektoren</h3>
+<p>Viele mathematische Funktionen können sowohl mit <strong>einzelnen Zahlen (Skalaren)</strong> als auch mit <strong>Vektoren</strong> arbeiten.</p>
+<section id="skalare-funktionen-auf-vektoren" class="level4" data-number="3.3.8.1">
+<h4 data-number="3.3.8.1" class="anchored" data-anchor-id="skalare-funktionen-auf-vektoren"><span class="header-section-number">3.3.8.1</span> Skalare Funktionen auf Vektoren</h4>
+<p>Eine skalare Funktion hat mathematisch die Form</p>
+<p><span class="math display">\[f:\mathbb{R} \rightarrow \mathbb{R}\]</span></p>
+<p>Sie wird auf jedes Element eines Vektors einzeln angewendet.</p>
+<p><strong>Beispiel: Eingabe eines Skalars</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Beispiel: Eingabe eines Vektors</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das Ergebnis enthält die Exponentialfunktion für jedes einzelne Element.</p>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Viele Funktionen in R arbeiten automatisch elementweise auf Vektoren.</p>
+</blockquote>
+<hr>
+</section>
+<section id="vektorwertige-eingaben" class="level4" data-number="3.3.8.2">
+<h4 data-number="3.3.8.2" class="anchored" data-anchor-id="vektorwertige-eingaben"><span class="header-section-number">3.3.8.2</span> Vektorwertige Eingaben</h4>
+<p>Einige Funktionen erwarten <strong>Vektoren als Argumente</strong> und berechnen daraus einen einzelnen Wert.</p>
+<p>Mathematisch entspricht dies Funktionen der Form</p>
+<p><span class="math display">\[f:\mathbb{R}^n \rightarrow \mathbb{R}\]</span></p>
+<p><strong>Beispiel: Mittelwert</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2</code></pre>
+</div>
+</div>
+<p>Der Mittelwert fasst mehrere Werte zu einer einzelnen Kennzahl zusammen.</p>
+<hr>
+<p><strong>Beispiel: Korrelation</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>), <span class="fu">c</span>(<span class="fl">2.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Die Funktion <code>cor()</code> berechnet die Korrelation zwischen zwei Vektoren, also ein Maß für den linearen Zusammenhang zwischen zwei Variablen.</p>
+<hr>
+<p><strong>Beispiel: Skalarprodukt</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,] -0.1</code></pre>
+</div>
+</div>
+<p>Das Skalarprodukt multipliziert die entsprechenden Elemente und summiert anschließend die Ergebnisse.</p>
+<p><strong>Merksatz</strong></p>
+<blockquote class="blockquote">
+<p>Einige Funktionen verarbeiten ganze Vektoren und geben eine einzelne Kennzahl zurück.</p>
+</blockquote>
+<hr>
+</section>
+<section id="länge-eines-vektors-bestimmen" class="level4" data-number="3.3.8.3">
+<h4 data-number="3.3.8.3" class="anchored" data-anchor-id="länge-eines-vektors-bestimmen"><span class="header-section-number">3.3.8.3</span> Länge eines Vektors bestimmen</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Funktion <code>length()</code> gibt die Anzahl der Elemente eines Vektors zurück.</p>
+</section>
+</section>
+<section id="wichtige-funktionen-für-vektoren" class="level3" data-number="3.3.9">
+<h3 data-number="3.3.9" class="anchored" data-anchor-id="wichtige-funktionen-für-vektoren"><span class="header-section-number">3.3.9</span> Wichtige Funktionen für Vektoren</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator/Funktion</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1:5</code></td>
+<td>erzeugt den Vektor <code>1 2 3 4 5</code></td>
+</tr>
+<tr class="even">
+<td><code>seq(from,to,by)</code></td>
+<td>erzeugt eine lineare Sequenz von Werten</td>
+</tr>
+<tr class="odd">
+<td><code>rep(0.3,4)</code></td>
+<td>wiederholt einen Wert mehrfach</td>
+</tr>
+<tr class="even">
+<td><code>c(1,3,9)</code></td>
+<td>erzeugt einen Vektor</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>kombiniert mehrere Werte oder Vektoren</td>
+</tr>
+<tr class="even">
+<td><code>logical(n)</code></td>
+<td>logischer Vektor der Länge <code>n</code></td>
+</tr>
+<tr class="odd">
+<td><code>integer(n)</code></td>
+<td>Ganzzahlvektor der Länge <code>n</code></td>
+</tr>
+<tr class="even">
+<td><code>double(n)</code></td>
+<td>numerischer Vektor der Länge <code>n</code></td>
+</tr>
+<tr class="odd">
+<td><code>character(n)</code></td>
+<td>Zeichenkettenvektor der Länge <code>n</code></td>
+</tr>
+<tr class="even">
+<td><code>length(v)</code></td>
+<td>Länge eines Vektors</td>
+</tr>
+<tr class="odd">
+<td><code>names(v)</code></td>
+<td>Namen der Vektorelemente</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="übungen" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.4</span> Übungen</h2>
+<p><strong>Übung 1</strong></p>
+<ol type="1">
+<li>Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt</li>
+<li>Spezifizieren Sie als Default Werte für x und y jeweils 0</li>
+<li>Wenn die Summe &gt; 20 ist, soll die Funktion ``Hey, voll viel” zurückgeben. Sonst “Eher wenig”.</li>
+</ol>
+<p><strong>Übung 2</strong></p>
+<p>In einer klinischen Studie werden bei mehreren Patientinnen und Patienten die <strong>C-reaktiven Proteinwerte (CRP)</strong> im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.</p>
+<p>Bearbeiten Sie folgende Aufgaben:</p>
+<ol type="1">
+<li>Erstellen Sie einen logischen Vektor, der überprüft, welche CRP-Werte größer als 5 mg/L sind.</li>
+<li>Filtern Sie alle CRP-Werte über 5 mg/L aus dem Vektor.<br>
+</li>
+<li>Bestimmen Sie mit <code>which()</code> die Positionen der Patientinnen und Patienten, bei denen der CRP-Wert über 5 mg/L liegt.<br>
+</li>
+<li>In einer zweiten Messung werden zusätzliche CRP-Werte erhoben:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.</p>
+<p><strong>Übung 3</strong></p>
+<p>In einem Datensatz sind die <strong>Herzfrequenzen (in Schlägen pro Minute)</strong> von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Bearbeiten Sie folgende Aufgaben:</p>
+<ol type="1">
+<li>Berechnen Sie die <strong>Differenz zwischen Belastungs- und Ruhepuls</strong> für jede Person.<br>
+</li>
+<li>Berechnen Sie das <strong>Produkt der beiden Vektoren</strong>.<br>
+</li>
+<li>Bestimmen Sie den <strong>Mittelwert des Belastungspulses</strong>.<br>
+</li>
+<li>Berechnen Sie das <strong>Skalarprodukt</strong> der beiden Vektoren.</li>
+</ol>
+<hr>
 
 
 </section>

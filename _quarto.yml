@@ -11,7 +11,7 @@ book:
   chapters:
     - index.qmd
     - chapters/01-einfuehrung.qmd
-    - chapters/02-daten-repräsentieren.qmd
+    - chapters/02-daten-repraesentieren.qmd
     - chapters/03-daten-transformieren.qmd
 
   search: true
