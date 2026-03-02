@@ -260,7 +260,21 @@ window.Quarto = {
   <li><a href="#funktionen-auf-vektoren" id="toc-funktionen-auf-vektoren" class="nav-link" data-scroll-target="#funktionen-auf-vektoren"><span class="header-section-number">3.3.8</span> Funktionen auf Vektoren</a></li>
   <li><a href="#wichtige-funktionen-für-vektoren" id="toc-wichtige-funktionen-für-vektoren" class="nav-link" data-scroll-target="#wichtige-funktionen-für-vektoren"><span class="header-section-number">3.3.9</span> Wichtige Funktionen für Vektoren</a></li>
   </ul></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.4</span> Übungen</a></li>
+  <li><a href="#matrizen" id="toc-matrizen" class="nav-link" data-scroll-target="#matrizen"><span class="header-section-number">3.4</span> Matrizen</a>
+  <ul class="collapse">
+  <li><a href="#was-ist-eine-matrix" id="toc-was-ist-eine-matrix" class="nav-link" data-scroll-target="#was-ist-eine-matrix"><span class="header-section-number">3.4.1</span> Was ist eine Matrix?</a></li>
+  <li><a href="#matrix-erzeugen" id="toc-matrix-erzeugen" class="nav-link" data-scroll-target="#matrix-erzeugen"><span class="header-section-number">3.4.2</span> Matrix erzeugen</a></li>
+  <li><a href="#indizierung-von-matrizen" id="toc-indizierung-von-matrizen" class="nav-link" data-scroll-target="#indizierung-von-matrizen"><span class="header-section-number">3.4.3</span> Indizierung von Matrizen</a></li>
+  <li><a href="#lineare-indizierung" id="toc-lineare-indizierung" class="nav-link" data-scroll-target="#lineare-indizierung"><span class="header-section-number">3.4.4</span> Lineare Indizierung</a></li>
+  <li><a href="#zeilen-und-spaltennamen" id="toc-zeilen-und-spaltennamen" class="nav-link" data-scroll-target="#zeilen-und-spaltennamen"><span class="header-section-number">3.4.5</span> Zeilen und Spaltennamen</a></li>
+  <li><a href="#matrizen-wichtige-funktionen" id="toc-matrizen-wichtige-funktionen" class="nav-link" data-scroll-target="#matrizen-wichtige-funktionen"><span class="header-section-number">3.4.6</span> Matrizen – Wichtige Funktionen</a></li>
+  </ul></li>
+  <li><a href="#listen" id="toc-listen" class="nav-link" data-scroll-target="#listen"><span class="header-section-number">3.5</span> Listen</a>
+  <ul class="collapse">
+  <li><a href="#erstellen-einer-liste" id="toc-erstellen-einer-liste" class="nav-link" data-scroll-target="#erstellen-einer-liste"><span class="header-section-number">3.5.1</span> Erstellen einer Liste</a></li>
+  <li><a href="#benannte-listen" id="toc-benannte-listen" class="nav-link" data-scroll-target="#benannte-listen"><span class="header-section-number">3.5.2</span> Benannte Listen</a></li>
+  </ul></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.6</span> Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -1227,8 +1241,255 @@ Dabei wird der kürzere Vektor wiederholt, bis er die Länge des längeren Vekto
 <hr>
 </section>
 </section>
-<section id="übungen" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.4</span> Übungen</h2>
+<section id="matrizen" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="matrizen"><span class="header-section-number">3.4</span> Matrizen</h2>
+<section id="was-ist-eine-matrix" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="was-ist-eine-matrix"><span class="header-section-number">3.4.1</span> Was ist eine Matrix?</h3>
+<p>Eine Matrix ist ein zweidimensionaler Container, der aus Zeilen und Spalten besteht.</p>
+<p>Wichtige Eigenschaften:</p>
+<ul>
+<li>eine Matrix hat die Dimension Zeilen × Spalten</li>
+<li>alle Elemente besitzen denselben Datentyp</li>
+<li>häufig verwendete Datentypen sind numeric, integer oder character</li>
+</ul>
+<p>Matrizen werden in R häufig für numerische Berechnungen, lineare Algebra und statistische Analysen verwendet.</p>
+</section>
+<section id="matrix-erzeugen" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="matrix-erzeugen"><span class="header-section-number">3.4.2</span> Matrix erzeugen</h3>
+<p>Eine Matrix wird mit der Funktion <code>matrix()</code> erzeugt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+</div>
+<p>Was passiert hier:</p>
+<ul>
+<li>1:6 erzeugt einen Vektor mit den Zahlen 1 bis 6</li>
+<li>nrow = 2 legt die Anzahl der Zeilen fest</li>
+<li>ncol = 3 legt die Anzahl der Spalten fest</li>
+</ul>
+<p>R füllt Matrizen standardmäßig spaltenweise.</p>
+</section>
+<section id="indizierung-von-matrizen" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="indizierung-von-matrizen"><span class="header-section-number">3.4.3</span> Indizierung von Matrizen</h3>
+<p>Der Zugriff auf einzelne Elemente oder Teilbereiche einer Matrix erfolgt in R über Indizierung. Dabei wird die allgemeine Syntax</p>
+<pre><code>x[Zeile, Spalte]</code></pre>
+<p>verwendet. Der erste Index gibt die Zeile, der zweite Index die Spalte an. Auf diese Weise lassen sich einzelne Werte, ganze Zeilen, ganze Spalten oder auch mehrere Spalten gleichzeitig auswählen.</p>
+<p>Im folgenden Beispiel wird eine bereits definierte Matrix <code>x</code> verwendet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff auf ein einzelnes Element</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[<span class="dv">1</span>, <span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff auf eine ganze Zeile</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[<span class="dv">2</span>, ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 4 6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff auf eine ganze Spalte</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[, <span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff auf mehrere Spalten</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    3
+[2,]    2    4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganze Zeile als Matrix</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[<span class="dv">2</span>, , <span class="at">drop =</span> <span class="cn">FALSE</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    2    4    6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganze Spalte als Matrix</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[, <span class="dv">2</span>, <span class="at">drop =</span> <span class="cn">FALSE</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]    3
+[2,]    4</code></pre>
+</div>
+</div>
+<p>Der Ausdruck <code>x[2,,drop=FALSE]</code> gibt die zweite Zeile der Matrix zurück. Durch <code>drop = FALSE</code> bleibt das Ergebnis eine 1×3-Matrix.</p>
+<p>Analog liefert <code>x[,2,drop=FALSE]</code> die zweite Spalte der Matrix als 2×1-Matrix.</p>
+<p>Die Verwendung von <code>drop = FALSE</code> ist besonders hilfreich, wenn nachfolgende Berechnungen eine Matrixstruktur voraussetzen und nicht mit einem Vektor arbeiten sollen.</p>
+</section>
+<section id="lineare-indizierung" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="lineare-indizierung"><span class="header-section-number">3.4.4</span> Lineare Indizierung</h3>
+<p>Neben der zweidimensionalen Indizierung über Zeilen und Spalten unterstützt R auch eine lineare Indizierung von Matrizen. Dabei wird die Matrix intern als Vektor betrachtet. Die Elemente werden standardmäßig spaltenweise angeordnet.</p>
+<p>Das bedeutet, dass zuerst alle Elemente der ersten Spalte, danach die der zweiten Spalte und anschließend die der weiteren Spalten berücksichtigt werden.</p>
+<p>Im folgenden Beispiel wird zunächst eine Matrix erzeugt und anschließend verschiedene Formen der linearen Indizierung demonstriert.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[x <span class="sc">&lt;</span> <span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="zeilen-und-spaltennamen" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="zeilen-und-spaltennamen"><span class="header-section-number">3.4.5</span> Zeilen und Spaltennamen</h3>
+<p>Zeilen und Spalten können benannt werden: - <code>colnames()</code> - <code>rownames()</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C1"</span>, <span class="st">"C2"</span>, <span class="st">"C3"</span>)</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R2"</span>)</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   C1 C2 C3
+R1  1  3  5
+R2  2  4  6</code></pre>
+</div>
+</div>
+</section>
+<section id="matrizen-wichtige-funktionen" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="matrizen-wichtige-funktionen"><span class="header-section-number">3.4.6</span> Matrizen – Wichtige Funktionen</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>Funktion</em></th>
+<th><em>Bedeutung</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>matrix()</code></td>
+<td>Matrix erzeugen</td>
+</tr>
+<tr class="even">
+<td><code>dim()</code>, <code>ncol()</code>, <code>nrow()</code></td>
+<td>Anzahl Zeilen und Spalten</td>
+</tr>
+<tr class="odd">
+<td><code>t()</code></td>
+<td>Transponieren einer Matrix</td>
+</tr>
+<tr class="even">
+<td><code>x[i]</code></td>
+<td>Spaltenweise Vektorisierung</td>
+</tr>
+<tr class="odd">
+<td><code>%*%</code></td>
+<td>Matrixmultiplikation</td>
+</tr>
+<tr class="even">
+<td><code>solve()</code></td>
+<td>Matrixinverse/Lösung von lin.gl.Sys.</td>
+</tr>
+<tr class="odd">
+<td><code>diag()</code></td>
+<td>Hauptdiagonale der Matrix</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="listen" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="listen"><span class="header-section-number">3.5</span> Listen</h2>
+<p>Listen sind ein flexibler Datentyp in R. Sie können Elemente unterschiedlicher Typen enthalten, z. B. Zeichenketten, Vektoren oder Matrizen.</p>
+<section id="erstellen-einer-liste" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="erstellen-einer-liste"><span class="header-section-number">3.5.1</span> Erstellen einer Liste</h3>
+<p>Eine Liste wird mit der Funktion <code>list()</code> erzeugt:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"hallo"</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>), <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">3</span>))</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "hallo"
+
+[[2]]
+[1] 1 3 7
+
+[[3]]
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6</code></pre>
+</div>
+</div>
+<p>Die Liste <code>L</code> enthält hier drei Elemente:</p>
+<ul>
+<li>eine Zeichenkette (<code>"hallo"</code>)</li>
+<li>einen numerischen Vektor (<code>c(1, 3, 7)</code>)</li>
+<li>eine Matrix (<code>matrix(1:6, 3)</code>)</li>
+</ul>
+<p>Auf einzelne Elemente kann man über <strong>Indizes</strong> zugreifen.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Merke: Zugriff auf Listenelemente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In R gibt es drei Möglichkeiten, auf Elemente einer Liste zuzugreifen:</p>
+<ul>
+<li><p><code>L[i]</code><br>
+Gibt eine Teilliste zurück.</p></li>
+<li><p><code>L[[i]]</code><br>
+Gibt das eigentliche Element der Liste zurück.</p></li>
+<li><p><code>L$name</code><br>
+Greift auf ein benanntes Element zu.</p></li>
+</ul>
+</div>
+</div>
+<p><strong>Beispiel</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>L[<span class="dv">1</span>]     <span class="co"># Teilliste</span></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>L[[<span class="dv">1</span>]]   <span class="co"># Element selbst (5)</span></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>L<span class="sc">$</span>x      <span class="co"># Zugriff über den Namen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="benannte-listen" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="benannte-listen"><span class="header-section-number">3.5.2</span> Benannte Listen</h3>
+<p>Listen können auch benannte Elemente besitzen. Dadurch lassen sich Elemente leichter und verständlicher ansprechen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">z =</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L<span class="sc">$</span>x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>Hier hat die Liste drei benannte Elemente:</p>
+<ul>
+<li><code>x</code> enthält die Zahl <code>5</code></li>
+<li><code>y</code> enthält den Vektor <code>c(1, 7)</code></li>
+<li><code>z</code> enthält eine <code>2 × 3</code>-Matrix mit Nullen</li>
+</ul>
+<p>Mit dem <code>$</code>-Operator kann direkt auf ein Element über seinen Namen zugegriffen werden (z. B. <code>L$x</code>).</p>
+</section>
+</section>
+<section id="übungen" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.6</span> Übungen</h2>
 <p><strong>Übung 1</strong></p>
 <ol type="1">
 <li>Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt</li>
@@ -1237,7 +1498,7 @@ Dabei wird der kürzere Vektor wiederholt, bis er die Länge des längeren Vekto
 </ol>
 <p><strong>Übung 2</strong></p>
 <p>In einer klinischen Studie werden bei mehreren Patientinnen und Patienten die <strong>C-reaktiven Proteinwerte (CRP)</strong> im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.</p>
 <p>Bearbeiten Sie folgende Aufgaben:</p>
 <ol type="1">
@@ -1248,12 +1509,12 @@ Dabei wird der kürzere Vektor wiederholt, bis er die Länge des längeren Vekto
 </li>
 <li>In einer zweiten Messung werden zusätzliche CRP-Werte erhoben:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.</p>
 <p><strong>Übung 3</strong></p>
 <p>In einem Datensatz sind die <strong>Herzfrequenzen (in Schlägen pro Minute)</strong> von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Bearbeiten Sie folgende Aufgaben:</p>
 <ol type="1">
 <li>Berechnen Sie die <strong>Differenz zwischen Belastungs- und Ruhepuls</strong> für jede Person.<br>

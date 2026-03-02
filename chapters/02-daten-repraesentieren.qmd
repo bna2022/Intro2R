@@ -62,6 +62,7 @@ Die Verwendung der Zeichenfolge `<-` als Zuweisungsoperator wirkt auf den ersten
 Historisch stammt `<-` aus der Programmiersprache S, aus der R hervorgegangen ist. S wiederum übernahm diesen Operator aus der Sprache APL, für die es spezielle Tastaturen mit einer eigenen `<-`-Taste gab. Hinzu kommt, dass das Gleichheitszeichen `=` ursprünglich bereits für Vergleiche reserviert war. Zwar erlaubt R seit 2001 auch Zuweisungen mit `=`, dennoch gilt `<-` aufgrund der besseren Lesbarkeit und klareren Semantik weiterhin als empfohlener Standard.
 :::
 
+
 Quelle: [R für sozioökonomische Forschung](https://graebnerc.github.io/RforSocioEcon/basics.html#es:objekte)
 
 
@@ -749,6 +750,174 @@ Die Funktion `length()` gibt die Anzahl der Elemente eines Vektors zurück.
 | `names(v)` | Namen der Vektorelemente |
 
 ---
+
+## Matrizen
+
+### Was ist eine Matrix?
+
+Eine Matrix ist ein zweidimensionaler Container, der aus Zeilen und Spalten besteht.
+
+Wichtige Eigenschaften:
+
+- eine Matrix hat die Dimension Zeilen × Spalten
+- alle Elemente besitzen denselben Datentyp
+- häufig verwendete Datentypen sind numeric, integer oder character
+
+Matrizen werden in R häufig für numerische Berechnungen, lineare Algebra und statistische Analysen verwendet.
+
+### Matrix erzeugen
+
+Eine Matrix wird mit der Funktion `matrix()` erzeugt.
+
+```{r echo=TRUE }
+x <- matrix(1:6, nrow = 2, ncol = 3)
+print(x)
+```
+Was passiert hier:
+
+- 1:6 erzeugt einen Vektor mit den Zahlen 1 bis 6
+- nrow = 2 legt die Anzahl der Zeilen fest
+- ncol = 3 legt die Anzahl der Spalten fest
+
+R füllt Matrizen standardmäßig spaltenweise.
+
+### Indizierung von Matrizen
+
+Der Zugriff auf einzelne Elemente oder Teilbereiche einer Matrix erfolgt in R über Indizierung. Dabei wird die allgemeine Syntax 
+
+```
+x[Zeile, Spalte]
+```
+verwendet. Der erste Index gibt die Zeile, der zweite Index die Spalte an. Auf diese Weise lassen sich einzelne Werte, ganze Zeilen, ganze Spalten oder auch mehrere Spalten gleichzeitig auswählen.
+
+Im folgenden Beispiel wird eine bereits definierte Matrix `x` verwendet.
+
+```{r echo = TRUE,tidy = TRUE}
+# Zugriff auf ein einzelnes Element
+print(x[1,3])
+# Zugriff auf eine ganze Zeile
+print(x[2,])
+# Zugriff auf eine ganze Spalte
+print(x[,2])
+# Zugriff auf mehrere Spalten
+print(x[,1:2])
+x <- matrix(1:6, nrow=2, ncol=3)
+print(x)
+# Ganze Zeile als Matrix
+print(x[2,,drop=FALSE])
+# Ganze Spalte als Matrix
+print(x[,2,drop=FALSE])
+```
+
+Der Ausdruck `x[2,,drop=FALSE]` gibt die zweite Zeile der Matrix zurück. Durch `drop = FALSE` bleibt das Ergebnis eine 1×3-Matrix.
+
+Analog liefert `x[,2,drop=FALSE]` die zweite Spalte der Matrix als 2×1-Matrix.
+
+Die Verwendung von `drop = FALSE` ist besonders hilfreich, wenn nachfolgende Berechnungen eine Matrixstruktur voraussetzen und nicht mit einem Vektor arbeiten sollen.
+
+### Lineare Indizierung
+
+Neben der zweidimensionalen Indizierung über Zeilen und Spalten unterstützt R auch eine lineare Indizierung von Matrizen. Dabei wird die Matrix intern als Vektor betrachtet. Die Elemente werden standardmäßig spaltenweise angeordnet.
+
+Das bedeutet, dass zuerst alle Elemente der ersten Spalte, danach die der zweiten Spalte und anschließend die der weiteren Spalten berücksichtigt werden.
+
+Im folgenden Beispiel wird zunächst eine Matrix erzeugt und anschließend verschiedene Formen der linearen Indizierung demonstriert.
+
+```{r echo = TRUE,tidy = TRUE}
+x <- matrix(1:6, nrow=2, ncol=3)
+print(x)
+print(x[x<3])
+print(x[1])
+```
+
+### Zeilen und Spaltennamen
+
+Zeilen und Spalten können benannt werden:
+- `colnames()`
+- `rownames()` 
+
+```{r echo = TRUE,tidy = TRUE}
+colnames(x) <- c("C1", "C2", "C3")
+rownames(x) <- c("R1", "R2")
+print(x)
+```
+
+### Matrizen – Wichtige Funktionen
+
+
+| *Funktion*                       | *Bedeutung*                         |
+|----------------------------------|---------------------------------------|
+| `matrix()`                       | Matrix erzeugen                       |
+| `dim()`, `ncol()`, `nrow()`      | Anzahl Zeilen und Spalten             |
+| `t()`                            | Transponieren einer Matrix            |
+| `x[i]`                           | Spaltenweise Vektorisierung           |
+| `%*%`                            | Matrixmultiplikation                  |
+| `solve()`                        | Matrixinverse/Lösung von lin.gl.Sys.  |
+| `diag()`                         | Hauptdiagonale der Matrix          |
+
+## Listen
+
+Listen sind ein flexibler Datentyp in R. Sie können Elemente unterschiedlicher Typen enthalten, z. B. Zeichenketten, Vektoren oder Matrizen.
+
+### Erstellen einer Liste
+
+Eine Liste wird mit der Funktion `list()` erzeugt:
+
+```{r echo = TRUE,tidy = TRUE}
+L <- list("hallo", c(1, 3, 7), matrix(1:6, 3))
+print(L)
+```
+
+Die Liste `L` enthält hier drei Elemente:
+
+- eine Zeichenkette (`"hallo"`)
+- einen numerischen Vektor (`c(1, 3, 7)`)
+- eine Matrix (`matrix(1:6, 3)`)
+
+Auf einzelne Elemente kann man über **Indizes** zugreifen.
+
+::: {.callout-tip}
+## Merke: Zugriff auf Listenelemente
+
+In R gibt es drei Möglichkeiten, auf Elemente einer Liste zuzugreifen:
+
+- `L[i]`  
+  Gibt eine Teilliste zurück.
+
+- `L[[i]]`  
+  Gibt das eigentliche Element der Liste zurück.
+
+- `L$name`  
+  Greift auf ein benanntes Element zu.
+:::
+
+**Beispiel**
+
+```r
+L <- list(x = 5, y = c(1, 7))
+
+L[1]     # Teilliste
+L[[1]]   # Element selbst (5)
+L$x      # Zugriff über den Namen
+```
+
+
+### Benannte Listen
+
+Listen können auch benannte Elemente besitzen. Dadurch lassen sich Elemente leichter und verständlicher ansprechen.
+
+```{r echo = TRUE,tidy = TRUE}
+L <- list(x=5, y=c(1,7), z=matrix(0,2,3))
+print(L$x)
+```
+
+Hier hat die Liste drei benannte Elemente:
+
+- `x` enthält die Zahl `5`
+- `y` enthält den Vektor `c(1, 7)`
+- `z` enthält eine `2 × 3`-Matrix mit Nullen
+
+Mit dem `$`-Operator kann direkt auf ein Element über seinen Namen zugegriffen werden (z. B. `L$x`).
   
 ## Übungen
 
