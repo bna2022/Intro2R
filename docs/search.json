@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R Programmierung",
     "section": "",
-    "text": "Dieses Skript begleitet die Vorlesung R Programmierung. Das Modul bietet eine praxisorientierte Einführung in die Programmierung mit R, einer zentralen Sprache für Datenanalyse und Visualisierung in der Bio- und Medizininformatik. Sie lernen den Umgang mit RStudio, arbeiten mit grundlegenden Datenstrukturen wie Vektoren und Data Frames, filtern und analysieren reale Datensätze und erstellen aussagekräftige Visualisierungen. Am Ende können Sie R-Code strukturiert entwickeln, testen und für andere nachvollziehbar bereitstellen.\nResources\nCredits",
+    "text": "Dieses Skript begleitet die Vorlesung R Programmierung. Das Modul bietet eine praxisorientierte Einführung in die Programmierung mit R, einer zentralen Sprache für Datenanalyse und Visualisierung in der Bio- und Medizininformatik. Sie lernen den Umgang mit RStudio, arbeiten mit grundlegenden Datenstrukturen wie Vektoren und Data Frames, filtern und analysieren reale Datensätze und erstellen aussagekräftige Visualisierungen. Am Ende können Sie R-Code strukturiert entwickeln, testen und für andere nachvollziehbar bereitstellen.\nSchedule\nResources\n\nOffizielle R-Dokumentation: https://cran.r-project.org\n\nRStudio Dokumentation: https://posit.co\n\nWeiterführende Materialien und Übungsdatensätze werden im Kurs bereitgestellt.\n\nCredits",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
