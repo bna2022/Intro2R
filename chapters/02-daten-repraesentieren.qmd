@@ -5,6 +5,17 @@ editor:
     wrap: 72
 ---
 
+::: {.callout-tip title="Lernziele"}
+Lernziele dieses Kapitels sind:
+
+- die grundlegenden Datenstrukturen in R (Vektoren, Matrizen, Arrays, Listen, Data Frames und Factors) zu verstehen und zu unterscheiden,
+- Vektoren mit `c()`, `seq()` und `rep()` zu erzeugen und typische Operationen anzuwenden,
+- verschiedene Formen der Indizierung sicher einzusetzen,
+- Matrizen, Listen und Data Frames zu erstellen und deren Elemente gezielt anzusprechen,
+- Datensätze einzulesen und ihre Struktur zu untersuchen,
+- Factors zu interpretieren und Levels gezielt festzulegen.
+:::
+
 Ein Überblick über die wichtigsten Strukturen zeigt Abbildung
 @fig-datastructure.
 
@@ -843,6 +854,18 @@ as.numeric(as.character(x))
 Dabei wird der Factor zuerst in Zeichenketten und anschließend in
 numerische Werte umgewandelt.
 :::
+
+## Verständnisfragen
+
+1. Was unterscheidet einen Vektor von einer Liste in R?
+2. Warum können Vektoren in R nur Elemente eines Datentyps enthalten?
+3. Worin besteht der strukturelle Unterschied zwischen einer Matrix und einem Data Frame?
+4. Wie funktioniert die Indizierung in R?
+5. Was bewirkt die Funktion `seq()` im Vergleich zu `rep()`?
+6. Wie greift man auf ein einzelnes Element einer Matrix zu?
+7. Was sind Factors und warum sind sie für kategoriale Variablen wichtig?
+8. Was passiert, wenn ein Data Frame Spalten unterschiedlichen Datentyps enthält?
+9. Welche Funktionen helfen dabei, die Struktur eines eingelesenen Datensatzes zu untersuchen?
 
 ## Übungen
 

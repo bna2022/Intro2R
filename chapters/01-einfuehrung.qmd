@@ -2,6 +2,19 @@
 title: "Erste Schritte mit R"
 ---
 
+::: {.callout-tip title="Lernziele"}
+Lernziele dieses Kapitels sind:
+
+- R und RStudio erfolgreich zu installieren und erste Tests der Installation durchzuführen
+- wesentliche Bereiche der RStudio-Oberfläche (Konsole, Editor, Environment/History, Plots/Help/Packages) zu identifizieren und zu nutzen
+- zu wissen, wie man R-Pakete installiert und in einer Sitzung lädt
+- gute Gewohnheiten für Workflow-Dokumentation und sauberen, lesbaren R-Code zu entwickeln
+- R als interaktiven Taschenrechner zu verwenden und arithmetische Ausdrücke korrekt einzugeben
+- die allgemeine Struktur eines Funktionsaufrufs (Funktionsname und Argumente) zu verstehen
+- Hilfe zu Funktionen mit `?` oder `help()` aufzurufen und zu interpretieren
+- einfache Berechnungen systematisch und reproduzierbar durchzuführen
+:::
+
 ## Mit R starten
 
 R ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.
@@ -50,7 +63,7 @@ Hierzu werden sogenannte **Skripte** verwendet.
 Skriptdateien für R-Programme besitzen üblicherweise die Dateiendung `.R`, zum Beispiel `HelloWorld.R`.
 
 ::: callout-note
-**Konsole vs. Skript**
+## Konsole vs. Skript
 
 -   Die **R-Konsole** eignet sich für kurze Tests und schnelle Rechnungen.\
 -   **Skripte** ermöglichen es, Code strukturiert zu speichern, zu dokumentieren und wiederzuverwenden.\
@@ -250,7 +263,7 @@ Ein typisches Beispiel ist der logische Negationsoperator `!`, der einen Wahrhei
 ------------------------------------------------------------------------
 
 ::: callout-tip
-**Merksätze**
+## Merksätze
 
 -   **Binäre Operatoren** verbinden zwei Operanden.
 -   **Unäre Operatoren** arbeiten mit genau einem Operanden.
@@ -282,8 +295,8 @@ Dabei gilt:
 ```
 
 ::: callout-note
-Dieses Prinzip gilt nicht nur für `+`, sondern für alle Operatoren in R, zum Beispiel\
-`-`, `*`, `/`, `==` und `<-`.
+## Nice to know
+Dieses Prinzip gilt nicht nur für `+`, sondern für alle Operatoren in R, zum Beispiel `-`, `*`, `/`, `==` und `<-`.
 :::
 
 #### Übersicht arithmetische und logische Operatoren
@@ -384,7 +397,7 @@ Hier wird auf drei Dezimalstellen gerundet, was den Wert `2.333` ergibt.
 Potenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.
 
 ::: callout-note
-**Wissenschaftliche Notation**\
+## Wissenschaftliche Notation
 Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.\
 Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).
 
@@ -523,7 +536,7 @@ Häufiger wird jedoch der Zuweisungsoperator `<-` verwendet:
 Nach einer Zuweisung ist ein Symbol (z. B. `x`) mit einem konkreten Wert im Arbeitsspeicher von R verknüpft. Dieses Objekt kann anschließend in weiteren Berechnungen verwendet werden.
 
 ::: {.callout-note}
-**Warum `<-` als Zuweisungsoperator?**
+## Warum `<-` als Zuweisungsoperator?
 
 Die Verwendung der Zeichenfolge `<-` als Zuweisungsoperator wirkt auf den ersten Blick ungewohnt, da in vielen Programmiersprachen stattdessen das Gleichheitszeichen `=` verwendet wird. Der Operator `<-` hat jedoch mehrere Vorteile. Er macht die Richtung der Zuweisung klar sichtbar: Ein Wert wird einem Namen zugewiesen, nicht umgekehrt.
 
@@ -595,7 +608,7 @@ Alle aktuell im Arbeitsspeicher vorhandenen Objekte werden in RStudio im Bereich
 ![Beispiel für eine Zuweisung](../figures/Variable.png){#fig-r-variable}
 
 ::: {.callout-tip}
-**Gute Variablennamen**
+## Gute Variablennamen
 
 - Verwenden Sie sprechende Namen, die den Inhalt beschreiben (z. B. alter, gewicht_kg).
 - Vermeiden Sie sehr kurze oder nichtssagende Namen wie x oder tmp, außer bei kurzen Beispielen.
@@ -730,7 +743,7 @@ hello <- "world"
 ```
 
 ::: {.callout-note}
-**Dynamische Typisierung**
+## Dynamische Typisierung
 
 R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.
 :::
@@ -803,7 +816,7 @@ Für logische Vektoren stellt R spezielle Funktionen bereit, um Aussagen über a
 -   `any()`: Es existiert ein Element, das wahr ist.
 
 ::: {.callout-warning}
-**Typische Fehler bei logischen Vergleichen in R**
+## Typische Fehler bei logischen Vergleichen in R
 
 **Verwendung von `=` statt `==`**  
 Der Operator `=` dient der Zuweisung, während `==` für den Vergleich auf Gleichheit verwendet wird.
@@ -829,7 +842,6 @@ R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, daru
 ## Verständnisfragen
 
 ::: callout-question
-**Verständnisfragen zu diesem Kapitel**
 
 1.  Wofür eignet sich die Arbeit in der R-Konsole, und wann ist es sinnvoller, ein Skript zu verwenden?
 2.  Welche Aufgabe hat der Zuweisungsoperator `<-` in R, und wie wird er verwendet?\

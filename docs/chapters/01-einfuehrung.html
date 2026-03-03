@@ -280,6 +280,29 @@ window.Quarto = {
 
 
 
+<div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lernziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lernziele dieses Kapitels sind:</p>
+<ul>
+<li>R und RStudio erfolgreich zu installieren und erste Tests der Installation durchzuführen</li>
+<li>wesentliche Bereiche der RStudio-Oberfläche (Konsole, Editor, Environment/History, Plots/Help/Packages) zu identifizieren und zu nutzen</li>
+<li>zu wissen, wie man R-Pakete installiert und in einer Sitzung lädt</li>
+<li>gute Gewohnheiten für Workflow-Dokumentation und sauberen, lesbaren R-Code zu entwickeln</li>
+<li>R als interaktiven Taschenrechner zu verwenden und arithmetische Ausdrücke korrekt einzugeben</li>
+<li>die allgemeine Struktur eines Funktionsaufrufs (Funktionsname und Argumente) zu verstehen</li>
+<li>Hilfe zu Funktionen mit <code>?</code> oder <code>help()</code> aufzurufen und zu interpretieren</li>
+<li>einfache Berechnungen systematisch und reproduzierbar durchzuführen</li>
+</ul>
+</div>
+</div>
 <section id="mit-r-starten" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="mit-r-starten"><span class="header-section-number">2.1</span> Mit R starten</h2>
 <p>R ist eine Programmiersprache, die speziell für statistische Berechnungen, Datenanalyse und grafische Darstellungen entwickelt wurde. Sie verbindet eine leistungsfähige Rechenumgebung mit umfangreichen Möglichkeiten zur Visualisierung von Daten. Besonders in den Bereichen Statistik, Data Science und Forschung hat sich R als Standardwerkzeug etabliert.</p>
@@ -331,11 +354,10 @@ Hierzu werden sogenannte <strong>Skripte</strong> verwendet.</p>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Konsole vs.&nbsp;Skript
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Konsole vs.&nbsp;Skript</strong></p>
 <ul>
 <li>Die <strong>R-Konsole</strong> eignet sich für kurze Tests und schnelle Rechnungen.<br>
 </li>
@@ -555,11 +577,10 @@ Der Logarithmus zur Basis 10 muss explizit mit <code>log10(x)</code> berechnet w
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>Merksätze
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Merksätze</strong></p>
 <ul>
 <li><strong>Binäre Operatoren</strong> verbinden zwei Operanden.</li>
 <li><strong>Unäre Operatoren</strong> arbeiten mit genau einem Operanden.</li>
@@ -593,12 +614,11 @@ Dabei gilt:</p>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Nice to know
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dieses Prinzip gilt nicht nur für <code>+</code>, sondern für alle Operatoren in R, zum Beispiel<br>
-<code>-</code>, <code>*</code>, <code>/</code>, <code>==</code> und <code>&lt;-</code>.</p>
+<p>Dieses Prinzip gilt nicht nur für <code>+</code>, sondern für alle Operatoren in R, zum Beispiel <code>-</code>, <code>*</code>, <code>/</code>, <code>==</code> und <code>&lt;-</code>.</p>
 </div>
 </div>
 </section>
@@ -764,12 +784,11 @@ Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite z
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Wissenschaftliche Notation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Wissenschaftliche Notation</strong><br>
-Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.<br>
+<p>Die wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.<br>
 Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).</p>
 <p>[ 100000 = 1 ^5 = 1+05 ]</p>
 <p>[ 20000 = 2 ^4 = 2+04 ]</p>
@@ -905,11 +924,10 @@ Gerade beim Lernen und bei der täglichen Arbeit ist dieses Hilfesystem eine zen
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Warum <code>&lt;-</code> als Zuweisungsoperator?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Warum <code>&lt;-</code> als Zuweisungsoperator?</strong></p>
 <p>Die Verwendung der Zeichenfolge <code>&lt;-</code> als Zuweisungsoperator wirkt auf den ersten Blick ungewohnt, da in vielen Programmiersprachen stattdessen das Gleichheitszeichen <code>=</code> verwendet wird. Der Operator <code>&lt;-</code> hat jedoch mehrere Vorteile. Er macht die Richtung der Zuweisung klar sichtbar: Ein Wert wird einem Namen zugewiesen, nicht umgekehrt.</p>
 <p>Historisch stammt <code>&lt;-</code> aus der Programmiersprache S, aus der R hervorgegangen ist. S wiederum übernahm diesen Operator aus der Sprache APL, für die es spezielle Tastaturen mit einer eigenen <code>&lt;-</code>-Taste gab. Hinzu kommt, dass das Gleichheitszeichen <code>=</code> ursprünglich bereits für Vergleiche reserviert war. Zwar erlaubt R seit 2001 auch Zuweisungen mit <code>=</code>, dennoch gilt <code>&lt;-</code> aufgrund der besseren Lesbarkeit und klareren Semantik weiterhin als empfohlener Standard.</p>
 </div>
@@ -992,11 +1010,10 @@ Figure&nbsp;2.4: Beispiel für eine Zuweisung
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>Gute Variablennamen
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Gute Variablennamen</strong></p>
 <ul>
 <li>Verwenden Sie sprechende Namen, die den Inhalt beschreiben (z. B. alter, gewicht_kg).</li>
 <li>Vermeiden Sie sehr kurze oder nichtssagende Namen wie x oder tmp, außer bei kurzen Beispielen.</li>
@@ -1250,11 +1267,10 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Dynamische Typisierung
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Dynamische Typisierung</strong></p>
 <p>R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.</p>
 </div>
 </div>
@@ -1336,11 +1352,10 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+<span class="screen-reader-only">Warning</span>Typische Fehler bei logischen Vergleichen in R
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Typische Fehler bei logischen Vergleichen in R</strong></p>
 <p><strong>Verwendung von <code>=</code> statt <code>==</code></strong><br>
 Der Operator <code>=</code> dient der Zuweisung, während <code>==</code> für den Vergleich auf Gleichheit verwendet wird.</p>
 <p><strong>Direkter Vergleich von Fließkommazahlen</strong><br>
@@ -1360,7 +1375,6 @@ Der Vergleich eines logischen Vektors mit <code>TRUE</code> oder <code>FALSE</co
 <section id="verständnisfragen" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="verständnisfragen"><span class="header-section-number">2.6</span> Verständnisfragen</h2>
 <div class="callout-question">
-<p><strong>Verständnisfragen zu diesem Kapitel</strong></p>
 <ol type="1">
 <li>Wofür eignet sich die Arbeit in der R-Konsole, und wann ist es sinnvoller, ein Skript zu verwenden?</li>
 <li>Welche Aufgabe hat der Zuweisungsoperator <code>&lt;-</code> in R, und wie wird er verwendet?<br>

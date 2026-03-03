@@ -272,7 +272,8 @@ window.Quarto = {
   <li><a href="#zugriff-auf-factor-elemente" id="toc-zugriff-auf-factor-elemente" class="nav-link" data-scroll-target="#zugriff-auf-factor-elemente"><span class="header-section-number">3.5.5</span> Zugriff auf Factor-Elemente</a></li>
   <li><a href="#wichtige-funktionen-für-factors" id="toc-wichtige-funktionen-für-factors" class="nav-link" data-scroll-target="#wichtige-funktionen-für-factors"><span class="header-section-number">3.5.6</span> Wichtige Funktionen für Factors</a></li>
   </ul></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.6</span> Übungen</a></li>
+  <li><a href="#verständnisfragen" id="toc-verständnisfragen" class="nav-link" data-scroll-target="#verständnisfragen"><span class="header-section-number">3.6</span> Verständnisfragen</a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.7</span> Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -283,6 +284,27 @@ window.Quarto = {
 
 
 
+<div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lernziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lernziele dieses Kapitels sind:</p>
+<ul>
+<li>die grundlegenden Datenstrukturen in R (Vektoren, Matrizen, Arrays, Listen, Data Frames und Factors) zu verstehen und zu unterscheiden,</li>
+<li>Vektoren mit <code>c()</code>, <code>seq()</code> und <code>rep()</code> zu erzeugen und typische Operationen anzuwenden,</li>
+<li>verschiedene Formen der Indizierung sicher einzusetzen,</li>
+<li>Matrizen, Listen und Data Frames zu erstellen und deren Elemente gezielt anzusprechen,</li>
+<li>Datensätze einzulesen und ihre Struktur zu untersuchen,</li>
+<li>Factors zu interpretieren und Levels gezielt festzulegen.</li>
+</ul>
+</div>
+</div>
 <p>Ein Überblick über die wichtigsten Strukturen zeigt Abbildung <a href="#fig-datastructure" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>.</p>
 <div id="fig-datastructure" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1284,8 +1306,22 @@ R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Wert
 </div>
 </section>
 </section>
-<section id="übungen" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.6</span> Übungen</h2>
+<section id="verständnisfragen" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="verständnisfragen"><span class="header-section-number">3.6</span> Verständnisfragen</h2>
+<ol type="1">
+<li>Was unterscheidet einen Vektor von einer Liste in R?</li>
+<li>Warum können Vektoren in R nur Elemente eines Datentyps enthalten?</li>
+<li>Worin besteht der strukturelle Unterschied zwischen einer Matrix und einem Data Frame?</li>
+<li>Wie funktioniert die Indizierung in R?</li>
+<li>Was bewirkt die Funktion <code>seq()</code> im Vergleich zu <code>rep()</code>?</li>
+<li>Wie greift man auf ein einzelnes Element einer Matrix zu?</li>
+<li>Was sind Factors und warum sind sie für kategoriale Variablen wichtig?</li>
+<li>Was passiert, wenn ein Data Frame Spalten unterschiedlichen Datentyps enthält?</li>
+<li>Welche Funktionen helfen dabei, die Struktur eines eingelesenen Datensatzes zu untersuchen?</li>
+</ol>
+</section>
+<section id="übungen" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.7</span> Übungen</h2>
 <p><strong>Übung 1</strong></p>
 <ol type="1">
 <li>Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt</li>
