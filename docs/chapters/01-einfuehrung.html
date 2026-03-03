@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/02-daten-repräsentieren.html" rel="next">
+<link href="../chapters/02-daten-repraesentieren.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -210,14 +210,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02-daten-repräsentieren.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></span></a>
+  <a href="../chapters/02-daten-repraesentieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/03-daten-transformieren.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Datentransformationen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten transformieren</span></span></a>
   </div>
 </li>
     </ul>
@@ -250,8 +250,26 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#hilfe-zu-einzelnen-kommandos" id="toc-hilfe-zu-einzelnen-kommandos" class="nav-link" data-scroll-target="#hilfe-zu-einzelnen-kommandos"><span class="header-section-number">2.3.1</span> Hilfe zu einzelnen Kommandos</a></li>
   </ul></li>
-  <li><a href="#verständnisfragen" id="toc-verständnisfragen" class="nav-link" data-scroll-target="#verständnisfragen"><span class="header-section-number">2.4</span> Verständnisfragen</a></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">2.5</span> Übungen</a></li>
+  <li><a href="#objekte-funktionen-und-zuweisungen" id="toc-objekte-funktionen-und-zuweisungen" class="nav-link" data-scroll-target="#objekte-funktionen-und-zuweisungen"><span class="header-section-number">2.4</span> Objekte, Funktionen und Zuweisungen</a>
+  <ul class="collapse">
+  <li><a href="#was-ist-ein-r-objekt" id="toc-was-ist-ein-r-objekt" class="nav-link" data-scroll-target="#was-ist-ein-r-objekt"><span class="header-section-number">2.4.1</span> Was ist ein R Objekt?</a></li>
+  <li><a href="#funktionen-in-r" id="toc-funktionen-in-r" class="nav-link" data-scroll-target="#funktionen-in-r"><span class="header-section-number">2.4.2</span> Funktionen in R</a></li>
+  <li><a href="#variablen-und-zuweisungen" id="toc-variablen-und-zuweisungen" class="nav-link" data-scroll-target="#variablen-und-zuweisungen"><span class="header-section-number">2.4.3</span> Variablen und Zuweisungen</a></li>
+  <li><a href="#zuweisungen" id="toc-zuweisungen" class="nav-link" data-scroll-target="#zuweisungen"><span class="header-section-number">2.4.4</span> Zuweisungen</a></li>
+  <li><a href="#benennung-von-variablen" id="toc-benennung-von-variablen" class="nav-link" data-scroll-target="#benennung-von-variablen"><span class="header-section-number">2.4.5</span> Benennung von Variablen</a></li>
+  </ul></li>
+  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen"><span class="header-section-number">2.5</span> Funktionen</a>
+  <ul class="collapse">
+  <li><a href="#funktionsaufrufe" id="toc-funktionsaufrufe" class="nav-link" data-scroll-target="#funktionsaufrufe"><span class="header-section-number">2.5.1</span> Funktionsaufrufe</a></li>
+  <li><a href="#wichtige-basis-funktionen" id="toc-wichtige-basis-funktionen" class="nav-link" data-scroll-target="#wichtige-basis-funktionen"><span class="header-section-number">2.5.2</span> Wichtige Basis-Funktionen</a></li>
+  <li><a href="#funktionen-in-der-beschreibenden-statistik" id="toc-funktionen-in-der-beschreibenden-statistik" class="nav-link" data-scroll-target="#funktionen-in-der-beschreibenden-statistik"><span class="header-section-number">2.5.3</span> Funktionen in der beschreibenden Statistik</a></li>
+  <li><a href="#eigene-funktionen-definieren" id="toc-eigene-funktionen-definieren" class="nav-link" data-scroll-target="#eigene-funktionen-definieren"><span class="header-section-number">2.5.4</span> Eigene Funktionen definieren</a></li>
+  <li><a href="#einfache-datentypen" id="toc-einfache-datentypen" class="nav-link" data-scroll-target="#einfache-datentypen"><span class="header-section-number">2.5.5</span> Einfache Datentypen</a></li>
+  <li><a href="#logische-werte" id="toc-logische-werte" class="nav-link" data-scroll-target="#logische-werte"><span class="header-section-number">2.5.6</span> Logische Werte</a></li>
+  <li><a href="#tests-und-umwandlungen" id="toc-tests-und-umwandlungen" class="nav-link" data-scroll-target="#tests-und-umwandlungen"><span class="header-section-number">2.5.7</span> Tests und Umwandlungen</a></li>
+  </ul></li>
+  <li><a href="#verständnisfragen" id="toc-verständnisfragen" class="nav-link" data-scroll-target="#verständnisfragen"><span class="header-section-number">2.6</span> Verständnisfragen</a></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">2.7</span> Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -836,8 +854,511 @@ Gerade beim Lernen und bei der täglichen Arbeit ist dieses Hilfesystem eine zen
 </div>
 </section>
 </section>
-<section id="verständnisfragen" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="verständnisfragen"><span class="header-section-number">2.4</span> Verständnisfragen</h2>
+<section id="objekte-funktionen-und-zuweisungen" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="objekte-funktionen-und-zuweisungen"><span class="header-section-number">2.4</span> Objekte, Funktionen und Zuweisungen</h2>
+<p>Wir haben sie im letzten Kapitel schon kennengelernt: Objekte, Funktionen und Zuweisungen. Jetzt wollen wir noch einmal etwas genauer auf diese Begriffe eingehen. Das Verständnis dieser Konzepte bildet die Grundlage für alle weiteren Schritte in R.</p>
+<section id="was-ist-ein-r-objekt" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="was-ist-ein-r-objekt"><span class="header-section-number">2.4.1</span> Was ist ein R Objekt?</h3>
+<p>Um Berechnungen in R zu verstehen, sind zwei Leitsätze hilfreich:</p>
+<blockquote class="blockquote">
+<p><em>Everything that exists is an object.</em><br>
+<em>Everything that happens is a function call.</em><br>
+— John Chambers</p>
+</blockquote>
+<p>Objekte sind ein fundamentales Konzept in R. Tatsächlich gilt: <strong>Alles ist ein Objekt</strong> – Zahlen, Zeichenketten, Vektoren, Funktionen und sogar ganze Datensätze.</p>
+<p>Jedes Objekt existiert im Arbeitsspeicher von R und kann dort weiterverwendet, verändert oder gelöscht werden.</p>
+</section>
+<section id="funktionen-in-r" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="funktionen-in-r"><span class="header-section-number">2.4.2</span> Funktionen in R</h3>
+<p>Funktionen sind vordefinierte oder selbst geschriebene <strong>Algorithmen</strong>, die einen oder mehrere <strong>Eingabewerte (Input)</strong> verarbeiten und daraus einen <strong>Ausgabewert (Output)</strong> erzeugen.</p>
+<p>Ein einfaches Beispiel ist die Addition zweier Zahlen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>R gibt das Ergebnis <code>5</code> zwar direkt aus, es wird jedoch nicht gespeichert. Nach der Berechnung ist das Resultat nicht mehr verfügbar.</p>
+</section>
+<section id="variablen-und-zuweisungen" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="variablen-und-zuweisungen"><span class="header-section-number">2.4.3</span> Variablen und Zuweisungen</h3>
+<p>Um Zwischenergebnisse oder ganze Datensätze weiterverwenden zu können, müssen sie in Variablen gespeichert werden. Der Vorgang, bei dem einem Objekt ein Name zugewiesen wird, heißt Zuweisung (engl. <em>assignment</em>).</p>
+<p>Eine Möglichkeit ist die Verwendung der Funktion <code>assign()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="st">"ergebnis"</span>, <span class="dv">2</span><span class="sc">+</span><span class="dv">3</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  ergebnis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>Häufiger wird jedoch der Zuweisungsoperator <code>&lt;-</code> verwendet:</p>
+<p><strong>Beispiele:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nach einer Zuweisung ist ein Symbol (z. B. <code>x</code>) mit einem konkreten Wert im Arbeitsspeicher von R verknüpft. Dieses Objekt kann anschließend in weiteren Berechnungen verwendet werden.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Warum <code>&lt;-</code> als Zuweisungsoperator?</strong></p>
+<p>Die Verwendung der Zeichenfolge <code>&lt;-</code> als Zuweisungsoperator wirkt auf den ersten Blick ungewohnt, da in vielen Programmiersprachen stattdessen das Gleichheitszeichen <code>=</code> verwendet wird. Der Operator <code>&lt;-</code> hat jedoch mehrere Vorteile. Er macht die Richtung der Zuweisung klar sichtbar: Ein Wert wird einem Namen zugewiesen, nicht umgekehrt.</p>
+<p>Historisch stammt <code>&lt;-</code> aus der Programmiersprache S, aus der R hervorgegangen ist. S wiederum übernahm diesen Operator aus der Sprache APL, für die es spezielle Tastaturen mit einer eigenen <code>&lt;-</code>-Taste gab. Hinzu kommt, dass das Gleichheitszeichen <code>=</code> ursprünglich bereits für Vergleiche reserviert war. Zwar erlaubt R seit 2001 auch Zuweisungen mit <code>=</code>, dennoch gilt <code>&lt;-</code> aufgrund der besseren Lesbarkeit und klareren Semantik weiterhin als empfohlener Standard.</p>
+</div>
+</div>
+<p>Quelle: <a href="https://graebnerc.github.io/RforSocioEcon/basics.html#es:objekte">R für sozioökonomische Forschung</a></p>
+</section>
+<section id="zuweisungen" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="zuweisungen"><span class="header-section-number">2.4.4</span> Zuweisungen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Ein Objekt wird erstellt, nämlich <code>c(1,2,3)</code></li>
+<li>Das Objekt wird einem Namen zugewiesen, <span class="math inline">\(x\)</span></li>
+</ul>
+<div id="fig-r-konsole" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-konsole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/ObjektValue.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-konsole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Beispiel für eine Zuweisung
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="benennung-von-variablen" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="benennung-von-variablen"><span class="header-section-number">2.4.5</span> Benennung von Variablen</h3>
+<p>Beim Arbeiten mit R ist eine korrekte und sinnvolle Benennung von Variablen besonders wichtig.<br>
+Variablennamen dienen dazu, Objekte im Arbeitsspeicher eindeutig zu identifizieren und später wiederzuverwenden.</p>
+<section id="groß--und-kleinschreibung" class="level4" data-number="2.4.5.1">
+<h4 data-number="2.4.5.1" class="anchored" data-anchor-id="groß--und-kleinschreibung"><span class="header-section-number">2.4.5.1</span> Groß- und Kleinschreibung</h4>
+<p>R unterscheidet strikt zwischen Groß- und Kleinschreibung. Das bedeutet, dass unterschiedliche Schreibweisen auch unterschiedliche Variablen bezeichnen:</p>
+<ul>
+<li><code>x1</code> und <code>X1</code> sind zwei verschiedene Variablen</li>
+<li>Gleiches gilt für Funktionsnamen</li>
+</ul>
+</section>
+<section id="erlaubte-zeichen" class="level4" data-number="2.4.5.2">
+<h4 data-number="2.4.5.2" class="anchored" data-anchor-id="erlaubte-zeichen"><span class="header-section-number">2.4.5.2</span> Erlaubte Zeichen</h4>
+<p>Variablennamen dürfen ausschließlich bestehen aus:</p>
+<ul>
+<li>Buchstaben (<code>a</code>–<code>z</code>, <code>A</code>–<code>Z</code>)</li>
+<li>Zahlen (<code>0</code>–<code>9</code>)</li>
+<li>den Sonderzeichen <code>.</code> (Punkt) und <code>_</code> (Unterstrich)</li>
+</ul>
+<p>Dabei gelten folgende Regeln:</p>
+<ul>
+<li>Variablennamen <strong>dürfen nicht mit einer Zahl beginnen</strong></li>
+<li>Variablennamen <strong>dürfen nicht mit einem Punkt <code>.</code> beginnen</strong></li>
+</ul>
+<p>Beispiele für gültige Variablennamen sind:</p>
+<ul>
+<li><code>x1</code></li>
+<li><code>X1</code></li>
+<li><code>min.dist</code></li>
+<li><code>Best.gene</code></li>
+</ul>
+</section>
+<section id="ungültige-namen-und-fehlermeldungen" class="level4" data-number="2.4.5.3">
+<h4 data-number="2.4.5.3" class="anchored" data-anchor-id="ungültige-namen-und-fehlermeldungen"><span class="header-section-number">2.4.5.3</span> Ungültige Namen und Fehlermeldungen</h4>
+<p>Bestimmte Bezeichnungen sind in R <strong>reserviert</strong> und dürfen nicht als Variablennamen verwendet werden.<br>
+Dazu gehören unter anderem logische Konstanten wie <code>TRUE</code> und <code>FALSE</code>.</p>
+<p>Wird dennoch versucht, einer solchen Bezeichnung einen Wert zuzuweisen, gibt R eine Fehlermeldung aus: <code>TRUE &lt;- 5   # Signalwort, welches nicht verwendet werden darf     #&gt; Error in TRUE &lt;- 5: invalid (do_set) left-hand side to assignment</code></p>
+<p>Diese Fehlermeldung weist darauf hin, dass die linke Seite der Zuweisung ungültig ist.</p>
+<p>Alle aktuell im Arbeitsspeicher vorhandenen Objekte werden in RStudio im Bereich Environment angezeigt. Zusätzlich kann die Funktion <code>ls()</code> verwendet werden, um alle aktuellen Namenszuweisungen in der Konsole auszugeben:</p>
+<div id="fig-r-variable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/Variable.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Beispiel für eine Zuweisung
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Gute Variablennamen</strong></p>
+<ul>
+<li>Verwenden Sie sprechende Namen, die den Inhalt beschreiben (z. B. alter, gewicht_kg).</li>
+<li>Vermeiden Sie sehr kurze oder nichtssagende Namen wie x oder tmp, außer bei kurzen Beispielen.</li>
+<li>Bleiben Sie bei einer einheitlichen Schreibweise (z. B. Unterstriche oder Punkte).</li>
+<li>Nutzen Sie keine reservierten Wörter oder Funktionsnamen als Variablennamen.</li>
+<li>Gut gewählte Namen verbessern die Lesbarkeit und Wartbarkeit von Code erheblich.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="funktionen" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="funktionen"><span class="header-section-number">2.5</span> Funktionen</h2>
+<p>Funktionen sind ein zentrales Konzept in R. Sie können als <strong>Blackboxen</strong> verstanden werden: Eine Funktion erhält einen oder mehrere Eingabewerte, verarbeitet diese intern und liefert anschließend ein Ergebnis zurück.</p>
+<p>Symbolisch lässt sich eine Funktion als <span class="math inline">\(f(x, y, z)\)</span> darstellen. Dabei lassen sich drei zentrale Aspekte unterscheiden:</p>
+<ul>
+<li><p><strong>Eingang (Input):</strong><br>
+Die Eingabewerte einer Funktion werden als <strong>Parameter</strong> oder <strong>Argumente</strong> bezeichnet. Einige dieser Parameter können mit <strong>Standardwerten</strong> vorbelegt sein.</p></li>
+<li><p><strong>Ausgang (Output):</strong><br>
+Das Ergebnis einer Funktion ist immer ein <strong>R-Objekt</strong>, zum Beispiel eine Zahl, ein Vektor oder ein komplexerer Datentyp.</p></li>
+<li><p><strong>Seiteneffekte:</strong><br>
+Zusätzlich zum eigentlichen Rückgabewert kann eine Funktion weitere Effekte haben, etwa:</p>
+<ul>
+<li>Textausgaben in der Konsole<br>
+</li>
+<li>das Erzeugen von Dateien<br>
+</li>
+<li>das Öffnen von Grafik- oder Hilfefenstern</li>
+</ul></li>
+</ul>
+<div id="fig-r-function" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/Funktion.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Beispiel für eine Funktion
+</figcaption>
+</figure>
+</div>
+<section id="funktionsaufrufe" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="funktionsaufrufe"><span class="header-section-number">2.5.1</span> Funktionsaufrufe</h3>
+<p>Funktionen können unbenannte oder benannte Parameter akzeptieren:</p>
+<ul>
+<li>Benannte Parameter besitzen Standard-Werte</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<ul>
+<li>Benannte Parameter müssen mit “=” abgetrennt werden</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.5</code></pre>
+</div>
+</div>
+</section>
+<section id="wichtige-basis-funktionen" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="wichtige-basis-funktionen"><span class="header-section-number">2.5.2</span> Wichtige Basis-Funktionen</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funktionen</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>log()</code>, <code>exp()</code></td>
+<td>Natürlicher Logarithmus, Exponentialfunktion</td>
+</tr>
+<tr class="even">
+<td><code>sin()</code>, <code>cos()</code>, <code>tan()</code></td>
+<td>Trigonometrische Funktionen</td>
+</tr>
+<tr class="odd">
+<td><code>sqrt()</code>, <code>abs()</code></td>
+<td>Wurzel, Absolutwert</td>
+</tr>
+<tr class="even">
+<td><code>sum()</code>, <code>cumsum()</code></td>
+<td>Summe, kumulative Summe</td>
+</tr>
+<tr class="odd">
+<td><code>prod()</code>, <code>diff()</code></td>
+<td>Produkt, Differenzen</td>
+</tr>
+<tr class="even">
+<td><code>mean()</code>, <code>var()</code></td>
+<td>Mittelwert, Varianz</td>
+</tr>
+<tr class="odd">
+<td><code>max()</code>, <code>min()</code></td>
+<td>Maximalwert, Minimalwert</td>
+</tr>
+<tr class="even">
+<td><code>which.min()</code>, <code>which.max</code></td>
+<td>Index des Maximal-/Minimalwertes</td>
+</tr>
+<tr class="odd">
+<td><code>which()</code></td>
+<td>Indizes, deren Elemente TRUE sind</td>
+</tr>
+<tr class="even">
+<td><code>sort()</code>,<code>order()</code></td>
+<td>Sortiere Vektor, Ordnung des Vektors</td>
+</tr>
+<tr class="odd">
+<td><code>rank()</code></td>
+<td>Rangzuweisung</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="funktionen-in-der-beschreibenden-statistik" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="funktionen-in-der-beschreibenden-statistik"><span class="header-section-number">2.5.3</span> Funktionen in der beschreibenden Statistik</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funktionen</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mean()</code></td>
+<td>Mittelwert</td>
+</tr>
+<tr class="even">
+<td><code>median()</code></td>
+<td>Median</td>
+</tr>
+<tr class="odd">
+<td><code>var()</code></td>
+<td>Varianz</td>
+</tr>
+<tr class="even">
+<td><code>sd()</code></td>
+<td>Standard-Abweichung</td>
+</tr>
+<tr class="odd">
+<td><code>min()</code></td>
+<td>Minimum</td>
+</tr>
+<tr class="even">
+<td><code>max()</code></td>
+<td>Maximum</td>
+</tr>
+<tr class="odd">
+<td><code>range()</code></td>
+<td>Wertebereich</td>
+</tr>
+<tr class="even">
+<td><code>IQR()</code></td>
+<td>Interquartilbereich</td>
+</tr>
+<tr class="odd">
+<td><code>quantile()</code></td>
+<td>Quantile</td>
+</tr>
+<tr class="even">
+<td><code>table()</code></td>
+<td>Häufigkeitstabelle</td>
+</tr>
+<tr class="odd">
+<td><code>summary()</code></td>
+<td>Min, max, mean, median und das erste und dritte Quartil</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eigene-funktionen-definieren" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="eigene-funktionen-definieren"><span class="header-section-number">2.5.4</span> Eigene Funktionen definieren</h3>
+<ul>
+<li>Reserviertes Schlüsselwort: <code>function</code></li>
+<li>Beispiel: Bestimmung der Länge der Hypothenuse über Satz des Pythagoras</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition der Funktion</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(kathete_1, kathete_2) {</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    hypo_quadrat <span class="ot">&lt;-</span> kathete_1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> kathete_2<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>    hypothenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_quadrat)  <span class="co"># sqrt() zieht die Quadratwurzel</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(hypothenuse)</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufruf der Funktion</span></span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.472136</code></pre>
+</div>
+</div>
+</section>
+<section id="einfache-datentypen" class="level3" data-number="2.5.5">
+<h3 data-number="2.5.5" class="anchored" data-anchor-id="einfache-datentypen"><span class="header-section-number">2.5.5</span> Einfache Datentypen</h3>
+<p>R stellt verschiedene Datentypen zur Verfügung, um unterschiedliche Arten von Informationen darzustellen. Grundsätzlich unterscheidet man zwischen einfachen und zusammengesetzten Datentypen.</p>
+<p>Zu den einfachen Datentypen gehören:</p>
+<ul>
+<li><code>logical</code> – logische Werte<br>
+</li>
+<li><code>integer</code> – ganze Zahlen<br>
+</li>
+<li><code>double</code> – Fließkommazahlen<br>
+</li>
+<li><code>character</code> – Zeichenketten<br>
+</li>
+<li><code>factor</code> – kategoriale Daten</li>
+</ul>
+<p>Daneben existieren zusammengesetzte Datentypen, die mehrere Werte oder Strukturen enthalten können, zum Beispiel:</p>
+<ul>
+<li><code>vector</code>, <code>list</code></li>
+<li><code>matrix</code>, <code>array</code></li>
+<li><code>data.frame</code></li>
+<li><code>function</code></li>
+</ul>
+<p><strong>Beispiele für einfache Datentypen</strong></p>
+<p>Die wichtigsten einfachen Datentypen lassen sich wie folgt illustrieren:</p>
+<ul>
+<li><strong>Logische Werte:</strong> <code>TRUE</code>, <code>FALSE</code><br>
+</li>
+<li><strong>Ganzzahlen (Integer):</strong> <code>42</code>, <code>-15</code><br>
+</li>
+<li><strong>Fließkommazahlen (Double):</strong> <code>0.3</code>, <code>1.25e-12</code><br>
+</li>
+<li><strong>Zeichenketten (Character):</strong> <code>"this is my string"</code></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>iamhappy <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>mynumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>hello <span class="ot">&lt;-</span> <span class="st">"world"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Dynamische Typisierung</strong></p>
+<p>R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.</p>
+</div>
+</div>
+<section id="fließkommazahlen" class="level4" data-number="2.5.5.1">
+<h4 data-number="2.5.5.1" class="anchored" data-anchor-id="fließkommazahlen"><span class="header-section-number">2.5.5.1</span> Fließkommazahlen</h4>
+<p>Fließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>Auf den ersten Blick scheint das Ergebnis exakt zu sein. Ein direkter Vergleich mit <code>==</code> liefert jedoch ein überraschendes Resultat:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Zum Nachlesen: <a href="https://r-intro.tadaa-data.de/datentypen" class="uri">https://r-intro.tadaa-data.de/datentypen</a></p>
+<p>Fließkommazahlen sollten nicht direkt mit <code>==</code> verglichen werden. Stattdessen empfiehlt sich ein Vergleich mit einer kleinen Toleranz.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fl">1.1</span> <span class="sc">-</span> <span class="fl">0.2</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  eps <span class="ot">&lt;-</span> <span class="fl">0.000000001</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">abs</span>(x <span class="sc">-</span> y) <span class="sc">&lt;</span> eps)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Hier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.</p>
+</section>
+<section id="besondere-konstanten-in-r" class="level4" data-number="2.5.5.2">
+<h4 data-number="2.5.5.2" class="anchored" data-anchor-id="besondere-konstanten-in-r"><span class="header-section-number">2.5.5.2</span> Besondere Konstanten in R</h4>
+<p>R kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:</p>
+<ul>
+<li><p><code>NA</code>: not available (Fehlender Wert)</p></li>
+<li><p><code>Inf</code>, <code>-Inf</code>: Unendlich (double)</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">1000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Inf</code></pre>
+</div>
+</div>
+<ul>
+<li><code>NaN</code>: <em>not a number</em></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="logische-werte" class="level3" data-number="2.5.6">
+<h3 data-number="2.5.6" class="anchored" data-anchor-id="logische-werte"><span class="header-section-number">2.5.6</span> Logische Werte</h3>
+<p>Logische Ausdrücke werden in R verwendet, um Bedingungen zu formulieren und Entscheidungen zu treffen. Die grundlegenden logischen Operatoren sind:</p>
+<p><code>|</code> (oder), <code>&amp;</code> (und), <code>!</code> (nicht).</p>
+<p>Das folgende Beispiel zeigt einfache logische Verknüpfungen mit logischen Variablen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>  itsRaining <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  SprinklerOn <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>  I.get.wet <span class="ot">&lt;-</span> itsRaining <span class="sc">|</span> SprinklerOn</span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>  dry <span class="ot">&lt;-</span> (<span class="sc">!</span>itsRaining) <span class="sc">&amp;</span> (<span class="sc">!</span>SprinklerOn)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Für logische Vektoren stellt R spezielle Funktionen bereit, um Aussagen über alle oder einzelne Elemente zu treffen: - <code>all()</code>: Alle Elemente sind wahr. - <code>any()</code>: Es existiert ein Element, das wahr ist.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Typische Fehler bei logischen Vergleichen in R</strong></p>
+<p><strong>Verwendung von <code>=</code> statt <code>==</code></strong><br>
+Der Operator <code>=</code> dient der Zuweisung, während <code>==</code> für den Vergleich auf Gleichheit verwendet wird.</p>
+<p><strong>Direkter Vergleich von Fließkommazahlen</strong><br>
+Aufgrund von Rundungsfehlern sollten numerische Werte nicht direkt mit <code>==</code> verglichen werden. Verwenden Sie stattdessen einen Vergleich mit Toleranz, z. B. <code>abs(x - y) &lt; eps</code>.</p>
+<p><strong>Unbeachtete fehlende Werte (<code>NA</code>)</strong><br>
+Logische Ausdrücke mit <code>NA</code> liefern oft ebenfalls <code>NA</code>. Vor logischen Vergleichen sollten fehlende Werte geprüft oder behandelt werden.</p>
+<p><strong>Verwendung von <code>==</code> statt <code>all()</code> oder <code>any()</code> bei Vektoren</strong><br>
+Der Vergleich eines logischen Vektors mit <code>TRUE</code> oder <code>FALSE</code> ist meist nicht sinnvoll. Nutzen Sie <code>all()</code> oder <code>any()</code>, um Aussagen über mehrere Werte zu treffen.</p>
+</div>
+</div>
+</section>
+<section id="tests-und-umwandlungen" class="level3" data-number="2.5.7">
+<h3 data-number="2.5.7" class="anchored" data-anchor-id="tests-und-umwandlungen"><span class="header-section-number">2.5.7</span> Tests und Umwandlungen</h3>
+<p>R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, darunter: - <code>is.na()</code> – prüft, ob ein Wert fehlt (NA) - <code>is.numeric()</code> - prüft, ob ein Objekt numerisch ist - <code>as.integer()</code> - wandelt einen Wert in einen Integer um</p>
+</section>
+</section>
+<section id="verständnisfragen" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="verständnisfragen"><span class="header-section-number">2.6</span> Verständnisfragen</h2>
 <div class="callout-question">
 <p><strong>Verständnisfragen zu diesem Kapitel</strong></p>
 <ol type="1">
@@ -861,8 +1382,8 @@ Gerade beim Lernen und bei der täglichen Arbeit ist dieses Hilfesystem eine zen
 </ol>
 </div>
 </section>
-<section id="übungen" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="übungen"><span class="header-section-number">2.5</span> Übungen</h2>
+<section id="übungen" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="übungen"><span class="header-section-number">2.7</span> Übungen</h2>
 <p><strong>Übung 1</strong></p>
 <p>Berechnen Sie:</p>
 <ol type="1">
@@ -1312,8 +1833,8 @@ Er wird nach folgender Formel berechnet:</p>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/02-daten-repräsentieren.html" class="pagination-link" aria-label="Grundlagen">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/02-daten-repraesentieren.html" class="pagination-link" aria-label="Daten repräsentieren">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

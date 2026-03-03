@@ -470,6 +470,362 @@ Beide Varianten sind äquivalent und liefern dieselbe Hilfeseite. Mit `help.sear
 help.search("mean")
 ```
 
+## Objekte, Funktionen und Zuweisungen
+
+Wir haben sie im letzten Kapitel schon kennengelernt: Objekte, Funktionen und Zuweisungen. Jetzt wollen wir noch einmal etwas genauer auf diese Begriffe eingehen. Das Verständnis dieser Konzepte bildet die Grundlage für alle weiteren Schritte in R.
+
+### Was ist ein R Objekt?
+
+Um Berechnungen in R zu verstehen, sind zwei Leitsätze hilfreich:
+
+> *Everything that exists is an object.*  
+> *Everything that happens is a function call.*  
+> — John Chambers
+  
+Objekte sind ein fundamentales Konzept in R. Tatsächlich gilt: **Alles ist ein Objekt** – Zahlen, Zeichenketten, Vektoren, Funktionen und sogar ganze Datensätze.
+
+Jedes Objekt existiert im Arbeitsspeicher von R und kann dort weiterverwendet, verändert oder gelöscht werden.
+
+### Funktionen in R
+
+Funktionen sind vordefinierte oder selbst geschriebene **Algorithmen**, die einen oder mehrere **Eingabewerte (Input)** verarbeiten und daraus einen **Ausgabewert (Output)** erzeugen.
+
+Ein einfaches Beispiel ist die Addition zweier Zahlen:
+
+```{r echo=TRUE}
+2 + 3
+```
+
+R gibt das Ergebnis `5` zwar direkt aus, es wird jedoch nicht gespeichert.
+Nach der Berechnung ist das Resultat nicht mehr verfügbar.
+
+
+### Variablen und Zuweisungen
+
+Um Zwischenergebnisse oder ganze Datensätze weiterverwenden zu können, müssen sie in Variablen gespeichert werden. Der Vorgang, bei dem einem Objekt ein Name zugewiesen wird, heißt Zuweisung (engl. *assignment*).
+
+Eine Möglichkeit ist die Verwendung der Funktion `assign()`:
+
+```{r echo = TRUE}
+  assign("ergebnis", 2+3)
+  ergebnis
+```
+Häufiger wird jedoch der Zuweisungsoperator `<-` verwendet:
+
+**Beispiele:**
+
+```{r echo = TRUE}
+  x <- 2
+  y <- 3
+  z <- x + y
+```
+
+Nach einer Zuweisung ist ein Symbol (z. B. `x`) mit einem konkreten Wert im Arbeitsspeicher von R verknüpft. Dieses Objekt kann anschließend in weiteren Berechnungen verwendet werden.
+
+::: {.callout-note}
+**Warum `<-` als Zuweisungsoperator?**
+
+Die Verwendung der Zeichenfolge `<-` als Zuweisungsoperator wirkt auf den ersten Blick ungewohnt, da in vielen Programmiersprachen stattdessen das Gleichheitszeichen `=` verwendet wird. Der Operator `<-` hat jedoch mehrere Vorteile. Er macht die Richtung der Zuweisung klar sichtbar: Ein Wert wird einem Namen zugewiesen, nicht umgekehrt.
+
+Historisch stammt `<-` aus der Programmiersprache S, aus der R hervorgegangen ist. S wiederum übernahm diesen Operator aus der Sprache APL, für die es spezielle Tastaturen mit einer eigenen `<-`-Taste gab. Hinzu kommt, dass das Gleichheitszeichen `=` ursprünglich bereits für Vergleiche reserviert war. Zwar erlaubt R seit 2001 auch Zuweisungen mit `=`, dennoch gilt `<-` aufgrund der besseren Lesbarkeit und klareren Semantik weiterhin als empfohlener Standard.
+:::
+
+
+Quelle: [R für sozioökonomische Forschung](https://graebnerc.github.io/RforSocioEcon/basics.html#es:objekte)
+
+
+### Zuweisungen
+
+```{r echo = TRUE}
+x <- c(1,2,3)
+```
+
+-   Ein Objekt wird erstellt, nämlich `c(1,2,3)`
+-   Das Objekt wird einem Namen zugewiesen, $x$
+
+![Beispiel für eine Zuweisung](../figures/ObjektValue.png){#fig-r-konsole}
+
+### Benennung von Variablen
+
+Beim Arbeiten mit R ist eine korrekte und sinnvolle Benennung von Variablen besonders wichtig.  
+Variablennamen dienen dazu, Objekte im Arbeitsspeicher eindeutig zu identifizieren und später wiederzuverwenden.
+
+#### Groß- und Kleinschreibung
+
+R unterscheidet strikt zwischen Groß- und Kleinschreibung. Das bedeutet, dass unterschiedliche Schreibweisen auch unterschiedliche Variablen bezeichnen:
+
+- `x1` und `X1` sind zwei verschiedene Variablen
+- Gleiches gilt für Funktionsnamen
+
+#### Erlaubte Zeichen
+
+Variablennamen dürfen ausschließlich bestehen aus:
+
+- Buchstaben (`a`–`z`, `A`–`Z`)
+- Zahlen (`0`–`9`)
+- den Sonderzeichen `.` (Punkt) und `_` (Unterstrich)
+
+Dabei gelten folgende Regeln:
+
+- Variablennamen **dürfen nicht mit einer Zahl beginnen**
+- Variablennamen **dürfen nicht mit einem Punkt `.` beginnen**
+
+Beispiele für gültige Variablennamen sind:
+
+- `x1`
+- `X1`
+- `min.dist`
+- `Best.gene`
+
+#### Ungültige Namen und Fehlermeldungen
+
+Bestimmte Bezeichnungen sind in R **reserviert** und dürfen nicht als Variablennamen verwendet werden.  
+Dazu gehören unter anderem logische Konstanten wie `TRUE` und `FALSE`.
+
+Wird dennoch versucht, einer solchen Bezeichnung einen Wert zuzuweisen, gibt R eine Fehlermeldung aus:
+    ```         
+    TRUE <- 5   # Signalwort, welches nicht verwendet werden darf
+    #> Error in TRUE <- 5: invalid (do_set) left-hand side to assignment
+    ```
+       
+Diese Fehlermeldung weist darauf hin, dass die linke Seite der Zuweisung ungültig ist.
+
+Alle aktuell im Arbeitsspeicher vorhandenen Objekte werden in RStudio im Bereich Environment angezeigt. Zusätzlich kann die Funktion `ls()` verwendet werden, um alle aktuellen Namenszuweisungen in der Konsole auszugeben:
+
+![Beispiel für eine Zuweisung](../figures/Variable.png){#fig-r-variable}
+
+::: {.callout-tip}
+**Gute Variablennamen**
+
+- Verwenden Sie sprechende Namen, die den Inhalt beschreiben (z. B. alter, gewicht_kg).
+- Vermeiden Sie sehr kurze oder nichtssagende Namen wie x oder tmp, außer bei kurzen Beispielen.
+- Bleiben Sie bei einer einheitlichen Schreibweise (z. B. Unterstriche oder Punkte).
+- Nutzen Sie keine reservierten Wörter oder Funktionsnamen als Variablennamen.
+- Gut gewählte Namen verbessern die Lesbarkeit und Wartbarkeit von Code erheblich.
+:::
+
+## Funktionen
+
+Funktionen sind ein zentrales Konzept in R. Sie können als **Blackboxen** verstanden werden: Eine Funktion erhält einen oder mehrere Eingabewerte, verarbeitet diese intern und liefert anschließend ein Ergebnis zurück.
+
+Symbolisch lässt sich eine Funktion als $f(x, y, z)$ darstellen. Dabei lassen sich drei zentrale Aspekte unterscheiden:
+
+- **Eingang (Input):**  
+  Die Eingabewerte einer Funktion werden als **Parameter** oder **Argumente** bezeichnet. Einige dieser Parameter können mit **Standardwerten** vorbelegt sein.
+
+- **Ausgang (Output):**  
+Das Ergebnis einer Funktion ist immer ein **R-Objekt**, zum Beispiel eine Zahl, ein Vektor oder ein komplexerer Datentyp.
+
+- **Seiteneffekte:**  
+Zusätzlich zum eigentlichen Rückgabewert kann eine Funktion weitere Effekte haben, etwa:
+  - Textausgaben in der Konsole  
+  - das Erzeugen von Dateien  
+  - das Öffnen von Grafik- oder Hilfefenstern  
+
+![Beispiel für eine Funktion](../figures/Funktion.png){#fig-r-function}
+
+### Funktionsaufrufe
+
+Funktionen können unbenannte oder benannte Parameter akzeptieren:
+
+-   Benannte Parameter besitzen Standard-Werte
+
+```{r echo = TRUE,tidy = TRUE}
+x <- c(1,NA,6)
+mean(x)
+```
+
+-   Benannte Parameter müssen mit "=" abgetrennt werden
+
+```{r echo = TRUE,tidy = TRUE}
+x <- c(1,NA,6)
+mean(x,na.rm=TRUE)
+```
+
+### Wichtige Basis-Funktionen
+
+| Funktionen                 | Bedeutung                                    |
+|----------------------------|--------------------------------------------|
+| `log()`, `exp()`           | Natürlicher Logarithmus, Exponentialfunktion |
+| `sin()`, `cos()`, `tan()`  | Trigonometrische Funktionen                  |
+| `sqrt()`, `abs()`          | Wurzel, Absolutwert                          |
+| `sum()`, `cumsum()`        | Summe, kumulative Summe                      |
+| `prod()`, `diff()`         | Produkt, Differenzen                         |
+| `mean()`, `var()`          | Mittelwert, Varianz                          |
+| `max()`, `min()`           | Maximalwert, Minimalwert                     |
+| `which.min()`, `which.max` | Index des Maximal-/Minimalwertes             |
+| `which()`                  | Indizes, deren Elemente TRUE sind            |
+| `sort()`,`order()`         | Sortiere Vektor, Ordnung des Vektors         |
+| `rank()`                   | Rangzuweisung                                |
+
+### Funktionen in der beschreibenden Statistik
+
+| Funktionen   | Bedeutung                                               |
+|--------------|---------------------------------------------------------|
+| `mean()`     | Mittelwert                                              |
+| `median()`   | Median                                                  |
+| `var()`      | Varianz                                                 |
+| `sd()`       | Standard-Abweichung                                     |
+| `min()`      | Minimum                                                 |
+| `max()`      | Maximum                                                 |
+| `range()`    | Wertebereich                                            |
+| `IQR()`      | Interquartilbereich                                     |
+| `quantile()` | Quantile                                                |
+| `table()`    | Häufigkeitstabelle                                      |
+| `summary()`  | Min, max, mean, median und das erste und dritte Quartil |
+
+
+### Eigene Funktionen definieren 
+
+- Reserviertes Schlüsselwort: `function`
+- Beispiel: Bestimmung der Länge der Hypothenuse über Satz des Pythagoras
+
+```{r echo = TRUE,tidy = TRUE}
+# Definition der Funktion
+pythagoras <- function(kathete_1, kathete_2){
+  hypo_quadrat <- kathete_1**2 + kathete_2**2
+  hypothenuse <- sqrt(hypo_quadrat) # sqrt() zieht die Quadratwurzel
+  return(hypothenuse)
+}
+
+# Aufruf der Funktion
+pythagoras(2, 4)
+```
+
+
+
+### Einfache Datentypen
+
+R stellt verschiedene Datentypen zur Verfügung, um unterschiedliche Arten von Informationen darzustellen. Grundsätzlich unterscheidet man zwischen einfachen und zusammengesetzten Datentypen.
+
+Zu den einfachen Datentypen gehören:
+
+- `logical` – logische Werte  
+- `integer` – ganze Zahlen  
+- `double` – Fließkommazahlen  
+- `character` – Zeichenketten  
+- `factor` – kategoriale Daten  
+
+Daneben existieren zusammengesetzte Datentypen, die mehrere Werte oder Strukturen enthalten können, zum Beispiel:
+
+- `vector`, `list`
+- `matrix`, `array`
+- `data.frame`
+- `function`
+
+**Beispiele für einfache Datentypen**
+
+Die wichtigsten einfachen Datentypen lassen sich wie folgt illustrieren:
+
+- **Logische Werte:** `TRUE`, `FALSE`  
+- **Ganzzahlen (Integer):** `42`, `-15`  
+- **Fließkommazahlen (Double):** `0.3`, `1.25e-12`  
+- **Zeichenketten (Character):** `"this is my string"`
+
+```{r echo=TRUE}
+iamhappy <- TRUE
+mynumber <- 4
+n2 <- 0.3
+hello <- "world"
+```
+
+::: {.callout-note}
+**Dynamische Typisierung**
+
+R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.
+:::
+
+#### Fließkommazahlen
+
+Fließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.
+
+```{r echo = TRUE}
+sqrt(2)
+```
+
+```{r echo = TRUE}
+sqrt(2)^2
+```
+
+Auf den ersten Blick scheint das Ergebnis exakt zu sein.
+Ein direkter Vergleich mit `==` liefert jedoch ein überraschendes Resultat:
+```{r echo = TRUE}
+sqrt(2) == 2
+```
+
+Zum Nachlesen: <https://r-intro.tadaa-data.de/datentypen>
+
+Fließkommazahlen sollten nicht direkt mit `==` verglichen werden. Stattdessen empfiehlt sich ein Vergleich mit einer kleinen Toleranz.
+
+```{r echo = TRUE}
+  x <- 1.1 - 0.2
+  y <- 0.9
+  eps <- 0.000000001
+  print(abs(x - y) < eps)
+```
+
+Hier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.
+
+#### Besondere Konstanten in R
+
+R kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:
+
+- `NA`: not available (Fehlender Wert)
+
+- `Inf`, `-Inf`: Unendlich (double)
+```{r echo = TRUE}
+10^1000
+```
+  
+- `NaN`: *not a number*
+```{r echo = TRUE}
+0/0
+```
+
+### Logische Werte
+
+Logische Ausdrücke werden in R verwendet, um Bedingungen zu formulieren und Entscheidungen zu treffen. Die grundlegenden logischen Operatoren sind:
+
+ `|` (oder), `&` (und), `!` (nicht).
+
+Das folgende Beispiel zeigt einfache logische Verknüpfungen mit logischen Variablen:
+
+```{r echo = TRUE}
+  itsRaining <- TRUE
+  SprinklerOn <- FALSE
+
+  I.get.wet <- itsRaining | SprinklerOn
+  dry <- (!itsRaining) & (!SprinklerOn)
+```
+
+Für logische Vektoren stellt R spezielle Funktionen bereit, um Aussagen über alle oder einzelne Elemente zu treffen:
+-   `all()`: Alle Elemente sind wahr.
+-   `any()`: Es existiert ein Element, das wahr ist.
+
+::: {.callout-warning}
+**Typische Fehler bei logischen Vergleichen in R**
+
+**Verwendung von `=` statt `==`**  
+Der Operator `=` dient der Zuweisung, während `==` für den Vergleich auf Gleichheit verwendet wird.
+
+**Direkter Vergleich von Fließkommazahlen**  
+Aufgrund von Rundungsfehlern sollten numerische Werte nicht direkt mit `==` verglichen werden. Verwenden Sie stattdessen einen Vergleich mit Toleranz, z. B. `abs(x - y) < eps`.
+
+**Unbeachtete fehlende Werte (`NA`)**  
+Logische Ausdrücke mit `NA` liefern oft ebenfalls `NA`. Vor logischen Vergleichen sollten fehlende Werte geprüft oder behandelt werden.
+
+**Verwendung von `==` statt `all()` oder `any()` bei Vektoren**  
+Der Vergleich eines logischen Vektors mit `TRUE` oder `FALSE` ist meist nicht sinnvoll. Nutzen Sie `all()` oder `any()`, um Aussagen über mehrere Werte zu treffen.
+:::
+
+### Tests und Umwandlungen
+
+R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, darunter:
+- `is.na()` – prüft, ob ein Wert fehlt (NA)
+- `is.numeric()` - prüft, ob ein Objekt numerisch ist
+- `as.integer()` - wandelt einen Wert in einen Integer um
+
+
 ## Verständnisfragen
 
 ::: callout-question

@@ -22,4 +22,6 @@ format:
     theme: cosmo
     number-sections: true
     title-block-banner: figures/r-banner.png
+    fig-cap-location: bottom
+    reference-location: document
     css: styles.css
