@@ -1,8 +1,5 @@
 ---
 title: "Daten repräsentieren"
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ::: {.callout-tip title="Lernziele"}

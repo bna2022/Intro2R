@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R Programmierung",
     "section": "",
-    "text": "Dieses Skript begleitet die Vorlesung R Programmierung.",
+    "text": "Dieses Skript begleitet die Vorlesung R Programmierung. Das Modul bietet eine praxisorientierte Einführung in die Programmierung mit R, einer zentralen Sprache für Datenanalyse und Visualisierung in der Bio- und Medizininformatik. Sie lernen den Umgang mit RStudio, arbeiten mit grundlegenden Datenstrukturen wie Vektoren und Data Frames, filtern und analysieren reale Datensätze und erstellen aussagekräftige Visualisierungen. Am Ende können Sie R-Code strukturiert entwickeln, testen und für andere nachvollziehbar bereitstellen.\nResources\nCredits",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
@@ -337,6 +337,16 @@
     "text": "2.7 Verständnisfragen zu diesem Kapitel\n\nWofür eignet sich die Arbeit in der R-Konsole, und wann ist es sinnvoller, ein Skript zu verwenden?\nWelche Aufgabe hat der Zuweisungsoperator &lt;- in R, und wie wird er verwendet?\n\nWas ist in R der Unterschied zwischen einem Operator und einem Operanden? Nennen Sie ein Beispiel.\n\nWas ist ein Vektor in R, und wie kann ein numerischer Vektor erzeugt werden?\n\nWorin unterscheiden sich die Funktionen floor(), ceiling() und round() voneinander?\n\nWie beeinflusst das Argument digits das Ergebnis der Funktion round()?\nWie werden Potenzen in R berechnet, und welcher Operator wird dafür verwendet?\n\nWelche logarithmischen Funktionen stellt R zur Verfügung, und für welche Basen werden sie eingesetzt?\n\nWas versteht man unter wissenschaftlicher Notation, und warum ist sie im Umgang mit großen oder kleinen Zahlen hilfreich?\n\nWie kann das integrierte Hilfesystem von R genutzt werden, wenn der Name einer Funktion bekannt ist oder unbekannt ist?",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#credits",
+    "href": "index.html#credits",
+    "title": "R Programmierung",
+    "section": "0.2 Credits",
+    "text": "0.2 Credits",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
   }
 ]

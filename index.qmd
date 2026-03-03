@@ -2,4 +2,8 @@
 title: "Willkommen"
 ---
 
-Dieses Skript begleitet die Vorlesung **R Programmierung**.
+Dieses Skript begleitet die Vorlesung **R Programmierung**. Das Modul bietet eine praxisorientierte Einführung in die Programmierung mit R, einer zentralen Sprache für Datenanalyse und Visualisierung in der Bio- und Medizininformatik. Sie lernen den Umgang mit RStudio, arbeiten mit grundlegenden Datenstrukturen wie Vektoren und Data Frames, filtern und analysieren reale Datensätze und erstellen aussagekräftige Visualisierungen. Am Ende können Sie R-Code strukturiert entwickeln, testen und für andere nachvollziehbar bereitstellen.
+
+**Resources**
+
+**Credits**
