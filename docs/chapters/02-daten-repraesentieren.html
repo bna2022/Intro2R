@@ -1323,12 +1323,6 @@ R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Wert
 <section id="übungen" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.7</span> Übungen</h2>
 <p><strong>Übung 1</strong></p>
-<ol type="1">
-<li>Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt</li>
-<li>Spezifizieren Sie als Default Werte für x und y jeweils 0</li>
-<li>Wenn die Summe &gt; 20 ist, soll die Funktion ``Hey, voll viel” zurückgeben. Sonst “Eher wenig”.</li>
-</ol>
-<p><strong>Übung 2</strong></p>
 <p>In einer klinischen Studie werden bei mehreren Patientinnen und Patienten die <strong>C-reaktiven Proteinwerte (CRP)</strong> im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.</p>
@@ -1343,7 +1337,7 @@ R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Wert
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.</p>
-<p><strong>Übung 3</strong></p>
+<p><strong>Übung 2</strong></p>
 <p>In einem Datensatz sind die <strong>Herzfrequenzen (in Schlägen pro Minute)</strong> von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
 <span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1357,7 +1351,8 @@ R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Wert
 </li>
 <li>Berechnen Sie das <strong>Skalarprodukt</strong> der beiden Vektoren.</li>
 </ol>
-<p><strong>Übung 4</strong> In dieser Übung arbeiten Sie mit einem kleinen <strong>Labor-Datensatz</strong> (Blutwerte) und üben das Einlesen, Indizieren und einfache Auswertungen mit Data Frames.</p>
+<p><strong>Übung 3</strong></p>
+<p>In dieser Übung arbeiten Sie mit einem kleinen <strong>Labor-Datensatz</strong> (Blutwerte) und üben das Einlesen, Indizieren und einfache Auswertungen mit Data Frames.</p>
 <p><em>Teil A: Beispieldatei erstellen (CSV)</em></p>
 <p>Erstellen Sie zuerst eine Datei <code>labwerte.csv</code> im aktuellen Arbeitsverzeichnis:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>

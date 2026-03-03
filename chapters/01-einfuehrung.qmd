@@ -889,3 +889,9 @@ $$
 3. Berechnen Sie den BMI mithilfe der oben angegebenen Formel.  
 4. Geben Sie den berechneten BMI in der R-Konsole aus.  
 5. Runden Sie den BMI auf **eine Dezimalstelle**.
+
+**Übung 4**
+
+1.  Schreiben Sie eine Funktion mit dem Namen `myFunc`, die die Summe
+    der Parameter x und y zurückgibt
+2.  Spezifizieren Sie als Default Werte für x und y jeweils 0

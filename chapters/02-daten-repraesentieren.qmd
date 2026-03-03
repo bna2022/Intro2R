@@ -871,14 +871,6 @@ numerische Werte umgewandelt.
 
 **Übung 1**
 
-1.  Schreiben Sie eine Funktion mit dem Namen `myFunc`, die die Summe
-    der Parameter x und y zurückgibt
-2.  Spezifizieren Sie als Default Werte für x und y jeweils 0
-3.  Wenn die Summe \> 20 ist, soll die Funktion \`\`Hey, voll viel"
-    zurückgeben. Sonst "Eher wenig".
-
-**Übung 2**
-
 In einer klinischen Studie werden bei mehreren Patientinnen und
 Patienten die **C-reaktiven Proteinwerte (CRP)** im Blut gemessen. CRP
 ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die
@@ -907,7 +899,7 @@ crp_neu <- c(4.3, 9.8)
 Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu
 einem gemeinsamen Vektor.
 
-**Übung 3**
+**Übung 2**
 
 In einem Datensatz sind die **Herzfrequenzen (in Schlägen pro Minute)**
 von drei Patientinnen und Patienten vor und nach einer leichten
@@ -926,7 +918,9 @@ Bearbeiten Sie folgende Aufgaben:
 3.  Bestimmen Sie den **Mittelwert des Belastungspulses**.\
 4.  Berechnen Sie das **Skalarprodukt** der beiden Vektoren.
 
-**Übung 4** In dieser Übung arbeiten Sie mit einem kleinen
+**Übung 3** 
+
+In dieser Übung arbeiten Sie mit einem kleinen
 **Labor-Datensatz** (Blutwerte) und üben das Einlesen, Indizieren und
 einfache Auswertungen mit Data Frames.
 
