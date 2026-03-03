@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Grundlagen – R Programmierung</title>
+<title>3&nbsp; Daten repräsentieren – R Programmierung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-daten-repraesentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-daten-repraesentieren.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,7 +168,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></h1>
+      <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></h1>
                       </div>
   </div>
     
@@ -211,13 +211,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/02-daten-repraesentieren.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Grundlagen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/03-daten-transformieren.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Datentransformationen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten transformieren</span></span></a>
   </div>
 </li>
     </ul>
@@ -274,7 +274,23 @@ window.Quarto = {
   <li><a href="#erstellen-einer-liste" id="toc-erstellen-einer-liste" class="nav-link" data-scroll-target="#erstellen-einer-liste"><span class="header-section-number">3.5.1</span> Erstellen einer Liste</a></li>
   <li><a href="#benannte-listen" id="toc-benannte-listen" class="nav-link" data-scroll-target="#benannte-listen"><span class="header-section-number">3.5.2</span> Benannte Listen</a></li>
   </ul></li>
-  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.6</span> Übungen</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">3.6</span> Data Frames</a>
+  <ul class="collapse">
+  <li><a href="#data-frames-erstellen" id="toc-data-frames-erstellen" class="nav-link" data-scroll-target="#data-frames-erstellen"><span class="header-section-number">3.6.1</span> Data Frames erstellen</a></li>
+  <li><a href="#datensatz-laden-und-einlesen" id="toc-datensatz-laden-und-einlesen" class="nav-link" data-scroll-target="#datensatz-laden-und-einlesen"><span class="header-section-number">3.6.2</span> Datensatz laden und einlesen</a></li>
+  <li><a href="#indizierung-von-data-frames" id="toc-indizierung-von-data-frames" class="nav-link" data-scroll-target="#indizierung-von-data-frames"><span class="header-section-number">3.6.3</span> Indizierung von Data Frames</a></li>
+  <li><a href="#wichtige-funktionen-für-data-frames" id="toc-wichtige-funktionen-für-data-frames" class="nav-link" data-scroll-target="#wichtige-funktionen-für-data-frames"><span class="header-section-number">3.6.4</span> Wichtige Funktionen für Data Frames</a></li>
+  </ul></li>
+  <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors"><span class="header-section-number">3.7</span> Factors</a>
+  <ul class="collapse">
+  <li><a href="#eigenschaften-von-factors" id="toc-eigenschaften-von-factors" class="nav-link" data-scroll-target="#eigenschaften-von-factors"><span class="header-section-number">3.7.1</span> Eigenschaften von Factors</a></li>
+  <li><a href="#factors-erstellen" id="toc-factors-erstellen" class="nav-link" data-scroll-target="#factors-erstellen"><span class="header-section-number">3.7.2</span> Factors erstellen</a></li>
+  <li><a href="#levels-festlegen" id="toc-levels-festlegen" class="nav-link" data-scroll-target="#levels-festlegen"><span class="header-section-number">3.7.3</span> Levels festlegen</a></li>
+  <li><a href="#geordnete-factors" id="toc-geordnete-factors" class="nav-link" data-scroll-target="#geordnete-factors"><span class="header-section-number">3.7.4</span> Geordnete Factors</a></li>
+  <li><a href="#zugriff-auf-factor-elemente" id="toc-zugriff-auf-factor-elemente" class="nav-link" data-scroll-target="#zugriff-auf-factor-elemente"><span class="header-section-number">3.7.5</span> Zugriff auf Factor-Elemente</a></li>
+  <li><a href="#wichtige-funktionen-für-factors" id="toc-wichtige-funktionen-für-factors" class="nav-link" data-scroll-target="#wichtige-funktionen-für-factors"><span class="header-section-number">3.7.6</span> Wichtige Funktionen für Factors</a></li>
+  </ul></li>
+  <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">3.8</span> Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -1488,8 +1504,306 @@ Greift auf ein benanntes Element zu.</p></li>
 <p>Mit dem <code>$</code>-Operator kann direkt auf ein Element über seinen Namen zugegriffen werden (z. B. <code>L$x</code>).</p>
 </section>
 </section>
-<section id="übungen" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.6</span> Übungen</h2>
+<section id="data-frames" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.6</span> Data Frames</h2>
+<p>Ein Data Frame ist eine der wichtigsten Datenstrukturen in R und wird häufig zur Darstellung von Datensätzen verwendet.</p>
+<ul>
+<li>Ein Data Frame ist eine Sammlung von Vektoren gleicher Länge.</li>
+<li>Er ist zweidimensional organisiert (Zeilen und Spalten).</li>
+<li>Jede Spalte ist ein Vektor und kann einen eigenen Datentyp besitzen.</li>
+<li>Innerhalb einer Spalte haben jedoch alle Werte denselben Datentyp.</li>
+<li>Data Frames eignen sich besonders gut zur Repräsentation tabellarischer Daten.</li>
+</ul>
+<section id="data-frames-erstellen" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="data-frames-erstellen"><span class="header-section-number">3.6.1</span> Data Frames erstellen</h3>
+<p>Data Frames können explizit mit der Funktion <code>data.frame()</code> erzeugt werden</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">foo =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">bar =</span> <span class="fu">c</span>(T, T, F, F))</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  foo   bar
+1   1  TRUE
+2   2  TRUE
+3   3 FALSE
+4   4 FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section id="datensatz-laden-und-einlesen" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="datensatz-laden-und-einlesen"><span class="header-section-number">3.6.2</span> Datensatz laden und einlesen</h3>
+<p>Viele Datensätze sind bereits in R enthalten. Der Datensatz iris kann beispielsweise mit <code>data()</code> geladen werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)  <span class="co"># Lade iris Datensatz</span></span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> iris[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">51</span>, <span class="dv">101</span>), ]  <span class="co"># Reduziere den Datensatz auf 3 Samples</span></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(U)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+51           7.0         3.2          4.7         1.4 versicolor
+101          6.3         3.3          6.0         2.5  virginica</code></pre>
+</div>
+</div>
+<p>Hier wird der Datensatz auf drei Zeilen reduziert.</p>
+</section>
+<section id="indizierung-von-data-frames" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="indizierung-von-data-frames"><span class="header-section-number">3.6.3</span> Indizierung von Data Frames</h3>
+<p>Der Zugriff auf Elemente eines Data Frames erfolgt über Zeilen- und Spaltenindizes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeilen</span></span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(U[<span class="dv">1</span>, ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spalten</span></span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(U[, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.1 7.0 6.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spaltenname</span></span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(U<span class="sc">$</span>Sepal.Length)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.1 7.0 6.3</code></pre>
+</div>
+</div>
+<p>Allgemeine Form der Indizierung: <code>DataFrame[Zeile,Spalte]</code></p>
+</section>
+<section id="wichtige-funktionen-für-data-frames" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="wichtige-funktionen-für-data-frames"><span class="header-section-number">3.6.4</span> Wichtige Funktionen für Data Frames</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>Funktion</em></th>
+<th><em>Bedeutung</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data.frame()</code></td>
+<td>Data Frame erzeugen</td>
+</tr>
+<tr class="even">
+<td><code>read.table()</code></td>
+<td>Data Frame aus Datei einlesen</td>
+</tr>
+<tr class="odd">
+<td><code>write.table()</code></td>
+<td>Data Frame in Datei schreiben</td>
+</tr>
+<tr class="even">
+<td><code>as.data.frame()</code></td>
+<td>Objekt in Data Frame umwandeln</td>
+</tr>
+<tr class="odd">
+<td><code>names()</code></td>
+<td>Namen der Spalten anzeigen oder setzen</td>
+</tr>
+<tr class="even">
+<td><code>rownames()</code></td>
+<td>Zeilennamen anzeigen oder setzen</td>
+</tr>
+<tr class="odd">
+<td><code>colnames()</code></td>
+<td>Spaltennamen anzeigen oder setzen</td>
+</tr>
+<tr class="even">
+<td><code>iris[1,2]</code></td>
+<td>Zugriff über Zeilen- und Spaltenindex</td>
+</tr>
+<tr class="odd">
+<td><code>iris[1,"Species"]</code></td>
+<td>Zugriff über Spaltennamen</td>
+</tr>
+<tr class="even">
+<td><code>iris$Species[1]</code></td>
+<td>Zugriff mit <code>$</code>-Operator</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="factors" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="factors"><span class="header-section-number">3.7</span> Factors</h2>
+<section id="eigenschaften-von-factors" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="eigenschaften-von-factors"><span class="header-section-number">3.7.1</span> Eigenschaften von Factors</h3>
+<p>Ein Factor ist ein spezieller Datentyp in R zur Darstellung von kategorialen Variablen.</p>
+<ul>
+<li>Factors speichern diskrete Kategorien (z. B. Geschlecht, Farbe oder Klassen).</li>
+<li>Die möglichen Kategorien heißen Levels.</li>
+<li>Intern speichert R Factors als Ganzzahlen mit zugehörigen Levels.</li>
+<li>Factors werden häufig in statistischen Modellen und bei Gruppierungen verwendet.</li>
+</ul>
+<hr>
+</section>
+<section id="factors-erstellen" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="factors-erstellen"><span class="header-section-number">3.7.2</span> Factors erstellen</h3>
+<p>Factors werden mit der Funktion <code>factor()</code> erzeugt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>farben <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"rot"</span>, <span class="st">"blau"</span>, <span class="st">"rot"</span>, <span class="st">"gruen"</span>, <span class="st">"blau"</span>))</span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>farben</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] rot   blau  rot   gruen blau 
+Levels: blau gruen rot</code></pre>
+</div>
+</div>
+<p>Die möglichen Kategorien (Levels) können mit <code>levels()</code> angezeigt werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(farben)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "blau"  "gruen" "rot"  </code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="levels-festlegen" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="levels-festlegen"><span class="header-section-number">3.7.3</span> Levels festlegen</h3>
+<p>Die möglichen Kategorien können auch explizit definiert werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>farben <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"rot"</span>, <span class="st">"blau"</span>, <span class="st">"rot"</span>, <span class="st">"gruen"</span>),</span>
+<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"rot"</span>, <span class="st">"blau"</span>, <span class="st">"gruen"</span>)</span>
+<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb133-5"><a href="#cb133-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-6"><a href="#cb133-6" aria-hidden="true" tabindex="-1"></a>farben</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] rot   blau  rot   gruen
+Levels: rot blau gruen</code></pre>
+</div>
+</div>
+<p>Die Reihenfolge der Levels kann wichtig sein, z. B. für Plots oder statistische Modelle.</p>
+<hr>
+</section>
+<section id="geordnete-factors" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="geordnete-factors"><span class="header-section-number">3.7.4</span> Geordnete Factors</h3>
+<p>Manche Kategorien besitzen eine natürliche Reihenfolge, z. B. Bewertungen oder Größen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>bewertung <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"gut"</span>, <span class="st">"mittel"</span>, <span class="st">"gut"</span>, <span class="st">"schlecht"</span>),</span>
+<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"schlecht"</span>, <span class="st">"mittel"</span>, <span class="st">"gut"</span>),</span>
+<span id="cb135-4"><a href="#cb135-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb135-6"><a href="#cb135-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-7"><a href="#cb135-7" aria-hidden="true" tabindex="-1"></a>bewertung</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] gut      mittel   gut      schlecht
+Levels: schlecht &lt; mittel &lt; gut</code></pre>
+</div>
+</div>
+<p>Solche Factors nennt man geordnete Factors (<em>ordered factors</em>).</p>
+<hr>
+</section>
+<section id="zugriff-auf-factor-elemente" class="level3" data-number="3.7.5">
+<h3 data-number="3.7.5" class="anchored" data-anchor-id="zugriff-auf-factor-elemente"><span class="header-section-number">3.7.5</span> Zugriff auf Factor-Elemente</h3>
+<p>Auf einzelne Elemente kann wie bei Vektoren zugegriffen werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>farben[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] rot
+Levels: rot blau gruen</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>farben[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] rot  blau rot 
+Levels: rot blau gruen</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="wichtige-funktionen-für-factors" class="level3" data-number="3.7.6">
+<h3 data-number="3.7.6" class="anchored" data-anchor-id="wichtige-funktionen-für-factors"><span class="header-section-number">3.7.6</span> Wichtige Funktionen für Factors</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Funktion</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>factor()</code></td>
+<td>Factor erzeugen</td>
+</tr>
+<tr class="even">
+<td><code>levels()</code></td>
+<td>Levels anzeigen oder setzen</td>
+</tr>
+<tr class="odd">
+<td><code>nlevels()</code></td>
+<td>Anzahl der Levels</td>
+</tr>
+<tr class="even">
+<td><code>as.factor()</code></td>
+<td>Objekt in Factor umwandeln</td>
+</tr>
+<tr class="odd">
+<td><code>as.character()</code></td>
+<td>Factor in Zeichenkette umwandeln</td>
+</tr>
+<tr class="even">
+<td><code>as.numeric()</code></td>
+<td>Factor intern als Zahl darstellen</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Merke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Factors werden in R häufig für <strong>kategoriale Daten</strong> verwendet, z. B.:</p>
+<ul>
+<li>Geschlecht</li>
+<li>Farben</li>
+<li>Klassen oder Gruppen</li>
+<li>Bewertungen</li>
+</ul>
+<p>Die möglichen Kategorien eines Factors heißen <strong>Levels</strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Typischer Anfängerfehler: <code>as.numeric()</code> bei Factors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein häufiger Fehler ist die direkte Umwandlung eines Factors in numerische Werte.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"20"</span>, <span class="st">"30"</span>))</span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das Ergebnis ist nicht <code>10 20 30</code>, sondern:</p>
+<pre><code>1 2 3</code></pre>
+<p>Grund:<br>
+R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Werte.</p>
+<p>Richtige Umwandlung</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dabei wird der Factor zuerst in Zeichenketten und anschließend in numerische Werte umgewandelt.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="übungen" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="übungen"><span class="header-section-number">3.8</span> Übungen</h2>
 <p><strong>Übung 1</strong></p>
 <ol type="1">
 <li>Schreiben Sie eine Funktion mit dem Namen <code>myFunc</code>, die die Summe der Parameter x und y zurückgibt</li>
@@ -1498,7 +1812,7 @@ Greift auf ein benanntes Element zu.</p></li>
 </ol>
 <p><strong>Übung 2</strong></p>
 <p>In einer klinischen Studie werden bei mehreren Patientinnen und Patienten die <strong>C-reaktiven Proteinwerte (CRP)</strong> im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">8.4</span>, <span class="fl">0.6</span>, <span class="fl">12.3</span>, <span class="fl">3.2</span>, <span class="fl">15.7</span>, <span class="fl">1.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.</p>
 <p>Bearbeiten Sie folgende Aufgaben:</p>
 <ol type="1">
@@ -1509,12 +1823,12 @@ Greift auf ein benanntes Element zu.</p></li>
 </li>
 <li>In einer zweiten Messung werden zusätzliche CRP-Werte erhoben:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>crp_neu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">9.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Kombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.</p>
 <p><strong>Übung 3</strong></p>
 <p>In einem Datensatz sind die <strong>Herzfrequenzen (in Schlägen pro Minute)</strong> von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>ruhe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>belastung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">102</span>, <span class="dv">110</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Bearbeiten Sie folgende Aufgaben:</p>
 <ol type="1">
 <li>Berechnen Sie die <strong>Differenz zwischen Belastungs- und Ruhepuls</strong> für jede Person.<br>
@@ -1525,7 +1839,59 @@ Greift auf ein benanntes Element zu.</p></li>
 </li>
 <li>Berechnen Sie das <strong>Skalarprodukt</strong> der beiden Vektoren.</li>
 </ol>
+<p><strong>Übung 4</strong> In dieser Übung arbeiten Sie mit einem kleinen <strong>Labor-Datensatz</strong> (Blutwerte) und üben das Einlesen, Indizieren und einfache Auswertungen mit Data Frames.</p>
+<p><em>Teil A: Beispieldatei erstellen (CSV)</em></p>
+<p>Erstellen Sie zuerst eine Datei <code>labwerte.csv</code> im aktuellen Arbeitsverzeichnis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">patient_id =</span> <span class="fu">c</span>(<span class="st">"P001"</span>,<span class="st">"P002"</span>,<span class="st">"P003"</span>,<span class="st">"P004"</span>,<span class="st">"P005"</span>,<span class="st">"P006"</span>),</span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gruppe     =</span> <span class="fu">c</span>(<span class="st">"Kontrolle"</span>,<span class="st">"Kontrolle"</span>,<span class="st">"Therapie"</span>,<span class="st">"Therapie"</span>,<span class="st">"Therapie"</span>,<span class="st">"Kontrolle"</span>),</span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alter      =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">39</span>, <span class="dv">61</span>, <span class="dv">48</span>, <span class="dv">55</span>),</span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex        =</span> <span class="fu">c</span>(<span class="st">"w"</span>,<span class="st">"m"</span>,<span class="st">"w"</span>,<span class="st">"m"</span>,<span class="st">"w"</span>,<span class="st">"m"</span>),</span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">crp_mg_l   =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.8</span>, <span class="fl">12.5</span>, <span class="fl">6.1</span>, <span class="fl">8.9</span>, <span class="fl">2.0</span>),</span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">wbc_g_l    =</span> <span class="fu">c</span>(<span class="fl">5.4</span>, <span class="fl">7.1</span>, <span class="fl">11.2</span>, <span class="fl">8.6</span>, <span class="fl">9.9</span>, <span class="fl">6.3</span>),</span>
+<span id="cb147-8"><a href="#cb147-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">hb_g_dl    =</span> <span class="fu">c</span>(<span class="fl">13.4</span>, <span class="fl">14.8</span>, <span class="fl">12.1</span>, <span class="fl">13.9</span>, <span class="fl">11.7</span>, <span class="fl">15.2</span>),</span>
+<span id="cb147-9"><a href="#cb147-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb147-10"><a href="#cb147-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb147-11"><a href="#cb147-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-12"><a href="#cb147-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(lab, <span class="st">"labwerte.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
+<p><em>Teil B: Datei einlesen und inspizieren</em></p>
+<ol type="1">
+<li>Lesen Sie die Datei <code>labwerte.csv</code> ein und speicheren Sie diese als Data Frame <code>df</code>.</li>
+<li>Geben Sie anschließend Folgendes aus:
+<ul>
+<li>die ersten 3 Zeilen,</li>
+<li>die Struktur,</li>
+<li>die Spaltennamen,</li>
+<li>Anzahl Zeilen und Spalten.</li>
+</ul></li>
+</ol>
+<p><em>Teil C: Indizierung und Zugriff</em></p>
+<p>Bearbeiten Sie die Aufgaben (ohne <code>dplyr</code>, nur Base R):</p>
+<ol type="1">
+<li>Geben Sie die <strong>2. Zeile</strong> vollständig aus.</li>
+<li>Geben Sie die <strong>Spalte <code>crp_mg_l</code></strong> aus (einmal per Index, einmal per Name).</li>
+<li>Greifen Sie auf den <strong>Hämoglobinwert (<code>hb_g_dl</code>) von Patient P005</strong> zu.</li>
+</ol>
+<p><em>Hinweis:</em> <code>df[df$patient_id == "P005", "hb_g_dl"]</code></p>
+<p><em>Teil D: Filtern (Subsets) und einfache Kennzahlen</em></p>
+<ol type="1">
+<li>Erstellen Sie einen Data Frame <code>therapie</code>, der nur Patient:innen aus der Gruppe <code>"Therapie"</code> enthält.</li>
+<li>Berechnen Sie für <strong>CRP</strong> getrennt nach Gruppe:
+<ul>
+<li>Mittelwert</li>
+<li>Median</li>
+<li>Maximum</li>
+</ul></li>
+</ol>
+<p><em>Hinweis:</em> Nutzen Sie z. B. <code>tapply()</code>.</p>
+<p><em>Teil E: Neue Variable berechnen</em></p>
+<p>In der klinischen Praxis sind Grenzwerte wichtig.</p>
+<ol type="1">
+<li>Erstellen Sie eine neue Spalte <code>crp_hoch</code>, die <code>TRUE</code> ist, wenn <code>crp_mg_l &gt; 5</code>, sonst <code>FALSE</code>.</li>
+<li>Wie viele Patient:innen pro Gruppe haben <code>crp_hoch == TRUE</code>?</li>
+</ol>
+<p><em>Hinweis:</em> <code>table(df$gruppe, df$crp_hoch)</code>.</p>
 
 
 </section>
@@ -1938,8 +2304,8 @@ Greift auf ein benanntes Element zu.</p></li>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03-daten-transformieren.html" class="pagination-link" aria-label="Datentransformationen">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Datentransformationen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/03-daten-transformieren.html" class="pagination-link" aria-label="Daten transformieren">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten transformieren</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

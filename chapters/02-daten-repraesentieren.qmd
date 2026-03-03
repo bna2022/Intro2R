@@ -1,5 +1,5 @@
 ---
-title: "Grundlagen"
+title: "Daten repräsentieren"
 ---
 
 ## Objekte, Funktionen und Zuweisungen
@@ -919,6 +919,199 @@ Hier hat die Liste drei benannte Elemente:
 
 Mit dem `$`-Operator kann direkt auf ein Element über seinen Namen zugegriffen werden (z. B. `L$x`).
   
+## Data Frames
+
+Ein Data Frame ist eine der wichtigsten Datenstrukturen in R und wird häufig zur Darstellung von Datensätzen verwendet.
+
+- Ein Data Frame ist eine Sammlung von Vektoren gleicher Länge.
+- Er ist zweidimensional organisiert (Zeilen und Spalten).
+- Jede Spalte ist ein Vektor und kann einen eigenen Datentyp besitzen.
+- Innerhalb einer Spalte haben jedoch alle Werte denselben Datentyp.
+- Data Frames eignen sich besonders gut zur Repräsentation tabellarischer Daten.
+
+### Data Frames erstellen
+
+Data Frames können explizit mit der Funktion `data.frame()` erzeugt werden 
+
+```{r echo = TRUE,tidy = TRUE}
+x <- data.frame(foo = 1:4, bar = c(T, T, F, F)) 
+x
+nrow(x)
+ncol(x)
+```
+
+### Datensatz laden und einlesen
+Viele Datensätze sind bereits in R enthalten. Der Datensatz iris kann beispielsweise mit `data()` geladen werden.
+
+```{r echo = TRUE,tidy = TRUE}
+data(iris)  # Lade iris Datensatz
+U <- iris[c(1,51,101),]   # Reduziere den Datensatz auf 3 Samples
+print(U)
+```
+Hier wird der Datensatz auf drei Zeilen reduziert.
+
+### Indizierung von Data Frames
+
+Der Zugriff auf Elemente eines Data Frames erfolgt über Zeilen- und Spaltenindizes.
+
+```{r echo = TRUE,tidy = TRUE}
+# Zeilen
+print(U[1,])
+# Spalten
+print(U[,1])
+# Spaltenname
+print(U$Sepal.Length)
+```
+Allgemeine Form der Indizierung: 
+`DataFrame[Zeile,Spalte]`
+
+
+### Wichtige Funktionen für Data Frames
+
+| *Funktion*                       | *Bedeutung*                         |
+|----------------------------------|---------------------------------------|
+| `data.frame()`                   | Data Frame erzeugen                   |
+| `read.table()`                   | Data Frame aus Datei einlesen            |
+| `write.table()`                  | Data Frame in Datei schreiben         |
+| `as.data.frame()`                | Objekt in Data Frame umwandeln               |
+| `names()`                        | Namen der Spalten anzeigen oder setzen       |
+| `rownames()`                     | Zeilennamen anzeigen oder setzen                                       |
+| `colnames()`                     | Spaltennamen anzeigen oder setzen                                      |
+| `iris[1,2]`                      | Zugriff über Zeilen- und Spaltenindex        |
+| `iris[1,"Species"]`              | Zugriff über Spaltennamen      |
+| `iris$Species[1]`                | Zugriff mit `$`-Operator                |
+
+## Factors
+
+### Eigenschaften von Factors
+
+Ein Factor ist ein spezieller Datentyp in R zur Darstellung von kategorialen Variablen.
+
+- Factors speichern diskrete Kategorien (z. B. Geschlecht, Farbe oder Klassen).
+- Die möglichen Kategorien heißen Levels.
+- Intern speichert R Factors als Ganzzahlen mit zugehörigen Levels.
+- Factors werden häufig in statistischen Modellen und bei Gruppierungen verwendet.
+
+---
+
+### Factors erstellen
+
+Factors werden mit der Funktion `factor()` erzeugt.
+
+```{r echo=TRUE}
+farben <- factor(c("rot", "blau", "rot", "gruen", "blau"))
+farben
+```
+
+Die möglichen Kategorien (Levels) können mit `levels()` angezeigt werden.
+
+```{r echo=TRUE}
+levels(farben)
+```
+
+---
+
+### Levels festlegen
+
+Die möglichen Kategorien können auch explizit definiert werden.
+
+```{r echo=TRUE}
+farben <- factor(
+  c("rot", "blau", "rot", "gruen"),
+  levels = c("rot", "blau", "gruen")
+)
+
+farben
+```
+
+Die Reihenfolge der Levels kann wichtig sein, z. B. für Plots oder statistische Modelle.
+
+---
+
+### Geordnete Factors
+
+Manche Kategorien besitzen eine natürliche Reihenfolge, z. B. Bewertungen oder Größen.
+
+```{r echo=TRUE}
+bewertung <- factor(
+  c("gut", "mittel", "gut", "schlecht"),
+  levels = c("schlecht", "mittel", "gut"),
+  ordered = TRUE
+)
+
+bewertung
+```
+
+Solche Factors nennt man geordnete Factors (*ordered factors*).
+
+---
+
+### Zugriff auf Factor-Elemente
+
+Auf einzelne Elemente kann wie bei Vektoren zugegriffen werden.
+
+```{r echo=TRUE}
+farben[1]
+farben[1:3]
+```
+
+---
+
+### Wichtige Funktionen für Factors
+
+| Funktion | Bedeutung |
+|---|---|
+| `factor()` | Factor erzeugen |
+| `levels()` | Levels anzeigen oder setzen |
+| `nlevels()` | Anzahl der Levels |
+| `as.factor()` | Objekt in Factor umwandeln |
+| `as.character()` | Factor in Zeichenkette umwandeln |
+| `as.numeric()` | Factor intern als Zahl darstellen |
+
+---
+
+::: {.callout-tip}
+## Merke
+
+Factors werden in R häufig für **kategoriale Daten** verwendet, z. B.:
+
+- Geschlecht
+- Farben
+- Klassen oder Gruppen
+- Bewertungen
+
+Die möglichen Kategorien eines Factors heißen **Levels**.
+:::
+
+::: {.callout-warning}
+## Typischer Anfängerfehler: `as.numeric()` bei Factors
+
+Ein häufiger Fehler ist die direkte Umwandlung eines Factors in numerische Werte.
+
+```r
+x <- factor(c("10", "20", "30"))
+as.numeric(x)
+```
+
+Das Ergebnis ist nicht `10 20 30`, sondern:
+
+```
+1 2 3
+```
+
+Grund:  
+R speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Werte.
+
+Richtige Umwandlung
+
+```r
+as.numeric(as.character(x))
+```
+
+Dabei wird der Factor zuerst in Zeichenketten und anschließend in numerische Werte umgewandelt.
+:::
+  
+  
 ## Übungen
 
 **Übung 1**
@@ -966,4 +1159,66 @@ Bearbeiten Sie folgende Aufgaben:
 3. Bestimmen Sie den **Mittelwert des Belastungspulses**.  
 4. Berechnen Sie das **Skalarprodukt** der beiden Vektoren.
 
+**Übung 4**
+In dieser Übung arbeiten Sie mit einem kleinen **Labor-Datensatz** (Blutwerte) und üben das Einlesen, Indizieren und einfache Auswertungen mit Data Frames.
+
+
+*Teil A: Beispieldatei erstellen (CSV)*
+
+Erstellen Sie zuerst eine Datei `labwerte.csv` im aktuellen Arbeitsverzeichnis:
+
+```r
+lab <- data.frame(
+  patient_id = c("P001","P002","P003","P004","P005","P006"),
+  gruppe     = c("Kontrolle","Kontrolle","Therapie","Therapie","Therapie","Kontrolle"),
+  alter      = c(45, 52, 39, 61, 48, 55),
+  sex        = c("w","m","w","m","w","m"),
+  crp_mg_l   = c(1.2, 3.8, 12.5, 6.1, 8.9, 2.0),
+  wbc_g_l    = c(5.4, 7.1, 11.2, 8.6, 9.9, 6.3),
+  hb_g_dl    = c(13.4, 14.8, 12.1, 13.9, 11.7, 15.2),
+  stringsAsFactors = FALSE
+)
+
+write.csv(lab, "labwerte.csv", row.names = FALSE)
+```
+
 ---
+
+*Teil B: Datei einlesen und inspizieren*
+
+1. Lesen Sie die Datei `labwerte.csv` ein und speicheren Sie diese als Data Frame `df`.
+2. Geben Sie anschließend Folgendes aus:
+   - die ersten 3 Zeilen,
+   - die Struktur,
+   - die Spaltennamen,
+   - Anzahl Zeilen und Spalten.
+
+*Teil C: Indizierung und Zugriff*
+
+Bearbeiten Sie die Aufgaben (ohne `dplyr`, nur Base R):
+
+1. Geben Sie die **2. Zeile** vollständig aus.
+2. Geben Sie die **Spalte `crp_mg_l`** aus (einmal per Index, einmal per Name).
+3. Greifen Sie auf den **Hämoglobinwert (`hb_g_dl`) von Patient P005** zu.
+
+*Hinweis:* `df[df$patient_id == "P005", "hb_g_dl"]`
+
+*Teil D: Filtern (Subsets) und einfache Kennzahlen*
+
+1. Erstellen Sie einen Data Frame `therapie`, der nur Patient:innen aus der Gruppe `"Therapie"` enthält.
+2. Berechnen Sie für **CRP** getrennt nach Gruppe:
+   - Mittelwert
+   - Median
+   - Maximum
+
+*Hinweis:* Nutzen Sie z. B. `tapply()`.
+
+
+*Teil E: Neue Variable berechnen*
+
+In der klinischen Praxis sind Grenzwerte wichtig.
+
+1. Erstellen Sie eine neue Spalte `crp_hoch`, die `TRUE` ist, wenn `crp_mg_l > 5`, sonst `FALSE`.
+2. Wie viele Patient:innen pro Gruppe haben `crp_hoch == TRUE`?
+
+*Hinweis:* `table(df$gruppe, df$crp_hoch)`.
