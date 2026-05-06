@@ -705,9 +705,63 @@ pythagoras <- function(kathete_1, kathete_2){
 pythagoras(2, 4)
 ```
 
+### Scope – Gültigkeitsbereiche
 
+Variablen innerhalb einer Funktion sind **lokal**.
 
-### Einfache Datentypen
+```{r echo = TRUE,tidy = TRUE}
+x <- 10
+
+demo <- function() {
+  x <- 5
+  x
+}
+
+demo()
+x
+```
+
+Die Funktion verändert das äußere `x` nicht.
+
+---
+
+Variablen außerhalb von Funktionen liegen meist im globalen Workspace.
+
+```{r echo = TRUE,tidy = TRUE}
+patienten <- 120
+```
+
+Diese Variable ist überall verfügbar, solange sie nicht lokal überschrieben wird. Auf äußere Variablen kann auch innerhalb einer Funktion zugegriffen werden ohne das diese als Parameter übergeben wird. 
+
+```{r echo = TRUE,tidy = TRUE}
+f <- function() {
+  patienten * 2
+}
+
+f()
+```
+
+::: {.callout-note}
+## Vorsicht mit `<<-`
+
+Mit `<<-` lassen sich globale Variablen verändern.
+
+```{r echo = TRUE,tidy = TRUE}
+x <- 1
+
+f <- function() {
+  x <<- 99
+}
+
+f()
+x
+```
+
+Dieses Konstrukt sollte sparsam verwendet werden.
+
+:::
+
+## Einfache Datentypen
 
 R stellt verschiedene Datentypen zur Verfügung, um unterschiedliche Arten von Informationen darzustellen. Grundsätzlich unterscheidet man zwischen einfachen und zusammengesetzten Datentypen.
 
