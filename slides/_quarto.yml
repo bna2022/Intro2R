@@ -9,6 +9,7 @@ format:
     theme: simple
     css: slides.css
     slide-number: c/t
+    toc: false
     transition: none
     controls: true
     progress: false

@@ -167,7 +167,7 @@ R
 ## Arbeiten in der R-Konsole
 
 
-![](../figures/R_Konsole.png){width=65%}
+![](../figures/R_Konsole.png){}
 
 ---
 

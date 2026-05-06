@@ -162,13 +162,19 @@ body {
 .reveal .toc,
 .reveal nav[role="doc-toc"] {
   font-size: 0.8em;
-  color: var(--bht-blue);
+  color: var(--bht-blue)
+  margin-top: 5.2em;
+}
+
+.reveal .toc-slide h2 {
+  margin-top: 1.2em;
 }
 
 .reveal .toc li,
 .reveal nav[role="doc-toc"] li {
   margin: 0.3em 0;
 }
+
 
 /* Blöcke ähnlich Beamer rounded, ohne Schatten */
 .block,
@@ -242,7 +248,7 @@ mark,
 .reveal .title-slide {
   color: var(--bht-blue);
   background-color: #ffffff;
-  background-image: var(--title-bg, url("FrontBIME.png"));
+  /*background-image: var(--title-bg, url("FrontBIME.png"));*/
   background-size: cover;
   background-position: center;
 }
@@ -291,7 +297,9 @@ mark,
   display: block;
   margin-left: auto;
   margin-right: auto;
-   margin-top: -30px;
+  transform: none !important;
+  rotate: 0deg !important;
+  max-width: 90%;
 }
 
 /* Links dezent im Corporate Blau */
