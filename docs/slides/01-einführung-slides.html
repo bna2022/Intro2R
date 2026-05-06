@@ -356,6 +356,8 @@
 <li>R als Taschenrechner verwenden</li>
 <li>Funktionen und Argumente verstehen</li>
 <li>Hilfe in R nutzen</li>
+<li>Einfache Datentypen verstehen</li>
+<li>Mit Vektoren arbeiten</li>
 </ul>
 </section>
 <section id="was-ist-r" class="slide level2">
@@ -1148,6 +1150,10 @@
 <span id="cb74-6"><a href=""></a>  <span class="fu">c</span>(<span class="st">"BWL"</span>, <span class="st">"Informatik"</span>, <span class="st">"BWL"</span>, <span class="st">"Psychologie"</span>)</span>
 <span id="cb74-7"><a href=""></a>)                         <span class="co"># factor</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="übersicht-einfache-datentypen" class="slide level2">
+<h2>Übersicht Einfache Datentypen</h2>
+
+<img data-src="../figures/DataTypes.png" style="width:55.0%" class="r-stretch"></section>
 <section id="dynamische-typisierung" class="slide level2">
 <h2>Dynamische Typisierung</h2>
 <p>R erkennt Datentypen automatisch.</p>
@@ -1261,7 +1267,7 @@
 <section id="was-ist-ein-vektor" class="slide level2">
 <h2>Was ist ein Vektor?</h2>
 
-<img data-src="../figures/Vektoren.png" style="width:45.0%" class="r-stretch"></section>
+<img data-src="../figures/Vektoren.png" style="width:55.0%" class="r-stretch"></section>
 <section id="beispiele-für-atomare-datentypen" class="slide level2">
 <h2>Beispiele für atomare Datentypen</h2>
 <ul>
@@ -1380,7 +1386,7 @@
 <section id="direktes-filtern" class="slide level2">
 <h2>Direktes Filtern</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a>x[x <span class="sc">&gt;</span> <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Merksatz</strong> &gt; Bedingungen können direkt zum Filtern verwendet werden.</p>
+<p>Bedingungen können direkt zum Filtern verwendet werden.</p>
 </section>
 <section id="positionen-mit-which" class="slide level2">
 <h2>Positionen mit <code>which()</code></h2>
@@ -1389,10 +1395,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>##Bedeutung</p>
 <p>Die ersten drei Elemente erfüllen die Bedingung.</p>
-<p><strong>Merksatz</strong></p>
-<blockquote>
 <p><code>which()</code> liefert die Positionen der passenden Elemente.</p>
-</blockquote>
 </section>
 <section id="konkatenierung-von-vektoren" class="slide level2">
 <h2>Konkatenierung von Vektoren</h2>

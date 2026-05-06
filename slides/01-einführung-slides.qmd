@@ -81,6 +81,8 @@ editor_options:
 - R als Taschenrechner verwenden
 - Funktionen und Argumente verstehen
 - Hilfe in R nutzen
+- Einfache Datentypen verstehen
+- Mit Vektoren arbeiten
 
 ---
 
@@ -967,7 +969,7 @@ studiengang <- factor(
 ---
 
 ## Übersicht Einfache Datentypen
-![](../figures/Datentypen.png){width=55%}
+![](../figures/DataTypes.png){width=55%}
 
 ## Dynamische Typisierung
 
