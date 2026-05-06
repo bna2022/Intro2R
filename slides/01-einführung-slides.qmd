@@ -1342,4 +1342,20 @@ length(a)
 | `double()` | numerischer Vektor |
 | `character()` | Zeichenkettenvektor |
 
+## Aufgabe
 
+Gegeben seien die folgenden Vektoren:
+
+```r
+x <- c(2, 4, -1, 7, 3, 0)
+y <- c(1, -2, 5, 2, 1, 4)
+```
+
+1. Geben Sie alle Elemente von `x` aus, die größer als 2 sind.
+2. Bestimmen Sie die Positionen aller negativen Werte in `x`.
+3. Berechnen Sie die elementweise Summe von `x` und `y`.
+4. Berechnen Sie das Skalarprodukt von `x` und `y`.
+5. Hängen Sie die beiden Vektoren `x` und `y` zu einem neuen Vektor zusammen.
+6. Berechnen Sie den Mittelwert aller positiven Werte aus `x`.
+
+---
