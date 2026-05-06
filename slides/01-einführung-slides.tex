@@ -369,6 +369,11 @@ Datum & Typ & Abgabe \\
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\end{frame}
+
+\section{Installation und Setup}\label{installation-und-setup}
+
 \begin{frame}{R installieren}
 \phantomsection\label{r-installieren}
 Offizielle Webseite: \url{https://cloud.r-project.org}
@@ -622,10 +627,10 @@ Pakete enthalten zusätzlichen Code für:
 Vorteil: notwendige Zusatzpakete werden automatisch installiert
 \end{frame}
 
-\begin{frame}[fragile]{R als Taschenrechner}
-\phantomsection\label{r-als-taschenrechner}
-Grundrechenarten
+\section{R als Taschenrechner}\label{r-als-taschenrechner}
 
+\begin{frame}[fragile]{Grundrechenarten}
+\phantomsection\label{grundrechenarten}
 \begin{itemize}
 \tightlist
 \item
@@ -763,15 +768,8 @@ Klammern ändern die Reihenfolge
 
 \begin{frame}[fragile]{Operatoren und Operanden}
 \phantomsection\label{operatoren-und-operanden}
-Operatoren verknüpfen oder verändern \textbf{Operanden}.
-
-\begin{itemize}
-\tightlist
-\item
-  Operanden = Werte oder Ausdrücke
-\item
-  Operatoren = Rechen- oder Vergleichszeichen
-\end{itemize}
+Operatoren verknüpfen oder verändern \textbf{Operanden}. - Operanden =
+Werte oder Ausdrücke - Operatoren = Rechen- oder Vergleichszeichen
 
 Beispiele:
 
@@ -899,8 +897,11 @@ Operator & Bedeutung \\
 \texttt{\%\%} & Modulo \\
 \bottomrule\noalign{}
 \end{longtable}
+\end{frame}
 
-Beispiele
+\begin{frame}[fragile]{Arithmetische Operatoren}
+\phantomsection\label{arithmetische-operatoren-1}
+Was ist hier jeweils das Ergebnis?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1062,11 +1063,11 @@ Potenzoperator \texttt{\^{}}
 Große und kleine Zahlen
 
 \[
-100000 = 1 \times 10^5
+100000 = 1 \times 10^5 = 1e5
 \]
 
 \[
-0.0012 = 1.2 \times 10^{-3}
+0.0012 = 1.2 \times 10^{-3} = 1.2e-3
 \]
 
 Beispiel in R
@@ -1074,8 +1075,13 @@ Beispiel in R
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{*} \DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{5}
+\NormalTok{x}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+[1] 1e+05
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{Logarithmus Basis 10}
@@ -1088,11 +1094,19 @@ Funktion \texttt{log10()}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+[1] 1e+06
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{log10}\NormalTok{(}\FloatTok{1e6}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+[1] 6
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{Logarithmus Basis 2}
@@ -1105,11 +1119,19 @@ Funktion \texttt{log2()}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+[1] 1024
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{log2}\NormalTok{(}\DecValTok{1024}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+[1] 10
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]{Natürlicher Logarithmus}
@@ -1122,15 +1144,28 @@ Basis (e)
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+[1] 2.718282
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{log}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\DecValTok{1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
 \end{frame}
 
+\begin{frame}
+\end{frame}
+
+\section{Hilfe in R}\label{hilfe-in-r}
+
 \begin{frame}[fragile]{Hilfe in R}
-\phantomsection\label{hilfe-in-r}
+\phantomsection\label{hilfe-in-r-1}
 Hilfe aufrufen
 
 \begin{Shaded}
@@ -1156,40 +1191,27 @@ Suche
 \end{Shaded}
 \end{frame}
 
-\begin{frame}{Alles ist ein Objekt}
-\phantomsection\label{alles-ist-ein-objekt}
-\begin{quote}
-Everything that exists is an object.\\
-Everything that happens is a function call.
-\end{quote}
-
---- John Chambers
+\begin{frame}[fragile]{Aufgabe}
+\phantomsection\label{aufgabe-1}
+\begin{enumerate}
+\tightlist
+\item
+  Wie erhalten Sie Hilfe zu der Funktion \texttt{floor}?
+\item
+  Berechnen Sie das Quadrat von \(\pi\) und runden Sie auf 4 Ziffern
+  nach dem Dezimalpunkt
+\item
+  Berechnen Sie den Logarithmus von 1 Milliarde mit Basis 1000.
+\end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{Funktionen in R}
-\phantomsection\label{funktionen-in-r-1}
-Funktionen verarbeiten Input
-
-\begin{block}{Beispiel}
-\phantomsection\label{beispiel}
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{2} \SpecialCharTok{+} \DecValTok{3}
-\end{Highlighting}
-\end{Shaded}
-
-Ergebnis:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{5}
-\end{Highlighting}
-\end{Shaded}
-\end{block}
+\begin{frame}
 \end{frame}
 
-\begin{frame}[fragile]{Variablen und Zuweisungen}
-\phantomsection\label{variablen-und-zuweisungen}
+\section{Variablen und Zuweisungen}\label{variablen-und-zuweisungen}
+
+\begin{frame}[fragile]{Ein ganz spezieller Zuweisungsoperator}
+\phantomsection\label{ein-ganz-spezieller-zuweisungsoperator}
 Mit \texttt{\textless{}-}
 
 \begin{Shaded}
@@ -1216,31 +1238,11 @@ Mit \texttt{\textless{}-}
 
 \begin{frame}[fragile]{Variablennamen}
 \phantomsection\label{variablennamen}
-Regeln
+\emph{Regeln}
 
-Erlaubt:
+Erlaubt: - Buchstaben - Zahlen - \texttt{\_} - \texttt{.}
 
-\begin{itemize}
-\tightlist
-\item
-  Buchstaben
-\item
-  Zahlen
-\item
-  \texttt{\_}
-\item
-  \texttt{.}
-\end{itemize}
-
-Nicht erlaubt:
-
-\begin{itemize}
-\tightlist
-\item
-  Beginn mit Zahl
-\item
-  reservierte Wörter
-\end{itemize}
+Nicht erlaubt: - Beginn mit Zahl - reservierte Wörter
 \end{frame}
 
 \begin{frame}[fragile]{Gültige Namen}
@@ -1263,31 +1265,31 @@ Beispiel
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ConstantTok{TRUE} \OtherTok{\textless{}{-}} \DecValTok{5}
+\NormalTok{TRUE \textless{}{-} 5}
 \end{Highlighting}
 \end{Shaded}
 
-Fehler:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Error }\ControlFlowTok{in} \ConstantTok{TRUE} \OtherTok{\textless{}{-}} \DecValTok{5}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+Error
+\end{verbatim}
 \end{frame}
+
+\begin{frame}
+\end{frame}
+
+\section{Funktionen}\label{funktionen}
 
 \begin{frame}[fragile]{Funktionen als Blackbox}
 \phantomsection\label{funktionen-als-blackbox}
 Input → Verarbeitung → Output
 
-\begin{block}{Beispiel}
-\phantomsection\label{beispiel-1}
+Beispiel
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
-\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Parameter in Funktionen}
@@ -1303,25 +1305,11 @@ Standardwerte
 \end{Shaded}
 \end{frame}
 
-\begin{frame}[fragile]{Wichtige Basisfunktionen}
-\phantomsection\label{wichtige-basisfunktionen}
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-Funktion & Bedeutung \\
-\midrule\noalign{}
-\endhead
-\texttt{sqrt()} & Wurzel \\
-\texttt{abs()} & Absolutwert \\
-\texttt{sum()} & Summe \\
-\texttt{mean()} & Mittelwert \\
-\texttt{max()} & Maximum \\
-\bottomrule\noalign{}
-\end{longtable}
-\end{frame}
-
 \begin{frame}[fragile]{Eigene Funktionen}
 \phantomsection\label{eigene-funktionen}
 Funktion definieren
+
+Satz des Pythagoras: \(c = \sqrt{a^2 + b^2}\)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1343,11 +1331,16 @@ Aufruf:
 \end{Shaded}
 \end{frame}
 
-\begin{frame}{Satz des Pythagoras}
-\phantomsection\label{satz-des-pythagoras}
-\[
-c = \sqrt{a^2 + b^2}
-\]
+\begin{frame}[fragile]{Aufgabe}
+\phantomsection\label{aufgabe-2}
+\begin{enumerate}
+\tightlist
+\item
+  Schreiben Sie eine Funktion mit dem Namen \texttt{myFunc}, die die
+  Summe der Parameter x und y zurückgibt
+\item
+  Spezifizieren Sie als Default Werte für x und y jeweils 0
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{Scope in R}
@@ -1362,26 +1355,66 @@ Lokale Variablen
 \NormalTok{  x }\OtherTok{\textless{}{-}} \DecValTok{5}
 \NormalTok{  x}
 \NormalTok{\}}
+
+\FunctionTok{print}\NormalTok{(}\FunctionTok{demo}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10
+\end{verbatim}
 
 Das äußere \texttt{x} bleibt unverändert.
 \end{frame}
 
 \begin{frame}[fragile]{Globale Variablen}
 \phantomsection\label{globale-variablen}
-Zugriff außerhalb von Funktionen
+Variablen außerhalb von Funktionen liegen meist im globalen Workspace.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{patienten }\OtherTok{\textless{}{-}} \DecValTok{120}
 \end{Highlighting}
 \end{Shaded}
+
+Diese Variable kann auch innerhalb von Funktionen verwendet werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{() \{}
+\NormalTok{  patienten }\SpecialCharTok{*} \DecValTok{2}
+\NormalTok{\}}
+
+\FunctionTok{f}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 240
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{240}
+\end{Highlighting}
+\end{Shaded}
+
+Die Funktion greift auf die globale Variable \texttt{patienten} zu.
 \end{frame}
 
 \begin{frame}[fragile]{Vorsicht mit \texttt{\textless{}\textless{}-}}
 \phantomsection\label{vorsicht-mit--}
-Globale Variablen verändern
+Globale Variablen verändern (sparsam nutzen)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1394,8 +1427,10 @@ Globale Variablen verändern
 \end{Shaded}
 \end{frame}
 
+\section{Einfache Datentypen}\label{einfache-datentypen}
+
 \begin{frame}[fragile]{Einfache Datentypen}
-\phantomsection\label{einfache-datentypen}
+\phantomsection\label{einfache-datentypen-1}
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Typ & Bedeutung \\
@@ -1405,6 +1440,7 @@ Typ & Bedeutung \\
 \texttt{integer} & Ganze Zahlen \\
 \texttt{double} & Fließkommazahlen \\
 \texttt{character} & Zeichenketten \\
+\texttt{factor} & kategoriale Daten \\
 \bottomrule\noalign{}
 \end{longtable}
 \end{frame}
@@ -1417,8 +1453,16 @@ Typ & Bedeutung \\
 \NormalTok{mynumber }\OtherTok{\textless{}{-}} \DecValTok{4}
 \NormalTok{n2 }\OtherTok{\textless{}{-}} \FloatTok{0.3}
 \NormalTok{hello }\OtherTok{\textless{}{-}} \StringTok{"world"}
+\NormalTok{studiengang }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"BWL"}\NormalTok{, }\StringTok{"Informatik"}\NormalTok{, }\StringTok{"BWL"}\NormalTok{, }\StringTok{"Psychologie"}\NormalTok{)}
+\NormalTok{)                         }\CommentTok{\# factor}
 \end{Highlighting}
 \end{Shaded}
+\end{frame}
+
+\begin{frame}{Übersicht Einfache Datentypen}
+\phantomsection\label{uxfcbersicht-einfache-datentypen}
+\includegraphics[width=0.55\linewidth,height=\textheight,keepaspectratio]{../figures/Datentypen.png}
 \end{frame}
 
 \begin{frame}[fragile]{Dynamische Typisierung}
@@ -1537,6 +1581,388 @@ Bedingungen formulieren
 \end{frame}
 
 \begin{frame}
+\end{frame}
+
+\section{Vektoren in R}\label{vektoren-in-r}
+
+\begin{frame}{Vektoren: Zentrale Datenstruktur}
+\phantomsection\label{vektoren-zentrale-datenstruktur}
+\begin{itemize}
+\tightlist
+\item
+  Viele Funktionen arbeiten automatisch \textbf{elementweise}
+\item
+  Grundlage für numerische Berechnungen und Datenverarbeitung
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Zwei wichtige Typen}
+\phantomsection\label{zwei-wichtige-typen}
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Typ & Beschreibung \\
+\midrule\noalign{}
+\endhead
+Atomare Vektoren & Alle Elemente haben denselben Datentyp \\
+Listen & Können unterschiedliche Datentypen enthalten \\
+\bottomrule\noalign{}
+\end{longtable}
+\end{frame}
+
+\begin{frame}{Was ist ein Vektor?}
+\phantomsection\label{was-ist-ein-vektor}
+\includegraphics[width=0.55\linewidth,height=\textheight,keepaspectratio]{../figures/Vektoren.png}
+\end{frame}
+
+\begin{frame}{Beispiele für atomare Datentypen}
+\phantomsection\label{beispiele-fuxfcr-atomare-datentypen}
+\begin{itemize}
+\tightlist
+\item
+  numeric
+\item
+  integer
+\item
+  logical
+\item
+  character
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Vektoren erzeugen: \texttt{c()}}
+\phantomsection\label{vektoren-erzeugen-c}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1.0 1.5 2.0
+\end{verbatim}
+
+→ kombiniert mehrere Werte zu einem Vektor
+\end{frame}
+
+\begin{frame}[fragile]{Vektoren erzeugen: \texttt{double(n)}}
+\phantomsection\label{vektoren-erzeugen-doublen}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{double}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0 0 0 0 0
+\end{verbatim}
+
+→ numerischer Vektor der Länge 5 mit Nullen
+\end{frame}
+
+\begin{frame}[fragile]{Vektoren erzeugen: \texttt{:}}
+\phantomsection\label{vektoren-erzeugen}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5
+\end{verbatim}
+
+→ einfache Zahlenfolge
+\end{frame}
+
+\begin{frame}[fragile]{Wiederholungen und Sequenzen}
+\phantomsection\label{wiederholungen-und-sequenzen}
+Mit \texttt{rep()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 3 3 3 3
+\end{verbatim}
+
+→ wiederholt die Zahl 3 fünfmal
+
+Mit \texttt{seq()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.6}\NormalTok{, }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.0 0.2 0.4 0.6
+\end{verbatim}
+
+→ allgemeine Zahlenfolge mit Schrittweite
+\end{frame}
+
+\begin{frame}[fragile]{Indizierung von Vektoren}
+\phantomsection\label{indizierung-von-vektoren}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.7}\NormalTok{, }\FloatTok{3.8}\NormalTok{, }\FloatTok{4.2}\NormalTok{, }\FloatTok{5.7}\NormalTok{)}
+
+\NormalTok{x[}\DecValTok{2}\NormalTok{]}
+\NormalTok{x[}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{)]}
+\NormalTok{x[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Merksätze zur Indizierung}
+\phantomsection\label{merksuxe4tze-zur-indizierung}
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Ausdruck & Bedeutung \\
+\midrule\noalign{}
+\endhead
+\texttt{x{[}i{]}} & einzelnes Element \\
+\texttt{x{[}i:j{]}} & Bereich \\
+\texttt{x{[}c(...){]}} & beliebige Auswahl \\
+\texttt{x{[}-i{]}} & Ausschluss \\
+\bottomrule\noalign{}
+\end{longtable}
+\end{frame}
+
+\begin{frame}[fragile]{Logische Indizierung}
+\phantomsection\label{logische-indizierung}
+Filtern mit TRUE und FALSE
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.7}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.7}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{2.8}\NormalTok{, }\FloatTok{0.2}\NormalTok{)}
+
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{TRUE} → Element bleibt erhalten
+\item
+  \texttt{FALSE} → Element wird entfernt
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Filtern mit Bedingungen}
+\phantomsection\label{filtern-mit-bedingungen}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{5.7}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{1.0}\NormalTok{)}
+
+\NormalTok{x }\SpecialCharTok{\textgreater{}} \DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+Ergebnis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\ConstantTok{TRUE} \ConstantTok{TRUE} \ConstantTok{TRUE} \ConstantTok{FALSE}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Direktes Filtern}
+\phantomsection\label{direktes-filtern}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x[x }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Bedingungen können direkt zum Filtern verwendet werden.
+\end{frame}
+
+\begin{frame}[fragile]{Positionen mit \texttt{which()}}
+\phantomsection\label{positionen-mit-which}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{(x }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Ergebnis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\DecValTok{1} \DecValTok{2} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Bedeutung
+
+Die ersten drei Elemente erfüllen die Bedingung.
+
+\texttt{which()} liefert die Positionen der passenden Elemente.
+\end{frame}
+
+\begin{frame}[fragile]{Konkatenierung von Vektoren}
+\phantomsection\label{konkatenierung-von-vektoren}
+Vektoren zusammenfügen
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{5.7}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{1.0}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+
+\FunctionTok{c}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+Ergebnis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{0.3} \FloatTok{0.1} \FloatTok{5.7} \SpecialCharTok{{-}}\FloatTok{1.0} \DecValTok{2} \DecValTok{3} \DecValTok{1} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Skalare Operationen mit einer Zahl}
+\phantomsection\label{skalare-operationen-mit-einer-zahl}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\NormalTok{x }\SpecialCharTok{+} \DecValTok{2}
+\NormalTok{x }\SpecialCharTok{{-}} \DecValTok{2}
+\NormalTok{x }\SpecialCharTok{*} \DecValTok{2}
+\NormalTok{x }\SpecialCharTok{/} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+Die Operation wird auf jedes Element angewendet.
+\end{frame}
+
+\begin{frame}[fragile]{Elementweise Berechnung}
+\phantomsection\label{elementweise-berechnung}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{c}\NormalTok{(}\FloatTok{1.2}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\FloatTok{1.2}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Arithmetische Operationen auf Vektoren erfolgen elementweise.
+\end{quote}
+\end{frame}
+
+\begin{frame}[fragile]{Recycling-Prinzip}
+\phantomsection\label{recycling-prinzip}
+Unterschiedlich lange Vektoren
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Intern:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Kürzere Vektoren werden automatisch wiederholt.
+\end{frame}
+
+\begin{frame}[fragile]{Funktionen auf Vektoren}
+\phantomsection\label{funktionen-auf-vektoren}
+Funktionen arbeiten oft elementweise
+
+\begin{block}{Beispiel: \texttt{exp()}}
+\phantomsection\label{beispiel-exp}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{exp}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1.000000  2.718282  7.389056 20.085537
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Funktionen mit Vektoreingaben}
+\phantomsection\label{funktionen-mit-vektoreingaben}
+Mittelwert
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{1.2}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Korrelation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{1.2}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\FloatTok{2.2}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\FloatTok{0.9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Skalarprodukt
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{) }\SpecialCharTok{\%*\%} \FunctionTok{c}\NormalTok{(}\FloatTok{1.2}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{Länge von Vektoren}
+\phantomsection\label{luxe4nge-von-vektoren}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+
+\FunctionTok{length}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Wichtige Funktionen für Vektoren}
+\phantomsection\label{wichtige-funktionen-fuxfcr-vektoren}
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Funktion & Bedeutung \\
+\midrule\noalign{}
+\endhead
+\texttt{c()} & Vektor erzeugen \\
+\texttt{:} & Zahlenfolge \\
+\texttt{seq()} & Sequenz \\
+\texttt{rep()} & Wiederholen \\
+\texttt{length()} & Länge bestimmen \\
+\texttt{logical()} & logischer Vektor \\
+\texttt{double()} & numerischer Vektor \\
+\texttt{character()} & Zeichenkettenvektor \\
+\bottomrule\noalign{}
+\end{longtable}
 \end{frame}
 
 

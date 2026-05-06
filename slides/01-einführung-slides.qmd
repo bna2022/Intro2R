@@ -114,6 +114,10 @@ editor_options:
 
 ---
 
+# Installation und Setup
+
+---
+
 ## R installieren
 
 Offizielle Webseite: <https://cloud.r-project.org>
@@ -309,11 +313,13 @@ install.packages(
 
 Vorteil: notwendige Zusatzpakete werden automatisch installiert
 
+
+
+# R als Taschenrechner 
+
 ---
 
-## R als Taschenrechner
-
-Grundrechenarten
+## Grundrechenarten
 
 - Addition `+`
 - Subtraktion `-`
@@ -381,7 +387,6 @@ Kommentare beginnen mit
 ```r
 log(x)
 ```
-
 berechnet den natürlichen Logarithmus.
 
 Logarithmus zur Basis 10
@@ -416,7 +421,6 @@ Klammern ändern die Reihenfolge
 ## Operatoren und Operanden
 
 Operatoren verknüpfen oder verändern **Operanden**.
-
 - Operanden = Werte oder Ausdrücke
 - Operatoren = Rechen- oder Vergleichszeichen
 
@@ -464,7 +468,6 @@ R interpretiert dies als: $\left(\frac{1}{2}\right)/3$
 Potenzoperator `^`: wird von rechts nach links ausgewertet
 
 Beispiel
-
 ```r
 2^3^4
 ```
@@ -527,13 +530,17 @@ Vergleich:
 | `%/%` | Ganzzahlige Division |
 | `%%` | Modulo |
 
-Beispiele
+
+---
+
+## Arithmetische Operatoren 
+
+Was ist hier jeweils das Ergebnis?
 
 ```r
 5 %/% 2
 5 %% 2
 ```
-
 ---
 
 ## Logische Operatoren
@@ -661,17 +668,18 @@ Potenzoperator `^`
 Große und kleine Zahlen
 
 $$
-100000 = 1 \times 10^5
+100000 = 1 \times 10^5 = 1e5
 $$
 
 $$
-0.0012 = 1.2 \times 10^{-3}
+0.0012 = 1.2 \times 10^{-3} = 1.2e-3
 $$
 
 Beispiel in R
 
-```r
+```{r echo = TRUE}
 x <- 1 * 10^5
+x
 ```
 
 ---
@@ -680,11 +688,12 @@ x <- 1 * 10^5
 
 Funktion `log10()`
 
-```r
+```{r echo = TRUE}
 10^6
 ```
 
-```r
+
+```{r echo = TRUE}
 log10(1e6)
 ```
 
@@ -694,11 +703,11 @@ log10(1e6)
 
 Funktion `log2()`
 
-```r
+```{r echo = TRUE}
 2^10
 ```
 
-```r
+```{r echo = TRUE}
 log2(1024)
 ```
 
@@ -708,15 +717,17 @@ log2(1024)
 
 Basis \(e\)
 
-```r
+```{r echo = TRUE}
 exp(1)
 ```
 
-```r
+```{r echo = TRUE}
 log(exp(1))
 ```
 
 ---
+
+# Hilfe in R
 
 ## Hilfe in R
 
@@ -740,35 +751,17 @@ help.search("mean")
 
 ---
 
-## Alles ist ein Objekt
+## Aufgabe
 
-
-> Everything that exists is an object.  
-> Everything that happens is a function call.
-
-— John Chambers
+1.  Wie erhalten Sie Hilfe zu der Funktion `floor`?
+2.  Berechnen Sie das Quadrat von $\pi$ und runden Sie auf 4 Ziffern nach dem Dezimalpunkt
+3.  Berechnen Sie den Logarithmus von 1 Milliarde mit Basis 1000.
 
 ---
 
-## Funktionen in R
+# Variablen und Zuweisungen
 
-Funktionen verarbeiten Input
-
-### Beispiel
-
-```r
-2 + 3
-```
-
-Ergebnis:
-
-```r
-5
-```
-
----
-
-## Variablen und Zuweisungen
+## Ein ganz spezieller Zuweisungsoperator
 
 Mit `<-`
 
@@ -790,17 +783,15 @@ z <- x + y
 
 ## Variablennamen
 
-Regeln
+*Regeln*
 
 Erlaubt:
-
 - Buchstaben
 - Zahlen
 - `_`
 - `.`
 
 Nicht erlaubt:
-
 - Beginn mit Zahl
 - reservierte Wörter
 
@@ -823,23 +814,23 @@ Best.gene
 
 Beispiel
 
-```r
+```{ }
 TRUE <- 5
 ```
 
-Fehler:
-
-```r
-Error in TRUE <- 5
+```{}
+Error
 ```
 
 ---
+
+# Funktionen
 
 ## Funktionen als Blackbox
 
 Input → Verarbeitung → Output
 
-### Beispiel
+Beispiel
 
 ```r
 mean(c(1,2,3))
@@ -859,21 +850,11 @@ mean(x, na.rm = TRUE)
 
 ---
 
-## Wichtige Basisfunktionen
-
-| Funktion | Bedeutung |
-|---|---|
-| `sqrt()` | Wurzel |
-| `abs()` | Absolutwert |
-| `sum()` | Summe |
-| `mean()` | Mittelwert |
-| `max()` | Maximum |
-
----
-
 ## Eigene Funktionen
 
 Funktion definieren
+
+Satz des Pythagoras: $c = \sqrt{a^2 + b^2}$
 
 ```r
 pythagoras <- function(a, b){
@@ -892,26 +873,28 @@ pythagoras(2,4)
 
 ---
 
-## Satz des Pythagoras
+## Aufgabe
 
-
-$$
-c = \sqrt{a^2 + b^2}
-$$
+1.  Schreiben Sie eine Funktion mit dem Namen `myFunc`, die die Summe
+    der Parameter x und y zurückgibt
+2.  Spezifizieren Sie als Default Werte für x und y jeweils 0
 
 ---
+
 
 ## Scope in R
 
 Lokale Variablen
-
-```r
+```{r echo = TRUE}
 x <- 10
 
 demo <- function() {
   x <- 5
   x
 }
+
+print(demo())
+print(x)
 ```
 
 Das äußere `x` bleibt unverändert.
@@ -920,17 +903,30 @@ Das äußere `x` bleibt unverändert.
 
 ## Globale Variablen
 
-Zugriff außerhalb von Funktionen
-
-```r
+Variablen außerhalb von Funktionen liegen meist im globalen Workspace.
+```{r echo=TRUE}
 patienten <- 120
 ```
+
+Diese Variable kann auch innerhalb von Funktionen verwendet werden.
+```{r echo=TRUE}
+f <- function() {
+  patienten * 2
+}
+
+f()
+```
+
+```r
+[1] 240
+```
+Die Funktion greift auf die globale Variable `patienten` zu.
 
 ---
 
 ## Vorsicht mit `<<-`
 
-Globale Variablen verändern
+Globale Variablen verändern (sparsam nutzen)
 
 ```r
 x <- 1
@@ -939,6 +935,8 @@ f <- function() {
   x <<- 99
 }
 ```
+
+# Einfache Datentypen
 
 ---
 
@@ -950,6 +948,7 @@ f <- function() {
 | `integer` | Ganze Zahlen |
 | `double` | Fließkommazahlen |
 | `character` | Zeichenketten |
+| `factor` | kategoriale Daten |
 
 ---
 
@@ -960,9 +959,15 @@ iamhappy <- TRUE
 mynumber <- 4
 n2 <- 0.3
 hello <- "world"
+studiengang <- factor(
+  c("BWL", "Informatik", "BWL", "Psychologie")
+)                         # factor
 ```
 
 ---
+
+## Übersicht Einfache Datentypen
+![](../figures/Datentypen.png){width=55%}
 
 ## Dynamische Typisierung
 
@@ -1058,3 +1063,281 @@ as.integer(x)
 ```
 
 ---
+
+# Vektoren in R
+
+---
+
+## Vektoren: Zentrale Datenstruktur
+
+- Viele Funktionen arbeiten automatisch **elementweise**
+- Grundlage für numerische Berechnungen und Datenverarbeitung
+
+## Zwei wichtige Typen
+
+| Typ | Beschreibung |
+|---|---|
+| Atomare Vektoren | Alle Elemente haben denselben Datentyp |
+| Listen | Können unterschiedliche Datentypen enthalten |
+
+## Was ist ein Vektor?
+![](../figures/Vektoren.png){width=55%}
+
+## Beispiele für atomare Datentypen
+
+- numeric
+- integer
+- logical
+- character
+
+---
+
+## Vektoren erzeugen: `c()`
+
+
+```{r echo = TRUE}
+c(1, 1.5, 2)
+```
+
+→ kombiniert mehrere Werte zu einem Vektor
+
+---
+
+## Vektoren erzeugen: `double(n)`
+
+
+```{r echo = TRUE}
+double(5)
+```
+→ numerischer Vektor der Länge 5 mit Nullen
+
+---
+
+## Vektoren erzeugen: `:`
+
+```{r echo = TRUE}
+1:5
+```
+→ einfache Zahlenfolge
+
+---
+
+## Wiederholungen und Sequenzen
+
+Mit `rep()`
+```{r echo = TRUE}
+rep(3, 5)
+```
+→ wiederholt die Zahl 3 fünfmal
+
+Mit `seq()`
+```{r echo = TRUE}
+seq(0, 0.6, 0.2)
+```
+→ allgemeine Zahlenfolge mit Schrittweite
+
+---
+
+## Indizierung von Vektoren
+
+```r
+x <- c(1.7, 3.8, 4.2, 5.7)
+
+x[2]
+x[2:3]
+x[c(4,4,1)]
+x[-c(1,2)]
+```
+
+## Merksätze zur Indizierung
+
+| Ausdruck | Bedeutung |
+|---|---|
+| `x[i]` | einzelnes Element |
+| `x[i:j]` | Bereich |
+| `x[c(...)]` | beliebige Auswahl |
+| `x[-i]` | Ausschluss |
+
+---
+
+## Logische Indizierung
+
+Filtern mit TRUE und FALSE
+
+```r
+x <- c(1.7, 0.5, -0.7, 0, 2.8, 0.2)
+
+x[c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE)]
+```
+
+- `TRUE` → Element bleibt erhalten
+- `FALSE` → Element wird entfernt
+
+---
+
+## Filtern mit Bedingungen
+
+```r
+x <- c(0.3, 0.1, 5.7, -1.0)
+
+x > 0
+```
+
+Ergebnis:
+
+```r
+[1] TRUE TRUE TRUE FALSE
+```
+
+## Direktes Filtern
+
+```r
+x[x > 0]
+```
+
+Bedingungen können direkt zum Filtern verwendet werden.
+
+---
+
+## Positionen mit `which()`
+
+```r
+which(x > 0)
+```
+
+Ergebnis:
+
+```r
+[1] 1 2 3
+```
+
+##Bedeutung
+
+Die ersten drei Elemente erfüllen die Bedingung.
+
+`which()` liefert die Positionen der passenden Elemente.
+
+---
+
+## Konkatenierung von Vektoren
+
+Vektoren zusammenfügen
+
+```r
+x <- c(0.3, 0.1, 5.7, -1.0)
+y <- c(2, 3, 1, 5)
+
+c(x, y)
+```
+
+Ergebnis:
+
+```r
+[1] 0.3 0.1 5.7 -1.0 2 3 1 5
+```
+
+---
+
+## Skalare Operationen mit einer Zahl
+
+```r
+x <- c(1, 1.5, 2)
+
+x + 2
+x - 2
+x * 2
+x / 2
+```
+
+Die Operation wird auf jedes Element angewendet.
+
+---
+
+## Elementweise Berechnung
+
+```r
+c(1,2,3) + c(1.2,-0.5,-0.1)
+```
+
+```r
+c(1,2,3) * c(1.2,-0.5,-0.1)
+```
+
+> Arithmetische Operationen auf Vektoren erfolgen elementweise.
+
+---
+
+## Recycling-Prinzip
+
+Unterschiedlich lange Vektoren
+
+```r
+c(1,1,1,1,1) * c(1,2,3)
+```
+
+Intern:
+
+```r
+c(1,1,1,1,1) * c(1,2,3,1,2)
+```
+
+Kürzere Vektoren werden automatisch wiederholt.
+
+---
+
+## Funktionen auf Vektoren
+
+Funktionen arbeiten oft elementweise
+
+#### Beispiel: `exp()`
+
+```{r echo = TRUE}
+exp(c(0,1,2,3))
+```
+
+---
+
+## Funktionen mit Vektoreingaben
+
+Mittelwert
+```r
+mean(c(1.2,-0.5,-0.1))
+```
+
+Korrelation
+```r
+cor(c(1.2,-0.5,-0.1), c(2.2,0.5,0.9))
+```
+
+Skalarprodukt
+```r
+c(1,2,3) %*% c(1.2,-0.5,-0.1)
+```
+
+---
+
+## Länge von Vektoren
+
+
+```{r echo = TRUE}
+a <- c(1,2,3)
+
+length(a)
+```
+
+---
+
+## Wichtige Funktionen für Vektoren
+
+| Funktion | Bedeutung |
+|---|---|
+| `c()` | Vektor erzeugen |
+| `:` | Zahlenfolge |
+| `seq()` | Sequenz |
+| `rep()` | Wiederholen |
+| `length()` | Länge bestimmen |
+| `logical()` | logischer Vektor |
+| `double()` | numerischer Vektor |
+| `character()` | Zeichenkettenvektor |
+
+

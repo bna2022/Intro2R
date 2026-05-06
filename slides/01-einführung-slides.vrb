@@ -1,0 +1,13 @@
+\frametitle{Beispiele Datentypen}
+\phantomsection\label{beispiele-datentypen}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iamhappy }\OtherTok{\textless{}{-}} \ConstantTok{TRUE}
+\NormalTok{mynumber }\OtherTok{\textless{}{-}} \DecValTok{4}
+\NormalTok{n2 }\OtherTok{\textless{}{-}} \FloatTok{0.3}
+\NormalTok{hello }\OtherTok{\textless{}{-}} \StringTok{"world"}
+\NormalTok{studiengang }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"BWL"}\NormalTok{, }\StringTok{"Informatik"}\NormalTok{, }\StringTok{"BWL"}\NormalTok{, }\StringTok{"Psychologie"}\NormalTok{)}
+\NormalTok{)                         }\CommentTok{\# factor}
+\end{Highlighting}
+\end{Shaded}

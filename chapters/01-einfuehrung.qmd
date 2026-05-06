@@ -413,52 +413,6 @@ log(exp(1))
 ```
 
 
-### Einfache Kommandos in R
-
-In diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.
-
-#### Eingabe und Ausführung von Kommandos
-
-R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der **Enter- bzw. Return-Taste** ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.
-
-#### Arbeiten mit Vektoren
-
-Eine der zentralen Datenstrukturen in R ist der **Vektor**.\
-Vektoren werden mit der Funktion `c()` (combine) erzeugt.
-
-Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen `x` gespeichert:
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-```
-
-Die Zuweisung erfolgt in R mit dem Operator `<-`.\
-Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.
-
-Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:
-
-```{r echo=TRUE, tidy=TRUE}
-x
-```
-
-#### Mittelwert
-
-Der Mittelwert eines Vektors kann mit der Funktion `mean()` berechnet werden.
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-mean(x)
-```
-
-#### Standardabweichung
-
-Die Standardabweichung eines Vektors wird mit der Funktion `sd()` bestimmt.
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-sd(x)
-```
-
 
 
 ## Hilfe in R
@@ -894,6 +848,44 @@ R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, daru
 - `is.na()` – prüft, ob ein Wert fehlt (NA)
 - `is.numeric()` - prüft, ob ein Objekt numerisch ist
 - `as.integer()` - wandelt einen Wert in einen Integer um
+
+### Vektoren
+
+Eine der zentralen Datenstrukturen in R ist der **Vektor**.\
+Vektoren werden mit der Funktion `c()` (combine) erzeugt.
+
+Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen `x` gespeichert:
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+```
+
+Die Zuweisung erfolgt in R mit dem Operator `<-`.\
+Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.
+
+Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:
+
+```{r echo=TRUE, tidy=TRUE}
+x
+```
+
+#### Mittelwert
+
+Der Mittelwert eines Vektors kann mit der Funktion `mean()` berechnet werden.
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+mean(x)
+```
+
+#### Standardabweichung
+
+Die Standardabweichung eines Vektors wird mit der Funktion `sd()` bestimmt.
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+sd(x)
+```
 
 
 ## Verständnisfragen
