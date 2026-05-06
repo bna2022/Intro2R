@@ -1,0 +1,412 @@
+%%
+%% Theme for BeamerClass: BHT Corporate Desgign 
+%%
+%% This theme bases on the theme warsaw. Beside this files, 
+%% the corresponding colortheme is required:
+%%    - beamercolorthemeBHT for presentations
+%%
+%% Usually, a beamerclass theme is split in three parts 
+%% (inner, outer, color) and a theme file. These parts are
+%% combined in this file.
+%%
+%% 28.09.2022 Beate Navarro
+%%
+
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\ProvidesPackage{beamerthemeBHT}[2009/04/30 V0.5 BHT beamertheme]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Presentation mode
+%%
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Setting the Base
+\useinnertheme[shadow=true]{rounded}
+%\useoutertheme{shadow}
+%\usecolortheme{BHT}
+\usepackage{ifthen}
+%\usepackage{minted}
+\usepackage{tikz}
+
+
+\setbeamerfont{block title}{size={\small}}
+
+
+%\definecolor{FGtext}{RGB}{0,0,0}
+\definecolor{FGtext}{RGB}{0.03, 0.27, 0.49}
+\xdefinecolor{HKS51}{rgb}{0.03, 0.27, 0.49}          % HKS51, THI blau
+\definecolor{THIINF}{HTML}{D7D700}          % HKS51, THI Märzrün
+\definecolor{rladiesgray}{HTML}{D3D3D3}
+
+\setbeamercolor{subtitlebar}{fg=HKS51, bg=THIINF}
+\setbeamercolor*{title in head/foot}{fg=HKS51, bg=white}
+\setbeamercolor*{frametitle}{fg=HKS51, bg=white}
+\setbeamercolor*{framesubtitle}{fg=HKS51,bg=white}
+\setbeamercolor*{frametitleLogo}{bg=white}
+\setbeamercolor*{frametitleLogoDEV}{bg=HKS51!44}
+\setbeamercolor*{footline}{fg=HKS51,bg=white}
+
+
+\setbeamerfont*{section in head/foot}{size=\footnotesize}
+\setbeamerfont*{frametitle}{size=\small}%
+\setbeamerfont*{sectionnavigationhorizontal}{size=\tiny}
+\setbeamerfont{section in toc}{size={\footnotesize}}
+\setbeamerfont{subsection in toc}{size={\footnotesize}}
+
+\setbeamercolor{itemize item}{fg=HKS51}
+\setbeamercolor{itemize subitem}{fg=HKS51}
+\setbeamercolor{itemize subsubitem}{fg=HKS51}
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{enumerate item}{fg=HKS51}
+\setbeamercolor{enumerate text}{fg=HKS51}
+
+ \setbeamercolor{normal text}{fg=HKS51}
+ \usebeamercolor[fg]{normal text}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition of the blocks
+%%
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Setting Papersize
+%%
+%\setbeamersize{text margin left=2em, text margin right=2em} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Construction of a frame's title as follows:
+%% [4 squares][ frametitle               ][Logo]
+%% [section navigation                         ]
+%%
+\newcommand{\sectionHeader}
+  {
+    \ifthenelse{\equal{\thesection}{0}}
+      { 
+        % nothing to do
+      }
+      {
+        \ifthenelse{\equal{\thesubsection}{0}}
+          {
+            % section exists, subsection 0: only section in subtitlebar
+            1.\thesection~ ~\insertsection
+          }
+          {
+            % subsection existsalso: section.subsection in subtitlebar
+            \thepart.\thesection.\thesubsection~--~\insertsubsection
+          }
+          
+      }  
+  }
+
+% Subsection is a link, but needs a different color
+\newcommand\disablecolorlinks{\def\HyColor@UseColor##1{}}
+\makeatletter
+
+\newcommand{\sectionHeaderLeft}
+  {
+    \ifthenelse{\equal{\thesection}{0}}
+      {
+        % nothing to do
+      }
+      {
+	\insertsubsection      
+      }
+  }
+
+\newcommand{\sectionHeaderRight}
+  {
+    \ifthenelse{\equal{\thesubsection}{0}}
+      {
+        % nothing to do
+      }
+      {
+          \thepart.\thesection~ ~\disablecolorlinks{\insertsection}
+      }
+  }
+
+\newcommand{\frameFootPart}
+  {
+    \ifthenelse{\equal{\thepart}{0}}
+      {
+        % nothing to do
+      }
+      {
+        \hspace{1ex}\hspace{1ex}Teil \thepart:~\insertpart
+      }
+  }
+ 
+\newenvironment{RMSchma}{\begin{raggedright}\itshape\doublespacing}{\end{raggedright}}
+
+\setbeamertemplate{frametitle}
+  {%
+    \hspace*{-2.65em}    %% negative offset for first headerline (hack)
+    \hbox{
+   
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=5.0ex,dp=0.5ex,left,shadow=true]{frametitle}%.618
+        \usebeamerfont{frametitle}\hspace*{1.5ex}\raisebox{0.1ex}{\insertframetitle}
+      \end{beamercolorbox}
+     \begin{beamercolorbox}[wd=.10\paperwidth,ht=5.0ex,dp=0.5ex,center]{frametitleLogo}%
+        %\usebeamerfont{section in head/foot}
+        \includegraphics[width=.04\paperwidth]{pictures/thi_logo_b_RGB}%\hspace*{2ex} 
+        %\includegraphics[width=.06\textwidth]{thi_logo_b_RGB}%\hspace*{2ex} 
+      \end{beamercolorbox}%
+    }
+    
+    \hbox{
+      \begin{beamercolorbox}[wd=\paperwidth, ht=1.4ex, dp=0.5ex]{subtitlebar}
+        \hspace*{0.1ex}        
+                {\tiny{\sectionHeaderLeft\hfill\sectionHeaderRight}}
+                \hspace*{2ex} 
+      \end{beamercolorbox} 
+    }
+  }
+
+% 
+\setbeamertemplate{headline}[default]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Construction of a frame's footline as follows:
+%% ________________________________________________
+%% [ Lecture   ]           				[pages]
+%%
+
+\setbeamertemplate{footline}
+   {%linie
+     \color{rladiesgray}\hrule width \paperwidth depth 0pt height 0.2pt
+     \vskip1pt
+	% Fußzeile     
+     \hbox{
+       \begin{beamercolorbox}[wd=0.50\paperwidth, ht=2ex, dp=0.6ex, left]{footline}
+       \hspace*{2ex} 
+       \insertshorttitle
+       \end{beamercolorbox}%
+       \begin{beamercolorbox}[wd=0.50\paperwidth, ht=2ex, dp=0.8ex, right]{footline}
+         \insertframenumber{}\,/\,\inserttotalframenumber\hspace{5ex} 
+       \end{beamercolorbox}%
+     }
+   }
+
+
+
+\setbeamertemplate{title page}
+{%\leavevmode
+
+  %  \begin{tikzpicture}[remember picture,overlay]
+  %      %\node [xshift=0cm,yshift=0cm] at (current page.center) {
+  %         \node[above right,inner sep=0pt] at (current page.south west) {
+  %         % \includegraphics[width=\paperwidth, height=\paperheight]{csm_G006_VrLab_8737_b5385ff6cb}
+  %         \includegraphics[width=\paperwidth]{Front}
+  %      };
+      \begin{tikzpicture}[remember picture,overlay]
+        \node [xshift=0cm,yshift=2.3cm] at (current page.center) {
+           %\node[above right,inner sep=0pt] at (current page.south west) {
+           % \includegraphics[width=\paperwidth, height=\paperheight]{csm_G006_VrLab_8737_b5385ff6cb}
+           \includegraphics[width=\paperwidth]{pictures/FrontBIME}
+           %\includegraphics[width=0.3\textwidth]{thi_IAW_logo_wb_RGB}
+        };
+           
+    
+    % Title & Subtitle
+\node
+[
+    above=1.5cm,
+    align=left,
+    fill=white!90,
+    opacity=.01,
+    text opacity = 1,
+    inner xsep=3pt,
+    inner ysep=3pt, 
+    minimum width=1\textwidth,
+    text width=1\textwidth
+] (title) at (current page.mid east)
+{
+ 	\LARGE    \inserttitle  \\[5pt]
+	%\small \insertshorttitle \\[2pt]
+    %\small \insertauthor  \\[2pt]
+    \small \insertdate
+};
+
+ \end{tikzpicture}
+ 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Switches
+%%
+
+\setbeamertemplate{navigation symbols}
+{}
+
+\mode
+<all>
+
+%% Einstellung der Abstände in Table Of Contents
+\makeatletter
+\def\beamer@sectionintoc#1#2#3#4#5{%
+  \ifnum\c@tocdepth>0%
+  \ifnum#4=\beamer@showpartnumber%
+  {
+  \beamer@saveanother%
+  \gdef\beamer@todo{}%
+  \beamer@slideinframe=#1\relax%
+  \expandafter\only\beamer@tocsections{\gdef\beamer@todo{%
+      \beamer@tempcount=#5\relax%
+      \advance\beamer@tempcount by\beamer@sectionadjust%
+      \edef\inserttocsectionnumber{\the\beamer@tempcount}%
+      \def\inserttocsection{\hyperlink{Navigation#3}{#2}}%
+      \beamer@tocifnothide{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}%
+      {
+        \ifbeamer@pausesections\pause\fi%
+        \ifx\beamer@toc@ooss\beamer@hidetext
+          \vskip0.5em
+        \else
+          \vskip0.3em%HIER EINSTELLEN
+        \fi
+        {%
+          \hbox{\vbox{%
+              \def\beamer@breakhere{\\}%
+              \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}}%
+         \par%
+        }%
+      }%
+    }
+  }%
+  \beamer@restoreanother%
+  }
+  \beamer@todo%
+  \fi\fi%
+}
+\makeatother
+
+\renewcommand<>{\item}{\beameroriginal\item\vspace{\stretch{.2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pgfpages}
+
+% Latin Modern: Darstellung der Schrift in PDF Dateien
+\usepackage{lmodern}	
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{longtable, tabularx}
+\usepackage{multicol, multirow}
+\usepackage{listings, pifont,  verbatim}
+%\usepackage[thinspace]{fancyunits}
+\usepackage{ifthen, xspace}
+\usepackage{colortbl}
+%\usepackage{mathptmx}
+\usepackage{eurosym}
+\usepackage{amssymb,amsmath}
+
+\usepackage{color}
+\usepackage{graphicx}
+
+
+\usepackage{tcolorbox}
+
+\usepackage{stackengine}
+
+
+\usepackage{setspace}
+
+%\setlength{\parskip}{\baselineskip} 
+
+\usepackage[style=authortitle,backend=bibtex]{biblatex}
+%\addbibresource{references.bib}
+
+\setbeamercovered{transparent}
+
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+%\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\newcounter{tmp}
+\newcommand<>\Highlight[1]{%
+\stepcounter{tmp}%
+\only#2{\begin{tikzpicture}[remember picture,overlay]
+\fill[green!60!black,opacity=0.5] 
+  ([xshift=-.2em,yshift=2ex]pic cs:start-\thetmp)
+    rectangle  
+  ([xshift=.2em,yshift=-1ex]pic cs:end-\thetmp);
+\end{tikzpicture}}%
+\tikzmark{start-\thetmp}#1\hfill\tikzmark{end-\thetmp}%
+}
+
+
+\definecolor{boxgray}{RGB}{137, 148, 153}
+\definecolor{boxcolor}{RGB}{244, 244, 244}
+\definecolor{shadecolor}{RGB}{216, 216, 216}
+\newtcolorbox{codebox}{
+    colback=boxcolor,
+    colframe=boxgray,
+    boxrule=0.pt,
+    boxsep=-2pt,
+    arc=0pt}
+
+\newtcolorbox{BHToutputbox}{
+    colback=boxcolor,
+    colframe=boxgray,
+    boxrule=0pt,
+    boxsep=-2pt,
+    arc=0pt}
+
+\newtcolorbox{blackbox}{
+  colback=shadecolor,
+  colframe=orange,
+  coltext=black,
+  boxsep=3pt,
+  arc=4pt}
+
+\newenvironment{infobox}[1]
+  {
+  \begin{itemize}
+\setbeamertemplate{itemize item}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}
+        \includegraphics{#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{blackbox}
+  \item
+  }
+  {
+  \end{blackbox}
+  \end{itemize}
+  }
+
+
+%\captionsetup{labelformat=empty,labelsep=none}
+
+% highlight box
+\newcommand{\highlight}[1]{%
+	\colorbox{yellow!50}{$\displaystyle#1$}}
+
+
+\usefonttheme[onlymath]{serif}
+
+\AtBeginPart{}
+\AtBeginSection{}
+\AtBeginSubsection{}
+\AtBeginSubsubsection{}
+\setlength{\emergencystretch}{0em}
+%\setlength{\parskip}{0pt}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+\setbeamertemplate{itemize/enumerate body end}{\vspace{.6\baselineskip}} % So I'm less inclined to use \medskip and \bigskip in Markdown.
+

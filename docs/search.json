@@ -1,65 +1,5 @@
 [
   {
-    "objectID": "chapters/03-daten-transformieren.html",
-    "href": "chapters/03-daten-transformieren.html",
-    "title": "4  Daten transformieren",
-    "section": "",
-    "text": "4.1 Kontrollstrukturen\nMit Kontrollstrukturen kann man:",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#kontrollstrukturen",
-    "href": "chapters/03-daten-transformieren.html#kontrollstrukturen",
-    "title": "4  Daten transformieren",
-    "section": "",
-    "text": "mehrere Befehle zusammenfassen,\nEntscheidungen treffen,\nAbläufe wiederholen.\n\n\n4.1.1 Anweisungsblöcke\nEin Anweisungsblock fasst mehrere Befehle zusammen. In R werden Blöcke mit geschweiften Klammern { } definiert.\n\n4.1.1.1 Syntax\n{\n  Befehl1\n  Befehl2\n  Befehl3\n}\nBeispiel: Berechnung eines BMI\n\n{\n  gewicht &lt;- 72\n  groesse &lt;- 1.78\n  bmi &lt;- gewicht / groesse^2\n  bmi\n}\n\n[1] 22.7244\n\n\nAlle Befehle werden nacheinander ausgeführt. Der letzte Ausdruck wird ausgegeben.\n\n\n\n4.1.2 Bedingte Anweisungen und Verzweigungen\nMit Bedingungen kann Code nur dann ausgeführt werden, wenn bestimmte Kriterien erfüllt sind.\n\n4.1.2.1 if-Anweisung\nSyntax\nif (Bedingung) {\n  Befehle\n}\nBeispiel: Fieber erkennen\n\ntemperatur &lt;- 38.5\n\nif (temperatur &gt;= 38) {\n  print(\"Fieber vorhanden\")\n}\n\n[1] \"Fieber vorhanden\"\n\n\n\n\n\n4.1.2.2 if … else\nSyntax\nif (Bedingung) {\n  Befehle_wenn_wahr\n} else {\n  Befehle_wenn_falsch\n}\nBeispiel: Blutdruckbewertung\n\nsystole &lt;- 128\n\nif (systole &gt;= 140) {\n  print(\"Hypertonie möglich\")\n} else {\n  print(\"Normalbereich\")\n}\n\n[1] \"Normalbereich\"\n\n\n\n\n\n4.1.2.3 if … else if … else\nMit dieser Struktur können mehrere Fälle unterschieden werden.\nBeispiel: BMI-Klassifikation\n\nbmi &lt;- 27.4\n\nif (bmi &lt; 18.5) {\n  print(\"Untergewicht\")\n} else if (bmi &lt; 25) {\n  print(\"Normalgewicht\")\n} else if (bmi &lt; 30) {\n  print(\"Übergewicht\")\n} else {\n  print(\"Adipositas\")\n}\n\n[1] \"Übergewicht\"\n\n\n\n\n4.1.2.4 Wichtige Vergleichsoperatoren\n\n\n\nOperator\nBedeutung\n\n\n\n\n==\ngleich\n\n\n!=\nungleich\n\n\n&gt;\ngrößer\n\n\n&lt;\nkleiner\n\n\n&gt;=\ngrößer gleich\n\n\n&lt;=\nkleiner gleich\n\n\n\n\n\n4.1.2.5 Logische Operatoren\n\n\n\nOperator\nBedeutung\n\n\n\n\n&\nund\n\n\n|\noder\n\n\n!\nnicht\n\n\n\nBeispiel\n\nalter &lt;- 67\nraucher &lt;- TRUE\n\nif (alter &gt; 65 & raucher) {\n  print(\"Erhöhtes Risiko\")\n}\n\n[1] \"Erhöhtes Risiko\"\n\n\n\n\n\n\n4.1.3 Schleifen\nSchleifen wiederholen Befehle mehrfach.\n\n4.1.3.1 for-Schleife\nDie for-Schleife wird verwendet, wenn bekannt ist, wie oft etwas wiederholt werden soll.\nSyntax\nfor (variable in werte) {\n  Befehle\n}\nBeispiel: Messwerte ausgeben\n\nwerte &lt;- c(4.2, 5.1, 6.0)\n\nfor (wert in werte) {\n  print(wert)\n}\n\n[1] 4.2\n[1] 5.1\n[1] 6\n\n\nBeispiel: Mittelwert mehrerer Proben berechnen\n\nproben &lt;- c(8.1, 7.9, 8.4, 8.0)\n\nsumme &lt;- 0\n\nfor (wert in proben) {\n  summe &lt;- summe + wert\n}\n\nmittelwert &lt;- summe / length(proben)\nmittelwert\n\n[1] 8.1\n\n\n\n\n\n4.1.3.2 while-Schleife\nDie while-Schleife läuft so lange, wie eine Bedingung wahr ist.\nSyntax\nwhile (Bedingung) {\n  Befehle\n}\nBeispiel: Zellwachstum\n\nzellen &lt;- 100\n\nwhile (zellen &lt; 1000) {\n  zellen &lt;- zellen * 2\n  print(zellen)\n}\n\n[1] 200\n[1] 400\n[1] 800\n[1] 1600\n\n\n\n\n\n4.1.3.3 repeat-Schleife\nDie repeat-Schleife läuft unbegrenzt, bis sie mit break beendet wird.\nBeispiel\n\nwert &lt;- 1\n\nrepeat {\n  wert &lt;- wert * 2\n  print(wert)\n\n  if (wert &gt; 100) {\n    break\n  }\n}\n\n[1] 2\n[1] 4\n[1] 8\n[1] 16\n[1] 32\n[1] 64\n[1] 128\n\n\n\n\n\n4.1.3.4 break und next\n\n4.1.3.4.1 break\nbreak beendet eine Schleife sofort.\n\nfor (i in 1:10) {\n  if (i == 5) {\n    break\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n\n\n\n\n4.1.3.4.2 next\nnext überspringt den aktuellen Schleifendurchlauf.\n\nfor (i in 1:5) {\n  if (i == 3) {\n    next\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 4\n[1] 5\n\n\n\n\n\n\n\n4.1.4 Typische Fehler\n\n4.1.4.1 Fehlende Klammern\nx &lt;- 5\nif (x &gt; 5)\n  print(x)\nBesser:\n\nx &lt;- 6\nif (x &gt; 5) {\n  print(x)\n}\n\n[1] 6\n\n\n\n\n4.1.4.2 Endlosschleife\nwhile (x &lt; 10) {\n  print(x)\n}\nHier wird x nie verändert. Dadurch endet die Schleife nicht.\n\n\n\n\n4.1.5 Zusammenfassung\n\n\n\nStruktur\nZweck\n\n\n\n\n{}\nMehrere Befehle zusammenfassen\n\n\nif\nBedingte Ausführung\n\n\nif ... else\nZwei Alternativen\n\n\nif ... else if\nMehrere Fälle\n\n\nfor\nWiederholung mit bekannter Anzahl\n\n\nwhile\nWiederholung mit Bedingung\n\n\nrepeat\nWiederholung bis break",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#schleifen",
-    "href": "chapters/03-daten-transformieren.html#schleifen",
-    "title": "4  Daten transformieren",
-    "section": "4.2 Schleifen",
-    "text": "4.2 Schleifen\nSchleifen wiederholen Befehle mehrfach.\n\n4.2.1 for-Schleife\nDie for-Schleife wird verwendet, wenn bekannt ist, wie oft etwas wiederholt werden soll.\n\n4.2.1.1 Syntax\nfor (variable in werte) {\n  Befehle\n}\nBeispiel: Messwerte ausgeben\n\nwerte &lt;- c(4.2, 5.1, 6.0)\n\nfor (wert in werte) {\n  print(wert)\n}\n\n[1] 4.2\n[1] 5.1\n[1] 6\n\n\nBeispiel: Mittelwert mehrerer Proben berechnen\n\nproben &lt;- c(8.1, 7.9, 8.4, 8.0)\n\nsumme &lt;- 0\n\nfor (wert in proben) {\n  summe &lt;- summe + wert\n}\n\nmittelwert &lt;- summe / length(proben)\nmittelwert\n\n[1] 8.1\n\n\n\n\n\n\n4.2.2 while-Schleife\nDie while-Schleife läuft so lange, wie eine Bedingung wahr ist.\n\n4.2.2.1 Syntax\nwhile (Bedingung) {\n  Befehle\n}\nBeispiel: Zellwachstum\n\nzellen &lt;- 100\n\nwhile (zellen &lt; 1000) {\n  zellen &lt;- zellen * 2\n  print(zellen)\n}\n\n[1] 200\n[1] 400\n[1] 800\n[1] 1600\n\n\n\n\n\n\n4.2.3 repeat-Schleife\nDie repeat-Schleife läuft unbegrenzt, bis sie mit break beendet wird.\nBeispiel\n\nwert &lt;- 1\n\nrepeat {\n  wert &lt;- wert * 2\n  print(wert)\n\n  if (wert &gt; 100) {\n    break\n  }\n}\n\n[1] 2\n[1] 4\n[1] 8\n[1] 16\n[1] 32\n[1] 64\n[1] 128\n\n\n\n\n\n4.2.4 break und next\n\n4.2.4.1 break\nbreak beendet eine Schleife sofort.\n\nfor (i in 1:10) {\n  if (i == 5) {\n    break\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n\n\n\n\n4.2.4.2 next\nnext überspringt den aktuellen Schleifendurchlauf.\n\nfor (i in 1:5) {\n  if (i == 3) {\n    next\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 4\n[1] 5",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#typische-fehler",
-    "href": "chapters/03-daten-transformieren.html#typische-fehler",
-    "title": "4  Daten transformieren",
-    "section": "4.2 Typische Fehler",
-    "text": "4.2 Typische Fehler\n\n4.2.1 Fehlende Klammern\nx &lt;- 5\nif (x &gt; 5)\n  print(x)\nBesser:\n\nx &lt;- 6\nif (x &gt; 5) {\n  print(x)\n}\n\n[1] 6\n\n\n\n\n4.2.2 Endlosschleife\nwhile (x &lt; 10) {\n  print(x)\n}\nHier wird x nie verändert. Dadurch endet die Schleife nicht.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#zusammenfassung",
-    "href": "chapters/03-daten-transformieren.html#zusammenfassung",
-    "title": "4  Daten transformieren",
-    "section": "4.3 Zusammenfassung",
-    "text": "4.3 Zusammenfassung\n\n\n\nStruktur\nZweck\n\n\n\n\n{}\nMehrere Befehle zusammenfassen\n\n\nif\nBedingte Ausführung\n\n\nif ... else\nZwei Alternativen\n\n\nif ... else if\nMehrere Fälle\n\n\nfor\nWiederholung mit bekannter Anzahl\n\n\nwhile\nWiederholung mit Bedingung\n\n\nrepeat\nWiederholung bis break",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben",
-    "href": "chapters/03-daten-transformieren.html#übungsaufgaben",
-    "title": "4  Daten transformieren",
-    "section": "6.5 Übungsaufgaben",
-    "text": "6.5 Übungsaufgaben\n\n6.5.1 Aufgabe 1\nErstellen Sie ein Programm, das eine Körpertemperatur bewertet:\n\nunter 37.5: Normal\n37.5 bis 38: erhöht\nüber 38: Fieber\n\n\n\n6.5.2 Aufgabe 2\nBerechnen Sie mit einer for-Schleife die Summe der Werte:\nc(3, 5, 7, 2)\n\n\n6.5.3 Aufgabe 3\nSimulieren Sie Zellteilungen mit einer while-Schleife, bis 10.000 Zellen erreicht sind.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R Programmierung",
@@ -94,7 +34,7 @@
     "href": "chapters/01-einfuehrung.html#r-als-taschenrechner",
     "title": "2  Erste Schritte mit R",
     "section": "2.2 R als Taschenrechner",
-    "text": "2.2 R als Taschenrechner\nWir starten, indem wir die Programmiersprache R erst einmal als ganz normalen Taschenrechner benutzen.\n\n2.2.1 Kommentare in R mit #\n\nKommentare lassen sich mit Hilfe des Hash-Zeichens # einleiten\nAlle Zeichen nach dem # werden von R ignoriert\n\n\n5-1/2 # first calculate 1/2, then 5-0.5 = 4.5\n\n[1] 4.5\n\n\nIm Allgemeinen ist das Hinzufügen von Kommentaren zu Codes eine sehr gute Praxis, da es die Lesbarkeit erheblich verbessert und die Zusammenarbeit erleichtert.\n\n\n2.2.2 Einfache arithmetische Ausdrücke\nR erlaubt die direkte Auswertung arithmetischer Ausdrücke, wie man sie aus der Mathematik kennt. Dazu gehören die grundlegenden Rechenoperatoren:\n\nAddition +\nSubtraktion -\nMultiplikation *\nDivision /\nPotenzen ^\nKlammern ()\n\nDiese Operatoren können beliebig kombiniert werden, um auch komplexere Ausdrücke zu berechnen. R wertet solche Ausdrücke sofort aus und gibt das numerische Ergebnis zurück.\nBeispiel\n\n(1 + 2) / (4 - 1.2) * 2^10\n\n[1] 1097.143\n\n\nHier werden zunächst die Ausdrücke in Klammern berechnet, anschließend die Division durchgeführt und das Ergebnis mit einer Potenz multipliziert.\n\n\n2.2.3 Mathematische Funktionen\nNeben arithmetischen Operatoren stellt R zahlreiche mathematische Funktionen zur Verfügung. Dazu gehören unter anderem:\n\nsin(x) für den Sinus\ncos(x) für den Kosinus\nlog(x) für den natürlichen Logarithmus\nsowie viele weitere Funktionen\n\nMathematische Funktionen werden in R immer mit runden Klammern aufgerufen. Die Argumente der Funktion stehen dabei innerhalb der Klammern.\nBeispiel\n\nlog(10) / 2.5\n\n[1] 0.921034\n\n\nIn diesem Beispiel wird zunächst der natürliche Logarithmus von 10 berechnet.\nDas Ergebnis wird anschließend durch 2.5 dividiert.\n\n\n\n\n\n\nWarningAchtung\n\n\n\nIn R bezeichnet log(x) standardmäßig den natürlichen Logarithmus (Basis (e)).\nDer Logarithmus zur Basis 10 muss explizit mit log10(x) berechnet werden.\n\n\n\n\n2.2.4 Prioritäten von Operatoren\nWie in der Mathematik gelten auch in R feste Bindungsprioritäten für Operatoren. Besonders wichtig ist dabei die Regel „Punkt vor Strich“:\nMultiplikation und Division haben eine höhere Priorität als Addition und Subtraktion.\nBeispiel\n\n1 + 2 * 3\n\n[1] 7\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n1 + (2 * 3)\n\n[1] 7\n\n\nund nicht als:\n\n(1 + 2) * 3\n\n[1] 9\n\n\n\n\n2.2.5 Operatoren und Operanden\nOperatoren verknüpfen oder verändern Operanden, also Zahlen oder Ausdrücke. Man unterscheidet in R zwischen binären und unären Operatoren.\n\n2.2.5.1 Binäre Operatoren\nBinäre Operatoren stehen zwischen zwei Argumenten (A und B). Typische Beispiele sind:\n\n+, -, *, /, ^, &lt;-\n\nBinäre Operatoren können sich außerdem darin unterscheiden, in welcher Richtung sie ausgewertet werden (Assoziativität).\n\n2.2.5.1.1 Linksassoziative Operatoren\nDie meisten Operatoren sind linksassoziativ, das heißt, sie werden von links nach rechts ausgewertet. Dazu zählen:\n\n+, -, *, /\n\nBeispiel\n\n1 / 2 / 3\n\n[1] 0.1666667\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n(1 / 2) / 3\n\n[1] 0.1666667\n\n\n\n\n\n2.2.5.2 Rechtsassoziative Operatoren\nEinige Operatoren sind rechtsassoziativ, insbesondere der Potenzoperator ^.\n\n2.2.5.2.1 Beispiel\n\n2^3^4\n\n[1] 2.417852e+24\n\n\nDieser Ausdruck wird interpretiert als:\n\n2^(3^4)\n\n[1] 2.417852e+24\n\n\nund nicht als:\n\n(2^3)^4\n\n[1] 4096\n\n\n\n\n\n2.2.5.3 Unäre Operatoren\nUnäre Operatoren haben nur ein einziges Argument. Sie stehen dadurch entweder vor oder nach einem Ausdruck.\nEin typisches Beispiel ist der logische Negationsoperator !, der einen Wahrheitswert umkehrt.\nBeispiel\n\n!TRUE\n\n[1] FALSE\n\n\n\n\n\n\n\n\n\nTipMerksätze\n\n\n\n\nBinäre Operatoren verbinden zwei Operanden.\nUnäre Operatoren arbeiten mit genau einem Operanden.\nDie Assoziativität bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.\nIm Zweifel sorgen Klammern für Klarheit.\n\n\n\n\n\n2.2.5.4 Operatoren als Funktionen\nIn R gibt es keinen grundlegenden Unterschied zwischen Operatoren und Funktionen. Jeder Operator ist intern eine Funktion und kann auch als solche aufgerufen werden.\nEin Operator wie + kann daher direkt als Funktion verwendet werden.\nDabei gilt:\n\nDer Operator muss in Backticks (`) gesetzt werden\nDie Argumente werden wie bei einem normalen Funktionsaufruf übergeben\n\nBeispiel\n# Verwendung als Operator\n7 + 3\n\n# Verwendung als Funktionsaufruf\n`+`(7, 3)\n\n# Beide Schreibweisen sind äquivalent\n7 + 3 == `+`(7, 3)\n\n\n\n\n\n\nNoteNice to know\n\n\n\nDieses Prinzip gilt nicht nur für +, sondern für alle Operatoren in R, zum Beispiel -, *, /, == und &lt;-.\n\n\n\n\n2.2.5.5 Übersicht arithmetische und logische Operatoren\nArithmetische Operatoren\nArithmetische Operatoren werden in R zur Durchführung mathematischer Berechnungen mit numerischen Werten verwendet.\n\n\n\nOperatoren\nBedeutung\n\n\n\n\n+, -\nAddition, Subtraktion\n\n\n*, /\nMultiplikation, Division\n\n\n^, **\nPotenz (x hoch y)\n\n\nx %/% y\nGanzzahlige Division (5 %/% 2 == 2)\n\n\nx %% y\nModulo (x mod y) (5 %% 2 == 1)\n\n\nx %*% y\nMatrixmultiplikation (c(5, 3) %*% c(2, 4) == 22)\n\n\n\nLogische Operatoren\nLogische Operatoren dienen in R dazu, Werte zu vergleichen und logische Ausdrücke zu formulieren, die entweder TRUE oder FALSE ergeben.\n\n\n\nOperatoren\nBedeutung\n\n\n\n\n&lt;\nKleiner\n\n\n&lt;=\nKleiner gleich\n\n\n&gt;\nGrösser\n\n\n&gt;=\nGrösser gleich\n\n\n==\nGleich (testet auf Äquivalenz)\n\n\n!=\nUngleich\n\n\n!x\nNicht x (Verneinung)\n\n\nx \\| y\nx ODER y\n\n\nx & y\nx UND y\n\n\n\n\n\n\n2.2.6 Einfache Kommandos in R\nIn diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.\n\n2.2.6.1 Eingabe und Ausführung von Kommandos\nR-Kommandos können direkt im Interpreter eingegeben und durch Drücken der Enter- bzw. Return-Taste ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.\n\n\n2.2.6.2 Arbeiten mit Vektoren\nEine der zentralen Datenstrukturen in R ist der Vektor.\nVektoren werden mit der Funktion c() (combine) erzeugt.\nIm folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen x gespeichert:\n\nx &lt;- c(1, 2, 5, 7)\n\nDie Zuweisung erfolgt in R mit dem Operator &lt;-.\nDabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.\nUm den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:\n\nx\n\n[1] 1 2 5 7\n\n\n\n\n2.2.6.3 Mittelwert\nDer Mittelwert eines Vektors kann mit der Funktion mean() berechnet werden.\n\nx &lt;- c(1, 2, 5, 7)\nmean(x)\n\n[1] 3.75\n\n\n\n\n2.2.6.4 Standardabweichung\nDie Standardabweichung eines Vektors wird mit der Funktion sd() bestimmt.\n\nx &lt;- c(1, 2, 5, 7)\nsd(x)\n\n[1] 2.753785\n\n\n\n\n2.2.6.5 Runden auf die nächstgelegene Zahl\nDie Funktion round() rundet auf die nächstgelegene ganze Zahl.\n\nround(7/3)\n\n[1] 2\n\n\nStandardmäßig wird auf eine ganze Zahl gerundet. Im Beispiel ergibt sich für 7/3 der Wert 2. Die Genauigkeit der Rundung kann mit dem Argument digits gesteuert werden.\n\nround(7/3, digits = 3)\n\n[1] 2.333\n\n\nHier wird auf drei Dezimalstellen gerundet, was den Wert 2.333 ergibt.\n\n\n2.2.6.6 Potenzen und Logarithmen\nPotenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.\n\n\n\n\n\n\nNoteWissenschaftliche Notation\n\n\n\nDie wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.\nDie e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).\n[ 100000 = 1 ^5 = 1+05 ]\n[ 20000 = 2 ^4 = 2+04 ]\n[ 0.0012 = 1.2 ^{-3} = 1.2-03 ]\n\n\nIn R können Potenzen mit dem Operator ^ berechnet werden.\n\nx &lt;- 1 * 10^5\nformat(x, scientific = FALSE)\n\n[1] \"100000\"\n\n\nR stellt logarithmische Funktionen für verschiedene Basen bereit, wobei die gebräuchlichsten die Basis 10, die Basis 2 sowie die natürliche Basis ( e ) sind.\nBasis 10\nDer Logarithmus zur Basis 10 wird mit der Funktion log10() berechnet.\nEr gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmten Wert zu erhalten.\n\n10^6\n\n[1] 1e+06\n\n\n\n#log10(x) = log(x, 10)\nlog10(1e6)  \n\n[1] 6\n\n\nIm Beispiel ergibt sich der Wert 6, da 10^6=1000000.\nBasis 2\nDer Logarithmus zur Basis 2 wird mit der Funktion log2() berechnet.\n\n2^10\n\n[1] 1024\n\n\n\nlog2(1024)  #log2(x) = log(x, 2)\n\n[1] 10\n\n\nHier ergibt sich der Wert 10, da 2^10=1024.\nNatürlicher Logarithmus von \\(x\\) zur Basis e\n\nexp(1)\n\n[1] 2.718282\n\n\n\n#log(x) = log(x,exp(1))\nlog(exp(1))  \n\n[1] 1",
+    "text": "2.2 R als Taschenrechner\nWir starten, indem wir die Programmiersprache R erst einmal als ganz normalen Taschenrechner benutzen.\n\n2.2.1 Kommentare in R mit #\n\nKommentare lassen sich mit Hilfe des Hash-Zeichens # einleiten\nAlle Zeichen nach dem # werden von R ignoriert\n\n\n5-1/2 # first calculate 1/2, then 5-0.5 = 4.5\n\n[1] 4.5\n\n\nIm Allgemeinen ist das Hinzufügen von Kommentaren zu Codes eine sehr gute Praxis, da es die Lesbarkeit erheblich verbessert und die Zusammenarbeit erleichtert.\n\n\n2.2.2 Einfache arithmetische Ausdrücke\nR erlaubt die direkte Auswertung arithmetischer Ausdrücke, wie man sie aus der Mathematik kennt. Dazu gehören die grundlegenden Rechenoperatoren:\n\nAddition +\nSubtraktion -\nMultiplikation *\nDivision /\nPotenzen ^\nKlammern ()\n\nDiese Operatoren können beliebig kombiniert werden, um auch komplexere Ausdrücke zu berechnen. R wertet solche Ausdrücke sofort aus und gibt das numerische Ergebnis zurück.\nBeispiel\n\n(1 + 2) / (4 - 1.2) * 2^10\n\n[1] 1097.143\n\n\nHier werden zunächst die Ausdrücke in Klammern berechnet, anschließend die Division durchgeführt und das Ergebnis mit einer Potenz multipliziert.\n\n\n2.2.3 Mathematische Funktionen\nNeben arithmetischen Operatoren stellt R zahlreiche mathematische Funktionen zur Verfügung. Dazu gehören unter anderem:\n\nsin(x) für den Sinus\ncos(x) für den Kosinus\nlog(x) für den natürlichen Logarithmus\nsowie viele weitere Funktionen\n\nMathematische Funktionen werden in R immer mit runden Klammern aufgerufen. Die Argumente der Funktion stehen dabei innerhalb der Klammern.\nBeispiel\n\nlog(10) / 2.5\n\n[1] 0.921034\n\n\nIn diesem Beispiel wird zunächst der natürliche Logarithmus von 10 berechnet.\nDas Ergebnis wird anschließend durch 2.5 dividiert.\n\n\n\n\n\n\nWarningAchtung\n\n\n\nIn R bezeichnet log(x) standardmäßig den natürlichen Logarithmus (Basis (e)).\nDer Logarithmus zur Basis 10 muss explizit mit log10(x) berechnet werden.\n\n\n\n\n2.2.4 Prioritäten von Operatoren\nWie in der Mathematik gelten auch in R feste Bindungsprioritäten für Operatoren. Besonders wichtig ist dabei die Regel „Punkt vor Strich“:\nMultiplikation und Division haben eine höhere Priorität als Addition und Subtraktion.\nBeispiel\n\n1 + 2 * 3\n\n[1] 7\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n1 + (2 * 3)\n\n[1] 7\n\n\nund nicht als:\n\n(1 + 2) * 3\n\n[1] 9\n\n\n\n\n2.2.5 Operatoren und Operanden\nOperatoren verknüpfen oder verändern Operanden, also Zahlen oder Ausdrücke. Man unterscheidet in R zwischen binären und unären Operatoren.\n\n2.2.5.1 Binäre Operatoren\nBinäre Operatoren stehen zwischen zwei Argumenten (A und B). Typische Beispiele sind:\n\n+, -, *, /, ^, &lt;-\n\nBinäre Operatoren können sich außerdem darin unterscheiden, in welcher Richtung sie ausgewertet werden (Assoziativität).\n\n2.2.5.1.1 Linksassoziative Operatoren\nDie meisten Operatoren sind linksassoziativ, das heißt, sie werden von links nach rechts ausgewertet. Dazu zählen:\n\n+, -, *, /\n\nBeispiel\n\n1 / 2 / 3\n\n[1] 0.1666667\n\n\nDieser Ausdruck wird von R interpretiert als:\n\n(1 / 2) / 3\n\n[1] 0.1666667\n\n\n\n\n\n2.2.5.2 Rechtsassoziative Operatoren\nEinige Operatoren sind rechtsassoziativ, insbesondere der Potenzoperator ^.\n\n2.2.5.2.1 Beispiel\n\n2^3^4\n\n[1] 2.417852e+24\n\n\nDieser Ausdruck wird interpretiert als:\n\n2^(3^4)\n\n[1] 2.417852e+24\n\n\nund nicht als:\n\n(2^3)^4\n\n[1] 4096\n\n\n\n\n\n2.2.5.3 Unäre Operatoren\nUnäre Operatoren haben nur ein einziges Argument. Sie stehen dadurch entweder vor oder nach einem Ausdruck.\nEin typisches Beispiel ist der logische Negationsoperator !, der einen Wahrheitswert umkehrt.\nBeispiel\n\n!TRUE\n\n[1] FALSE\n\n\n\n\n\n\n\n\n\nTipMerksätze\n\n\n\n\nBinäre Operatoren verbinden zwei Operanden.\nUnäre Operatoren arbeiten mit genau einem Operanden.\nDie Assoziativität bestimmt, ob ein Ausdruck von links oder von rechts ausgewertet wird.\nIm Zweifel sorgen Klammern für Klarheit.\n\n\n\n\n\n2.2.5.4 Operatoren als Funktionen\nIn R gibt es keinen grundlegenden Unterschied zwischen Operatoren und Funktionen. Jeder Operator ist intern eine Funktion und kann auch als solche aufgerufen werden.\nEin Operator wie + kann daher direkt als Funktion verwendet werden.\nDabei gilt:\n\nDer Operator muss in Backticks (`) gesetzt werden\nDie Argumente werden wie bei einem normalen Funktionsaufruf übergeben\n\nBeispiel\n# Verwendung als Operator\n7 + 3\n\n# Verwendung als Funktionsaufruf\n`+`(7, 3)\n\n# Beide Schreibweisen sind äquivalent\n7 + 3 == `+`(7, 3)\n\n\n\n\n\n\nNoteNice to know\n\n\n\nDieses Prinzip gilt nicht nur für +, sondern für alle Operatoren in R, zum Beispiel -, *, /, == und &lt;-.\n\n\n\n\n2.2.5.5 Übersicht arithmetische und logische Operatoren\nArithmetische Operatoren\nArithmetische Operatoren werden in R zur Durchführung mathematischer Berechnungen mit numerischen Werten verwendet.\n\n\n\nOperatoren\nBedeutung\n\n\n\n\n+, -\nAddition, Subtraktion\n\n\n*, /\nMultiplikation, Division\n\n\n^, **\nPotenz (x hoch y)\n\n\nx %/% y\nGanzzahlige Division (5 %/% 2 == 2)\n\n\nx %% y\nModulo (x mod y) (5 %% 2 == 1)\n\n\nx %*% y\nMatrixmultiplikation (c(5, 3) %*% c(2, 4) == 22)\n\n\n\nLogische Operatoren\nLogische Operatoren dienen in R dazu, Werte zu vergleichen und logische Ausdrücke zu formulieren, die entweder TRUE oder FALSE ergeben.\n\n\n\nOperatoren\nBedeutung\n\n\n\n\n&lt;\nKleiner\n\n\n&lt;=\nKleiner gleich\n\n\n&gt;\nGrösser\n\n\n&gt;=\nGrösser gleich\n\n\n==\nGleich (testet auf Äquivalenz)\n\n\n!=\nUngleich\n\n\n!x\nNicht x (Verneinung)\n\n\nx \\| y\nx ODER y\n\n\nx & y\nx UND y\n\n\n\n\n\n\n2.2.6 Runden auf die nächstgelegene Zahl\nDie Funktion round() rundet auf die nächstgelegene ganze Zahl.\n\nround(7/3)\n\n[1] 2\n\n\nStandardmäßig wird auf eine ganze Zahl gerundet. Im Beispiel ergibt sich für 7/3 der Wert 2. Die Genauigkeit der Rundung kann mit dem Argument digits gesteuert werden.\n\nround(7/3, digits = 3)\n\n[1] 2.333\n\n\nHier wird auf drei Dezimalstellen gerundet, was den Wert 2.333 ergibt.\n\n\n2.2.7 Potenzen und Logarithmen\nPotenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.\n\n\n\n\n\n\nNoteWissenschaftliche Notation\n\n\n\nDie wissenschaftliche Notation ist eine gebräuchliche Schreibweise für Zahlen, die zu groß oder zu klein sind, um sie komfortabel in Dezimalform darzustellen.\nDie e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).\n[ 100000 = 1 ^5 = 1+05 ]\n[ 20000 = 2 ^4 = 2+04 ]\n[ 0.0012 = 1.2 ^{-3} = 1.2-03 ]\n\n\nIn R können Potenzen mit dem Operator ^ berechnet werden.\n\nx &lt;- 1 * 10^5\nformat(x, scientific = FALSE)\n\n[1] \"100000\"\n\n\nR stellt logarithmische Funktionen für verschiedene Basen bereit, wobei die gebräuchlichsten die Basis 10, die Basis 2 sowie die natürliche Basis ( e ) sind.\nBasis 10\nDer Logarithmus zur Basis 10 wird mit der Funktion log10() berechnet.\nEr gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmten Wert zu erhalten.\n\n10^6\n\n[1] 1e+06\n\n\n\n#log10(x) = log(x, 10)\nlog10(1e6)  \n\n[1] 6\n\n\nIm Beispiel ergibt sich der Wert 6, da 10^6=1000000.\nBasis 2\nDer Logarithmus zur Basis 2 wird mit der Funktion log2() berechnet.\n\n2^10\n\n[1] 1024\n\n\n\nlog2(1024)  #log2(x) = log(x, 2)\n\n[1] 10\n\n\nHier ergibt sich der Wert 10, da 2^10=1024.\nNatürlicher Logarithmus von \\(x\\) zur Basis e\n\nexp(1)\n\n[1] 2.718282\n\n\n\n#log(x) = log(x,exp(1))\nlog(exp(1))  \n\n[1] 1\n\n\n\n\n2.2.8 Einfache Kommandos in R\nIn diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.\n\n2.2.8.1 Eingabe und Ausführung von Kommandos\nR-Kommandos können direkt im Interpreter eingegeben und durch Drücken der Enter- bzw. Return-Taste ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.\n\n\n2.2.8.2 Arbeiten mit Vektoren\nEine der zentralen Datenstrukturen in R ist der Vektor.\nVektoren werden mit der Funktion c() (combine) erzeugt.\nIm folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen x gespeichert:\n\nx &lt;- c(1, 2, 5, 7)\n\nDie Zuweisung erfolgt in R mit dem Operator &lt;-.\nDabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.\nUm den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:\n\nx\n\n[1] 1 2 5 7\n\n\n\n\n2.2.8.3 Mittelwert\nDer Mittelwert eines Vektors kann mit der Funktion mean() berechnet werden.\n\nx &lt;- c(1, 2, 5, 7)\nmean(x)\n\n[1] 3.75\n\n\n\n\n2.2.8.4 Standardabweichung\nDie Standardabweichung eines Vektors wird mit der Funktion sd() bestimmt.\n\nx &lt;- c(1, 2, 5, 7)\nsd(x)\n\n[1] 2.753785",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
     ]
@@ -130,6 +70,16 @@
     ]
   },
   {
+    "objectID": "chapters/01-einfuehrung.html#einfache-datentypen",
+    "href": "chapters/01-einfuehrung.html#einfache-datentypen",
+    "title": "2  Erste Schritte mit R",
+    "section": "2.6 Einfache Datentypen",
+    "text": "2.6 Einfache Datentypen\nR stellt verschiedene Datentypen zur Verfügung, um unterschiedliche Arten von Informationen darzustellen. Grundsätzlich unterscheidet man zwischen einfachen und zusammengesetzten Datentypen.\nZu den einfachen Datentypen gehören:\n\nlogical – logische Werte\n\ninteger – ganze Zahlen\n\ndouble – Fließkommazahlen\n\ncharacter – Zeichenketten\n\nfactor – kategoriale Daten\n\nDaneben existieren zusammengesetzte Datentypen, die mehrere Werte oder Strukturen enthalten können, zum Beispiel:\n\nvector, list\nmatrix, array\ndata.frame\nfunction\n\nBeispiele für einfache Datentypen\nDie wichtigsten einfachen Datentypen lassen sich wie folgt illustrieren:\n\nLogische Werte: TRUE, FALSE\n\nGanzzahlen (Integer): 42, -15\n\nFließkommazahlen (Double): 0.3, 1.25e-12\n\nZeichenketten (Character): \"this is my string\"\n\n\niamhappy &lt;- TRUE\nmynumber &lt;- 4\nn2 &lt;- 0.3\nhello &lt;- \"world\"\n\n\n\n\n\n\n\nNoteDynamische Typisierung\n\n\n\nR ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.\n\n\n\n2.6.1 Fließkommazahlen\nFließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.\n\nsqrt(2)\n\n[1] 1.414214\n\n\n\nsqrt(2)^2\n\n[1] 2\n\n\nAuf den ersten Blick scheint das Ergebnis exakt zu sein. Ein direkter Vergleich mit == liefert jedoch ein überraschendes Resultat:\n\nsqrt(2) == 2\n\n[1] FALSE\n\n\nZum Nachlesen: https://r-intro.tadaa-data.de/datentypen\nFließkommazahlen sollten nicht direkt mit == verglichen werden. Stattdessen empfiehlt sich ein Vergleich mit einer kleinen Toleranz.\n\n  x &lt;- 1.1 - 0.2\n  y &lt;- 0.9\n  eps &lt;- 0.000000001\n  print(abs(x - y) &lt; eps)\n\n[1] TRUE\n\n\nHier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.\n\n\n2.6.2 Besondere Konstanten in R\nR kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:\n\nNA: not available (Fehlender Wert)\nInf, -Inf: Unendlich (double)\n\n\n10^1000\n\n[1] Inf\n\n\n\nNaN: not a number\n\n\n0/0\n\n[1] NaN\n\n\n\n\n2.6.3 Logische Werte\nLogische Ausdrücke werden in R verwendet, um Bedingungen zu formulieren und Entscheidungen zu treffen. Die grundlegenden logischen Operatoren sind:\n| (oder), & (und), ! (nicht).\nDas folgende Beispiel zeigt einfache logische Verknüpfungen mit logischen Variablen:\n\n  itsRaining &lt;- TRUE\n  SprinklerOn &lt;- FALSE\n\n  I.get.wet &lt;- itsRaining | SprinklerOn\n  dry &lt;- (!itsRaining) & (!SprinklerOn)\n\nFür logische Vektoren stellt R spezielle Funktionen bereit, um Aussagen über alle oder einzelne Elemente zu treffen: - all(): Alle Elemente sind wahr. - any(): Es existiert ein Element, das wahr ist.\n\n\n\n\n\n\nWarningTypische Fehler bei logischen Vergleichen in R\n\n\n\nVerwendung von = statt ==\nDer Operator = dient der Zuweisung, während == für den Vergleich auf Gleichheit verwendet wird.\nDirekter Vergleich von Fließkommazahlen\nAufgrund von Rundungsfehlern sollten numerische Werte nicht direkt mit == verglichen werden. Verwenden Sie stattdessen einen Vergleich mit Toleranz, z. B. abs(x - y) &lt; eps.\nUnbeachtete fehlende Werte (NA)\nLogische Ausdrücke mit NA liefern oft ebenfalls NA. Vor logischen Vergleichen sollten fehlende Werte geprüft oder behandelt werden.\nVerwendung von == statt all() oder any() bei Vektoren\nDer Vergleich eines logischen Vektors mit TRUE oder FALSE ist meist nicht sinnvoll. Nutzen Sie all() oder any(), um Aussagen über mehrere Werte zu treffen.\n\n\n\n\n2.6.4 Tests und Umwandlungen\nR stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, darunter: - is.na() – prüft, ob ein Wert fehlt (NA) - is.numeric() - prüft, ob ein Objekt numerisch ist - as.integer() - wandelt einen Wert in einen Integer um",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
+    ]
+  },
+  {
     "objectID": "chapters/01-einfuehrung.html#verständnisfragen",
     "href": "chapters/01-einfuehrung.html#verständnisfragen",
     "title": "2  Erste Schritte mit R",
@@ -147,186 +97,6 @@
     "text": "2.8 Übungen\nÜbung 1\nBerechnen Sie:\n\n\\(\\frac{1}{2} \\cdot \\frac{1+2+3+4}{2+4+6}\\)\n\\(e\\)\n\\(\\sqrt{2}\\)\n\\(\\sqrt[3]{8}\\)\n\\(log_2(8)\\)\n\nÜbung 2\n\nWie erhalten Sie Hilfe zu der Funktion floor?\nBerechnen Sie das Quadrat von \\(\\pi\\) und runden Sie auf 4 Ziffern nach dem Dezimalpunkt\nBerechnen Sie den Logarithmus von 1 Milliarde mit Basis 1000.\n\nÜbung 3\nDer Body-Mass-Index (BMI) ist eine häufig verwendete Kennzahl zur Bewertung des Körpergewichts in Relation zur Körpergröße.\nEr wird nach folgender Formel berechnet:\n\\[\n\\text{BMI} = \\frac{\\text{Körpergewicht (kg)}}{\\text{Körpergröße (m)}^2}\n\\]\n\nLegen Sie eine neue R-Skriptdatei mit dem Namen bmi.R an.\n\nDefinieren Sie in diesem Skript zwei Variablen:\n\ngewicht für das Körpergewicht in Kilogramm\n\ngroesse für die Körpergröße in Metern\n\n\nBerechnen Sie den BMI mithilfe der oben angegebenen Formel.\n\nGeben Sie den berechneten BMI in der R-Konsole aus.\n\nRunden Sie den BMI auf eine Dezimalstelle.\n\nÜbung 4\n\nSchreiben Sie eine Funktion mit dem Namen myFunc, die die Summe der Parameter x und y zurückgibt\nSpezifizieren Sie als Default Werte für x und y jeweils 0",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/01-einfuehrung.html#einfache-datentypen",
-    "href": "chapters/01-einfuehrung.html#einfache-datentypen",
-    "title": "2  Erste Schritte mit R",
-    "section": "2.6 Einfache Datentypen",
-    "text": "2.6 Einfache Datentypen\nR stellt verschiedene Datentypen zur Verfügung, um unterschiedliche Arten von Informationen darzustellen. Grundsätzlich unterscheidet man zwischen einfachen und zusammengesetzten Datentypen.\nZu den einfachen Datentypen gehören:\n\nlogical – logische Werte\n\ninteger – ganze Zahlen\n\ndouble – Fließkommazahlen\n\ncharacter – Zeichenketten\n\nfactor – kategoriale Daten\n\nDaneben existieren zusammengesetzte Datentypen, die mehrere Werte oder Strukturen enthalten können, zum Beispiel:\n\nvector, list\nmatrix, array\ndata.frame\nfunction\n\nBeispiele für einfache Datentypen\nDie wichtigsten einfachen Datentypen lassen sich wie folgt illustrieren:\n\nLogische Werte: TRUE, FALSE\n\nGanzzahlen (Integer): 42, -15\n\nFließkommazahlen (Double): 0.3, 1.25e-12\n\nZeichenketten (Character): \"this is my string\"\n\n\niamhappy &lt;- TRUE\nmynumber &lt;- 4\nn2 &lt;- 0.3\nhello &lt;- \"world\"\n\n\n\n\n\n\n\nNoteDynamische Typisierung\n\n\n\nR ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.\n\n\n\n2.6.0.1 Fließkommazahlen\nFließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.\n\nsqrt(2)\n\n[1] 1.414214\n\n\n\nsqrt(2)^2\n\n[1] 2\n\n\nAuf den ersten Blick scheint das Ergebnis exakt zu sein. Ein direkter Vergleich mit == liefert jedoch ein überraschendes Resultat:\n\nsqrt(2) == 2\n\n[1] FALSE\n\n\nZum Nachlesen: https://r-intro.tadaa-data.de/datentypen\nFließkommazahlen sollten nicht direkt mit == verglichen werden. Stattdessen empfiehlt sich ein Vergleich mit einer kleinen Toleranz.\n\n  x &lt;- 1.1 - 0.2\n  y &lt;- 0.9\n  eps &lt;- 0.000000001\n  print(abs(x - y) &lt; eps)\n\n[1] TRUE\n\n\nHier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.\n\n\n2.6.0.2 Besondere Konstanten in R\nR kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:\n\nNA: not available (Fehlender Wert)\nInf, -Inf: Unendlich (double)\n\n\n10^1000\n\n[1] Inf\n\n\n\nNaN: not a number\n\n\n0/0\n\n[1] NaN\n\n\n\n\n2.6.1 Logische Werte\nLogische Ausdrücke werden in R verwendet, um Bedingungen zu formulieren und Entscheidungen zu treffen. Die grundlegenden logischen Operatoren sind:\n| (oder), & (und), ! (nicht).\nDas folgende Beispiel zeigt einfache logische Verknüpfungen mit logischen Variablen:\n\n  itsRaining &lt;- TRUE\n  SprinklerOn &lt;- FALSE\n\n  I.get.wet &lt;- itsRaining | SprinklerOn\n  dry &lt;- (!itsRaining) & (!SprinklerOn)\n\nFür logische Vektoren stellt R spezielle Funktionen bereit, um Aussagen über alle oder einzelne Elemente zu treffen: - all(): Alle Elemente sind wahr. - any(): Es existiert ein Element, das wahr ist.\n\n\n\n\n\n\nWarningTypische Fehler bei logischen Vergleichen in R\n\n\n\nVerwendung von = statt ==\nDer Operator = dient der Zuweisung, während == für den Vergleich auf Gleichheit verwendet wird.\nDirekter Vergleich von Fließkommazahlen\nAufgrund von Rundungsfehlern sollten numerische Werte nicht direkt mit == verglichen werden. Verwenden Sie stattdessen einen Vergleich mit Toleranz, z. B. abs(x - y) &lt; eps.\nUnbeachtete fehlende Werte (NA)\nLogische Ausdrücke mit NA liefern oft ebenfalls NA. Vor logischen Vergleichen sollten fehlende Werte geprüft oder behandelt werden.\nVerwendung von == statt all() oder any() bei Vektoren\nDer Vergleich eines logischen Vektors mit TRUE oder FALSE ist meist nicht sinnvoll. Nutzen Sie all() oder any(), um Aussagen über mehrere Werte zu treffen.\n\n\n\n\n2.6.2 Tests und Umwandlungen\nR stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, darunter: - is.na() – prüft, ob ein Wert fehlt (NA) - is.numeric() - prüft, ob ein Objekt numerisch ist - as.integer() - wandelt einen Wert in einen Integer um",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/01-einfuehrung.html#vorsicht-mit--",
-    "href": "chapters/01-einfuehrung.html#vorsicht-mit--",
-    "title": "2  Erste Schritte mit R",
-    "section": "2.6 Vorsicht mit <<-",
-    "text": "2.6 Vorsicht mit &lt;&lt;-\nDamit kann man globale Variablen verändern.\nx &lt;- 1\n\nf &lt;- function() {\n  x &lt;&lt;- 99\n}\n\nf()\nx\nErgebnis:\n[1] 99\nDas sollte sparsam verwendet werden.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Erste Schritte mit R</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply",
-    "href": "chapters/03-daten-transformieren.html#apply",
-    "title": "4  Daten transformieren",
-    "section": "5.1 apply()",
-    "text": "5.1 apply()\nFür Matrizen oder Data Frames.\nSyntax\napply(objekt, margin, funktion)\n\nmargin = 1 → zeilenweise\n\nmargin = 2 → spaltenweise\n\n\nBeispiel: Mittelwert pro Spalte\n\ndaten &lt;- matrix(c(5, 6, 7, 8, 9, 10), nrow = 3)\n\napply(daten, 2, mean)\n\n[1] 6 9\n\n\nBeispiel: Maximum pro Zeile\n\napply(daten, 1, max)\n\n[1]  8  9 10",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-maximum-pro-zeile",
-    "href": "chapters/03-daten-transformieren.html#beispiel-maximum-pro-zeile",
-    "title": "4  Daten transformieren",
-    "section": "5.2 Beispiel: Maximum pro Zeile",
-    "text": "5.2 Beispiel: Maximum pro Zeile\napply(daten, 1, max)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-mittlere-glucose-nach-gruppe",
-    "href": "chapters/03-daten-transformieren.html#beispiel-mittlere-glucose-nach-gruppe",
-    "title": "4  Daten transformieren",
-    "section": "7.1 Beispiel: Mittlere Glucose nach Gruppe",
-    "text": "7.1 Beispiel: Mittlere Glucose nach Gruppe\nglucose &lt;- c(90, 100, 130, 140)\ngruppe  &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Diabetes\", \"Diabetes\")\n\ntapply(glucose, gruppe, mean)\nErgebnis:\nDiabetes Kontrolle\n135       95",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#funktionales-programmieren",
-    "href": "chapters/03-daten-transformieren.html#funktionales-programmieren",
-    "title": "4  Daten transformieren",
-    "section": "8.1 7. Funktionales Programmieren",
-    "text": "8.1 7. Funktionales Programmieren\nHier werden Funktionen wie Daten behandelt:\n\nFunktionen an Funktionen übergeben\n\nFunktionen erzeugen Funktionen\n\nanonyme Funktionen verwenden",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen",
-    "href": "chapters/03-daten-transformieren.html#anonyme-funktionen",
-    "title": "4  Daten transformieren",
-    "section": "6.1 Anonyme Funktionen",
-    "text": "6.1 Anonyme Funktionen\n\nsapply(1:5, function(x) x^2)\n\n[1]  1  4  9 16 25\n\n\n\nBeispiel: Log-Transformation\n\nwerte &lt;- c(1, 10, 100)\n\nsapply(werte, function(x) log10(x))\n\n[1] 0 1 2",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-log-transformation",
-    "href": "chapters/03-daten-transformieren.html#beispiel-log-transformation",
-    "title": "4  Daten transformieren",
-    "section": "8.3 Beispiel: Log-Transformation",
-    "text": "8.3 Beispiel: Log-Transformation\nwerte &lt;- c(1, 10, 100)\n\nsapply(werte, function(x) log10(x))",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
-    "href": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
-    "title": "4  Daten transformieren",
-    "section": "6.2 Funktionen als Argumente",
-    "text": "6.2 Funktionen als Argumente\n\nanalyse &lt;- function(x, FUN) {\n    FUN(x)\n}\n\nanalyse(c(1, 2, 3), mean)\n\n[1] 2\n\nanalyse(c(1, 2, 3), sd)\n\n[1] 1",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
-    "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
-    "title": "4  Daten transformieren",
-    "section": "6.3 Funktionen erzeugen Funktionen",
-    "text": "6.3 Funktionen erzeugen Funktionen\n\nmultiplier &lt;- function(faktor) {\n    function(x) x * faktor\n}\n\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\n\nmal2(10)\n\n[1] 20\n\nmal5(10)\n\n[1] 50",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#praxisbeispiel-für-biomediziner",
-    "href": "chapters/03-daten-transformieren.html#praxisbeispiel-für-biomediziner",
-    "title": "4  Daten transformieren",
-    "section": "6.4 8. Praxisbeispiel für Biomediziner",
-    "text": "6.4 8. Praxisbeispiel für Biomediziner",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#z-transformation-mehrerer-laborwerte",
-    "href": "chapters/03-daten-transformieren.html#z-transformation-mehrerer-laborwerte",
-    "title": "4  Daten transformieren",
-    "section": "6.5 Z-Transformation mehrerer Laborwerte",
-    "text": "6.5 Z-Transformation mehrerer Laborwerte\nwerte &lt;- c(4.5, 5.0, 6.2, 7.1, 5.8)\n\nz &lt;- function(x) {\n  (x - mean(x)) / sd(x)\n}\n\nz(werte)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mehrere-variablen-gleichzeitig-analysieren",
-    "href": "chapters/03-daten-transformieren.html#mehrere-variablen-gleichzeitig-analysieren",
-    "title": "4  Daten transformieren",
-    "section": "6.6 Mehrere Variablen gleichzeitig analysieren",
-    "text": "6.6 Mehrere Variablen gleichzeitig analysieren\ndf &lt;- data.frame(\n  glucose = c(90,100,110),\n  bmi = c(22,27,31),\n  age = c(44,52,61)\n)\n\nsapply(df, mean)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#typische-fehler-1",
-    "href": "chapters/03-daten-transformieren.html#typische-fehler-1",
-    "title": "4  Daten transformieren",
-    "section": "6.4 Typische Fehler",
-    "text": "6.4 Typische Fehler\n\n6.4.1 Funktion nicht aufrufen\nbmi\nstatt:\nbmi(72, 1.78)\n\n\n\n6.4.2 Falscher Rückgabetyp bei lapply\nlapply(df, mean)\nliefert Liste, kein Vektor.\nFalls Vektor gewünscht:\nsapply(df, mean)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#lapply",
-    "href": "chapters/03-daten-transformieren.html#lapply",
-    "title": "4  Daten transformieren",
-    "section": "5.2 lapply()",
-    "text": "5.2 lapply()\nGibt immer eine Liste zurück.\n\nwerte &lt;- list(a = 1:3, b = 4:6)\n\nlapply(werte, mean)\n\n$a\n[1] 2\n\n$b\n[1] 5",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#sapply",
-    "href": "chapters/03-daten-transformieren.html#sapply",
-    "title": "4  Daten transformieren",
-    "section": "5.3 sapply()",
-    "text": "5.3 sapply()\nVersucht das Ergebnis zu vereinfachen.\n\nsapply(werte, mean)\n\na b \n2 5",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#tapply",
-    "href": "chapters/03-daten-transformieren.html#tapply",
-    "title": "4  Daten transformieren",
-    "section": "5.4 tapply()",
-    "text": "5.4 tapply()\nWendet Funktionen auf Gruppen an.\nBeispiel: Mittlere Glucose nach Gruppe\n\nglucose &lt;- c(90, 100, 130, 140)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Diabetes\", \"Diabetes\")\n\ntapply(glucose, gruppe, mean)\n\n Diabetes Kontrolle \n      135        95",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mapply",
-    "href": "chapters/03-daten-transformieren.html#mapply",
-    "title": "4  Daten transformieren",
-    "section": "5.5 mapply()",
-    "text": "5.5 mapply()\nMehrere Vektoren gleichzeitig.\nmapply(function(x, y) x + y,\n       c(1,2,3),\n       c(10,20,30))",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
   },
   {
@@ -407,6 +177,126 @@
     "text": "3.7 Übungen\nÜbung 1\nIn einer klinischen Studie werden bei mehreren Patientinnen und Patienten die C-reaktiven Proteinwerte (CRP) im Blut gemessen. CRP ist ein Laborwert, der bei Entzündungen im Körper erhöht sein kann. Die gemessenen CRP-Werte (in mg/L) seien in folgendem Vektor gespeichert:\ncrp &lt;- c(2.1, 8.4, 0.6, 12.3, 3.2, 15.7, 1.0)\nIn vielen klinischen Kontexten gelten CRP-Werte über 5 mg/L als Hinweis auf eine mögliche Entzündung.\nBearbeiten Sie folgende Aufgaben:\n\nErstellen Sie einen logischen Vektor, der überprüft, welche CRP-Werte größer als 5 mg/L sind.\nFiltern Sie alle CRP-Werte über 5 mg/L aus dem Vektor.\n\nBestimmen Sie mit which() die Positionen der Patientinnen und Patienten, bei denen der CRP-Wert über 5 mg/L liegt.\n\nIn einer zweiten Messung werden zusätzliche CRP-Werte erhoben:\n\ncrp_neu &lt;- c(4.3, 9.8)\nKombinieren Sie die ursprünglichen Messwerte mit den neuen Messwerten zu einem gemeinsamen Vektor.\nÜbung 2\nIn einem Datensatz sind die Herzfrequenzen (in Schlägen pro Minute) von drei Patientinnen und Patienten vor und nach einer leichten Belastung gespeichert.\nruhe &lt;- c(68, 72, 75)\nbelastung &lt;- c(95, 102, 110)\nBearbeiten Sie folgende Aufgaben:\n\nBerechnen Sie die Differenz zwischen Belastungs- und Ruhepuls für jede Person.\n\nBerechnen Sie das Produkt der beiden Vektoren.\n\nBestimmen Sie den Mittelwert des Belastungspulses.\n\nBerechnen Sie das Skalarprodukt der beiden Vektoren.\n\nÜbung 3\nIn dieser Übung arbeiten Sie mit einem kleinen Labor-Datensatz (Blutwerte) und üben das Einlesen, Indizieren und einfache Auswertungen mit Data Frames.\nTeil A: Beispieldatei erstellen (CSV)\nErstellen Sie zuerst eine Datei labwerte.csv im aktuellen Arbeitsverzeichnis:\nlab &lt;- data.frame(\n  patient_id = c(\"P001\",\"P002\",\"P003\",\"P004\",\"P005\",\"P006\"),\n  gruppe     = c(\"Kontrolle\",\"Kontrolle\",\"Therapie\",\"Therapie\",\"Therapie\",\"Kontrolle\"),\n  alter      = c(45, 52, 39, 61, 48, 55),\n  sex        = c(\"w\",\"m\",\"w\",\"m\",\"w\",\"m\"),\n  crp_mg_l   = c(1.2, 3.8, 12.5, 6.1, 8.9, 2.0),\n  wbc_g_l    = c(5.4, 7.1, 11.2, 8.6, 9.9, 6.3),\n  hb_g_dl    = c(13.4, 14.8, 12.1, 13.9, 11.7, 15.2),\n  stringsAsFactors = FALSE\n)\n\nwrite.csv(lab, \"labwerte.csv\", row.names = FALSE)\n\nTeil B: Datei einlesen und inspizieren\n\nLesen Sie die Datei labwerte.csv ein und speicheren Sie diese als Data Frame df.\nGeben Sie anschließend Folgendes aus:\n\ndie ersten 3 Zeilen,\ndie Struktur,\ndie Spaltennamen,\nAnzahl Zeilen und Spalten.\n\n\nTeil C: Indizierung und Zugriff\nBearbeiten Sie die Aufgaben (ohne dplyr, nur Base R):\n\nGeben Sie die 2. Zeile vollständig aus.\nGeben Sie die Spalte crp_mg_l aus (einmal per Index, einmal per Name).\nGreifen Sie auf den Hämoglobinwert (hb_g_dl) von Patient P005 zu.\n\nHinweis: df[df$patient_id == \"P005\", \"hb_g_dl\"]\nTeil D: Filtern (Subsets) und einfache Kennzahlen\n\nErstellen Sie einen Data Frame therapie, der nur Patient:innen aus der Gruppe \"Therapie\" enthält.\nBerechnen Sie für CRP getrennt nach Gruppe:\n\nMittelwert\nMedian\nMaximum\n\n\nHinweis: Nutzen Sie z. B. tapply().\nTeil E: Neue Variable berechnen\nIn der klinischen Praxis sind Grenzwerte wichtig.\n\nErstellen Sie eine neue Spalte crp_hoch, die TRUE ist, wenn crp_mg_l &gt; 5, sonst FALSE.\nWie viele Patient:innen pro Gruppe haben crp_hoch == TRUE?\n\nHinweis: table(df$gruppe, df$crp_hoch).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Daten repräsentieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html",
+    "href": "chapters/03-daten-transformieren.html",
+    "title": "4  Daten transformieren",
+    "section": "",
+    "text": "4.1 Kontrollstrukturen\nMit Kontrollstrukturen kann man:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#kontrollstrukturen",
+    "href": "chapters/03-daten-transformieren.html#kontrollstrukturen",
+    "title": "4  Daten transformieren",
+    "section": "",
+    "text": "mehrere Befehle zusammenfassen,\nEntscheidungen treffen,\nAbläufe wiederholen.\n\n\n4.1.1 Anweisungsblöcke\nEin Anweisungsblock fasst mehrere Befehle zusammen. In R werden Blöcke mit geschweiften Klammern { } definiert.\n\n4.1.1.1 Syntax\n{\n  Befehl1\n  Befehl2\n  Befehl3\n}\nBeispiel: Berechnung eines BMI\n\n{\n  gewicht &lt;- 72\n  groesse &lt;- 1.78\n  bmi &lt;- gewicht / groesse^2\n  bmi\n}\n\n[1] 22.7244\n\n\nAlle Befehle werden nacheinander ausgeführt. Der letzte Ausdruck wird ausgegeben.\n\n\n\n4.1.2 Bedingte Anweisungen und Verzweigungen\nMit Bedingungen kann Code nur dann ausgeführt werden, wenn bestimmte Kriterien erfüllt sind.\n\n4.1.2.1 if-Anweisung\nSyntax\nif (Bedingung) {\n  Befehle\n}\nBeispiel: Fieber erkennen\n\ntemperatur &lt;- 38.5\n\nif (temperatur &gt;= 38) {\n  print(\"Fieber vorhanden\")\n}\n\n[1] \"Fieber vorhanden\"\n\n\n\n\n\n4.1.2.2 if … else\nSyntax\nif (Bedingung) {\n  Befehle_wenn_wahr\n} else {\n  Befehle_wenn_falsch\n}\nBeispiel: Blutdruckbewertung\n\nsystole &lt;- 128\n\nif (systole &gt;= 140) {\n  print(\"Hypertonie möglich\")\n} else {\n  print(\"Normalbereich\")\n}\n\n[1] \"Normalbereich\"\n\n\n\n\n\n4.1.2.3 if … else if … else\nMit dieser Struktur können mehrere Fälle unterschieden werden.\nBeispiel: BMI-Klassifikation\n\nbmi &lt;- 27.4\n\nif (bmi &lt; 18.5) {\n  print(\"Untergewicht\")\n} else if (bmi &lt; 25) {\n  print(\"Normalgewicht\")\n} else if (bmi &lt; 30) {\n  print(\"Übergewicht\")\n} else {\n  print(\"Adipositas\")\n}\n\n[1] \"Übergewicht\"\n\n\n\n\n4.1.2.4 Wichtige Vergleichsoperatoren\n\n\n\nOperator\nBedeutung\n\n\n\n\n==\ngleich\n\n\n!=\nungleich\n\n\n&gt;\ngrößer\n\n\n&lt;\nkleiner\n\n\n&gt;=\ngrößer gleich\n\n\n&lt;=\nkleiner gleich\n\n\n\n\n\n4.1.2.5 Logische Operatoren\n\n\n\nOperator\nBedeutung\n\n\n\n\n&\nund\n\n\n|\noder\n\n\n!\nnicht\n\n\n\nBeispiel\n\nalter &lt;- 67\nraucher &lt;- TRUE\n\nif (alter &gt; 65 & raucher) {\n  print(\"Erhöhtes Risiko\")\n}\n\n[1] \"Erhöhtes Risiko\"\n\n\n\n\n\n\n4.1.3 Schleifen\nSchleifen wiederholen Befehle mehrfach.\n\n4.1.3.1 for-Schleife\nDie for-Schleife wird verwendet, wenn bekannt ist, wie oft etwas wiederholt werden soll.\nSyntax\nfor (variable in werte) {\n  Befehle\n}\nBeispiel: Messwerte ausgeben\n\nwerte &lt;- c(4.2, 5.1, 6.0)\n\nfor (wert in werte) {\n  print(wert)\n}\n\n[1] 4.2\n[1] 5.1\n[1] 6\n\n\nBeispiel: Mittelwert mehrerer Proben berechnen\n\nproben &lt;- c(8.1, 7.9, 8.4, 8.0)\n\nsumme &lt;- 0\n\nfor (wert in proben) {\n  summe &lt;- summe + wert\n}\n\nmittelwert &lt;- summe / length(proben)\nmittelwert\n\n[1] 8.1\n\n\n\n\n\n4.1.3.2 while-Schleife\nDie while-Schleife läuft so lange, wie eine Bedingung wahr ist.\nSyntax\nwhile (Bedingung) {\n  Befehle\n}\nBeispiel: Zellwachstum\n\nzellen &lt;- 100\n\nwhile (zellen &lt; 1000) {\n  zellen &lt;- zellen * 2\n  print(zellen)\n}\n\n[1] 200\n[1] 400\n[1] 800\n[1] 1600\n\n\n\n\n\n4.1.3.3 repeat-Schleife\nDie repeat-Schleife läuft unbegrenzt, bis sie mit break beendet wird.\nBeispiel\n\nwert &lt;- 1\n\nrepeat {\n  wert &lt;- wert * 2\n  print(wert)\n\n  if (wert &gt; 100) {\n    break\n  }\n}\n\n[1] 2\n[1] 4\n[1] 8\n[1] 16\n[1] 32\n[1] 64\n[1] 128\n\n\n\n\n\n4.1.3.4 break und next\n\n4.1.3.4.1 break\nbreak beendet eine Schleife sofort.\n\nfor (i in 1:10) {\n  if (i == 5) {\n    break\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n\n\n\n\n4.1.3.4.2 next\nnext überspringt den aktuellen Schleifendurchlauf.\n\nfor (i in 1:5) {\n  if (i == 3) {\n    next\n  }\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 4\n[1] 5\n\n\n\n\n\n\n\n4.1.4 Typische Fehler\n\n4.1.4.1 Fehlende Klammern\nx &lt;- 5\nif (x &gt; 5)\n  print(x)\nBesser:\n\nx &lt;- 6\nif (x &gt; 5) {\n  print(x)\n}\n\n[1] 6\n\n\n\n\n4.1.4.2 Endlosschleife\nwhile (x &lt; 10) {\n  print(x)\n}\nHier wird x nie verändert. Dadurch endet die Schleife nicht.\n\n\n\n\n4.1.5 Zusammenfassung\n\n\n\nStruktur\nZweck\n\n\n\n\n{}\nMehrere Befehle zusammenfassen\n\n\nif\nBedingte Ausführung\n\n\nif ... else\nZwei Alternativen\n\n\nif ... else if\nMehrere Fälle\n\n\nfor\nWiederholung mit bekannter Anzahl\n\n\nwhile\nWiederholung mit Bedingung\n\n\nrepeat\nWiederholung bis break",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply",
+    "href": "chapters/03-daten-transformieren.html#apply",
+    "title": "4  Daten transformieren",
+    "section": "5.1 apply()",
+    "text": "5.1 apply()\nFür Matrizen oder Data Frames.\nSyntax\napply(objekt, margin, funktion)\n\nmargin = 1 → zeilenweise\n\nmargin = 2 → spaltenweise\n\n\nBeispiel: Mittelwert pro Spalte\n\ndaten &lt;- matrix(c(5, 6, 7, 8, 9, 10), nrow = 3)\n\napply(daten, 2, mean)\n\n[1] 6 9\n\n\nBeispiel: Maximum pro Zeile\n\napply(daten, 1, max)\n\n[1]  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#lapply",
+    "href": "chapters/03-daten-transformieren.html#lapply",
+    "title": "4  Daten transformieren",
+    "section": "5.2 lapply()",
+    "text": "5.2 lapply()\nGibt immer eine Liste zurück.\n\nwerte &lt;- list(a = 1:3, b = 4:6)\n\nlapply(werte, mean)\n\n$a\n[1] 2\n\n$b\n[1] 5",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#sapply",
+    "href": "chapters/03-daten-transformieren.html#sapply",
+    "title": "4  Daten transformieren",
+    "section": "5.3 sapply()",
+    "text": "5.3 sapply()\nVersucht das Ergebnis zu vereinfachen.\n\nsapply(werte, mean)\n\na b \n2 5",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#tapply",
+    "href": "chapters/03-daten-transformieren.html#tapply",
+    "title": "4  Daten transformieren",
+    "section": "5.4 tapply()",
+    "text": "5.4 tapply()\nWendet Funktionen auf Gruppen an.\nBeispiel: Mittlere Glucose nach Gruppe\n\nglucose &lt;- c(90, 100, 130, 140)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Diabetes\", \"Diabetes\")\n\ntapply(glucose, gruppe, mean)\n\n Diabetes Kontrolle \n      135        95",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mapply",
+    "href": "chapters/03-daten-transformieren.html#mapply",
+    "title": "4  Daten transformieren",
+    "section": "5.5 mapply()",
+    "text": "5.5 mapply()\nMehrere Vektoren gleichzeitig.\nmapply(function(x, y) x + y,\n       c(1,2,3),\n       c(10,20,30))",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen",
+    "href": "chapters/03-daten-transformieren.html#anonyme-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "6.1 Anonyme Funktionen",
+    "text": "6.1 Anonyme Funktionen\n\nsapply(1:5, function(x) x^2)\n\n[1]  1  4  9 16 25\n\n\n\nBeispiel: Log-Transformation\n\nwerte &lt;- c(1, 10, 100)\n\nsapply(werte, function(x) log10(x))\n\n[1] 0 1 2",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
+    "href": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
+    "title": "4  Daten transformieren",
+    "section": "6.2 Funktionen als Argumente",
+    "text": "6.2 Funktionen als Argumente\n\nanalyse &lt;- function(x, FUN) {\n    FUN(x)\n}\n\nanalyse(c(1, 2, 3), mean)\n\n[1] 2\n\nanalyse(c(1, 2, 3), sd)\n\n[1] 1",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
+    "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "6.3 Funktionen erzeugen Funktionen",
+    "text": "6.3 Funktionen erzeugen Funktionen\n\nmultiplier &lt;- function(faktor) {\n    function(x) x * faktor\n}\n\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\n\nmal2(10)\n\n[1] 20\n\nmal5(10)\n\n[1] 50",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#typische-fehler-1",
+    "href": "chapters/03-daten-transformieren.html#typische-fehler-1",
+    "title": "4  Daten transformieren",
+    "section": "6.4 Typische Fehler",
+    "text": "6.4 Typische Fehler\n\n6.4.1 Funktion nicht aufrufen\nbmi\nstatt:\nbmi(72, 1.78)\n\n\n\n6.4.2 Falscher Rückgabetyp bei lapply\nlapply(df, mean)\nliefert Liste, kein Vektor.\nFalls Vektor gewünscht:\nsapply(df, mean)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben",
+    "href": "chapters/03-daten-transformieren.html#übungsaufgaben",
+    "title": "4  Daten transformieren",
+    "section": "6.5 Übungsaufgaben",
+    "text": "6.5 Übungsaufgaben\n\n6.5.1 Aufgabe 1\nErstellen Sie ein Programm, das eine Körpertemperatur bewertet:\n\nunter 37.5: Normal\n37.5 bis 38: erhöht\nüber 38: Fieber\n\n\n\n6.5.2 Aufgabe 2\nBerechnen Sie mit einer for-Schleife die Summe der Werte:\nc(3, 5, 7, 2)\n\n\n6.5.3 Aufgabe 3\nSimulieren Sie Zellteilungen mit einer while-Schleife, bis 10.000 Zellen erreicht sind.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
   }
 ]

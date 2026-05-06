@@ -1,0 +1,1060 @@
+---
+title: "01 Erste Schritte mit R"
+date: "2026-05-06"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 2
+    footer: "01 Erste Schritte mit R"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    format:
+  
+  beamer:
+    slide-level: 2
+    keep-tex: true
+    toc: true
+    toc-depth: 1
+    aspectratio: 169
+    highlight-style: pygments
+    theme: default
+
+    include-in-header:
+      text: |
+        \input{beamerthemeBHT.sty}
+
+    fontsize: 10pt
+
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Ablauf der Vorlesung
+
+## Vorlesungsplan 
+
+| Datum | Typ | Thema |
+|---|---|---|
+| 07.05 | Vorlesung | Einführung und Datentypen |
+| 14.05 | keine Vorlesung |  |
+| 21.05 | Vorlesung | Transformationen |
+| 28.05 | Vorlesung | Datenaufbereitung (Tidyverse) |
+| 04.06 | keine Vorlesung |  |
+| 11.06 | Vorlesung | Visualisierung |
+| 18.06 | Vorlesung | EDA und Graphen |
+| 25.06 | Vorlesung | Testing \& Packaging |
+| 02.07 | Vorlesung | Klausurvorbereitung  |
+
+
+## Übung 
+
+| Datum | Typ | Abgabe |
+|---|---|---|
+| 12.05 | Übung | 19.05 |
+| 19.05 | Übung | 02.06 |
+| 26.05 | keine Übung | - |
+| 02.06 | Übung | 09.06 |
+| 09.06 | Übung | 16.06 |
+| 16.06 | Übung | 23.06 |
+| 23.06 | Übung | keine Abgabe |
+| 30.06 | Übung | keine Abgabe |
+
+## Klausur
+
+- in Abstimmung mit Bernd Hafenrichter
+- 90 Minuten 
+- Hälfte der Punktzahl mit R Programmierung erreichbar
+
+
+# Erste Schritte in R 
+
+## Lernziele
+
+- R und RStudio installieren
+- RStudio-Oberfläche kennenlernen
+- Pakete installieren und laden
+- sauberen und reproduzierbaren Code schreiben
+- R als Taschenrechner verwenden
+- Funktionen und Argumente verstehen
+- Hilfe in R nutzen
+
+---
+
+## Was ist R?
+
+- Programmiersprache für:
+  - Statistik
+  - Datenanalyse
+  - Visualisierung
+
+- Interaktive Skriptsprache
+- Plattformunabhängig:
+  - Windows
+  - macOS
+  - Linux
+
+---
+
+## Eigenschaften von R
+
+- Schrittweise Ausführung von Befehlen
+- Ergebnisse sofort sichtbar
+- Gut geeignet für:
+  - Forschung
+  - Statistik
+  - Data Science
+
+- Kombination aus:
+  - imperativer Programmierung
+  - funktionalen Konzepten
+
+---
+
+## R installieren
+
+Offizielle Webseite: <https://cloud.r-project.org>
+
+Enthält
+
+- aktuelle Versionen
+- Dokumentation
+- Manuals
+- Bücher
+- Blog
+
+---
+
+## RStudio installieren
+
+RStudio: <https://www.rstudio.com>
+
+Vorteile
+
+- grafische Oberfläche für R
+- komfortabler Skripteditor
+- integrierte Hilfe
+- Plot-Anzeige
+- Paketverwaltung
+
+---
+
+## R starten
+
+Windows
+
+```text
+C:\Program Files\R\R-x.x.x\bin
+```
+
+Linux
+
+```bash
+R
+```
+
+---
+
+## Arbeiten in der R-Konsole
+
+
+![](../figures/R_Konsole.png){width=65%}
+
+---
+
+## Die R-Konsole
+
+Eingabe
+
+```r
+1 + 2
+```
+
+Ausgabe
+
+```text
+[1] 3
+```
+
+Nützliche Funktion: alte Befehle mit Pfeiltasten abrufen
+
+---
+
+## Skripte in R
+
+Warum Skripte?
+
+- Code speichern
+- erneut ausführen
+- dokumentieren
+- reproduzierbar arbeiten
+
+Dateiendung
+
+```text
+.R
+```
+
+---
+
+## Konsole vs. Skript
+
+| Konsole | Skript |
+|---|---|
+| schnelle Tests | strukturierter Code |
+| temporär | dauerhaft speicherbar |
+| einzelne Befehle | komplette Analysen |
+
+---
+
+## RStudio Oberfläche
+
+![RStudio Oberfläche](../figures/RStudio.png)
+
+---
+
+## Neues Skript erstellen
+
+Menü
+
+```text
+File > New File > R Script
+```
+
+---
+
+## Erstes Programm
+
+```r
+print("Hello, world")
+```
+
+---
+
+## Programm ausführen
+
+Tastenkombination
+
+```text
+Strg + Enter
+```
+
+Alternative: Button „Run“
+
+---
+
+## Beispiel: Hello World
+
+![](../figures/Skript.png)
+
+---
+
+## Funktionen in R
+
+Allgemeine Struktur
+
+```r
+funktionsname(argumente)
+```
+
+Beispiel
+
+```r
+print("Hello, world")
+```
+
+---
+
+## Funktionen und Argumente
+
+```r
+print("Hello, world")
+```
+
+- `print()` ist die Funktion
+- `"Hello, world"` ist das Argument
+
+---
+
+## Zusatzpakete
+
+Pakete enthalten zusätzlichen Code für:
+
+- Statistik
+- Datenanalyse
+- Visualisierung
+- Machine Learning
+
+---
+
+## Pakete installieren
+
+```r
+install.packages("dplyr")
+```
+
+---
+
+## Installation mit Abhängigkeiten
+
+```r
+install.packages(
+  "dplyr",
+  dependencies = TRUE
+)
+```
+
+Vorteil: notwendige Zusatzpakete werden automatisch installiert
+
+---
+
+## R als Taschenrechner
+
+Grundrechenarten
+
+- Addition `+`
+- Subtraktion `-`
+- Multiplikation `*`
+- Division `/`
+- Potenzen `^`
+
+---
+
+## Kommentare in R
+
+```r
+5 - 1/2  # Kommentar
+```
+
+Kommentare beginnen mit
+
+```r
+#
+```
+
+---
+
+## Kommentare sind wichtig
+
+- bessere Lesbarkeit
+- Dokumentation
+- Zusammenarbeit erleichtern
+- spätere Nachvollziehbarkeit
+
+---
+
+## Arithmetische Ausdrücke
+
+```r
+(1 + 2) / (4 - 1.2) * 2^10
+```
+
+---
+
+## Operatoren
+
+| Operator | Bedeutung |
+|---|---|
+| `+` | Addition |
+| `-` | Subtraktion |
+| `*` | Multiplikation |
+| `/` | Division |
+| `^` | Potenz |
+
+---
+
+## Berechnen Sie
+
+- $2^8$
+- den Umfang eines Kreises mit $r=2$
+- $log_{10}(1000)$
+- Runden Sie $\pi$ auf 4 Nachkommastellen
+- $\frac{\sqrt{25} + 3^2}{log_2(8)}$
+
+---
+
+## Achtung: `log()`
+
+```r
+log(x)
+```
+
+berechnet den natürlichen Logarithmus.
+
+Logarithmus zur Basis 10
+
+```r
+log10(x)
+```
+---
+
+## Prioritäten von Operatoren
+
+Punkt vor Strich
+
+```r
+1 + 2 * 3
+```
+
+entspricht:
+
+```r
+1 + (2 * 3)
+```
+
+Klammern ändern die Reihenfolge
+
+```r
+(1 + 2) * 3
+```
+
+---
+
+## Operatoren und Operanden
+
+Operatoren verknüpfen oder verändern **Operanden**.
+
+- Operanden = Werte oder Ausdrücke
+- Operatoren = Rechen- oder Vergleichszeichen
+
+Beispiele:
+
+```r
+2 + 3
+5 * 8
+x <- 4
+```
+
+---
+
+## Binäre Operatoren
+
+Binäre Operatoren arbeiten mit **zwei Argumenten**.
+
+| Operator | Bedeutung |
+|---|---|
+| `+` | Addition |
+| `-` | Subtraktion |
+| `*` | Multiplikation |
+| `/` | Division |
+| `^` | Potenz |
+| `<-` | Zuweisung |
+
+---
+
+## Linksassoziative Operatoren
+
+Auswertung von links nach rechts
+
+Beispiel
+
+```r
+1 / 2 / 3
+```
+
+R interpretiert dies als: $\left(\frac{1}{2}\right)/3$
+
+---
+
+## Rechtsassoziative Operatoren
+
+Potenzoperator `^`: wird von rechts nach links ausgewertet
+
+Beispiel
+
+```r
+2^3^4
+```
+
+Interpretation: $2^{(3^4)}$
+
+Nicht: $(2^3)^4$
+
+---
+
+## Unäre Operatoren
+
+Ein Argument: Unäre Operatoren arbeiten mit genau einem Operanden.
+
+Beispiel: Negation
+
+```r
+!TRUE
+```
+
+Ergebnis:
+
+```r
+FALSE
+```
+
+---
+
+## Operatoren als Funktionen
+
+In R sind Operatoren intern Funktionen.
+
+```r
+7 + 3
+```
+
+ist identisch zu:
+
+```r
+`+`(7, 3)
+```
+
+Vergleich:
+
+```r
+7 + 3 == `+`(7, 3)
+```
+
+---
+
+## Arithmetische Operatoren
+
+| Operator | Bedeutung |
+|---|---|
+| `+` | Addition |
+| `-` | Subtraktion |
+| `*` | Multiplikation |
+| `/` | Division |
+| `^` | Potenz |
+| `%/%` | Ganzzahlige Division |
+| `%%` | Modulo |
+
+Beispiele
+
+```r
+5 %/% 2
+5 %% 2
+```
+
+---
+
+## Logische Operatoren
+
+Vergleichsoperatoren
+
+| Operator | Bedeutung |
+|---|---|
+| `<` | kleiner |
+| `<=` | kleiner gleich |
+| `>` | größer |
+| `>=` | größer gleich |
+| `==` | gleich |
+| `!=` | ungleich |
+
+---
+
+## Logische Verknüpfungen
+
+Wahrheitswerte kombinieren
+
+| Operator | Bedeutung |
+|---|---|
+| `!x` | NICHT |
+| `x & y` | UND |
+| `x | y` | ODER |
+
+Beispiel
+
+```r
+TRUE & FALSE
+TRUE | FALSE
+!TRUE
+```
+
+---
+
+## Aufgabe
+
+Definieren Sie folgende Variablen:
+
+```r
+itsRaining <- TRUE
+haveUmbrella <- FALSE
+```
+
+Berechnen Sie anschließend:
+
+1. Regnet es **und** haben Sie einen Regenschirm?
+2. Regnet es **oder** haben Sie einen Regenschirm?
+3. Bleiben Sie trocken, wenn Sie einen Regenschirm haben oder es nicht regnet?
+
+---
+
+## Arbeiten mit Vektoren
+
+Vektoren werden mit `c()` erstellt.
+
+Beispiel
+
+```r
+x <- c(1, 2, 5, 7)
+```
+
+Ausgabe:
+
+```r
+x
+```
+
+---
+
+## Mittelwert berechnen
+
+Funktion `mean()`
+
+```r
+x <- c(1, 2, 5, 7)
+
+mean(x)
+```
+
+---
+
+## Standardabweichung
+
+Funktion `sd()`
+
+```r
+x <- c(1, 2, 5, 7)
+
+sd(x)
+```
+
+---
+
+## Runden mit `round()`
+
+Ganze Zahlen
+
+```r
+round(7/3)
+```
+
+Mit Nachkommastellen
+
+```r
+round(7/3, digits = 3)
+```
+
+---
+
+## Potenzen in R
+
+Potenzoperator `^`
+
+```r
+10^5
+```
+
+---
+
+## Wissenschaftliche Notation
+
+Große und kleine Zahlen
+
+$$
+100000 = 1 \times 10^5
+$$
+
+$$
+0.0012 = 1.2 \times 10^{-3}
+$$
+
+Beispiel in R
+
+```r
+x <- 1 * 10^5
+```
+
+---
+
+## Logarithmus Basis 10
+
+Funktion `log10()`
+
+```r
+10^6
+```
+
+```r
+log10(1e6)
+```
+
+---
+
+## Logarithmus Basis 2
+
+Funktion `log2()`
+
+```r
+2^10
+```
+
+```r
+log2(1024)
+```
+
+---
+
+## Natürlicher Logarithmus
+
+Basis \(e\)
+
+```r
+exp(1)
+```
+
+```r
+log(exp(1))
+```
+
+---
+
+## Hilfe in R
+
+Hilfe aufrufen
+
+```r
+?mean
+```
+
+Alternative
+
+```r
+help("mean")
+```
+
+Suche
+
+```r
+help.search("mean")
+```
+
+---
+
+## Alles ist ein Objekt
+
+
+> Everything that exists is an object.  
+> Everything that happens is a function call.
+
+— John Chambers
+
+---
+
+## Funktionen in R
+
+Funktionen verarbeiten Input
+
+### Beispiel
+
+```r
+2 + 3
+```
+
+Ergebnis:
+
+```r
+5
+```
+
+---
+
+## Variablen und Zuweisungen
+
+Mit `<-`
+
+```r
+x <- 2
+y <- 3
+z <- x + y
+```
+
+---
+
+## Warum `<-`?
+
+- Richtung der Zuweisung sichtbar
+- Historisch aus der Sprache S übernommen
+- Bessere Lesbarkeit
+
+---
+
+## Variablennamen
+
+Regeln
+
+Erlaubt:
+
+- Buchstaben
+- Zahlen
+- `_`
+- `.`
+
+Nicht erlaubt:
+
+- Beginn mit Zahl
+- reservierte Wörter
+
+---
+
+## Gültige Namen
+
+Beispiele
+
+```r
+x1
+X1
+min.dist
+Best.gene
+```
+
+---
+
+## Ungültige Namen
+
+Beispiel
+
+```r
+TRUE <- 5
+```
+
+Fehler:
+
+```r
+Error in TRUE <- 5
+```
+
+---
+
+## Funktionen als Blackbox
+
+Input → Verarbeitung → Output
+
+### Beispiel
+
+```r
+mean(c(1,2,3))
+```
+
+---
+
+## Parameter in Funktionen
+
+Standardwerte
+
+```r
+x <- c(1, NA, 6)
+
+mean(x, na.rm = TRUE)
+```
+
+---
+
+## Wichtige Basisfunktionen
+
+| Funktion | Bedeutung |
+|---|---|
+| `sqrt()` | Wurzel |
+| `abs()` | Absolutwert |
+| `sum()` | Summe |
+| `mean()` | Mittelwert |
+| `max()` | Maximum |
+
+---
+
+## Eigene Funktionen
+
+Funktion definieren
+
+```r
+pythagoras <- function(a, b){
+
+  hypo <- sqrt(a^2 + b^2)
+
+  return(hypo)
+}
+```
+
+Aufruf:
+
+```r
+pythagoras(2,4)
+```
+
+---
+
+## Satz des Pythagoras
+
+
+$$
+c = \sqrt{a^2 + b^2}
+$$
+
+---
+
+## Scope in R
+
+Lokale Variablen
+
+```r
+x <- 10
+
+demo <- function() {
+  x <- 5
+  x
+}
+```
+
+Das äußere `x` bleibt unverändert.
+
+---
+
+## Globale Variablen
+
+Zugriff außerhalb von Funktionen
+
+```r
+patienten <- 120
+```
+
+---
+
+## Vorsicht mit `<<-`
+
+Globale Variablen verändern
+
+```r
+x <- 1
+
+f <- function() {
+  x <<- 99
+}
+```
+
+---
+
+## Einfache Datentypen
+
+| Typ | Bedeutung |
+|---|---|
+| `logical` | Wahr/Falsch |
+| `integer` | Ganze Zahlen |
+| `double` | Fließkommazahlen |
+| `character` | Zeichenketten |
+
+---
+
+## Beispiele Datentypen
+
+```r
+iamhappy <- TRUE
+mynumber <- 4
+n2 <- 0.3
+hello <- "world"
+```
+
+---
+
+## Dynamische Typisierung
+
+R erkennt Datentypen automatisch.
+
+```r
+x <- 5
+```
+
+---
+
+## Fließkommazahlen
+
+Rundungsfehler
+
+```r
+sqrt(2)
+```
+
+```r
+sqrt(2)^2
+```
+
+---
+
+## Vergleich von Fließkommazahlen
+
+Nicht direkt mit `==`
+
+```r
+x <- 1.1 - 0.2
+y <- 0.9
+
+abs(x - y) < 0.0000001
+```
+
+---
+
+## Besondere Konstanten
+
+Wichtige Spezialwerte
+
+| Wert | Bedeutung |
+|---|---|
+| `NA` | Fehlender Wert |
+| `Inf` | Unendlich |
+| `NaN` | Not a Number |
+
+---
+
+## Logische Werte
+
+Bedingungen formulieren
+
+```r
+itsRaining <- TRUE
+SprinklerOn <- FALSE
+
+itsRaining | SprinklerOn
+```
+
+---
+
+## Funktionen für logische Vektoren
+
+`all()` und `any()`
+
+```r
+all(c(TRUE, TRUE))
+```
+
+```r
+any(c(FALSE, TRUE))
+```
+
+---
+
+## Typische Fehler in R
+
+- `=` statt `==`
+- Direkter Vergleich von Fließkommazahlen
+- Fehlende Werte (`NA`)
+- Vergleich logischer Vektoren
+
+---
+
+## Datentypen prüfen
+
+```r
+is.na(x)
+is.numeric(x)
+as.integer(x)
+```
+
+---

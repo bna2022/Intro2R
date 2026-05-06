@@ -330,53 +330,7 @@ Logische Operatoren dienen in R dazu, Werte zu vergleichen und logische Ausdrüc
 | `x \| y`   | *x* ODER *y*                   |
 | `x & y`    | *x* UND *y*                    |
 
-### Einfache Kommandos in R
-
-In diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.
-
-#### Eingabe und Ausführung von Kommandos
-
-R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der **Enter- bzw. Return-Taste** ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.
-
-#### Arbeiten mit Vektoren
-
-Eine der zentralen Datenstrukturen in R ist der **Vektor**.\
-Vektoren werden mit der Funktion `c()` (combine) erzeugt.
-
-Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen `x` gespeichert:
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-```
-
-Die Zuweisung erfolgt in R mit dem Operator `<-`.\
-Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.
-
-Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:
-
-```{r echo=TRUE, tidy=TRUE}
-x
-```
-
-#### Mittelwert
-
-Der Mittelwert eines Vektors kann mit der Funktion `mean()` berechnet werden.
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-mean(x)
-```
-
-#### Standardabweichung
-
-Die Standardabweichung eines Vektors wird mit der Funktion `sd()` bestimmt.
-
-```{r echo=TRUE, tidy=TRUE}
-x <- c(1, 2, 5, 7)
-sd(x)
-```
-
-#### Runden auf die nächstgelegene Zahl
+### Runden auf die nächstgelegene Zahl
 
 Die Funktion `round()` rundet auf die nächstgelegene ganze Zahl.
 
@@ -392,7 +346,7 @@ round(7/3, digits=3)
 
 Hier wird auf drei Dezimalstellen gerundet, was den Wert `2.333` ergibt.
 
-#### Potenzen und Logarithmen
+### Potenzen und Logarithmen
 
 Potenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.
 
@@ -457,6 +411,55 @@ exp(1)
 #log(x) = log(x,exp(1))
 log(exp(1))  
 ```
+
+
+### Einfache Kommandos in R
+
+In diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.
+
+#### Eingabe und Ausführung von Kommandos
+
+R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der **Enter- bzw. Return-Taste** ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.
+
+#### Arbeiten mit Vektoren
+
+Eine der zentralen Datenstrukturen in R ist der **Vektor**.\
+Vektoren werden mit der Funktion `c()` (combine) erzeugt.
+
+Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen `x` gespeichert:
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+```
+
+Die Zuweisung erfolgt in R mit dem Operator `<-`.\
+Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.
+
+Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:
+
+```{r echo=TRUE, tidy=TRUE}
+x
+```
+
+#### Mittelwert
+
+Der Mittelwert eines Vektors kann mit der Funktion `mean()` berechnet werden.
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+mean(x)
+```
+
+#### Standardabweichung
+
+Die Standardabweichung eines Vektors wird mit der Funktion `sd()` bestimmt.
+
+```{r echo=TRUE, tidy=TRUE}
+x <- c(1, 2, 5, 7)
+sd(x)
+```
+
+
 
 ## Hilfe in R
 
@@ -802,7 +805,7 @@ hello <- "world"
 R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.
 :::
 
-#### Fließkommazahlen
+### Fließkommazahlen
 
 Fließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.
 
@@ -833,7 +836,7 @@ Fließkommazahlen sollten nicht direkt mit `==` verglichen werden. Stattdessen e
 
 Hier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.
 
-#### Besondere Konstanten in R
+### Besondere Konstanten in R
 
 R kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:
 

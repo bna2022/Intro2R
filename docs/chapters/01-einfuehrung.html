@@ -244,7 +244,9 @@ window.Quarto = {
   <li><a href="#mathematische-funktionen" id="toc-mathematische-funktionen" class="nav-link" data-scroll-target="#mathematische-funktionen"><span class="header-section-number">2.2.3</span> Mathematische Funktionen</a></li>
   <li><a href="#prioritäten-von-operatoren" id="toc-prioritäten-von-operatoren" class="nav-link" data-scroll-target="#prioritäten-von-operatoren"><span class="header-section-number">2.2.4</span> Prioritäten von Operatoren</a></li>
   <li><a href="#operatoren-und-operanden" id="toc-operatoren-und-operanden" class="nav-link" data-scroll-target="#operatoren-und-operanden"><span class="header-section-number">2.2.5</span> Operatoren und Operanden</a></li>
-  <li><a href="#einfache-kommandos-in-r" id="toc-einfache-kommandos-in-r" class="nav-link" data-scroll-target="#einfache-kommandos-in-r"><span class="header-section-number">2.2.6</span> Einfache Kommandos in R</a></li>
+  <li><a href="#runden-auf-die-nächstgelegene-zahl" id="toc-runden-auf-die-nächstgelegene-zahl" class="nav-link" data-scroll-target="#runden-auf-die-nächstgelegene-zahl"><span class="header-section-number">2.2.6</span> Runden auf die nächstgelegene Zahl</a></li>
+  <li><a href="#potenzen-und-logarithmen" id="toc-potenzen-und-logarithmen" class="nav-link" data-scroll-target="#potenzen-und-logarithmen"><span class="header-section-number">2.2.7</span> Potenzen und Logarithmen</a></li>
+  <li><a href="#einfache-kommandos-in-r" id="toc-einfache-kommandos-in-r" class="nav-link" data-scroll-target="#einfache-kommandos-in-r"><span class="header-section-number">2.2.8</span> Einfache Kommandos in R</a></li>
   </ul></li>
   <li><a href="#hilfe-in-r" id="toc-hilfe-in-r" class="nav-link" data-scroll-target="#hilfe-in-r"><span class="header-section-number">2.3</span> Hilfe in R</a>
   <ul class="collapse">
@@ -268,8 +270,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#einfache-datentypen" id="toc-einfache-datentypen" class="nav-link" data-scroll-target="#einfache-datentypen"><span class="header-section-number">2.6</span> Einfache Datentypen</a>
   <ul class="collapse">
-  <li><a href="#logische-werte" id="toc-logische-werte" class="nav-link" data-scroll-target="#logische-werte"><span class="header-section-number">2.6.1</span> Logische Werte</a></li>
-  <li><a href="#tests-und-umwandlungen" id="toc-tests-und-umwandlungen" class="nav-link" data-scroll-target="#tests-und-umwandlungen"><span class="header-section-number">2.6.2</span> Tests und Umwandlungen</a></li>
+  <li><a href="#fließkommazahlen" id="toc-fließkommazahlen" class="nav-link" data-scroll-target="#fließkommazahlen"><span class="header-section-number">2.6.1</span> Fließkommazahlen</a></li>
+  <li><a href="#besondere-konstanten-in-r" id="toc-besondere-konstanten-in-r" class="nav-link" data-scroll-target="#besondere-konstanten-in-r"><span class="header-section-number">2.6.2</span> Besondere Konstanten in R</a></li>
+  <li><a href="#logische-werte" id="toc-logische-werte" class="nav-link" data-scroll-target="#logische-werte"><span class="header-section-number">2.6.3</span> Logische Werte</a></li>
+  <li><a href="#tests-und-umwandlungen" id="toc-tests-und-umwandlungen" class="nav-link" data-scroll-target="#tests-und-umwandlungen"><span class="header-section-number">2.6.4</span> Tests und Umwandlungen</a></li>
   </ul></li>
   <li><a href="#verständnisfragen" id="toc-verständnisfragen" class="nav-link" data-scroll-target="#verständnisfragen"><span class="header-section-number">2.7</span> Verständnisfragen</a></li>
   <li><a href="#übungen" id="toc-übungen" class="nav-link" data-scroll-target="#übungen"><span class="header-section-number">2.8</span> Übungen</a></li>
@@ -713,73 +717,26 @@ Dabei gilt:</p>
 </table>
 </section>
 </section>
-<section id="einfache-kommandos-in-r" class="level3" data-number="2.2.6">
-<h3 data-number="2.2.6" class="anchored" data-anchor-id="einfache-kommandos-in-r"><span class="header-section-number">2.2.6</span> Einfache Kommandos in R</h3>
-<p>In diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.</p>
-<section id="eingabe-und-ausführung-von-kommandos" class="level4" data-number="2.2.6.1">
-<h4 data-number="2.2.6.1" class="anchored" data-anchor-id="eingabe-und-ausführung-von-kommandos"><span class="header-section-number">2.2.6.1</span> Eingabe und Ausführung von Kommandos</h4>
-<p>R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der <strong>Enter- bzw. Return-Taste</strong> ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.</p>
-</section>
-<section id="arbeiten-mit-vektoren" class="level4" data-number="2.2.6.2">
-<h4 data-number="2.2.6.2" class="anchored" data-anchor-id="arbeiten-mit-vektoren"><span class="header-section-number">2.2.6.2</span> Arbeiten mit Vektoren</h4>
-<p>Eine der zentralen Datenstrukturen in R ist der <strong>Vektor</strong>.<br>
-Vektoren werden mit der Funktion <code>c()</code> (combine) erzeugt.</p>
-<p>Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen <code>x</code> gespeichert:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Die Zuweisung erfolgt in R mit dem Operator <code>&lt;-</code>.<br>
-Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.</p>
-<p>Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 5 7</code></pre>
-</div>
-</div>
-</section>
-<section id="mittelwert" class="level4" data-number="2.2.6.3">
-<h4 data-number="2.2.6.3" class="anchored" data-anchor-id="mittelwert"><span class="header-section-number">2.2.6.3</span> Mittelwert</h4>
-<p>Der Mittelwert eines Vektors kann mit der Funktion <code>mean()</code> berechnet werden.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.75</code></pre>
-</div>
-</div>
-</section>
-<section id="standardabweichung" class="level4" data-number="2.2.6.4">
-<h4 data-number="2.2.6.4" class="anchored" data-anchor-id="standardabweichung"><span class="header-section-number">2.2.6.4</span> Standardabweichung</h4>
-<p>Die Standardabweichung eines Vektors wird mit der Funktion <code>sd()</code> bestimmt.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.753785</code></pre>
-</div>
-</div>
-</section>
-<section id="runden-auf-die-nächstgelegene-zahl" class="level4" data-number="2.2.6.5">
-<h4 data-number="2.2.6.5" class="anchored" data-anchor-id="runden-auf-die-nächstgelegene-zahl"><span class="header-section-number">2.2.6.5</span> Runden auf die nächstgelegene Zahl</h4>
+<section id="runden-auf-die-nächstgelegene-zahl" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="runden-auf-die-nächstgelegene-zahl"><span class="header-section-number">2.2.6</span> Runden auf die nächstgelegene Zahl</h3>
 <p>Die Funktion <code>round()</code> rundet auf die nächstgelegene ganze Zahl.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <p>Standardmäßig wird auf eine ganze Zahl gerundet. Im Beispiel ergibt sich für <code>7/3</code> der Wert 2. Die Genauigkeit der Rundung kann mit dem Argument <code>digits</code> gesteuert werden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.333</code></pre>
 </div>
 </div>
 <p>Hier wird auf drei Dezimalstellen gerundet, was den Wert <code>2.333</code> ergibt.</p>
 </section>
-<section id="potenzen-und-logarithmen" class="level4" data-number="2.2.6.6">
-<h4 data-number="2.2.6.6" class="anchored" data-anchor-id="potenzen-und-logarithmen"><span class="header-section-number">2.2.6.6</span> Potenzen und Logarithmen</h4>
+<section id="potenzen-und-logarithmen" class="level3" data-number="2.2.7">
+<h3 data-number="2.2.7" class="anchored" data-anchor-id="potenzen-und-logarithmen"><span class="header-section-number">2.2.7</span> Potenzen und Logarithmen</h3>
 <p>Potenzen und logarithmische Funktionen werden in R verwendet, um mit sehr großen oder sehr kleinen Zahlen sowie mit exponentiellem Wachstum zu arbeiten.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -800,8 +757,8 @@ Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).</p>
 </div>
 <p>In R können Potenzen mit dem Operator <code>^</code> berechnet werden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">5</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(x, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">5</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(x, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "100000"</code></pre>
 </div>
@@ -811,14 +768,14 @@ Die e-Notation hat dabei keinen Bezug zur natürlichen Zahl ( e ).</p>
 <p>Der Logarithmus zur Basis 10 wird mit der Funktion <code>log10()</code> berechnet.<br>
 Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmten Wert zu erhalten.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1e+06</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#log10(x) = log(x, 10)</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="fl">1e6</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#log10(x) = log(x, 10)</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="fl">1e6</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -827,13 +784,13 @@ Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmt
 <p><strong>Basis 2</strong></p>
 <p>Der Logarithmus zur Basis 2 wird mit der Funktion <code>log2()</code> berechnet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1024</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(<span class="dv">1024</span>)  <span class="co">#log2(x) = log(x, 2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(<span class="dv">1024</span>)  <span class="co">#log2(x) = log(x, 2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
@@ -841,16 +798,63 @@ Er gibt an, zu welcher Potenz die Zahl 10 erhoben werden muss, um einen bestimmt
 <p>Hier ergibt sich der Wert <code>10</code>, da <code>2^10=1024</code>.</p>
 <p><strong>Natürlicher Logarithmus von</strong> <span class="math inline">\(x\)</span> zur Basis e</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.718282</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#log(x) = log(x,exp(1))</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#log(x) = log(x,exp(1))</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="einfache-kommandos-in-r" class="level3" data-number="2.2.8">
+<h3 data-number="2.2.8" class="anchored" data-anchor-id="einfache-kommandos-in-r"><span class="header-section-number">2.2.8</span> Einfache Kommandos in R</h3>
+<p>In diesem Abschnitt werden grundlegende Kommandos in R eingeführt. Sie lernen, wie Anweisungen im Interpreter ausgeführt werden und wie einfache Berechnungen mit Vektoren durchgeführt werden können.</p>
+<section id="eingabe-und-ausführung-von-kommandos" class="level4" data-number="2.2.8.1">
+<h4 data-number="2.2.8.1" class="anchored" data-anchor-id="eingabe-und-ausführung-von-kommandos"><span class="header-section-number">2.2.8.1</span> Eingabe und Ausführung von Kommandos</h4>
+<p>R-Kommandos können direkt im Interpreter eingegeben und durch Drücken der <strong>Enter- bzw. Return-Taste</strong> ausgeführt werden. Das Ergebnis eines Kommandos wird unmittelbar angezeigt, sofern es nicht nur einer Zuweisung dient.</p>
+</section>
+<section id="arbeiten-mit-vektoren" class="level4" data-number="2.2.8.2">
+<h4 data-number="2.2.8.2" class="anchored" data-anchor-id="arbeiten-mit-vektoren"><span class="header-section-number">2.2.8.2</span> Arbeiten mit Vektoren</h4>
+<p>Eine der zentralen Datenstrukturen in R ist der <strong>Vektor</strong>.<br>
+Vektoren werden mit der Funktion <code>c()</code> (combine) erzeugt.</p>
+<p>Im folgenden Beispiel wird ein numerischer Vektor erstellt und in der Variablen <code>x</code> gespeichert:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Die Zuweisung erfolgt in R mit dem Operator <code>&lt;-</code>.<br>
+Dabei wird der Wert auf der rechten Seite einer Variablen auf der linken Seite zugewiesen.</p>
+<p>Um den Inhalt einer Variablen auszugeben, genügt es, ihren Namen einzugeben:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 5 7</code></pre>
+</div>
+</div>
+</section>
+<section id="mittelwert" class="level4" data-number="2.2.8.3">
+<h4 data-number="2.2.8.3" class="anchored" data-anchor-id="mittelwert"><span class="header-section-number">2.2.8.3</span> Mittelwert</h4>
+<p>Der Mittelwert eines Vektors kann mit der Funktion <code>mean()</code> berechnet werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.75</code></pre>
+</div>
+</div>
+</section>
+<section id="standardabweichung" class="level4" data-number="2.2.8.4">
+<h4 data-number="2.2.8.4" class="anchored" data-anchor-id="standardabweichung"><span class="header-section-number">2.2.8.4</span> Standardabweichung</h4>
+<p>Die Standardabweichung eines Vektors wird mit der Funktion <code>sd()</code> bestimmt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.753785</code></pre>
 </div>
 </div>
 </section>
@@ -1343,8 +1347,8 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <p>R ist eine dynamisch typisierte Programmiersprache. Das bedeutet, dass beim Programmieren nicht explizit angegeben werden muss, welchen Datentyp eine Variable besitzt. Der Datentyp ergibt sich automatisch aus dem zugewiesenen Wert.</p>
 </div>
 </div>
-<section id="fließkommazahlen" class="level4" data-number="2.6.0.1">
-<h4 data-number="2.6.0.1" class="anchored" data-anchor-id="fließkommazahlen"><span class="header-section-number">2.6.0.1</span> Fließkommazahlen</h4>
+<section id="fließkommazahlen" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="fließkommazahlen"><span class="header-section-number">2.6.1</span> Fließkommazahlen</h3>
 <p>Fließkommazahlen werden in R als double gespeichert. Aufgrund der internen Darstellung können dabei Rundungsfehler auftreten.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1378,8 +1382,8 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 </div>
 <p>Hier wird geprüft, ob sich die beiden Werte nur um einen sehr kleinen Betrag unterscheiden.</p>
 </section>
-<section id="besondere-konstanten-in-r" class="level4" data-number="2.6.0.2">
-<h4 data-number="2.6.0.2" class="anchored" data-anchor-id="besondere-konstanten-in-r"><span class="header-section-number">2.6.0.2</span> Besondere Konstanten in R</h4>
+<section id="besondere-konstanten-in-r" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="besondere-konstanten-in-r"><span class="header-section-number">2.6.2</span> Besondere Konstanten in R</h3>
 <p>R kennt mehrere spezielle Konstanten, die in der Datenanalyse häufig auftreten:</p>
 <ul>
 <li><p><code>NA</code>: not available (Fehlender Wert)</p></li>
@@ -1401,8 +1405,8 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 </div>
 </div>
 </section>
-<section id="logische-werte" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="logische-werte"><span class="header-section-number">2.6.1</span> Logische Werte</h3>
+<section id="logische-werte" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="logische-werte"><span class="header-section-number">2.6.3</span> Logische Werte</h3>
 <p>Logische Ausdrücke werden in R verwendet, um Bedingungen zu formulieren und Entscheidungen zu treffen. Die grundlegenden logischen Operatoren sind:</p>
 <p><code>|</code> (oder), <code>&amp;</code> (und), <code>!</code> (nicht).</p>
 <p>Das folgende Beispiel zeigt einfache logische Verknüpfungen mit logischen Variablen:</p>
@@ -1435,8 +1439,8 @@ Der Vergleich eines logischen Vektors mit <code>TRUE</code> oder <code>FALSE</co
 </div>
 </div>
 </section>
-<section id="tests-und-umwandlungen" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="tests-und-umwandlungen"><span class="header-section-number">2.6.2</span> Tests und Umwandlungen</h3>
+<section id="tests-und-umwandlungen" class="level3" data-number="2.6.4">
+<h3 data-number="2.6.4" class="anchored" data-anchor-id="tests-und-umwandlungen"><span class="header-section-number">2.6.4</span> Tests und Umwandlungen</h3>
 <p>R stellt Funktionen zur Überprüfung und Umwandlung von Datentypen bereit, darunter: - <code>is.na()</code> – prüft, ob ein Wert fehlt (NA) - <code>is.numeric()</code> - prüft, ob ein Objekt numerisch ist - <code>as.integer()</code> - wandelt einen Wert in einen Integer um</p>
 </section>
 </section>

@@ -1,0 +1,309 @@
+/* BHT/THI Theme CSS – umgesetzt aus beamerthemeBHT.sty
+   Geeignet als Basis für HTML-/Quarto-/Reveal.js-Folien.
+*/
+
+:root {
+  --bht-blue: #08457d;      /* HKS51: rgb(0.03, 0.27, 0.49) */
+  --bht-lime: #d7d700;      /* THIINF */
+  --bht-gray: #d3d3d3;      /* rladiesgray */
+  --box-gray: #899499;
+  --box-bg: #f4f4f4;
+  --shade-bg: #d8d8d8;
+  --text-color: var(--bht-blue);
+  --font-main: "Latin Modern Roman", "Latin Modern", "Computer Modern", "Segoe UI", Arial, sans-serif;
+  --font-mono: "Latin Modern Mono", "Fira Code", Consolas, monospace;
+}
+
+html,
+body {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  background: #ffffff;
+}
+
+/* Reveal.js / Quarto Grundformat */
+.reveal {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 28px;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: var(--bht-blue);
+  font-family: var(--font-main);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.reveal h1 { font-size: 1.55em; }
+.reveal h2 { font-size: 1.25em; }
+.reveal h3 { font-size: 1.05em; }
+
+/* Frame title: obere weiße Titelzeile wie in Beamer */
+.reveal .slide h1:first-child,
+.reveal .slide h2:first-child {
+  box-sizing: border-box;
+  width: 90%;
+  min-height: 5ex;
+
+  margin: 1rem auto 0.25rem auto;
+
+  padding: 0.9ex 1.5ex 0.5ex 1.5ex;
+  color: var(--bht-blue);
+  background: #ffffff;
+  box-shadow: 0 0.15rem 0.35rem rgba(0, 0, 0, 0.16);
+  font-size: 0.95em;
+}
+
+/* Optionale Subtitlebar unter dem Folientitel */
+.subtitlebar,
+.reveal .slide .subtitlebar {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 1.9ex;
+  margin: 0 0 1.2rem 0;
+  padding: 0.15ex 2ex;
+  color: var(--bht-blue);
+  background: var(--bht-lime);
+  font-size: 0.45em;
+  line-height: 1.4;
+}
+
+
+/* Folieninhalt mittiger platzieren
+   Standard-Beamer-Optik: Titel/Leiste oben, Contentblock darunter optisch zentriert. */
+.reveal .slide:not(.title-slide) > :not(h1):not(h2):not(.subtitlebar):not(.footer):not(.slide-logo):first-of-type {
+  margin-top: 3.9rem;
+}
+
+.reveal .slide:not(.title-slide) > ul,
+.reveal .slide:not(.title-slide) > ol {
+  width: fit-content;
+  max-width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 7em;
+}
+
+.reveal .slide:not(.title-slide) > p,
+.reveal .slide:not(.title-slide) > div:not(.subtitlebar):not(.footer):not(.slide-logo),
+.reveal .slide:not(.title-slide) > table,
+.reveal .slide:not(.title-slide) > pre {
+  max-width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal table tr:last-child td {
+  border-bottom: 1px solid #b7c3d0;
+}
+
+/* Logo-Bereich rechts oben; Bildpfad bei Bedarf anpassen */
+.slide-logo,
+.reveal .slide-logo {
+  position: fixed;
+  top: 0.65rem;
+  right: 1.25rem;
+  width: 4vw;
+  max-width: 72px;
+  height: auto;
+  background: #ffffff;
+}
+
+/* Fußzeile wie Beamer: graue Linie, Titel links, Seitenzahl rechts */
+.footer,
+.reveal .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-top: 0.2px solid var(--bht-gray);
+  padding: 0.25ex 5ex 0.6ex 2ex;
+  color: var(--bht-blue);
+  background: #ffffff;
+  font-size: 0.45em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Listen: blaue Kreise und lockerer Abstand */
+.reveal ul,
+.reveal ol {
+  color: var(--bht-blue);
+  margin-left: 10rem;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal li {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+.reveal li::marker {
+  color: var(--bht-blue);
+}
+
+/* Inhaltsverzeichnis */
+.reveal .toc,
+.reveal nav[role="doc-toc"] {
+  font-size: 0.8em;
+  color: var(--bht-blue);
+}
+
+.reveal .toc li,
+.reveal nav[role="doc-toc"] li {
+  margin: 0.3em 0;
+}
+
+/* Blöcke ähnlich Beamer rounded, ohne Schatten */
+.block,
+.callout,
+.reveal .block,
+.reveal .callout {
+  border-radius: 0.45rem;
+  border: 1px solid rgba(8, 69, 125, 0.18);
+  background: #ffffff;
+  color: var(--bht-blue);
+  padding: 0.7rem 0.9rem;
+  margin: 0.8rem 0;
+}
+
+.block-title,
+.callout-title,
+.reveal .block-title,
+.reveal .callout-title {
+  color: var(--bht-blue);
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+/* Codebox und Outputbox aus tcolorbox */
+.codebox,
+.BHToutputbox,
+.reveal pre,
+.reveal code.sourceCode,
+.reveal div.sourceCode {
+  background: var(--box-bg);
+  border: 0 solid var(--box-gray);
+  border-radius: 0;
+  color: #000000;
+  font-family: var(--font-mono);
+}
+
+.reveal pre {
+  box-shadow: none;
+  padding: 0.5rem;
+}
+
+.reveal code {
+  font-family: var(--font-mono);
+}
+
+/* Infobox / blackbox */
+.blackbox,
+.infobox,
+.reveal .blackbox,
+.reveal .infobox {
+  background: var(--shade-bg);
+  border: 1px solid orange;
+  border-radius: 4pt;
+  color: #000000;
+  padding: 3pt;
+  margin: 0.8rem 0;
+}
+
+/* Highlight aus \highlight */
+.highlight,
+mark,
+.reveal mark {
+  background: rgba(255, 255, 0, 0.5);
+  color: inherit;
+  padding: 0.05em 0.15em;
+}
+
+/* Titel-/Startfolie: Hintergrundbild und weißes Textfeld */
+.title-slide,
+.reveal .title-slide {
+  color: var(--bht-blue);
+  background-color: #ffffff;
+  background-image: var(--title-bg, url("FrontBIME.png"));
+  background-size: cover;
+  background-position: center;
+}
+
+.title-slide .title-box,
+.reveal .title-slide .title-box {
+  width: 100%;
+  margin-left: auto;
+  margin-right: 0;
+  padding: 3pt;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--bht-blue);
+  text-align: left;
+}
+
+.title-slide .title,
+.reveal .title-slide .title {
+  font-size: 1.6em;
+  font-weight: 600;
+  margin-bottom: 5pt;
+}
+
+.title-slide .date,
+.reveal .title-slide .date {
+  font-size: 0.8em;
+}
+
+/* Tabellen */
+.reveal table {
+  color: var(--bht-blue);
+  border-collapse: collapse;
+}
+
+.reveal table th,
+.reveal table td {
+  border: 1px solid rgba(8, 69, 125, 0.25);
+  padding: 0.25em 0.45em;
+}
+
+.reveal table th {
+  font-weight: 600;
+  background: rgba(215, 215, 0, 0.25);
+}
+
+.reveal section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Links dezent im Corporate Blau */
+a,
+.reveal a {
+  color: var(--bht-blue);
+  text-decoration: underline;
+}
+
+/* Druck/Export */
+@media print {
+  .footer,
+  .slide-logo {
+    position: absolute;
+  }
+}
