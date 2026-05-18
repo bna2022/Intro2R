@@ -566,7 +566,7 @@ rownames(x) <- c("R1", "R2")
 print(x)
 ```
 
-### Matrizen – Wichtige Funktionen
+### Matrizen – Funktionen
 
 | *Funktion*                  | *Bedeutung*                          |
 |-----------------------------|--------------------------------------|
@@ -577,6 +577,7 @@ print(x)
 | `%*%`                       | Matrixmultiplikation                 |
 | `solve()`                   | Matrixinverse/Lösung von lin.gl.Sys. |
 | `diag()`                    | Hauptdiagonale der Matrix            |
+| `rbind(A,B)`                | Row bind: hängt die Matrix B unter A |
 
 ## Listen
 
