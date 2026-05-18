@@ -550,10 +550,21 @@ Im folgenden Beispiel wird zunächst eine Matrix erzeugt und anschließend
 verschiedene Formen der linearen Indizierung demonstriert.
 
 ```{r echo = TRUE,tidy = TRUE}
-x <- matrix(1:6, nrow=2, ncol=3)
+x <- matrix(c(10, 50,
+              3, 99,
+              -1, 8),
+            nrow = 2)
 print(x)
-print(x[x<3])
+```
+
+Mit einem einzelnen Index greift man auf die Elemente in spaltenweiser Reihenfolge zu. 
+```{r echo = TRUE,tidy = TRUE}
 print(x[1])
+print(x[4])
+```
+
+```{r echo = TRUE,tidy = TRUE}
+print(x[x<3])
 ```
 
 ### Zeilen und Spaltennamen
@@ -572,12 +583,14 @@ print(x)
 |-----------------------------|--------------------------------------|
 | `matrix()`                  | Matrix erzeugen                      |
 | `dim()`, `ncol()`, `nrow()` | Anzahl Zeilen und Spalten            |
+| `length()`                  | Anzahl aller gespeicherter Werte     |
 | `t()`                       | Transponieren einer Matrix           |
 | `x[i]`                      | Spaltenweise Vektorisierung          |
 | `%*%`                       | Matrixmultiplikation                 |
 | `solve()`                   | Matrixinverse/Lösung von lin.gl.Sys. |
 | `diag()`                    | Hauptdiagonale der Matrix            |
 | `rbind(A,B)`                | Row bind: hängt die Matrix B unter A |
+
 
 ## Listen
 
