@@ -457,7 +457,7 @@ zurück.
 | `character(n)`    | Zeichenkettenvektor der Länge `n`       |
 | `length(v)`       | Länge eines Vektors                     |
 | `names(v)`        | Namen der Vektorelemente                |
-
+| `is.na(v)`        | Überprüfe auf fehlende Werte            |
 ------------------------------------------------------------------------
 
 ## Matrizen
@@ -723,9 +723,103 @@ Allgemeine Form der Indizierung: `DataFrame[Zeile,Spalte]`
 | `names()`           | Namen der Spalten anzeigen oder setzen |
 | `rownames()`        | Zeilennamen anzeigen oder setzen       |
 | `colnames()`        | Spaltennamen anzeigen oder setzen      |
+| `complete.cases()`  | Finde alle Zeilen, die keine fehlenden  Werte enthalten.      |
 | `iris[1,2]`         | Zugriff über Zeilen- und Spaltenindex  |
 | `iris[1,"Species"]` | Zugriff über Spaltennamen              |
 | `iris$Species[1]`   | Zugriff mit `$`-Operator               |
+
+### Funktionen auf Data Frames anwenden mit `sapply()`
+
+Mit `sapply()` kann eine Funktion auf mehrere Elemente eines Objekts angewendet werden. Bei Data Frames wird die Funktion typischerweise auf jede Spalte angewendet.
+
+Grundaufbau
+
+```r
+sapply(X, FUN)
+```
+
+| Argument | Bedeutung |
+|----------|------------|
+| `X` | Objekt (z. B. Data Frame oder Liste) |
+| `FUN` | Funktion, die angewendet werden soll |
+
+---
+
+#### Beispiel-Data-Frame
+
+```{r echo = TRUE,tidy = TRUE}
+daten <- data.frame(
+  Alter = c(23, 31, 28),
+  Note = c(1.7, 2.3, 1.9)
+)
+
+daten
+```
+
+---
+
+##### Mittelwert jeder Spalte berechnen
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten, mean)
+```
+
+R wendet `mean()` automatisch auf jede Spalte an.
+
+---
+
+#### Minimum jeder Spalte
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten, min)
+```
+
+---
+
+#### Maximum jeder Spalte
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten, max)
+```
+
+---
+
+#### Datentyp jeder Spalte
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten, class)
+```
+
+---
+
+#### Beispiel mit verschiedenen Datentypen
+
+```{r echo = TRUE,tidy = TRUE}
+daten2 <- data.frame(
+  Name = c("Anna", "Ben", "Clara"),
+  Alter = c(23, 31, 28),
+  Student = c(TRUE, FALSE, TRUE)
+)
+
+daten2
+```
+
+Nun:
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten2, class)
+```
+
+---
+
+#### Numerische Spalten finden
+
+Sehr häufig wird `sapply()` verwendet, um bestimmte Spaltentypen zu erkennen.
+
+```{r echo = TRUE,tidy = TRUE}
+sapply(daten2, is.numeric)
+```
+---
 
 ## Factors
 
