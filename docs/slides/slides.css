@@ -9,7 +9,12 @@
   --box-gray: #899499;
   --box-bg: #f4f4f4;
   --shade-bg: #d8d8d8;
+
   --text-color: var(--bht-blue);
+
+  /* Gemeinsame Breite für Titelbox, Inhalt, Code und Output */
+  --content-width: 90%;
+
   --font-main: "Latin Modern Roman", "Latin Modern", "Computer Modern", "Segoe UI", Arial, sans-serif;
   --font-mono: "Latin Modern Mono", "Fira Code", Consolas, monospace;
 }
@@ -32,6 +37,7 @@ body {
   text-align: left;
 }
 
+/* Überschriften */
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -45,15 +51,23 @@ body {
   letter-spacing: normal;
 }
 
-.reveal h1 { font-size: 1.55em; }
-.reveal h2 { font-size: 1.25em; }
-.reveal h3 { font-size: 1.05em; }
+.reveal h1 { 
+  font-size: 1.55em; 
+}
+
+.reveal h2 { 
+  font-size: 1.25em; 
+}
+
+.reveal h3 { 
+  font-size: 1.05em; 
+}
 
 /* Frame title: obere weiße Titelzeile wie in Beamer */
 .reveal .slide h1:first-child,
 .reveal .slide h2:first-child {
   box-sizing: border-box;
-  width: 90%;
+  width: var(--content-width);
   min-height: 5ex;
 
   margin: 1rem auto 0.25rem auto;
@@ -69,9 +83,9 @@ body {
 .subtitlebar,
 .reveal .slide .subtitlebar {
   box-sizing: border-box;
-  width: 100%;
+  width: var(--content-width);
   min-height: 1.9ex;
-  margin: 0 0 1.2rem 0;
+  margin: 0.25rem auto 1.2rem auto;
   padding: 0.15ex 2ex;
   color: var(--bht-blue);
   background: var(--bht-lime);
@@ -79,33 +93,42 @@ body {
   line-height: 1.4;
 }
 
-
-/* Folieninhalt mittiger platzieren
-   Standard-Beamer-Optik: Titel/Leiste oben, Contentblock darunter optisch zentriert. */
+/* Abstand zwischen Folientitel und erstem Inhalt */
 .reveal .slide:not(.title-slide) > :not(h1):not(h2):not(.subtitlebar):not(.footer):not(.slide-logo):first-of-type {
-  margin-top: 3.9rem;
+  margin-top: 2.2rem;
 }
 
-.reveal .slide:not(.title-slide) > ul,
-.reveal .slide:not(.title-slide) > ol {
-  width: fit-content;
-  max-width: 78%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 7em;
+/* Weniger Abstand zwischen Absatz und folgendem Codeblock */
+.reveal .slide p + div.cell,
+.reveal .slide p + div.sourceCode,
+.reveal .slide p + pre {
+  margin-top: 0.2rem !important;
 }
 
+/* Standard-Inhaltsbreite */
 .reveal .slide:not(.title-slide) > p,
 .reveal .slide:not(.title-slide) > div:not(.subtitlebar):not(.footer):not(.slide-logo),
 .reveal .slide:not(.title-slide) > table,
 .reveal .slide:not(.title-slide) > pre {
-  max-width: 78%;
+  width: var(--content-width);
+  max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
-.reveal table tr:last-child td {
-  border-bottom: 1px solid #b7c3d0;
+/* Listen bündig mit Folientitel und Inhalt */
+.reveal .slide:not(.title-slide) > ul,
+.reveal .slide:not(.title-slide) > ol {
+  width: var(--content-width);
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Bullet/Nummer etwas nach rechts */
+  padding-left: 4.0em;
+
+  box-sizing: border-box;
 }
 
 /* Logo-Bereich rechts oben; Bildpfad bei Bedarf anpassen */
@@ -142,7 +165,6 @@ body {
 .reveal ul,
 .reveal ol {
   color: var(--bht-blue);
-  margin-left: 10rem;
 }
 
 .reveal ul {
@@ -162,7 +184,7 @@ body {
 .reveal .toc,
 .reveal nav[role="doc-toc"] {
   font-size: 0.8em;
-  color: var(--bht-blue)
+  color: var(--bht-blue);
   margin-top: 5.2em;
 }
 
@@ -174,7 +196,6 @@ body {
 .reveal nav[role="doc-toc"] li {
   margin: 0.3em 0;
 }
-
 
 /* Blöcke ähnlich Beamer rounded, ohne Schatten */
 .block,
@@ -199,19 +220,70 @@ body {
   margin-bottom: 0.35rem;
 }
 
-/* Codebox und Outputbox aus tcolorbox */
+/* Codebox und Outputbox */
 .codebox,
 .BHToutputbox,
 .reveal pre,
 .reveal code.sourceCode,
-.reveal div.sourceCode {
+.reveal div.sourceCode,
+.reveal .cell-output,
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stderr pre {
   background: var(--box-bg);
   border: 0 solid var(--box-gray);
   border-radius: 0;
   color: #000000;
   font-family: var(--font-mono);
+  box-sizing: border-box;
 }
 
+/* Quarto-Zelle: gleiche Breite wie Folientitel und Inhalt */
+.reveal div.cell {
+  width: var(--content-width) !important;
+  max-width: var(--content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Innerhalb der Zelle: Code und Output füllen dieselbe Breite */
+.reveal div.sourceCode,
+.reveal .cell-output,
+.reveal .cell-output-stdout,
+.reveal .cell-output-stderr,
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stderr pre {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Codeblock */
+.reveal div.sourceCode {
+  margin-top: 0 !important;
+  margin-bottom: 0.35em !important;
+}
+
+/* Gleicher Innenabstand für Code und Output */
+.reveal div.sourceCode pre,
+.reveal pre.sourceCode,
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stderr pre {
+  padding: 0.7em 1em !important;
+}
+
+/* Output */
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stderr pre {
+  margin-top: 0 !important;
+  margin-bottom: 0.8em !important;
+  overflow-x: auto !important;
+  box-shadow: none !important;
+}
+
+/* Generelle pre-Formatierung */
 .reveal pre {
   box-shadow: none;
   padding: 0.5rem;
@@ -248,7 +320,7 @@ mark,
 .reveal .title-slide {
   color: var(--bht-blue);
   background-color: #ffffff;
-  /*background-image: var(--title-bg, url("FrontBIME.png"));*/
+  /* background-image: var(--title-bg, url("FrontBIME.png")); */
   background-size: cover;
   background-position: center;
 }
@@ -293,6 +365,11 @@ mark,
   background: rgba(215, 215, 0, 0.25);
 }
 
+.reveal table tr:last-child td {
+  border-bottom: 1px solid #b7c3d0;
+}
+
+/* Bilder */
 .reveal section img {
   display: block;
   margin-left: auto;
@@ -308,6 +385,8 @@ a,
   color: var(--bht-blue);
   text-decoration: underline;
 }
+
+
 
 /* Druck/Export */
 @media print {
