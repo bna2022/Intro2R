@@ -1,0 +1,953 @@
+---
+title: "02 Daten repräsentieren"
+subtitle: "Vektoren, Matrizen, Listen, Data Frames und Factors"
+date: "2026-05-20"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 2
+    footer: "02 Daten repräsentieren"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    resources:
+      - ../figures/*.png
+    format:
+  
+  beamer:
+    slide-level: 2
+    keep-tex: true
+    toc: true
+    toc-depth: 1
+    aspectratio: 169
+    highlight-style: pygments
+    theme: default
+
+    include-in-header:
+      text: |
+        \input{beamerthemeBHT.sty}
+
+    fontsize: 10pt
+
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Daten repräsentieren in R
+
+## Lernziele
+
+Nach der Sitzung können Sie …
+
+-   zentrale Datenstrukturen in R unterscheiden
+-   Vektoren erzeugen, indizieren und filtern
+-   Matrizen und Data Frames gezielt auslesen
+-   Listen als flexible Container verstehen
+-   Factors für kategoriale Variablen einsetzen
+-   einfache Auswertungen mit `sapply()` und `tapply()` durchführen
+
+::: notes
+Vorschlag Zeitplan: Einstieg 5 Min., Vektoren 25 Min., Matrizen/Listen
+15 Min., Data Frames 25 Min., Factors/tapply 15 Min., Abschluss 5 Min.
+:::
+
+## Big Picture
+
+::: {#fig-datastructure}
+![](../figures/DataStructures.png)
+
+Datenstrukturen in R, generiert mit ChatGPT, angelehnt an [R for
+Biologists](https://bioinformatics-core-shared-training.github.io/Bitesize-R/week2.html)
+:::
+
+## Big Picture: Welche Datenstruktur passt?
+
+| Struktur | Dimension | Datentypen | Typischer Einsatz |
+|----|---:|----|----|
+| Vektor | 1D | einheitlich | Messwerte, Namen, logische Filter |
+| Matrix | 2D | einheitlich | numerische Tabellen, lineare Algebra |
+| Liste | flexibel | gemischt | Container für verschiedene Objekte |
+| Data Frame | 2D | spaltenweise verschieden | Datensätze |
+| Factor | 1D | Kategorien | Gruppen, Klassen, Bewertungen |
+
+## Leitfrage
+
+> Wie speichert R Daten so, dass wir damit rechnen, filtern und
+> analysieren können?
+
+Diskutieren Sie kurz zu zweit: 1. Was wäre eine passende Struktur für
+Körpergrößen? 2. Was wäre eine passende Struktur für eine Tabelle mit
+Alter, Geschlecht und Blutwerten? 3. Was wäre eine passende Struktur für
+Antwortkategorien wie „niedrig“, „mittel“, „hoch“?
+
+# Vektoren
+
+## Vektoren: die zentrale Struktur
+
+Ein Vektor enthält mehrere Werte hintereinander.
+
+``` r
+x <- c(1.7, 3.8, 4.2, 5.7)
+x
+```
+
+Wichtig:
+
+-   atomare Vektoren enthalten Werte **eines** Datentyps
+-   viele R-Funktionen arbeiten automatisch elementweise
+-   Vektoren sind Grundlage für viele andere Datenstrukturen
+
+## Vektoren erzeugen
+
+``` r
+c(1, 1.5, 2)
+
+double(5)
+
+1:5
+
+rep(3, 5)
+
+seq(0, 0.6, by = 0.2)
+```
+
+**Mini-Frage:** Was ist der Unterschied zwischen `rep()` und `seq()`?
+
+::: notes
+rep wiederholt Werte; seq erzeugt eine Zahlenfolge mit Start, Ende und
+Schrittweite.
+:::
+
+## Übung: Vektoren erzeugen
+
+Erzeugen Sie folgende Vektoren:
+
+1.  `2 4 6 8 10`
+2.  fünfmal den Wert `0`
+3.  die Zahlen von `0` bis `1` in Schritten von `0.25`
+4.  den Vektor `"ja" "nein" "ja"`
+
+``` r
+# Ihre Lösung
+```
+
+## Indizierung: Zugriff auf Elemente
+
+In R beginnt die Zählung bei **1**.
+
+``` r
+x <- c(1.7, 3.8, 4.2, 5.7)
+
+x[2]
+x[2:3]
+x[c(4, 4, 1)]
+x[-c(1, 2)]
+```
+
+Merksatz:
+
+-   `x[i]`: einzelnes Element
+-   `x[i:j]`: zusammenhängender Bereich
+-   `x[c(...)]`: beliebige Auswahl
+-   `x[-i]`: Element ausschließen
+
+## Logische Indizierung
+
+Ein logischer Vektor wirkt wie ein Filter.
+
+``` r
+x <- c(1.7, 0.5, -0.7, 0, 2.8, 0.2)
+
+x[c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE)]
+```
+
+`TRUE` lässt ein Element passieren, `FALSE` entfernt es.
+
+## Filtern mit Bedingungen
+
+``` r
+x <- c(0.3, 0.1, 5.7, -1.0)
+
+x > 0
+
+x[x > 0]
+```
+
+Eine Bedingung erzeugt zuerst einen logischen Vektor.
+
+Dieser logische Vektor wird dann als Index benutzt.
+
+## Positionen finden mit `which()`
+
+Manchmal interessieren nicht die Werte, sondern die Positionen.
+
+``` r
+x <- c(0.3, 0.1, 5.7, -1.0)
+
+which(x > 0)
+```
+
+`which()` gibt die Positionen zurück, an denen eine Bedingung `TRUE`
+ist.
+
+## Vektoren kombinieren
+
+``` r
+x <- c(0.3, 0.1, 5.7, -1.0)
+y <- c(2, 3, 1, 5)
+
+c(x, y)
+```
+
+`c()` steht für **combine**.
+
+## Skalare Operationen
+
+R rechnet elementweise.
+
+``` r
+x <- c(1, 1.5, 2)
+
+x + 2
+x - 2
+x * 2
+x / 2
+```
+
+Jedes Element wird einzeln verarbeitet.
+
+## Vektor-Arithmetik
+
+Bei gleich langen Vektoren werden Elemente paarweise verrechnet.
+
+``` r
+c(1, 2, 3) + c(1.2, -0.5, -0.1)
+
+c(1, 2, 3) * c(1.2, -0.5, -0.1)
+```
+
+## Recycling-Prinzip
+
+Wenn Vektoren unterschiedlich lang sind, wiederholt R den kürzeren
+Vektor.
+
+``` r
+c(1, 1, 1, 1, 1) * c(1, 2, 3)
+```
+
+R interpretiert dies intern ungefähr als:
+
+``` r
+c(1, 1, 1, 1, 1) * c(1, 2, 3, 1, 2)
+```
+
+Achten Sie auf Warnungen, wenn die Längen nicht gut zusammenpassen.
+
+## Funktionen auf Vektoren
+
+Viele Funktionen arbeiten elementweise:
+
+``` r
+exp(c(0, 1, 2, 3))
+sqrt(c(4, 9, 16))
+```
+
+Andere Funktionen fassen einen Vektor zu einem Wert zusammen:
+
+``` r
+mean(c(1.2, -0.5, -0.1))
+sum(c(1, 2, 3))
+length(c(1, 2, 3))
+```
+
+## Skalarprodukt
+
+``` r
+a <- c(1, 2, 3)
+b <- c(1.2, -0.5, -0.1)
+
+a %*% b
+```
+
+Das Skalarprodukt multipliziert paarweise und summiert anschließend.
+
+## Aktivierung: CRP-Werte
+
+``` r
+crp <- c(2.1, 8.4, 0.6, 12.3, 3.2, 15.7, 1.0)
+```
+
+Aufgaben:
+
+1.  Welche Werte sind größer als `5`?
+2.  Filtern Sie alle Werte über `5`.
+3.  Bestimmen Sie die Positionen dieser Werte.
+4.  Ergänzen Sie `crp_neu <- c(4.3, 9.8)`.
+
+``` r
+# Ihre Lösung
+```
+
+# Matrizen
+
+## Was ist eine Matrix?
+
+Eine Matrix ist ein zweidimensionaler Container.
+
+Eigenschaften:
+
+-   Zeilen × Spalten
+-   alle Elemente haben denselben Datentyp
+-   nützlich für numerische Berechnungen und lineare Algebra
+
+## Matrix erzeugen
+
+```{r echo = TRUE}
+x <- matrix(1:6, nrow = 2, ncol = 3)
+x
+```
+
+Wichtig:
+
+R füllt Matrizen standardmäßig **spaltenweise**.
+
+## Matrix-Indizierung
+
+Allgemeine Form:
+
+``` r
+x[Zeile, Spalte]
+```
+
+## Matrix-Indizierung
+
+Beispiele:
+
+```{r echo = TRUE}
+x[1, 3]    # einzelnes Element
+x[2, ]     # ganze Zeile
+x[, 2]     # ganze Spalte
+x[, 1:2]   # mehrere Spalten
+```
+
+## `drop = FALSE`
+
+```{r echo = TRUE}
+x[2, , drop = FALSE]
+x[, 2, drop = FALSE]
+```
+
+Ohne `drop = FALSE` macht R aus einer einzelnen Zeile oder Spalte oft
+einen Vektor.
+
+Mit `drop = FALSE` bleibt die Matrixstruktur erhalten.
+
+## Lineare Indizierung
+
+Matrizen können auch wie ein Vektor indiziert werden.
+
+```{r echo = TRUE}
+x <- matrix(c(10, 50, 3, 99, -1, 8), nrow = 2)
+x
+
+x[1]
+x[5]
+```
+
+Bei x\[...\] ohne Komma wird keine Zeilen- und Spaltenstruktur mehr
+verwendet. R behandelt die Matrix dann wie einen langen Vektor. Deshalb
+nennt man das lineare Indizierung.
+
+## Lineare Indizierung
+
+```{r echo = TRUE}
+x[x < 3]
+```
+
+R prüft jedes Element der Matrix:
+
+```{r}
+x < 3
+```
+
+Nur Elemente mit `TRUE` werden ausgewählt.
+
+Das Ergebnis ist ein Vektor, keine Matrix.
+
+## Zeilen- und Spaltennamen
+
+```{r echo = TRUE}
+colnames(x) <- c("C1", "C2", "C3")
+rownames(x) <- c("R1", "R2")
+
+x
+```
+
+Namen machen Code lesbarer.
+
+## Mini-Übung: Matrix
+
+``` r
+m <- matrix(1:12, nrow = 3)
+```
+
+Aufgaben:
+
+1.  Geben Sie die zweite Zeile aus.
+2.  Geben Sie die dritte Spalte aus.
+3.  Geben Sie das Element in Zeile 3, Spalte 2 aus.
+4.  Benennen Sie die Spalten mit `A`, `B`, `C`, `D`.
+
+## Matrix-Funktionen (1/3)
+
+Eine Matrix erzeugen:
+
+```{r}
+A <- matrix(1:6, nrow = 2, ncol = 3)
+A
+```
+
+Dimensionen abfragen:
+
+```{r echo = TRUE}
+dim(A)     # Zeilen und Spalten
+nrow(A)   # Anzahl Zeilen
+ncol(A)   # Anzahl Spalten
+```
+
+## Matrix-Funktionen (2/3)
+
+Anzahl Elemente abfragen:
+
+```{r echo = TRUE}
+length(A) # Anzahl gespeicherter Werte
+```
+
+::: fragment
+Wichtig: `length(A)` zählt **alle Elemente**, nicht die Anzahl der
+Zeilen.
+:::
+
+## Matrix-Funktionen (3/3)
+
+Transponieren einer Matrix:
+
+```{r echo = TRUE}
+A <- matrix(1:6, nrow = 2, ncol = 3)
+A
+t(A)
+```
+
+::: fragment
+`t(A)` vertauscht Zeilen und Spalten.
+:::
+
+## Matrixmultiplikation
+
+::::: columns
+::: {.column width="50%"}
+Matrix `A`:
+
+```{r echo = TRUE}
+A <- matrix(1:6, nrow = 2, ncol = 3)
+A
+```
+:::
+
+::: {.column width="50%"}
+Matrix `B`:
+
+```{r echo = TRUE}
+B <- matrix(1:6, nrow = 3, ncol = 2)
+B
+```
+:::
+:::::
+
+```{r echo = TRUE}
+A %*% B
+```
+
+::: fragment
+Wichtig: Für `A %*% B` muss die Anzahl der Spalten von `A` zur Anzahl
+der Zeilen von `B` passen.
+:::
+
+# Listen
+
+## Listen: flexible Container
+
+Listen können verschiedene Objekte enthalten.
+
+```{r echo = TRUE}
+L <- list(servus="hallo", c(1, 3, 7), matrix(1:6, 3))
+L
+```
+
+Eine Liste kann also Text, Vektoren, Matrizen oder weitere Listen
+enthalten.
+
+## Listen indizieren: `[ ]` vs. `[[ ]]`
+
+Mit `[ ]` erhält man eine Teilliste:
+
+```{r echo = TRUE}
+L[1]
+```
+
+Mit `[[ ]]` erhält man das gespeicherte Element selbst:
+
+```{r echo = TRUE}
+L[[1]]
+```
+
+::: fragment
+Merke:
+
+-   `L[i]` gibt eine Liste zurück
+-   `L[[i]]` gibt das Element zurück
+:::
+
+## Zugriff auf Listen
+
+`L$name` greift auf ein benanntes Element zu
+
+```{r echo = TRUE}
+L$servus
+```
+
+## Mini-Übung: Listen
+
+Erstellen Sie eine Liste `person` mit:
+
+-   Name
+-   Alter
+-   Lieblingszahlen als Vektor
+-   einer logischen Angabe `student`
+
+Greifen Sie anschließend auf das Alter zu.
+
+``` r
+# Ihre Lösung
+```
+
+## Listen: Zusammenfassung
+
+Listen sind flexible Container für Objekte, die zusammengehören, aber
+unterschiedlich aufgebaut sein können.
+
+::: fragment
+Viele R-Objekte sind intern Listen, zum Beispiel Modelle oder Data
+Frames.
+:::
+
+# Data Frames
+
+## Data Frames
+
+Ein Data Frame ist die zentrale Struktur für tabellarische Daten.
+
+Eigenschaften:
+
+-   zweidimensional: Zeilen und Spalten
+-   jede Spalte ist ein Vektor
+-   Spalten dürfen unterschiedliche Datentypen haben
+-   innerhalb einer Spalte ist der Datentyp einheitlich
+
+## Data Frame erstellen
+
+```{r echo = TRUE}
+df <- data.frame(
+  foo = 1:4,
+  bar = c(TRUE, TRUE, FALSE, FALSE)
+)
+
+df
+nrow(df)
+ncol(df)
+```
+
+## Datensatz `iris`
+
+```{r echo = TRUE}
+data(iris)
+
+U <- iris[c(1, 51, 101), ]
+U
+```
+
+`iris` ist ein eingebauter Beispieldatensatz.
+
+## Indizierung von Data Frames
+
+```{r echo = TRUE}
+U[1, ]
+U[, 1]
+U$Sepal.Length
+U[, c(1, 3)]
+```
+
+## Filtern von Zeilen
+
+```{r echo = TRUE}
+U[U$Sepal.Length > 5, ]
+```
+
+Die Bedingung erzeugt einen logischen Vektor.
+
+Nur Zeilen mit `TRUE` werden ausgewählt.
+
+## Ausschließen mit `-` und `!`
+
+```{r echo = TRUE}
+U[-1, ]
+
+U[!(U$Species == "setosa"), ]
+```
+
+`!` dreht logische Werte um:
+
+-   aus `TRUE` wird `FALSE`
+-   aus `FALSE` wird `TRUE`
+
+## Mehrere Werte mit `%in%`
+
+```{r echo = TRUE}
+U[U$Species %in% c("setosa", "versicolor"), ]
+```
+
+`%in%` prüft, ob ein Wert in einer Menge enthalten ist.
+
+Sehr nützlich für mehrere Kategorien.
+
+## Fehlende Werte und `complete.cases()`
+
+```{r echo = TRUE}
+daten <- data.frame(
+  id = 1:4,
+  wert = c(2.3, NA, 4.1, 5.0)
+)
+
+complete.cases(daten)
+
+daten[complete.cases(daten), ]
+```
+
+`complete.cases()` findet Zeilen ohne fehlende Werte.
+
+## `sapply()` auf Data Frames
+
+`sapply()` wendet eine Funktion auf mehrere Elemente an.
+
+Bei Data Frames typischerweise: auf jede Spalte.
+
+```{r echo = TRUE}
+daten <- data.frame(
+  Alter = c(23, 31, 28),
+  Note = c(1.7, 2.3, 1.9)
+)
+
+sapply(daten, mean)
+sapply(daten, min)
+```
+
+## Spaltentypen prüfen
+
+```{r echo = TRUE}
+daten2 <- data.frame(
+  Name = c("Anna", "Ben", "Clara"),
+  Alter = c(23, 31, 28),
+  Student = c(TRUE, FALSE, TRUE)
+)
+
+sapply(daten2, class)
+sapply(daten2, is.numeric)
+```
+
+`sapply()` hilft, Spalten systematisch zu untersuchen.
+
+## Übung: Data Frame untersuchen
+
+``` r
+lab <- data.frame(
+  patient_id = c("P001", "P002", "P003", "P004", "P005", "P006"),
+  gruppe     = c("Kontrolle", "Kontrolle", "Therapie", "Therapie", "Therapie", "Kontrolle"),
+  alter      = c(45, 52, 39, 61, 48, 55),
+  sex        = c("w", "m", "w", "m", "w", "m"),
+  crp_mg_l   = c(1.2, 3.8, 12.5, 6.1, 8.9, 2.0),
+  wbc_g_l    = c(5.4, 7.1, 11.2, 8.6, 9.9, 6.3),
+  hb_g_dl    = c(13.4, 14.8, 12.1, 13.9, 11.7, 15.2)
+)
+```
+
+## Übung: Data Frame untersuchen
+
+Aufgaben:
+
+1.  Geben Sie die ersten 3 Zeilen aus.
+2.  Zeigen Sie die Struktur des Data Frames.
+3.  Geben Sie die Spaltennamen aus.
+4.  Bestimmen Sie Anzahl der Zeilen und Spalten.
+5.  Geben Sie die Spalte `crp_mg_l` aus.
+6.  Greifen Sie auf `hb_g_dl` von Patient `P005` zu.
+
+``` r
+# Ihre Lösung
+```
+
+## Übung: Filtern und Kennzahlen
+
+Nutzen Sie weiter `lab`.
+
+1.  Erstellen Sie `therapie` mit allen Patient:innen aus Gruppe
+    `"Therapie"`.
+2.  Filtern Sie alle Personen mit `crp_mg_l > 5`.
+3.  Berechnen Sie den Mittelwert von `crp_mg_l`.
+4.  Berechnen Sie Mittelwert, Median und Maximum von CRP getrennt nach
+    Gruppe.
+
+``` r
+# Ihre Lösung
+```
+
+## Häufigkeitstabellen mit `table()`
+
+Mit `table()` kann man zählen, wie oft Werte vorkommen.
+
+```{r echo = TRUE}
+gruppe <- c("A", "A", "B", "B", "A", "B")
+table(gruppe)
+```
+
+::: fragment
+`table()` erstellt eine absolute Häufigkeitstabelle.
+:::
+
+## `table()` mit Data Frames
+
+In Data Frames nutzt man `table()` häufig für einzelne Spalten.
+
+```{r echo = TRUE}
+df <- data.frame(
+  gruppe = c("A", "A", "B", "B", "A", "B"),
+  bestanden = c("ja", "nein", "ja", "ja", "ja", "nein")
+)
+```
+
+Eine Spalte auszählen:
+
+```{r echo = TRUE}
+table(df$gruppe)
+```
+
+::: fragment
+Mit `$` greifen wir auf eine einzelne Spalte des Data Frames zu.
+:::
+
+## Kreuztabellen
+
+Mit `table()` können auch zwei Variablen gemeinsam ausgezählt werden.
+
+```{r echo = TRUE}
+table(df$gruppe, df$bestanden)
+```
+
+Etwas lesbarer mit Namen:
+
+```{r echo = TRUE}
+table(
+  Gruppe = df$gruppe,
+  Bestanden = df$bestanden
+)
+```
+
+::: fragment
+Eine Kreuztabelle zeigt, wie häufig Kombinationen von Ausprägungen
+vorkommen.
+:::
+
+## Relative Häufigkeiten
+
+Absolute Häufigkeiten zählen Fälle.
+
+```{r echo = TRUE}
+tab <- table(
+  Gruppe = df$gruppe,
+  Bestanden = df$bestanden
+)
+tab
+```
+
+Relative Häufigkeiten zeigen Anteile.
+
+```{r echo = TRUE}
+prop.table(tab)
+```
+
+::: fragment
+`prop.table()` wandelt absolute Häufigkeiten in relative Häufigkeiten
+um.
+:::
+
+# Factors
+
+## Was sind Factors?
+
+Factors repräsentieren kategoriale Variablen.
+
+Beispiele:
+
+-   Geschlecht
+-   Farben
+-   Gruppen
+-   Bewertungen
+-   Klassen
+
+Die möglichen Kategorien heißen **Levels**.
+
+## Factor erstellen
+
+```{r echo = TRUE}
+farben <- factor(c("rot", "blau", "rot", "gruen", "blau"))
+
+farben
+levels(farben)
+nlevels(farben)
+```
+
+R speichert Factors intern als Zahlen mit zugehörigen Levels.
+
+## Levels festlegen
+
+``` r
+farben <- factor(
+  c("rot", "blau", "rot", "gruen"),
+  levels = c("rot", "blau", "gruen")
+)
+
+farben
+```
+
+Die Reihenfolge der Levels kann für Plots und Modelle wichtig sein.
+
+## Geordnete Factors
+
+```{r echo = TRUE}
+bewertung <- factor(
+  c("gut", "mittel", "gut", "schlecht"),
+  levels = c("schlecht", "mittel", "gut"),
+  ordered = TRUE
+)
+
+bewertung
+is.ordered(bewertung)
+```
+
+Geordnete Factors besitzen eine natürliche Reihenfolge.
+
+## Zugriff auf Factor-Elemente
+
+```{r echo = TRUE}
+farben[1]
+farben[1:3]
+```
+
+Factors verhalten sich beim Zugriff ähnlich wie Vektoren.
+
+## Typische Fehlerquelle: `as.numeric()`
+
+```{r echo = TRUE}
+x <- factor(c("10", "20", "30"))
+
+as.numeric(x)
+```
+
+Das Ergebnis sind die internen Codes, nicht die sichtbaren Werte.
+
+Richtig:
+
+```{r echo = TRUE}
+as.numeric(as.character(x))
+```
+
+## `tapply()` mit Factors
+
+`tapply()` berechnet Kennzahlen getrennt nach Gruppen.
+
+```{r echo = TRUE}
+umsatz <- c(100, 200, 150, 300, 250, 180)
+
+abteilung <- factor(c(
+  "Verkauf", "Verkauf", "IT",
+  "IT", "Marketing", "Marketing"
+))
+
+tapply(umsatz, abteilung, sum)
+```
+
+## Was passiert bei `tapply()`?
+
+`tapply(werte, gruppe, funktion)`
+
+-   `werte`: Werte, mit denen gerechnet wird
+-   `gruppe`: Gruppierungsvariable, oft Factor
+-   `funktion`: Funktion pro Gruppe
+
+Beispiel:
+
+``` r
+tapply(umsatz, abteilung, mean)
+tapply(umsatz, abteilung, max)
+```
+
+## Leere Factor-Levels
+
+``` r
+abteilung <- factor(
+  c("Verkauf", "Verkauf", "IT"),
+  levels = c("IT", "Marketing", "Verkauf")
+)
+
+umsatz <- c(100, 200, 150)
+
+tapply(umsatz, abteilung, sum)
+```
+
+Für `Marketing` gibt es keinen Wert, aber der Level existiert.
+
+Deshalb erscheint `NA`.
+
+# Abschluss
+
+## Verständnisfragen
+
+1.  Was unterscheidet einen Vektor von einer Liste?
+2.  Warum können Matrizen nur einen Datentyp enthalten?
+3.  Warum können Data Frames mehrere Datentypen enthalten?
+4.  Was macht `x[x > 0]`?
+5.  Wann ist `%in%` hilfreich?
+6.  Was ist der Unterschied zwischen `sapply()` und `tapply()`?
+7.  Warum sind Factors für kategoriale Variablen wichtig?
+
+## Übung
+
+Erstellen Sie einen kleinen Data Frame mit mindestens:
+
+-   einer ID-Spalte
+-   einer numerischen Messwert-Spalte
+-   einer kategorialen Gruppen-Spalte
+
+Bearbeiten Sie:
+
+1.  Filtern Sie eine Gruppe.
+2.  Berechnen Sie den Mittelwert pro Gruppe mit `tapply()`.
+3.  Prüfen Sie die Datentypen mit `sapply()`.
+4.  Wandeln Sie die Gruppen-Spalte in einen Factor um.
+
+## Übung
+
+Bearbeiten Sie Übung 3 auf
+<https://bna2022.github.io/Intro2R/chapters/02-daten-repraesentieren.html#%C3%BCbungen>.
