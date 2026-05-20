@@ -931,6 +931,10 @@ werden.
 levels(farben)
 ```
 
+
+```{r echo=TRUE}
+nlevels(farben)
+```
 ------------------------------------------------------------------------
 
 ### Levels festlegen
@@ -966,7 +970,11 @@ bewertung <- factor(
 bewertung
 ```
 
-Solche Factors nennt man geordnete Factors (*ordered factors*).
+Solche Factors nennt man geordnete Factors (*ordered factors*). Prüfen, ob ein Factor geordnet ist, kann man prüfen mit 
+
+```{r echo=TRUE}
+is.ordered(bewertung)
+```
 
 ------------------------------------------------------------------------
 
@@ -1007,8 +1015,10 @@ Factors werden in R häufig für **kategoriale Daten** verwendet, z. B.:
 Die möglichen Kategorien eines Factors heißen **Levels**.
 :::
 
+---------------------------------------------------------------------
+
 ::: callout-warning
-## Typischer Anfängerfehler: `as.numeric()` bei Factors
+## Typische Fehlerquelle: `as.numeric()`
 
 Ein häufiger Fehler ist die direkte Umwandlung eines Factors in
 numerische Werte.
@@ -1037,6 +1047,136 @@ as.numeric(as.character(x))
 Dabei wird der Factor zuerst in Zeichenketten und anschließend in
 numerische Werte umgewandelt.
 :::
+
+### `tapply()` mit Factors in R
+
+Beispiel: Umsätze nach Abteilung
+
+```{r echo=TRUE}
+umsatz <- c(100, 200, 150, 300, 250, 180)
+
+abteilung <- factor(c(
+  "Verkauf", "Verkauf", "IT",
+  "IT", "Marketing", "Marketing"
+))
+```
+
+
+Wenn wir den Factor ausgeben:
+
+```{r echo=TRUE}
+abteilung
+```
+
+Ein **Factor** speichert Kategorien mit festen **Levels**.
+
+Intern ungefähr:
+
+| Kategorie | interner Code |
+|---|---|
+| IT | 1 |
+| Marketing | 2 |
+| Verkauf | 3 |
+
+Das ist wichtig, weil `tapply()` genau diese Levels zum Gruppieren verwendet.
+
+---
+
+`tapply()` anwenden
+
+```{r echo=TRUE}
+tapply(umsatz, abteilung, sum)
+```
+
+**Bedeutung**
+
+- `umsatz` → Werte, mit denen gerechnet wird
+- `abteilung` → Factor (Gruppierungsvariable)
+- `sum` → Funktion, die auf jede Gruppe angewendet wird
+
+---
+
+Was passiert intern?
+
+- Schritt 1: `tapply()` gruppiert nach den Factor-Levels
+
+**IT**
+
+```r
+150, 300
+```
+
+**Marketing**
+
+```r
+250, 180
+```
+
+**Verkauf**
+
+```r
+100, 200
+```
+
+---
+
+- Schritt 2: Funktion anwenden (`sum`)
+
+```{r echo=TRUE}
+sum(c(150, 300))   # 450
+sum(c(250, 180))   # 430
+sum(c(100, 200))   # 300
+```
+
+---
+
+#### Besonderheit: Factor-Level ohne Daten
+
+Factors können Levels enthalten, für die gar keine Beobachtungen existieren.
+
+**Beispiel**
+
+```{r echo=TRUE}
+abteilung <- factor(
+  c("Verkauf", "Verkauf", "IT"),
+  levels = c("IT", "Marketing", "Verkauf")
+)
+
+umsatz <- c(100, 200, 150)
+```
+
+---
+
+Wieder `tapply()`:
+
+```{r echo=TRUE}
+tapply(umsatz, abteilung, sum)
+```
+
+---
+
+Warum `NA` bei Marketing?
+
+- Der Factor kennt den Level **Marketing**
+- Aber es gibt keine Werte in dieser Gruppe
+
+`tapply()` berücksichtigt trotzdem **alle Levels des Factors**.
+
+---
+
+#### Zusammenhang zwischen `tapply()` und Factors
+
+`tapply()` nutzt die **Levels eines Factors als Gruppenschlüssel**.
+
+Das bedeutet:
+
+```{r echo=TRUE}
+gruppe <- factor(c("A", "A", "B"))
+werte  <- c(10, 20, 30)
+
+tapply(werte, gruppe, sum)
+```
+
 
 ## Verständnisfragen
 
