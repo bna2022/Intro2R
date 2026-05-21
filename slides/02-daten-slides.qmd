@@ -532,11 +532,13 @@ Erstellen Sie eine Liste `person` mit:
 -   Lieblingszahlen als Vektor
 -   einer logischen Angabe `student`
 
-Greifen Sie anschließend auf das Alter zu.
-
-``` r
-# Ihre Lösung
-```
+1\. Geben Sie nur den Namen aus.\
+2. Geben Sie nur die Lieblingszahlen aus.\
+3. Geben Sie die zweite Lieblingszahl aus.\
+4. Prüfen Sie, ob die Person Studentin oder Student ist.\
+5. Geben Sie alle Lieblingszahlen aus, die größer als 5 sind.\
+6. Ergänzen Sie die Liste um den Wohnort "Ingolstadt".\
+7. Löschen Sie das Element alter.
 
 ## Listen: Zusammenfassung
 
