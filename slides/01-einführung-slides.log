@@ -1,74 +1,46 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.5.6)  6 MAY 2026 23:19
- restricted system commands enabled.
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.19)  20 MAY 2026 10:57
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
 **01-einführung-slides.tex
 (./01-einführung-slides.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-03-20>
-Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
-Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
-luaotfload | conf : Root cache directory is "C:/Users/beate/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
-luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-resolved path "c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lua".
-Lua-only attribute luaotfload@noligature = 1
-luaotfload | init : Context OpenType loader version 3.134
-Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' in `hpack_filter'.
-Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
-Inserting `luaotfload.define_font' in `define_font'.
-Lua-only attribute luaotfload_color_attribute = 2
-luaotfload | conf : Root cache directory is "C:/Users/beate/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
-Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
-Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
-Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
-Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
-Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
-Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
-Inserting `luaotfload.cleanup_files' in `wrapup_run'.
-Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
-Inserting `luaotfload.glyphinfo' in `glyph_info'.
-Lua-only attribute luaotfload.letterspace_done = 3
-Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
-Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
-Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
-Inserting `tracingstacklevels' in `input_level_string'. (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamer.cls
+L3 programming layer <2026-04-28>
+(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2026/01/22 v3.77 A class for typesetting presentations
 (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count273
+\etb@tempcnta=\count276
 )
 \beamer@tempbox=\box53
-\beamer@tempcount=\count274
-\c@beamerpauses=\count275
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
-\beamer@slideinframe=\count276
-\beamer@minimum=\count277
+\beamer@tempcount=\count277
+\c@beamerpauses=\count278
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+\beamer@slideinframe=\count279
+\beamer@minimum=\count280
 \beamer@decode@box=\box54
 )
 \beamer@commentbox=\box55
-\beamer@modecount=\count278
+\beamer@modecount=\count281
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
-\headdp=\dimen149
-\footheight=\dimen150
-\sidebarheight=\dimen151
-\beamer@tempdim=\dimen152
-\beamer@finalheight=\dimen153
-\beamer@animht=\dimen154
-\beamer@animdp=\dimen155
-\beamer@animwd=\dimen156
-\beamer@leftmargin=\dimen157
-\beamer@rightmargin=\dimen158
-\beamer@leftsidebar=\dimen159
-\beamer@rightsidebar=\dimen160
-\beamer@boxsize=\dimen161
-\beamer@vboxoffset=\dimen162
-\beamer@descdefault=\dimen163
-\beamer@descriptionwidth=\dimen164
+\headdp=\dimen150
+\footheight=\dimen151
+\sidebarheight=\dimen152
+\beamer@tempdim=\dimen153
+\beamer@finalheight=\dimen154
+\beamer@animht=\dimen155
+\beamer@animdp=\dimen156
+\beamer@animwd=\dimen157
+\beamer@leftmargin=\dimen158
+\beamer@rightmargin=\dimen159
+\beamer@leftsidebar=\dimen160
+\beamer@rightsidebar=\dimen161
+\beamer@boxsize=\dimen162
+\beamer@vboxoffset=\dimen163
+\beamer@descdefault=\dimen164
+\beamer@descriptionwidth=\dimen165
 \beamer@lastskip=\skip49
 \beamer@areabox=\box56
 \beamer@animcurrent=\box57
@@ -76,53 +48,53 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \beamer@sectionbox=\box59
 \beamer@logobox=\box60
 \beamer@linebox=\box61
-\beamer@sectioncount=\count279
-\beamer@subsubsectionmax=\count280
-\beamer@subsectionmax=\count281
-\beamer@sectionmax=\count282
-\beamer@totalheads=\count283
-\beamer@headcounter=\count284
-\beamer@partstartpage=\count285
-\beamer@sectionstartpage=\count286
-\beamer@subsectionstartpage=\count287
-\beamer@animationtempa=\count288
-\beamer@animationtempb=\count289
-\beamer@xpos=\count290
-\beamer@ypos=\count291
-\beamer@ypos@offset=\count292
-\beamer@showpartnumber=\count293
-\beamer@currentsubsection=\count294
-\beamer@coveringdepth=\count295
-\beamer@sectionadjust=\count296
-\beamer@toclastsection=\count297
-\beamer@tocsectionnumber=\count298
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+\beamer@sectioncount=\count282
+\beamer@subsubsectionmax=\count283
+\beamer@subsectionmax=\count284
+\beamer@sectionmax=\count285
+\beamer@totalheads=\count286
+\beamer@headcounter=\count287
+\beamer@partstartpage=\count288
+\beamer@sectionstartpage=\count289
+\beamer@subsectionstartpage=\count290
+\beamer@animationtempa=\count291
+\beamer@animationtempb=\count292
+\beamer@xpos=\count293
+\beamer@ypos=\count294
+\beamer@ypos@offset=\count295
+\beamer@showpartnumber=\count296
+\beamer@currentsubsection=\count297
+\beamer@coveringdepth=\count298
+\beamer@sectionadjust=\count299
+\beamer@toclastsection=\count300
+\beamer@tocsectionnumber=\count301
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 ))
 \beamer@paperwidth=\skip50
 \beamer@paperheight=\skip51
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count299
-\Gm@cntv=\count300
-\c@Gm@tempcnt=\count301
-\Gm@bindingoffset=\dimen165
-\Gm@wd@mp=\dimen166
-\Gm@odd@mp=\dimen167
-\Gm@even@mp=\dimen168
-\Gm@layoutwidth=\dimen169
-\Gm@layoutheight=\dimen170
-\Gm@layouthoffset=\dimen171
-\Gm@layoutvoffset=\dimen172
+\Gm@cnth=\count302
+\Gm@cntv=\count303
+\c@Gm@tempcnt=\count304
+\Gm@bindingoffset=\dimen166
+\Gm@wd@mp=\dimen167
+\Gm@odd@mp=\dimen168
+\Gm@even@mp=\dimen169
+\Gm@layoutwidth=\dimen170
+\Gm@layoutheight=\dimen171
+\Gm@layouthoffset=\dimen172
+\Gm@layoutvoffset=\dimen173
 \Gm@dimlist=\toks18
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks19
-\pgfutil@tempdima=\dimen173
-\pgfutil@tempdimb=\dimen174
+\pgfutil@tempdima=\dimen174
+\pgfutil@tempdimb=\dimen175
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box62
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
@@ -130,90 +102,90 @@ Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks20
 \pgfkeys@temptoks=\toks21
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks22
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
-\pgf@x=\dimen175
-\pgf@xa=\dimen176
-\pgf@xb=\dimen177
-\pgf@xc=\dimen178
-\pgf@y=\dimen179
-\pgf@ya=\dimen180
-\pgf@yb=\dimen181
-\pgf@yc=\dimen182
-\c@pgf@counta=\count302
-\c@pgf@countb=\count303
-\c@pgf@countc=\count304
-\c@pgf@countd=\count305
+\pgf@x=\dimen176
+\pgf@xa=\dimen177
+\pgf@xb=\dimen178
+\pgf@xc=\dimen179
+\pgf@y=\dimen180
+\pgf@ya=\dimen181
+\pgf@yb=\dimen182
+\pgf@yc=\dimen183
+\c@pgf@counta=\count305
+\c@pgf@countb=\count306
+\c@pgf@countc=\count307
+\c@pgf@countd=\count308
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen183
-\pgfmath@count=\count306
+\pgfmath@dimen=\dimen184
+\pgfmath@count=\count309
 \pgfmath@box=\box63
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
 \pgfmath@stack@operation=\toks25
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count307
+\c@pgfmathroundto@lastzeros=\count310
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from C:/Users/beate/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: luatex.def on input line 106.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/luatex.def
-File: luatex.def 2025/09/29 v1.2f Graphics/color driver for luatex
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen184
-\Gin@req@width=\dimen185
+\Gin@req@height=\dimen185
+\Gin@req@width=\dimen186
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@x=\dimen186
-\pgf@y=\dimen187
-\pgf@xa=\dimen188
-\pgf@ya=\dimen189
-\pgf@xb=\dimen190
-\pgf@yb=\dimen191
-\pgf@xc=\dimen192
-\pgf@yc=\dimen193
-\pgf@xd=\dimen194
-\pgf@yd=\dimen195
+\pgf@x=\dimen187
+\pgf@y=\dimen188
+\pgf@xa=\dimen189
+\pgf@ya=\dimen190
+\pgf@xb=\dimen191
+\pgf@yb=\dimen192
+\pgf@xc=\dimen193
+\pgf@yc=\dimen194
+\pgf@xd=\dimen195
+\pgf@yd=\dimen196
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count308
-\c@pgf@countb=\count309
-\c@pgf@countc=\count310
-\c@pgf@countd=\count311
+\c@pgf@counta=\count311
+\c@pgf@countb=\count312
+\c@pgf@countc=\count313
+\c@pgf@countd=\count314
 \t@pgf@toka=\toks26
 \t@pgf@tokb=\toks27
 \t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count312
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+\pgf@sys@id@count=\count315
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
-Driver file for pgf: pgfsys-luatex.def
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
-File: pgfsys-luatex.def 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+Driver file for pgf: pgfsys-pdftex.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count313
-\pgfsyssoftpath@bigbuffer@items=\count314
+\pgfsyssoftpath@smallbuffer@items=\count316
+\pgfsyssoftpath@bigbuffer@items=\count317
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: luatex.def on input line 274.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -225,44 +197,44 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen196
-\pgf@picmaxx=\dimen197
-\pgf@picminy=\dimen198
-\pgf@picmaxy=\dimen199
-\pgf@pathminx=\dimen256
-\pgf@pathmaxx=\dimen257
-\pgf@pathminy=\dimen258
-\pgf@pathmaxy=\dimen259
-\pgf@xx=\dimen260
-\pgf@xy=\dimen261
-\pgf@yx=\dimen262
-\pgf@yy=\dimen263
-\pgf@zx=\dimen264
-\pgf@zy=\dimen265
+\pgf@picminx=\dimen197
+\pgf@picmaxx=\dimen198
+\pgf@picminy=\dimen199
+\pgf@picmaxy=\dimen256
+\pgf@pathminx=\dimen257
+\pgf@pathmaxx=\dimen258
+\pgf@pathminy=\dimen259
+\pgf@pathmaxy=\dimen260
+\pgf@xx=\dimen261
+\pgf@xy=\dimen262
+\pgf@yx=\dimen263
+\pgf@yy=\dimen264
+\pgf@zx=\dimen265
+\pgf@zy=\dimen266
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen266
-\pgf@path@lasty=\dimen267
+\pgf@path@lastx=\dimen267
+\pgf@path@lasty=\dimen268
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen268
-\pgf@shorten@start@additional=\dimen269
+\pgf@shorten@end@additional=\dimen269
+\pgf@shorten@start@additional=\dimen270
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box64
 \pgf@hbox=\box65
 \pgf@layerbox@main=\box66
-\pgf@picture@serial@count=\count315
+\pgf@picture@serial@count=\count318
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen270
+\pgflinewidth=\dimen271
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen271
-\pgf@pt@y=\dimen272
-\pgf@pt@temp=\dimen273
+\pgf@pt@x=\dimen272
+\pgf@pt@y=\dimen273
+\pgf@pt@temp=\dimen274
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
@@ -271,12 +243,12 @@ File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen274
+\pgfarrowsep=\dimen275
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen275
-\pgf@sys@shading@range@num=\count316
-\pgf@shadingcount=\count317
+\pgf@max=\dimen276
+\pgf@sys@shading@range@num=\count319
+\pgf@shadingcount=\count320
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -292,56 +264,59 @@ File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count318
-\XC@countmixins=\count319
+\XC@nummixins=\count321
+\XC@countmixins=\count322
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-04-24 v7.01q Hypertext links for LaTeX
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks29
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count320
+\c@section@level=\count323
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen276
-\Hy@linkcounter=\count321
-\Hy@pagecounter=\count322
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+\@linkdim=\dimen277
+\Hy@linkcounter=\count324
+\Hy@pagecounter=\count325
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2026-04-24 v7.01q Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count323
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+\Hy@SavedSpaceFactor=\count326
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2026-04-24 v7.01q Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4070.
 Package hyperref Info: Option `bookmarks' set `true' on input line 4070.
@@ -354,21 +329,21 @@ Package hyperref Info: Plain pages OFF on input line 4214.
 Package hyperref Info: Backreferencing OFF on input line 4219.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
 Package hyperref Info: Bookmarks ON on input line 4466.
-\c@Hy@tempcnt=\count324
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\c@Hy@tempcnt=\count327
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4805.
-\XeTeXLinkMargin=\dimen277
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+\XeTeXLinkMargin=\dimen278
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count325
-\Field@Width=\dimen278
-\Fld@charsize=\dimen279
+\Fld@menulength=\count328
+\Field@Width=\dimen279
+\Fld@charsize=\dimen280
 Package hyperref Info: Hyper figures OFF on input line 6091.
 Package hyperref Info: Link nesting OFF on input line 6096.
 Package hyperref Info: Hyper index ON on input line 6099.
@@ -376,27 +351,28 @@ Package hyperref Info: backreferencing OFF on input line 6106.
 Package hyperref Info: Link coloring OFF on input line 6111.
 Package hyperref Info: Link coloring with OCG OFF on input line 6116.
 Package hyperref Info: PDF/A mode OFF on input line 6121.
-\Hy@abspage=\count326
+\Hy@abspage=\count329
+
 
 Package hyperref Message: Stopped early.
 
 )
-Package hyperref Info: Driver (autodetected): hluatex.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2026-04-24 v7.01q Hyperref driver for luaTeX
-\Fld@listcount=\count327
-\c@bookmark@seq@number=\count328
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-04-24 v7.01q Hyperref driver for pdfTeX
+\Fld@listcount=\count330
+\c@bookmark@seq@number=\count331
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaserequires.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasefont.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks30
+\@emptytoks=\toks29
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -405,92 +381,93 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
-\beamer@argscount=\count329
+\beamer@argscount=\count332
 \beamer@lastskipcover=\skip52
-\beamer@trivlistdepth=\count330
+\beamer@trivlistdepth=\count333
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetitle.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasesection.sty
-\c@lecture=\count331
-\c@part=\count332
-\c@section=\count333
-\c@subsection=\count334
-\c@subsubsection=\count335
+\c@lecture=\count334
+\c@part=\count335
+\c@section=\count336
+\c@subsection=\count337
+\c@subsubsection=\count338
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
 \beamer@framebox=\box68
 \beamer@frametitlebox=\box69
 \beamer@zoombox=\box70
-\beamer@zoomcount=\count336
-\beamer@zoomframecount=\count337
-\beamer@frametextheight=\dimen280
-\c@subsectionslide=\count338
+\beamer@zoomcount=\count339
+\beamer@zoomframecount=\count340
+\beamer@frametextheight=\dimen281
+\c@subsectionslide=\count341
 \beamer@frametopskip=\skip53
 \beamer@framebottomskip=\skip54
 \beamer@frametopskipautobreak=\skip55
 \beamer@framebottomskipautobreak=\skip56
-\beamer@envbody=\toks31
-\framewidth=\dimen281
-\c@framenumber=\count339
+\beamer@envbody=\toks30
+\framewidth=\dimen282
+\c@framenumber=\count342
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
 \beamer@verbatimfileout=\write4
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
 \beamer@splitbox=\box71
-\beamer@autobreakcount=\count340
-\beamer@autobreaklastheight=\dimen282
-\beamer@frametitletoks=\toks32
-\beamer@framesubtitletoks=\toks33
+\beamer@autobreakcount=\count343
+\beamer@autobreaklastheight=\dimen283
+\beamer@frametitletoks=\toks31
+\beamer@framesubtitletoks=\toks32
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
 \beamer@colheight=\skip57
 \beamer@footins=\box72
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasecolor.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
 \beamer@frameboxcopy=\box73
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetoc.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
-\beamer@sbttoks=\toks34
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+\beamer@sbttoks=\toks33
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
 \bmb@box=\box74
 \bmb@colorbox=\box75
-\bmb@boxwidth=\dimen283
-\bmb@boxheight=\dimen284
-\bmb@prevheight=\dimen285
-\bmb@temp=\dimen286
-\bmb@dima=\dimen287
-\bmb@dimb=\dimen288
-\bmb@prevheight=\dimen289
+\bmb@boxwidth=\dimen284
+\bmb@boxheight=\dimen285
+\bmb@prevheight=\dimen286
+\bmb@temp=\dimen287
+\bmb@dima=\dimen288
+\bmb@dimb=\dimen289
+\bmb@prevheight=\dimen290
 )
-\beamer@blockheadheight=\dimen290
+\beamer@blockheadheight=\dimen291
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
-\@enLab=\toks35
+\@enLab=\toks34
 )
 \beamer@bibiconwidth=\skip58
-\c@figure=\count341
-\c@table=\count342
+\c@figure=\count344
+\c@table=\count345
 \abovecaptionskip=\skip59
 \belowcaptionskip=\skip60
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex)
-\beamer@section@min@dim=\dimen291
+\beamer@section@min@dim=\dimen292
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip61
+
 For additional information on amsmath, use the `?' option.
 (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks36
-\ex@=\dimen292
+\@emptytoks=\toks35
+\ex@=\dimen293
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen293
+\pmbraise@=\dimen294
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count343
-LaTeX Info: Redefining \frac on input line 235.
-\uproot@=\count344
-\leftroot@=\count345
+\inf@bad=\count346
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count347
+\leftroot@=\count348
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count346
-\DOTSCASE@=\count347
+\classnum@=\count349
+\DOTSCASE@=\count350
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -500,249 +477,85 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen294
+\big@size=\dimen295
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count348
+\macc@depth=\count351
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count349
+\c@MaxMatrixCols=\count352
 \dotsspace@=\muskip18
-\c@parentequation=\count350
-\dspbrk@lvl=\count351
-\tag@help=\toks37
-\row@=\count352
-\column@=\count353
-\maxfields@=\count354
-\andhelp@=\toks38
-\eqnshift@=\dimen295
-\alignsep@=\dimen296
-\tagshift@=\dimen297
-\tagwidth@=\dimen298
-\totwidth@=\dimen299
-\lineht@=\dimen300
-\@envbody=\toks39
+\c@parentequation=\count353
+\dspbrk@lvl=\count354
+\tag@help=\toks36
+\row@=\count355
+\column@=\count356
+\maxfields@=\count357
+\andhelp@=\toks37
+\eqnshift@=\dimen296
+\alignsep@=\dimen297
+\tagshift@=\dimen298
+\tagwidth@=\dimen299
+\totwidth@=\dimen300
+\lineht@=\dimen301
+\@envbody=\toks38
 \multlinegap=\skip62
 \multlinetaggap=\skip63
-\mathdisplay@stack=\toks40
+\mathdisplay@stack=\toks39
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks41
-\thm@bodyfont=\toks42
-\thm@headfont=\toks43
-\thm@notefont=\toks44
-\thm@headpunct=\toks45
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
 \thm@preskip=\skip64
 \thm@postskip=\skip65
 \thm@headsep=\skip66
-\dth@everypar=\toks46
+\dth@everypar=\toks45
 )
-\c@theorem=\count355
+\c@theorem=\count358
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
-\beamer@dima=\dimen301
-\beamer@dimb=\dimen302
+\beamer@dima=\dimen302
+\beamer@dimb=\dimen303
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
 Package: pgfpages 2011/01/05 ver 0.02
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count356
-\calc@Bcount=\count357
-\calc@Adimen=\dimen303
-\calc@Bdimen=\dimen304
+\calc@Acount=\count359
+\calc@Bcount=\count360
+\calc@Adimen=\dimen304
+\calc@Bdimen=\dimen305
 \calc@Askip=\skip67
 \calc@Bskip=\skip68
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count358
+\calc@Ccount=\count361
 \calc@Cskip=\skip69
 )
-\pgf@logicalpages=\count359
-\pgf@firstshipout=\count360
-\pgf@lastshipout=\count361
-\pgf@currentshipout=\count362
-\pgf@cpn=\count363
-\pgf@shipoutnextto=\count364
-\pgfphysicalheight=\dimen305
-\pgfphysicalwidth=\dimen306
+\pgf@logicalpages=\count362
+\pgf@firstshipout=\count363
+\pgf@lastshipout=\count364
+\pgf@currentshipout=\count365
+\pgf@cpn=\count366
+\pgf@shipoutnextto=\count367
+\pgfphysicalheight=\dimen306
+\pgfphysicalwidth=\dimen307
 \pgfpages@shipoutbox=\box78
-) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-03-20 L3 programming layer (loader) 
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2026-02-18 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count365
-Inserting `l3color' in `luaotfload.parse_color'.))
-Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
-Package: unicode-math-luatex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
-) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
-) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
-Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
-Package: fontspec-luatex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count366
-\l__fontspec_language_int=\count367
-\l__fontspec_strnum_int=\count368
-\l__fontspec_tmp_int=\count369
-\l__fontspec_tmpa_int=\count370
-\l__fontspec_tmpb_int=\count371
-\l__fontspec_tmpc_int=\count372
-\l__fontspec_em_int=\count373
-\l__fontspec_emdef_int=\count374
-\l__fontspec_strong_int=\count375
-\l__fontspec_strongdef_int=\count376
-\l__fontspec_tmpa_dim=\dimen307
-\l__fontspec_tmpb_dim=\dimen308
-\l__fontspec_tmpc_dim=\dimen309
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
-Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1) on input line 49.
-LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) on input line 52.
-LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) on input line 55.
-LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) on input line 56.
-LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding TS1) on input line 57.
-LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) on input line 58.
-LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1) on input line 59.
-LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding TS1) on input line 60.
-LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on input line 61.
-LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) on input line 62.
-LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) on input line 63.
-LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) on input line 64.
-LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS1) on input line 65.
-LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input line 66.
-LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on input line 67.
-LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on input line 68.
-LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) on input line 69.
-LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encoding TS1) on input line 70.
-LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (encoding TS1) on input line 71.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encoding TS1) on input line 72.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (encoding TS1) on input line 73.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1) on input line 74.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encoding TS1) on input line 75.
-LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) on input line 76.
-LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) on input line 77.
-LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on input line 78.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on input line 79.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 80.
-LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encoding TS1) on input line 81.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) on input line 92.
-LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding TS1) on input line 93.
-LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1) on input line 94.
-LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1) on input line 95.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1) on input line 96.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS1) on input line 97.
-LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1) on input line 98.
-LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1) on input line 99.
-LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1) on input line 100.
-LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS1) on input line 101.
-LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS1) on input line 102.
-LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1) on input line 103.
-LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on input line 104.
-LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on input line 105.
-LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on input line 106.
-LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on input line 107.
-LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) on input line 108.
-LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on input line 109.
-LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on input line 115.
-LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) on input line 116.
-LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) on input line 117.
-LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on input line 118.
-LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) on input line 119.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) on input line 120.
-LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on input line 121.
-LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on input line 122.
-LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on input line 123.
-LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on input line 124.
-LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on input line 125.
-LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1) on input line 126.
-LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on input line 127.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS1) on input line 128.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) on input line 129.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) on input line 130.
-LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on input line 131.
-LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on input line 132.
-LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on input line 133.
-LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) on input line 134.
-LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on input line 135.
-LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1) on input line 136.
-LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on input line 137.
-LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on input line 138.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding TS1) on input line 139.
-LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1) on input line 140.
-LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on input line 141.
-LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS1) on input line 142.
-LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on input line 143.
-LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on input line 144.
-LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on input line 145.
-LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on input line 146.
-LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on input line 147.
-LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on input line 148.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1) on input line 149.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding TS1) on input line 150.
-LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on input line 151.
-LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) on input line 152.
-LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding TS1) on input line 153.
-LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on input line 154.
-LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on input line 155.
-LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on input line 156.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on input line 157.
-LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) on input line 158.
-LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) on input line 159.
-LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1) on input line 160.
-LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on input line 161.
-LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on input line 162.
-LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on input line 163.
-LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on input line 164.
-LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on input line 165.
-LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on input line 166.
-LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) on input line 167.
-LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on input line 168.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS1) on input line 169.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) on input line 170.
-LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1) on input line 171.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on input line 172.
-LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on input line 173.
-LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on input line 174.
-LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) on input line 175.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1) on input line 176.
-LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on input line 177.
-LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input line 178.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1) on input line 179.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS1) on input line 180.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) on input line 181.
-LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input line 182.
-LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) on input line 183.
-LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding TS1) on input line 184.
-LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS1) on input line 185.
-LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1) on input line 186.
-LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1) on input line 187.
-LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on input line 188.
-LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) on input line 189.
-LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on input line 190.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS1) on input line 191.
-LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on input line 192.
-LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on input line 193.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on input line 194.
-)) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/lualatex/lualatex-math/lualatex-math.sty
-Package: lualatex-math 2022/01/01 v1.12 Patches for mathematics typesetting with LuaLaTeX
-Lua module: lualatex-math 2013/08/03 v1.3 Patches for mathematics typesetting with LuaLaTeX)
-\g__um_fam_int=\count377
-\g__um_fonts_used_int=\count378
-\l__um_primecount_int=\count379
-\g__um_primekern_muskip=\muskip19
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks46
+\inpenc@posthook=\toks47
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -776,87 +589,114 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
+\MT@toks=\toks48
+\MT@tempbox=\box79
+\MT@count=\count368
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
+LaTeX Info: Redefining \leftprotrusion on input line 1085.
+\MT@prot@toks=\toks49
+LaTeX Info: Redefining \rightprotrusion on input line 1104.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen308
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count369
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip70
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2026/04/16 4.6a verbatim text (tvz,hv)
-\FV@CodeLineNo=\count380
+\FV@CodeLineNo=\count370
 \FV@InFile=\read3
-\FV@TabBox=\box79
-\c@FancyVerbLine=\count381
-\FV@StepNumber=\count382
+\FV@TabBox=\box80
+\c@FancyVerbLine=\count371
+\FV@StepNumber=\count372
 \FV@OutFile=\write5
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
-\LTleft=\skip70
-\LTright=\skip71
-\LTpre=\skip72
-\LTpost=\skip73
-\LTchunksize=\count383
-\LTcapwidth=\dimen310
-\LT@head=\box80
-\LT@firsthead=\box81
-\LT@foot=\box82
-\LT@lastfoot=\box83
-\LT@gbox=\box84
-\LT@cols=\count384
-\LT@rows=\count385
-\c@LT@tables=\count386
-\c@LT@chunks=\count387
-\LT@p@ftn=\toks47
+\LTleft=\skip71
+\LTright=\skip72
+\LTpre=\skip73
+\LTpost=\skip74
+\LTchunksize=\count373
+\LTcapwidth=\dimen309
+\LT@head=\box81
+\LT@firsthead=\box82
+\LT@foot=\box83
+\LT@lastfoot=\box84
+\LT@gbox=\box85
+\LT@cols=\count374
+\LT@rows=\count375
+\c@LT@tables=\count376
+\c@LT@chunks=\count377
+\LT@p@ftn=\toks50
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen311
-\lightrulewidth=\dimen312
-\cmidrulewidth=\dimen313
-\belowrulesep=\dimen314
-\belowbottomsep=\dimen315
-\aboverulesep=\dimen316
-\abovetopsep=\dimen317
-\cmidrulesep=\dimen318
-\cmidrulekern=\dimen319
-\defaultaddspace=\dimen320
-\@cmidla=\count388
-\@cmidlb=\count389
-\@aboverulesep=\dimen321
-\@belowrulesep=\dimen322
-\@thisruleclass=\count390
-\@lastruleclass=\count391
-\@thisrulewidth=\dimen323
+\heavyrulewidth=\dimen310
+\lightrulewidth=\dimen311
+\cmidrulewidth=\dimen312
+\belowrulesep=\dimen313
+\belowbottomsep=\dimen314
+\aboverulesep=\dimen315
+\abovetopsep=\dimen316
+\cmidrulesep=\dimen317
+\cmidrulekern=\dimen318
+\defaultaddspace=\dimen319
+\@cmidla=\count378
+\@cmidlb=\count379
+\@aboverulesep=\dimen320
+\@belowrulesep=\dimen321
+\@thisruleclass=\count380
+\@lastruleclass=\count381
+\@thisrulewidth=\dimen322
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen324
-\ar@mcellbox=\box85
-\extrarowheight=\dimen325
-\NC@list=\toks48
-\extratabsurround=\skip74
-\backup@length=\skip75
-\ar@cellbox=\box86
+\col@sep=\dimen323
+\ar@mcellbox=\box86
+\extrarowheight=\dimen324
+\NC@list=\toks51
+\extratabsurround=\skip75
+\backup@length=\skip76
+\ar@cellbox=\box87
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen326
-\captionmargin=\dimen327
-\caption@leftmargin=\dimen328
-\caption@rightmargin=\dimen329
-\caption@width=\dimen330
-\caption@indent=\dimen331
-\caption@parindent=\dimen332
-\caption@hangindent=\dimen333
+\caption@tempdima=\dimen325
+\captionmargin=\dimen326
+\caption@leftmargin=\dimen327
+\caption@rightmargin=\dimen328
+\caption@width=\dimen329
+\caption@indent=\dimen330
+\caption@parindent=\dimen331
+\caption@hangindent=\dimen332
 Package caption Info: beamer document class detected.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption-beamer.sto
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption-beamer.sto
 File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to the beamer document classes (AR)
 ))
-\c@caption@flags=\count392
-\c@continuedfloat=\count393
+\c@caption@flags=\count382
+\c@continuedfloat=\count383
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
 Package caption Info: longtable package is loaded.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
-\pandoc@box=\box87
-(./beamerthemeBHT.sty
+\pandoc@box=\box88
+ (./beamerthemeBHT.sty
 
 LaTeX Warning: You have requested file `',
                but the file provides `beamerthemeBHT'.
@@ -866,66 +706,58 @@ Package: beamerthemeBHT 2009/04/30 V0.5 BHT beamertheme
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box88
+\pgfnodeparttextbox=\box89
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen334
-\pgf@nodesepend=\dimen335
+\pgf@nodesepstart=\dimen333
+\pgf@nodesepend=\dimen334
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen336
-\pgffor@skip=\dimen337
-\pgffor@stack=\toks49
-\pgffor@toks=\toks50
+\pgffor@iter=\dimen335
+\pgffor@skip=\dimen336
+\pgffor@stack=\toks52
+\pgffor@toks=\toks53
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count394
-\pgfplotmarksize=\dimen338
+\pgf@plot@mark@count=\count384
+\pgfplotmarksize=\dimen337
 )
-\tikz@lastx=\dimen339
-\tikz@lasty=\dimen340
-\tikz@lastxsaved=\dimen341
-\tikz@lastysaved=\dimen342
-\tikz@lastmovetox=\dimen343
-\tikz@lastmovetoy=\dimen344
-\tikzleveldistance=\dimen345
-\tikzsiblingdistance=\dimen346
-\tikz@figbox=\box89
-\tikz@figbox@bg=\box90
-\tikz@tempbox=\box91
-\tikz@tempbox@bg=\box92
-\tikztreelevel=\count395
-\tikznumberofchildren=\count396
-\tikznumberofcurrentchild=\count397
-\tikz@fig@count=\count398
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+\tikz@lastx=\dimen338
+\tikz@lasty=\dimen339
+\tikz@lastxsaved=\dimen340
+\tikz@lastysaved=\dimen341
+\tikz@lastmovetox=\dimen342
+\tikz@lastmovetoy=\dimen343
+\tikzleveldistance=\dimen344
+\tikzsiblingdistance=\dimen345
+\tikz@figbox=\box90
+\tikz@figbox@bg=\box91
+\tikz@tempbox=\box92
+\tikz@tempbox@bg=\box93
+\tikztreelevel=\count385
+\tikznumberofchildren=\count386
+\tikznumberofcurrentchild=\count387
+\tikz@fig@count=\count388
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count399
-\pgfmatrixcurrentcolumn=\count400
-\pgf@matrix@numberofcolumns=\count401
+\pgfmatrixcurrentrow=\count389
+\pgfmatrixcurrentcolumn=\count390
+\pgf@matrix@numberofcolumns=\count391
 )
-\tikz@expandcount=\count402
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+\tikz@expandcount=\count392
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2026/05/03 v26.7 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
-\bbl@readstream=\read4
-\l@dumylang=\language2
-Package babel Info: Non-standard hyphenation setup on input line 118.
-\l@nohyphenation=\language3
-\babelcatcodetablenum=\catcodetable14
-\bbl@pattcodes=\catcodetable15
-)
-\babel@savecnt=\count403
+\babel@savecnt=\count393
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2080.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2082.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2084.
@@ -933,18 +765,18 @@ LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2088.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2113.
-\U@D=\dimen347
-\l@unhyphenated=\language4
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
-\bbl@attr@locale=\attribute4
-)
+\U@D=\dimen346
+\l@unhyphenated=\language5
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read4
 LaTeX Info: Redefining \textlatin on input line 3988.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/invalid/babel-ngerman.tex)
+\bbl@dirlevel=\count394
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/invalid/babel-ngerman.tex)
 Package babel Info: Importing font and identification data for ngerman
 (babel)             from babel-de.ini. Reported on input line 4348.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-german/ngerman.ldf
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-german/ngerman.ldf
 Language: ngerman 
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
 
 Package babel Warning: No hyphenation patterns were preloaded for
 (babel)                the language 'German (current orthography)' into the format.
@@ -955,47 +787,39 @@ Package babel Warning: No hyphenation patterns were preloaded for
 Package babel Info: Hyphen rules for 'ngerman' set to \l@english
 (babel)             (\language0). Reported on input line 180.
 Package babel Info: Making " an active character on input line 500.
-))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks51
-\inpenc@posthook=\toks52
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
+))) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen348
-\TX@old@table=\dimen349
-\TX@old@col=\dimen350
-\TX@target=\dimen351
-\TX@delta=\dimen352
-\TX@cols=\count404
-\TX@ftn=\toks53
+\TX@col@width=\dimen347
+\TX@old@table=\dimen348
+\TX@old@col=\dimen349
+\TX@target=\dimen350
+\TX@delta=\dimen351
+\TX@cols=\count395
+\TX@ftn=\toks54
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
-\c@tracingmulticols=\count405
-\mult@box=\box93
-\multicol@leftmargin=\dimen353
-\c@unbalance=\count406
-\c@collectmore=\count407
-\doublecol@number=\count408
-\multicoltolerance=\count409
-\multicolpretolerance=\count410
-\full@width=\dimen354
-\page@free=\dimen355
-\premulticols=\dimen356
-\postmulticols=\dimen357
-\multicolsep=\skip76
-\multicolbaselineskip=\skip77
-\partial@page=\box94
-\last@line=\box95
-\mc@boxedresult=\box96
-\maxbalancingoverflow=\dimen358
-\mult@rightbox=\box97
-\mult@grightbox=\box98
-\mult@firstbox=\box99
-\mult@gfirstbox=\box100
-\@tempa=\box101
+\c@tracingmulticols=\count396
+\mult@box=\box94
+\multicol@leftmargin=\dimen352
+\c@unbalance=\count397
+\c@collectmore=\count398
+\doublecol@number=\count399
+\multicoltolerance=\count400
+\multicolpretolerance=\count401
+\full@width=\dimen353
+\page@free=\dimen354
+\premulticols=\dimen355
+\postmulticols=\dimen356
+\multicolsep=\skip77
+\multicolbaselineskip=\skip78
+\partial@page=\box95
+\last@line=\box96
+\mc@boxedresult=\box97
+\maxbalancingoverflow=\dimen357
+\mult@rightbox=\box98
+\mult@grightbox=\box99
+\mult@firstbox=\box100
+\mult@gfirstbox=\box101
 \@tempa=\box102
 \@tempa=\box103
 \@tempa=\box104
@@ -1031,46 +855,48 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \@tempa=\box134
 \@tempa=\box135
 \@tempa=\box136
-\c@minrows=\count411
-\c@columnbadness=\count412
-\c@finalcolumnbadness=\count413
-\last@try=\dimen359
-\multicolovershoot=\dimen360
-\multicolundershoot=\dimen361
-\mult@nat@firstbox=\box137
-\colbreak@box=\box138
-\mc@col@check@num=\count414
-\g__mc_curr_col_int=\count415
+\@tempa=\box137
+\c@minrows=\count402
+\c@columnbadness=\count403
+\c@finalcolumnbadness=\count404
+\last@try=\dimen358
+\multicolovershoot=\dimen359
+\multicolundershoot=\dimen360
+\mult@nat@firstbox=\box138
+\colbreak@box=\box139
+\mc@col@check@num=\count405
+\g__mc_curr_col_int=\count406
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip78
-\multirow@cntb=\count416
-\multirow@dima=\skip79
-\bigstrutjot=\dimen362
+\multirow@colwidth=\skip79
+\multirow@cntb=\count407
+\multirow@dima=\skip80
+\bigstrutjot=\dimen361
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count417
-\lst@gtempboxa=\box139
-\lst@token=\toks54
-\lst@length=\count418
-\lst@currlwidth=\dimen363
-\lst@column=\count419
-\lst@pos=\count420
-\lst@lostspace=\dimen364
-\lst@width=\dimen365
-\lst@newlines=\count421
-\lst@lineno=\count422
-\lst@maxwidth=\dimen366
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstpatch.sty
+\lst@mode=\count408
+\lst@gtempboxa=\box140
+\lst@token=\toks55
+\lst@length=\count409
+\lst@currlwidth=\dimen362
+\lst@column=\count410
+\lst@pos=\count411
+\lst@lostspace=\dimen363
+\lst@width=\dimen364
+\lst@newlines=\count412
+\lst@lineno=\count413
+\lst@maxwidth=\dimen365
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count423
-\lst@skipnumbers=\count424
-\lst@framebox=\box140
+\c@lstnumber=\count414
+\lst@skipnumbers=\count415
+\lst@framebox=\box141
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
 Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
 ==> First Aid for listings.sty no longer applied!
     Expected:
         2024/09/23 1.10c (Carsten Heinz)
@@ -1080,237 +906,235 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
 (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks55
-\verbatim@line=\toks56
+\every@verbatim=\toks56
+\verbatim@line=\toks57
 \verbatim@in@stream=\read5
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
-\everycr=\toks57
-\minrowclearance=\skip80
-\rownum=\count425
+Package: colortbl 2026/05/01 v1.0l Color table columns (DPC)
+\everycr=\toks58
+\minrowclearance=\skip81
+\rownum=\count416
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
-\@eurobox=\box141
+\@eurobox=\box142
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box142
-\tcb@upperbox=\box143
-\tcb@lowerbox=\box144
-\tcb@phantombox=\box145
-\c@tcbbreakpart=\count426
-\c@tcblayer=\count427
-\c@tcolorbox@number=\count428
-\l__tcobox_tmpa_box=\box146
-\l__tcobox_tmpa_dim=\dimen367
-\tcb@temp=\box147
+\tcb@titlebox=\box143
+\tcb@upperbox=\box144
+\tcb@lowerbox=\box145
+\tcb@phantombox=\box146
+\c@tcbbreakpart=\count417
+\c@tcblayer=\count418
+\c@tcolorbox@number=\count419
+\l__tcobox_tmpa_box=\box147
+\l__tcobox_tmpa_dim=\dimen366
 \tcb@temp=\box148
 \tcb@temp=\box149
 \tcb@temp=\box150
+\tcb@temp=\box151
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/stackengine/stackengine.sty
 Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient ways
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/listofitems/listofitems.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/listofitems/listofitems.tex
-\loi_cnt_foreach_nest=\count429
-\loi_nestcnt=\count430
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/listofitems/listofitems.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/listofitems/listofitems.tex
+\loi_cnt_foreach_nest=\count420
+\loi_nestcnt=\count421
 )
 Package: listofitems 2024/03/09 v1.65 Grab items in lists using user-specified sep char (CT)
 )
-\c@@stackindex=\count431
-\@boxshift=\skip81
-\stack@tmplength=\skip82
-\temp@stkl=\skip83
-\@stackedboxwidth=\skip84
-\@addedbox=\box151
-\@anchorbox=\box152
-\@insetbox=\box153
-\se@backgroundbox=\box154
-\stackedbox=\box155
-\@centerbox=\box156
-\c@ROWcellindex@=\count432
+\c@@stackindex=\count422
+\@boxshift=\skip82
+\stack@tmplength=\skip83
+\temp@stkl=\skip84
+\@stackedboxwidth=\skip85
+\@addedbox=\box152
+\@anchorbox=\box153
+\@insetbox=\box154
+\se@backgroundbox=\box155
+\stackedbox=\box156
+\@centerbox=\box157
+\c@ROWcellindex@=\count423
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count433
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
+\lrq@indent=\count424
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count434
-\c@listtotal=\count435
-\c@listcount=\count436
-\c@liststart=\count437
-\c@liststop=\count438
-\c@citecount=\count439
-\c@citetotal=\count440
-\c@multicitecount=\count441
-\c@multicitetotal=\count442
-\c@instcount=\count443
-\c@maxnames=\count444
-\c@minnames=\count445
-\c@maxitems=\count446
-\c@minitems=\count447
-\c@citecounter=\count448
-\c@maxcitecounter=\count449
-\c@savedcitecounter=\count450
-\c@uniquelist=\count451
-\c@uniquename=\count452
-\c@refsection=\count453
-\c@refsegment=\count454
-\c@maxextratitle=\count455
-\c@maxextratitleyear=\count456
-\c@maxextraname=\count457
-\c@maxextradate=\count458
-\c@maxextraalpha=\count459
-\c@abbrvpenalty=\count460
-\c@highnamepenalty=\count461
-\c@lownamepenalty=\count462
-\c@maxparens=\count463
-\c@parenlevel=\count464
-\blx@tempcnta=\count465
-\blx@tempcntb=\count466
-\blx@tempcntc=\count467
-\c@blx@maxsection=\count468
-\blx@maxsegment@0=\count469
-\blx@notetype=\count470
-\blx@parenlevel@text=\count471
-\blx@parenlevel@foot=\count472
-\blx@sectionciteorder@0=\count473
-\blx@sectionciteorderinternal@0=\count474
-\blx@entrysetcounter=\count475
-\blx@biblioinstance=\count476
-\labelnumberwidth=\skip85
-\labelalphawidth=\skip86
-\biblabelsep=\skip87
-\bibitemsep=\skip88
-\bibnamesep=\skip89
-\bibinitsep=\skip90
-\bibparsep=\skip91
-\bibhang=\skip92
+\c@tabx@nest=\count425
+\c@listtotal=\count426
+\c@listcount=\count427
+\c@liststart=\count428
+\c@liststop=\count429
+\c@citecount=\count430
+\c@citetotal=\count431
+\c@multicitecount=\count432
+\c@multicitetotal=\count433
+\c@instcount=\count434
+\c@maxnames=\count435
+\c@minnames=\count436
+\c@maxitems=\count437
+\c@minitems=\count438
+\c@citecounter=\count439
+\c@maxcitecounter=\count440
+\c@savedcitecounter=\count441
+\c@uniquelist=\count442
+\c@uniquename=\count443
+\c@refsection=\count444
+\c@refsegment=\count445
+\c@maxextratitle=\count446
+\c@maxextratitleyear=\count447
+\c@maxextraname=\count448
+\c@maxextradate=\count449
+\c@maxextraalpha=\count450
+\c@abbrvpenalty=\count451
+\c@highnamepenalty=\count452
+\c@lownamepenalty=\count453
+\c@maxparens=\count454
+\c@parenlevel=\count455
+\blx@tempcnta=\count456
+\blx@tempcntb=\count457
+\blx@tempcntc=\count458
+\c@blx@maxsection=\count459
+\blx@maxsegment@0=\count460
+\blx@notetype=\count461
+\blx@parenlevel@text=\count462
+\blx@parenlevel@foot=\count463
+\blx@sectionciteorder@0=\count464
+\blx@sectionciteorderinternal@0=\count465
+\blx@entrysetcounter=\count466
+\blx@biblioinstance=\count467
+\labelnumberwidth=\skip86
+\labelalphawidth=\skip87
+\biblabelsep=\skip88
+\bibitemsep=\skip89
+\bibnamesep=\skip90
+\bibinitsep=\skip91
+\bibparsep=\skip92
+\bibhang=\skip93
 \blx@bcfin=\read6
 \blx@bcfout=\write6
-\blx@langwohyphens=\language5
-\c@mincomprange=\count477
-\c@maxcomprange=\count478
-\c@mincompwidth=\count479
+\blx@langwohyphens=\language6
+\c@mincomprange=\count468
+\c@maxcomprange=\count469
+\c@mincompwidth=\count470
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authortitle.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count480
-\c@savedafterword=\count481
-\c@annotator=\count482
-\c@savedannotator=\count483
-\c@author=\count484
-\c@savedauthor=\count485
-\c@bookauthor=\count486
-\c@savedbookauthor=\count487
-\c@commentator=\count488
-\c@savedcommentator=\count489
-\c@editor=\count490
-\c@savededitor=\count491
-\c@editora=\count492
-\c@savededitora=\count493
-\c@editorb=\count494
-\c@savededitorb=\count495
-\c@editorc=\count496
-\c@savededitorc=\count497
-\c@foreword=\count498
-\c@savedforeword=\count499
-\c@holder=\count500
-\c@savedholder=\count501
-\c@introduction=\count502
-\c@savedintroduction=\count503
-\c@namea=\count504
-\c@savednamea=\count505
-\c@nameb=\count506
-\c@savednameb=\count507
-\c@namec=\count508
-\c@savednamec=\count509
-\c@translator=\count510
-\c@savedtranslator=\count511
-\c@shortauthor=\count512
-\c@savedshortauthor=\count513
-\c@shorteditor=\count514
-\c@savedshorteditor=\count515
-\c@labelname=\count516
-\c@savedlabelname=\count517
-\c@institution=\count518
-\c@savedinstitution=\count519
-\c@lista=\count520
-\c@savedlista=\count521
-\c@listb=\count522
-\c@savedlistb=\count523
-\c@listc=\count524
-\c@savedlistc=\count525
-\c@listd=\count526
-\c@savedlistd=\count527
-\c@liste=\count528
-\c@savedliste=\count529
-\c@listf=\count530
-\c@savedlistf=\count531
-\c@location=\count532
-\c@savedlocation=\count533
-\c@organization=\count534
-\c@savedorganization=\count535
-\c@origlocation=\count536
-\c@savedoriglocation=\count537
-\c@origpublisher=\count538
-\c@savedorigpublisher=\count539
-\c@publisher=\count540
-\c@savedpublisher=\count541
-\c@language=\count542
-\c@savedlanguage=\count543
-\c@origlanguage=\count544
-\c@savedoriglanguage=\count545
-\c@pageref=\count546
-\c@savedpageref=\count547
-\shorthandwidth=\skip93
-\shortjournalwidth=\skip94
-\shortserieswidth=\skip95
-\shorttitlewidth=\skip96
-\shortauthorwidth=\skip97
-\shorteditorwidth=\skip98
-\locallabelnumberwidth=\skip99
-\locallabelalphawidth=\skip100
-\localshorthandwidth=\skip101
-\localshortjournalwidth=\skip102
-\localshortserieswidth=\skip103
-\localshorttitlewidth=\skip104
-\localshortauthorwidth=\skip105
-\localshorteditorwidth=\skip106
-Package biblatex Info: Trying to load enhanced support for Unicode engines...
-Package biblatex Info: ... file 'blx-unicode.def' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+\c@afterword=\count471
+\c@savedafterword=\count472
+\c@annotator=\count473
+\c@savedannotator=\count474
+\c@author=\count475
+\c@savedauthor=\count476
+\c@bookauthor=\count477
+\c@savedbookauthor=\count478
+\c@commentator=\count479
+\c@savedcommentator=\count480
+\c@editor=\count481
+\c@savededitor=\count482
+\c@editora=\count483
+\c@savededitora=\count484
+\c@editorb=\count485
+\c@savededitorb=\count486
+\c@editorc=\count487
+\c@savededitorc=\count488
+\c@foreword=\count489
+\c@savedforeword=\count490
+\c@holder=\count491
+\c@savedholder=\count492
+\c@introduction=\count493
+\c@savedintroduction=\count494
+\c@namea=\count495
+\c@savednamea=\count496
+\c@nameb=\count497
+\c@savednameb=\count498
+\c@namec=\count499
+\c@savednamec=\count500
+\c@translator=\count501
+\c@savedtranslator=\count502
+\c@shortauthor=\count503
+\c@savedshortauthor=\count504
+\c@shorteditor=\count505
+\c@savedshorteditor=\count506
+\c@labelname=\count507
+\c@savedlabelname=\count508
+\c@institution=\count509
+\c@savedinstitution=\count510
+\c@lista=\count511
+\c@savedlista=\count512
+\c@listb=\count513
+\c@savedlistb=\count514
+\c@listc=\count515
+\c@savedlistc=\count516
+\c@listd=\count517
+\c@savedlistd=\count518
+\c@liste=\count519
+\c@savedliste=\count520
+\c@listf=\count521
+\c@savedlistf=\count522
+\c@location=\count523
+\c@savedlocation=\count524
+\c@organization=\count525
+\c@savedorganization=\count526
+\c@origlocation=\count527
+\c@savedoriglocation=\count528
+\c@origpublisher=\count529
+\c@savedorigpublisher=\count530
+\c@publisher=\count531
+\c@savedpublisher=\count532
+\c@language=\count533
+\c@savedlanguage=\count534
+\c@origlanguage=\count535
+\c@savedoriglanguage=\count536
+\c@pageref=\count537
+\c@savedpageref=\count538
+\shorthandwidth=\skip94
+\shortjournalwidth=\skip95
+\shortserieswidth=\skip96
+\shorttitlewidth=\skip97
+\shortauthorwidth=\skip98
+\shorteditorwidth=\skip99
+\locallabelnumberwidth=\skip100
+\locallabelalphawidth=\skip101
+\localshorthandwidth=\skip102
+\localshortjournalwidth=\skip103
+\localshortserieswidth=\skip104
+\localshorttitlewidth=\skip105
+\localshortauthorwidth=\skip106
+\localshorteditorwidth=\skip107
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load BibTeX backend compatibility...
 Package biblatex Info: ... file 'blx-bibtex.def' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-bibtex.def
 File: blx-bibtex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+
 
 Package biblatex Warning: Using fall-back bibtex backend:
 (biblatex)                functionality may be reduced/unavailable.
@@ -1318,36 +1142,36 @@ Package biblatex Warning: Using fall-back bibtex backend:
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count548
-\c@textcitetotal=\count549
-\c@textcitemaxnames=\count550
-\c@biburlbigbreakpenalty=\count551
-\c@biburlbreakpenalty=\count552
-\c@biburlnumpenalty=\count553
-\c@biburlucpenalty=\count554
-\c@biburllcpenalty=\count555
-\biburlbigskip=\muskip20
-\biburlnumskip=\muskip21
-\biburlucskip=\muskip22
-\biburllcskip=\muskip23
-\c@smartand=\count556
+\c@textcitecount=\count539
+\c@textcitetotal=\count540
+\c@textcitemaxnames=\count541
+\c@biburlbigbreakpenalty=\count542
+\c@biburlbreakpenalty=\count543
+\c@biburlnumpenalty=\count544
+\c@biburlucpenalty=\count545
+\c@biburllcpenalty=\count546
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count547
 )
 Package biblatex Info: Trying to load bibliography style 'authortitle'...
 Package biblatex Info: ... file 'authortitle.bbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authortitle.bbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authortitle.bbx
 File: authortitle.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count557
-\c@bbx:relatedtotal=\count558
+\c@bbx:relatedcount=\count548
+\c@bbx:relatedtotal=\count549
 ))
 Package biblatex Info: Trying to load citation style 'authortitle'...
 Package biblatex Info: ... file 'authortitle.cbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/authortitle.cbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/authortitle.cbx
 File: authortitle.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -1359,57 +1183,73 @@ Package biblatex Info: Redefining '\textcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
-Package biblatex Info: LuaTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-04-28 L3 programming layer (loader) 
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count550
+))
 Package biblatex Info: ... and expl3
-(biblatex)             2026-03-20 L3 programming layer (loader) 
+(biblatex)             2026-04-28 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 )) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tikzmark/tikzlibrarytikzmark.code.tex
 File: tikzlibrarytikzmark.code.tex 2022/08/24 v1.15 TikZ library for marking positions in a document
-\l__sn_x_dim=\dimen368
-\l__sn_y_dim=\dimen369
-\l__sn_xa_dim=\dimen370
-\l__sn_ya_dim=\dimen371
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
-\c@tmp=\count559
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+\l__sn_x_dim=\dimen367
+\l__sn_y_dim=\dimen368
+\l__sn_xa_dim=\dimen369
+\l__sn_ya_dim=\dimen370
+)
+\c@tmp=\count551
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count560
-\float@exts=\toks58
-\float@box=\box157
-\@float@everytoks=\toks59
-\@floatcapt=\box158
+\c@float@type=\count552
+\float@exts=\toks59
+\float@box=\box158
+\@float@everytoks=\toks60
+\@floatcapt=\box159
 )
-\@float@every@codelisting=\toks60
-\c@codelisting=\count561
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+\@float@every@codelisting=\toks61
+\c@codelisting=\count553
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count562
+\c@subfigure=\count554
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count563
+\c@subtable=\count555
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count564
+\BKM@id=\count556
 ))
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count565
-\@quotereset=\count566
-No file 01-einführung-slides.aux.
+\@quotelevel=\count557
+\@quotereset=\count558
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 216.
+(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (./01-einführung-slides.aux
+Package babel Info: 'ngerman' activates 'german' shorthands.
+(babel)             Reported on input line 13.
+)
+\openout1 = `01-einführung-slides.aux'.
 
-\openout1 = 01-einführung-slides.aux
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 216.
@@ -1420,8 +1260,6 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 216.
-LaTeX Font Info:    ... okay on input line 216.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 216.
@@ -1430,10 +1268,11 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 216.
 LaTeX Font Info:    ... okay on input line 216.
+
 *geometry* driver: auto-detecting
-*geometry* detected driver: luatex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: luatex
+* driver: pdftex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1467,11 +1306,11 @@ LaTeX Font Info:    ... okay on input line 216.
 (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 216.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
 Dictionary: translator-bibliography-dictionary, Language: English 
@@ -1484,372 +1323,211 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 216.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 216.
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'latinmodern-math.otf(0)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;"
-
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.30167pt on input line 216.
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'latinmodern-math.otf(1)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;"<6-8.5>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;"
-
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.30167pt on input line 216.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 216.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 216.
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'latinmodern-math.otf(2)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf},RawFeature={mathfontdimen=tex2}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"<6-8.5>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;+ssty=0;"<-6>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;+ssty=1;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"
-
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 216.
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 216.
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             latinmodern-math scale = 1.030159915882193.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'latinmodern-math.otf(3)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf},RawFeature={mathfontdimen=tex3}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"<6-8.5>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;+ssty=0;"<-6>s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;+ssty=1;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.030159915882193]"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"
-
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 216.
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 216.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.21117pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.15083pt on input line 216.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 216.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.30167pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.21117pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.15083pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.30167pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.21117pt on input line 216.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.15083pt on input line 216.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 216.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 216.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+LaTeX Info: Redefining \microtypecontext on input line 216.
+Package microtype Info: Applying patch `item' on input line 216.
+Package microtype Info: Applying patch `toc' on input line 216.
+Package microtype Info: Applying patch `eqnum' on input line 216.
+Package microtype Info: Applying patch `footnote' on input line 216.
+Package microtype Info: Applying patch `verbatim' on input line 216.
+LaTeX Info: Redefining \microtypesetup on input line 216.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+Package microtype Info: Patching command `\showhyphens'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package babel Info: 'ngerman' activates 'german' shorthands.
-(babel)             Reported on input line 216.
-\c@lstlisting=\count567
+\c@lstlisting=\count559
 Package biblatex Info: Trying to load language 'ngerman'...
 Package biblatex Info: ... file 'ngerman.lbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
 File: ngerman.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 Package biblatex Info: Trying to load language 'german'...
 Package biblatex Info: ... file 'german.lbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load language 'german'...
 Package biblatex Info: ... file 'german.lbx' found.
-(c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 ))
-Package biblatex Info: LuaTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-Package biblatex Info: LuaTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
+\openout6 = `01-einführung-slides-blx.bib'.
 
-\openout6 = 01-einführung-slides-blx.bib
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '01-einführung-slides.bbl' not found.
+
 No file 01-einführung-slides.bbl.
 Package biblatex Info: Reference section=0 on input line 216.
 Package biblatex Info: Reference segment=0 on input line 216.
-No file 01-einführung-slides.nav.
+(./01-einführung-slides.nav)
 <pictures/FrontBIME.png, id=15, 774.384pt x 231.702pt>
 File: pictures/FrontBIME.png Graphic file (type png)
 <use pictures/FrontBIME.png>
-Package luatex.def Info: pictures/FrontBIME.png  used on input line 217.
-(luatex.def)             Requested size: 455.24408pt x 136.21156pt.
+Package pdftex.def Info: pictures/FrontBIME.png  used on input line 217.
+(pdftex.def)             Requested size: 455.24408pt x 136.21156pt.
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [1
 
-{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./pictures/FrontBIME.png>]
-No file 01-einführung-slides.toc.
-<pictures/thi_logo_b_RGB.jpg, id=29, 284.5029pt x 272.4579pt>
+{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./pictures/FrontBIME.png>] (./01-einführung-slides.toc)
+<pictures/thi_logo_b_RGB.jpg, id=39, 284.5029pt x 272.4579pt>
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 224.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 224.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 224--224
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 224--224
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [2
 
-<./pictures/thi_logo_b_RGB.jpg>]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 249.
-
+ <./pictures/thi_logo_b_RGB.jpg>]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 249.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 249.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 249--249
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 249--249
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [3
 
 ]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 2 on input line 268.
-
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 268.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 268.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 268--268
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 268--268
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [4
 
 ]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 281.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 281.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 281.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 281.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 281.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 281.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 281--281
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 281--281
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [5
 
-]
+{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 304.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 308.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 304--304
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 308--308
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [6
 
 ]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.2715pt on input line 337.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.181pt on input line 337.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.2715pt on input line 337.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.181pt on input line 337.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.2715pt on input line 337.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.181pt on input line 337.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 341.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 341.
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 337.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 341.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 337--337
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 341--341
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -1858,22 +1536,22 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 370.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 374.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 370--370
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 374--374
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [8
 
 ]
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -1882,15 +1560,15 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 396.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 400.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 396--396
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 400--400
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -1899,198 +1577,208 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 417.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 421.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 417--417
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 421--421
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [11
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb)
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 436.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 440.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 436--436
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 440--440
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [12
 
 ]
-<../figures/R_Konsole.png, id=139, 566.61688pt x 313.17pt>
+<../figures/R_Konsole.png, id=145, 566.61688pt x 313.17pt>
 File: ../figures/R_Konsole.png Graphic file (type png)
 <use ../figures/R_Konsole.png>
-Package luatex.def Info: ../figures/R_Konsole.png  used on input line 441.
-(luatex.def)             Requested size: 258.92639pt x 143.109pt.
+Package pdftex.def Info: ../figures/R_Konsole.png  used on input line 445.
+(pdftex.def)             Requested size: 566.6155pt x 313.16922pt.
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 441.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 445.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 441--441
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 445--445
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \vbox (13.01573pt too high) detected at line 445
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [13
 
-<../figures/R_Konsole.png>]
-\openout4 = 01-einführung-slides.vrb
+ <../figures/R_Konsole.png>]
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 462.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 466.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 462--462
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 466--466
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [14
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 487.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 491.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 487--487
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 491--491
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [15
 
 ]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3 on input line 501.
-
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 501.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 505.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 501--501
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 505--505
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [16
 
 ]
-<../figures/RStudio.png, id=181, 1445.4pt x 752.8125pt>
+<../figures/RStudio.png, id=184, 1445.4pt x 752.8125pt>
 File: ../figures/RStudio.png Graphic file (type png)
 <use ../figures/RStudio.png>
-Package luatex.def Info: ../figures/RStudio.png  used on input line 514.
-(luatex.def)             Requested size: 1445.39648pt x 752.81065pt.
+Package pdftex.def Info: ../figures/RStudio.png  used on input line 518.
+(pdftex.def)             Requested size: 1445.39648pt x 752.81065pt.
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 514.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 518.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 514--514
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 518--518
 []|  []  
  []
 
 
-Overfull \vbox (33.28554pt too high) detected at line 514
+Overfull \vbox (33.31363pt too high) detected at line 518
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [17
 
-<../figures/RStudio.png>]
-\openout4 = 01-einführung-slides.vrb
+ <../figures/RStudio.png>]
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 525.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 529.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 525--525
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 529--529
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [18
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 534.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 538.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 534--534
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 538--538
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [19
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 547.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 551.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 547--547
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 551--551
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -2100,61 +1788,63 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 <../figures/Skript.png, id=222, 313.67188pt x 239.89626pt>
 File: ../figures/Skript.png Graphic file (type png)
 <use ../figures/Skript.png>
-Package luatex.def Info: ../figures/Skript.png  used on input line 552.
-(luatex.def)             Requested size: 313.6711pt x 239.89566pt.
+Package pdftex.def Info: ../figures/Skript.png  used on input line 556.
+(pdftex.def)             Requested size: 313.6711pt x 239.89566pt.
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 552.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 556.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 552--552
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 556--556
 []|  []  
  []
 
 
-Overfull \vbox (32.71487pt too high) detected at line 552
+Overfull \vbox (32.74297pt too high) detected at line 556
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [21
 
-<../figures/Skript.png>]
-\openout4 = 01-einführung-slides.vrb
+ <../figures/Skript.png>]
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 571.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 575.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 571--571
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 575--575
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [22
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 588.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 592.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 588--588
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 592--592
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -2163,91 +1853,95 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 605.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 609.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 605--605
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 609--609
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [24
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 614.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 618.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 614--614
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 618--618
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [25
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 628.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 632.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 628--628
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 632--632
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [26
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 647.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 651.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 647--647
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 651--651
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [27
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 664.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 668.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 664--664
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 668--668
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -2256,58 +1950,55 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 679.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 683.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 679--679
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 683--683
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [29
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 688.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 692.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 688--688
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 692--692
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [30
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 4 on input line 14.
-
-)
+ (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 704.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 708.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 704--704
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 708--708
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -2316,519 +2007,533 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 721.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 725.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 721--721
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 725--725
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [32
 
-]
-\openout4 = 01-einführung-slides.vrb
+{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 740.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 744.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 740--740
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 744--744
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [33
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 767.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 771.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 767--767
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 771--771
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [34
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 783.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 787.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 783--783
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 787--787
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [35
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 5 on input line 17.
-
-)
+ (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 802.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 806.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 802--802
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 806--806
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [36
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 817.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 821.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 817--817
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 821--821
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [37
 
-]
-\openout4 = 01-einführung-slides.vrb
+{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 834.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 838.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 834--834
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 838--838
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [38
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 855.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 859.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 855--855
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 859--859
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [39
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb)
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 15.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 882.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 886.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 882--882
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 886--886
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [40
 
-]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb
+{c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+\openout4 = `01-einführung-slides.vrb'.
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 6 on input line 16.
-
-)
+ (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 900.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 904.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 900--900
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 904--904
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [41
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 912.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 916.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 912--912
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 916--916
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [42
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 7 on input line 17.
-
-)
+ (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 931.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 935.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 931--931
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 935--935
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [43
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 957.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 961.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 957--957
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 961--961
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [44
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 982.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 986.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 982--982
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 986--986
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [45
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1003.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1007.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1003--1003
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1007--1007
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [46
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1016.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1020.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1016--1016
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1020--1020
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [47
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1029.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1033.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1029--1029
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1033--1033
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [48
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1048.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1052.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1048--1048
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1052--1052
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [49
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1059.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1063.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1059--1059
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1063--1063
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [50
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1085.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1089.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1085--1085
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1089--1089
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [51
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1110.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1114.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1110--1110
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1114--1114
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [52
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1135.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1139.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1135--1135
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1139--1139
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [53
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1160.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1164.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1160--1160
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1164--1164
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [54
 
 ]
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [55
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1192.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1196.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1192--1192
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1196--1196
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [56
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1206.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1210.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1206--1206
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1210--1210
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [57
 
 ]
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [58
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1224.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1228.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1224--1224
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1228--1228
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
@@ -2837,287 +2542,958 @@ Overfull \hbox (1.77pt too wide) has occurred while \output is active
 ]
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1237.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1241.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1237--1237
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1241--1241
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [60
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 3.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 3.
 )
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1246.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1250.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1246--1246
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1250--1250
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [61
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1260.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1264.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1260--1260
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1264--1264
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [62
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1275.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1279.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1275--1275
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1279--1279
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [63
 
 ]
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [64
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb)
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 3.
+ (c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmss.fd
+File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1293.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1297.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1293--1293
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1297--1297
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [65
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1306.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1310.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1306--1306
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1310--1310
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [66
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 9.
 )
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1332.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1336.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1336--1336
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [67
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1344.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1348.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1344--1344
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1348--1348
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [68
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1378.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1382.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1378--1378
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1382--1382
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [69
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1413.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1417.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1413--1413
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1417--1417
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [70
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1428.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1432.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1428--1428
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1432--1432
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [71
 
 ]
-\openout4 = 01-einführung-slides.vrb
- (./01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 9 on input line 14.
-
-)
+ (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1446.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1450.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1446--1446
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1450--1450
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [72
 
 ]
-\openout4 = 01-einführung-slides.vrb
+\openout4 = `01-einführung-slides.vrb'.
+
  (./01-einführung-slides.vrb)
 File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
 <use pictures/thi_logo_b_RGB.jpg>
-Package luatex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1461.
-(luatex.def)             Requested size: 18.2067pt x 17.43184pt.
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1465.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-Overfull \hbox (29.90924pt too wide) in paragraph at lines 1461--1461
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1465--1465
 []|  []  
  []
 
 
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
 [] 
  []
 
 [73
 
 ]
+<../figures/DataTypes.png, id=724, 1541.76pt x 1027.84pt>
+File: ../figures/DataTypes.png Graphic file (type png)
+<use ../figures/DataTypes.png>
+Package pdftex.def Info: ../figures/DataTypes.png  used on input line 1470.
+(pdftex.def)             Requested size: 219.0679pt x 146.04526pt.
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1470.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
 
-LaTeX Warning: File `../figures/Datentypen.png' not found on input line 1466.
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1470--1470
+[]|  []  
+ []
 
 
-! Package luatex.def Error: File `../figures/Datentypen.png' not found: using draft setting.
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
 
-See the luatex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1466 \end{frame}
-                
+[74
 
-Here is how much of LuaTeX's memory you used:
- 47612 strings out of 475900
- 100000,1977958 words of node,token memory allocated
- 4639 words of node memory still in use:
-   59 hlist, 12 vlist, 10 rule, 2 disc, 5 local_par, 2 dir, 132 glue, 29 kern, 25 penalty, 137 glyph, 314 attribute, 83 glue_spec, 158 attribute_list, 2 temp, 7 if_stack, 1 shape, 5 write, 2 pdf_dest, 64 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 1:1,2:748,3:242,4:266,5:164,6:41,7:1591,8:27,9:519,10:17,11:97
- 68340 multiletter control sequences out of 65536+600000
- 61 fonts using 17072703 bytes
- 101i,14n,114p,1893b,2367s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ <../figures/DataTypes.png (PNG copy)>]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1481.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1481--1481
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[75
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1498.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1498--1498
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[76
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1512.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1512--1512
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[77
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1528.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1528--1528
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[78
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1542.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1542--1542
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[79
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1559.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1559--1559
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[80
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1574.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1574--1574
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[81
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1585.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1585--1585
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[82
+
+]
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[83
+
+]
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1601.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1601--1601
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[84
+
+]
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1614.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1614--1614
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[85
+
+]
+<../figures/Vektoren.png, id=833, 1541.76pt x 1027.84pt>
+File: ../figures/Vektoren.png Graphic file (type png)
+<use ../figures/Vektoren.png>
+Package pdftex.def Info: ../figures/Vektoren.png  used on input line 1619.
+(pdftex.def)             Requested size: 219.0679pt x 146.04526pt.
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1619.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1619--1619
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[86
+
+ <../figures/Vektoren.png (PNG copy)>]
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1634.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1634--1634
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[87
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1649.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1649--1649
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[88
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1664.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1664--1664
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[89
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1679.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1679--1679
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[90
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1710.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1710--1710
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[91
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1724.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1724--1724
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[92
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1739.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1739--1739
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[93
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1760.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1760--1760
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[94
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1779.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1779--1779
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[95
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1790.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1790--1790
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[96
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1813.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1813--1813
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[97
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1835.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1835--1835
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[98
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1851.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1851--1851
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[99
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1868.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1868--1868
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[100
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1889.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1889--1889
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[101
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1906.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1906--1906
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[102
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1933.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1933--1933
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[103
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1948.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1948--1948
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[104
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1967.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1967--1967
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[105
+
+]
+\openout4 = `01-einführung-slides.vrb'.
+
+ (./01-einführung-slides.vrb)
+File: pictures/thi_logo_b_RGB.jpg Graphic file (type jpg)
+<use pictures/thi_logo_b_RGB.jpg>
+Package pdftex.def Info: pictures/thi_logo_b_RGB.jpg  used on input line 1996.
+(pdftex.def)             Requested size: 18.2067pt x 17.43184pt.
+
+Overfull \hbox (29.23715pt too wide) in paragraph at lines 1996--1996
+[]|  []  
+ []
+
+
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[106
+
+]
+Overfull \hbox (1.77086pt too wide) has occurred while \output is active
+[] 
+ []
+
+[107
+
+]
+\tf@nav=\write7
+\openout7 = `01-einführung-slides.nav'.
+
+\tf@toc=\write8
+\openout8 = `01-einführung-slides.toc'.
+
+\tf@snm=\write9
+\openout9 = `01-einführung-slides.snm'.
+
+ (./01-einführung-slides.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-04-28>
+ ***********
+Package logreq Info: Writing requests to '01-einführung-slides.run.xml'.
+\openout1 = `01-einführung-slides.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 43326 strings out of 469288
+ 864241 string characters out of 5463260
+ 1478061 words of memory out of 5000000
+ 70876 multiletter control sequences out of 15000+600000
+ 676582 words of font info for 112 fonts, out of 8000000 for 9000
+ 38 hyphenation exceptions out of 8191
+ 101i,14n,107p,1894b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss17.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss9.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/beate/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on 01-einführung-slides.pdf (107 pages, 8353122 bytes).
+PDF statistics:
+ 1196 PDF objects out of 1200 (max. 8388607)
+ 834 compressed objects within 9 object streams
+ 336 named destinations out of 1000 (max. 500000)
+ 28756 words of extra memory for PDF output out of 29859 (max. 10000000)
+

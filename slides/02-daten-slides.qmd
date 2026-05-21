@@ -400,6 +400,10 @@ Aufgaben:
 2.  Geben Sie die dritte Spalte aus.
 3.  Geben Sie das Element in Zeile 3, Spalte 2 aus.
 4.  Benennen Sie die Spalten mit `A`, `B`, `C`, `D`.
+5.  Geben Sie nur die Spalte `A` und `C` aus.
+6.  Schließen Sie die zweite Zeile aus.
+7.  Geben Sie die Positionen aller Werte größer als 10 mit Zeilen- und
+    Spaltenangabe aus.
 
 ## Matrix-Funktionen (1/3)
 
