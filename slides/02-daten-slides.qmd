@@ -695,14 +695,10 @@ Aufgaben:
 
 1.  Geben Sie die ersten 3 Zeilen aus.
 2.  Zeigen Sie die Struktur des Data Frames.
-3.  Geben Sie die Spaltennamen aus.
+3.  Geben Sie die Spaltennamen aus.x
 4.  Bestimmen Sie Anzahl der Zeilen und Spalten.
 5.  Geben Sie die Spalte `crp_mg_l` aus.
 6.  Greifen Sie auf `hb_g_dl` von Patient `P005` zu.
-
-``` r
-# Ihre Lösung
-```
 
 ## Übung: Filtern und Kennzahlen
 
