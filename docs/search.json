@@ -203,8 +203,8 @@
     "objectID": "chapters/03-daten-transformieren.html#apply",
     "href": "chapters/03-daten-transformieren.html#apply",
     "title": "4  Daten transformieren",
-    "section": "5.1 apply()",
-    "text": "5.1 apply()\nFür Matrizen oder Data Frames.\nSyntax\napply(objekt, margin, funktion)\n\nmargin = 1 → zeilenweise\n\nmargin = 2 → spaltenweise\n\n\nBeispiel: Mittelwert pro Spalte\n\ndaten &lt;- matrix(c(5, 6, 7, 8, 9, 10), nrow = 3)\n\napply(daten, 2, mean)\n\n[1] 6 9\n\n\nBeispiel: Maximum pro Zeile\n\napply(daten, 1, max)\n\n[1]  8  9 10",
+    "section": "5.2 apply()",
+    "text": "5.2 apply()\napply() wird vor allem bei Matrizen verwendet.\nAllgemeine Form:\napply(X, MARGIN, FUN)\nDabei bedeutet:\n\n\n\nArgument\nBedeutung\n\n\n\n\nX\nObjekt, meist Matrix\n\n\nMARGIN = 1\nFunktion zeilenweise anwenden\n\n\nMARGIN = 2\nFunktion spaltenweise anwenden\n\n\nFUN\nFunktion, die angewendet werden soll\n\n\n\n\n\n5.2.1 Beispielmatrix\nwerte &lt;- matrix(\n  c(5, 6, 7,\n    8, 9, 10,\n    11, 12, 13),\n  nrow = 3,\n  byrow = TRUE\n)\n\nwerte\nDie Matrix sieht so aus:\n     [,1] [,2] [,3]\n[1,]    5    6    7\n[2,]    8    9   10\n[3,]   11   12   13\n\n\n\n5.2.2 apply() zeilenweise\nMit MARGIN = 1 wird die Funktion auf jede Zeile angewendet.\napply(werte, 1, mean)\nAusgabe:\n[1]  6  9 12\nErklärung:\nmean(c(5, 6, 7))\nmean(c(8, 9, 10))\nmean(c(11, 12, 13))\nR berechnet also den Mittelwert jeder Zeile.\n\n\n\n5.2.3 apply() spaltenweise\nMit MARGIN = 2 wird die Funktion auf jede Spalte angewendet.\napply(werte, 2, mean)\nAusgabe:\n[1]  8  9 10\nErklärung:\nmean(c(5, 8, 11))\nmean(c(6, 9, 12))\nmean(c(7, 10, 13))\nR berechnet also den Mittelwert jeder Spalte.\n\n\n\n5.2.4 Weitere Beispiele mit apply()\nMaximum pro Zeile:\napply(werte, 1, max)\nMinimum pro Spalte:\napply(werte, 2, min)\nSumme pro Zeile:\napply(werte, 1, sum)\nStandardabweichung pro Spalte:\napply(werte, 2, sd)\n\n\n\n5.2.5 apply() mit eigener Funktion\nMan kann auch eigene Funktionen verwenden.\napply(werte, 1, function(x) max(x) - min(x))\nHier wird für jede Zeile die Spannweite berechnet.\nAusgabe:\n[1] 2 2 2\nDie anonyme Funktion\nfunction(x) max(x) - min(x)\nnimmt jeweils eine Zeile entgegen und berechnet:\ngrößter Wert - kleinster Wert\n\n\n\n5.2.6 Wichtiger Hinweis zu Data Frames\napply() kann auch auf Data Frames angewendet werden, ist dort aber mit Vorsicht zu verwenden.\nBeispiel:\ndf &lt;- data.frame(\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df, 2, mean)\nDas funktioniert, weil alle Spalten numerisch sind.\nProblematisch wird es bei gemischten Datentypen:\ndf2 &lt;- data.frame(\n  name = c(\"Anna\", \"Ben\", \"Clara\"),\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df2, 2, mean)\nHier kann es zu Problemen kommen, weil apply() den Data Frame intern oft in eine Matrix umwandelt.\nEine Matrix kann aber nur einen Datentyp enthalten. Wenn eine Textspalte vorhanden ist, werden deshalb häufig auch die numerischen Werte in Text umgewandelt.\nFür Data Frames sind deshalb oft lapply() oder sapply() besser geeignet.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -213,8 +213,8 @@
     "objectID": "chapters/03-daten-transformieren.html#lapply",
     "href": "chapters/03-daten-transformieren.html#lapply",
     "title": "4  Daten transformieren",
-    "section": "5.2 lapply()",
-    "text": "5.2 lapply()\nGibt immer eine Liste zurück.\n\nwerte &lt;- list(a = 1:3, b = 4:6)\n\nlapply(werte, mean)\n\n$a\n[1] 2\n\n$b\n[1] 5",
+    "section": "5.3 lapply()",
+    "text": "5.3 lapply()\nlapply() steht für list apply.\nAllgemeine Form:\nlapply(X, FUN)\nWichtig:\n\nlapply() gibt immer eine Liste zurück.\n\n\n\n5.3.1 Beispiel mit Liste\nmesswerte &lt;- list(\n  patient_a = c(120, 125, 130),\n  patient_b = c(140, 138, 142),\n  patient_c = c(110, 115, 118)\n)\n\nlapply(messwerte, mean)\nAusgabe:\n$patient_a\n[1] 125\n\n$patient_b\n[1] 140\n\n$patient_c\n[1] 114.3333\nJedes Listenelement wird einzeln an mean() übergeben.\n\n\n\n5.3.2 lapply() bei Data Frames\nEin Data Frame ist intern eine Liste von Spalten.\nDeshalb kann man lapply() sehr gut auf Data Frames anwenden.\ndaten &lt;- data.frame(\n  alter = c(23, 34, 45),\n  gewicht = c(65, 82, 74),\n  puls = c(70, 80, 76)\n)\n\nlapply(daten, mean)\nAusgabe:\n$alter\n[1] 34\n\n$gewicht\n[1] 73.66667\n\n$puls\n[1] 75.33333\nHier wird der Mittelwert für jede Spalte berechnet.\n\n\n\n5.3.3 Datentypen mit lapply() prüfen\nlapply(daten, class)\nAusgabe:\n$alter\n[1] \"numeric\"\n\n$gewicht\n[1] \"numeric\"\n\n$puls\n[1] \"numeric\"\nDas ist besonders hilfreich, wenn man einen Data Frame untersucht.\n\n\n\n5.3.4 lapply() mit eigener Funktion\nlapply(daten, function(x) {\n  c(\n    mittelwert = mean(x),\n    minimum = min(x),\n    maximum = max(x)\n  )\n})\nAusgabe:\n$alter\nmittelwert   minimum   maximum \n       34        23        45 \n\n$gewicht\nmittelwert   minimum   maximum \n 73.66667        65        82 \n\n$puls\nmittelwert   minimum   maximum \n 75.33333        70        80\nHier wird auf jede Spalte dieselbe kleine Auswertungsfunktion angewendet.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -223,8 +223,8 @@
     "objectID": "chapters/03-daten-transformieren.html#sapply",
     "href": "chapters/03-daten-transformieren.html#sapply",
     "title": "4  Daten transformieren",
-    "section": "5.3 sapply()",
-    "text": "5.3 sapply()\nVersucht das Ergebnis zu vereinfachen.\n\nsapply(werte, mean)\n\na b \n2 5",
+    "section": "5.4 sapply()",
+    "text": "5.4 sapply()\nsapply() ist ähnlich wie lapply().\nDer wichtigste Unterschied:\n\nsapply() versucht, das Ergebnis zu vereinfachen.\n\nDas bedeutet:\n\nWenn möglich, wird eine Liste in einen Vektor umgewandelt.\nWenn möglich, wird eine Liste in eine Matrix umgewandelt.\nWenn das nicht eindeutig möglich ist, bleibt das Ergebnis eine Liste.\n\n\n\n5.4.1 Beispiel: lapply() versus sapply()\nwerte &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6)\n)\n\nlapply(werte, mean)\nAusgabe:\n$a\n[1] 2\n\n$b\n[1] 5\nMit sapply():\nsapply(werte, mean)\nAusgabe:\na b \n2 5\nDas Ergebnis ist jetzt ein Vektor.\n\n\n\n5.4.2 sapply() bei Data Frames\nsapply(daten, mean)\nAusgabe:\n   alter  gewicht      puls \n34.00000 73.66667 75.33333\nDas ist oft praktischer als lapply(), wenn man einen übersichtlichen numerischen Ergebnisvektor möchte.\n\n\n\n5.4.3 sapply() zum Prüfen von Datentypen\npatienten &lt;- data.frame(\n  id = c(\"P001\", \"P002\", \"P003\"),\n  alter = c(45, 52, 39),\n  gruppe = c(\"Kontrolle\", \"Therapie\", \"Therapie\"),\n  crp = c(3.2, 7.8, 5.1)\n)\n\nsapply(patienten, class)\nMögliche Ausgabe:\n         id       alter      gruppe         crp \n\"character\"   \"numeric\" \"character\"   \"numeric\"\nDas ist eine sehr typische Anwendung von sapply().\n\n\n\n5.4.4 sapply() mit logischer Prüfung\nMan kann mit sapply() prüfen, welche Spalten numerisch sind.\nsapply(patienten, is.numeric)\nAusgabe:\n    id  alter gruppe    crp \n FALSE   TRUE  FALSE   TRUE\nDamit sieht man sofort, auf welche Spalten man mathematische Funktionen anwenden kann.\n\n\n\n5.4.5 Mittelwerte nur für numerische Spalten berechnen\nnumerisch &lt;- sapply(patienten, is.numeric)\n\nsapply(patienten[numerisch], mean)\nAusgabe:\nalter   crp \n45.33  5.37\nDas ist sehr praktisch bei Data Frames mit gemischten Datentypen.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -233,8 +233,8 @@
     "objectID": "chapters/03-daten-transformieren.html#tapply",
     "href": "chapters/03-daten-transformieren.html#tapply",
     "title": "4  Daten transformieren",
-    "section": "5.4 tapply()",
-    "text": "5.4 tapply()\nWendet Funktionen auf Gruppen an.\nBeispiel: Mittlere Glucose nach Gruppe\n\nglucose &lt;- c(90, 100, 130, 140)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Diabetes\", \"Diabetes\")\n\ntapply(glucose, gruppe, mean)\n\n Diabetes Kontrolle \n      135        95",
+    "section": "5.5 tapply()",
+    "text": "5.5 tapply()\ntapply() wird verwendet, wenn Werte nach Gruppen ausgewertet werden sollen.\nAllgemeine Form:\ntapply(X, INDEX, FUN)\nDabei bedeutet:\n\n\n\nArgument\nBedeutung\n\n\n\n\nX\nnumerischer Vektor mit Werten\n\n\nINDEX\nGruppierungsvariable\n\n\nFUN\nFunktion, die pro Gruppe angewendet wird\n\n\n\n\n\n5.5.1 Beispiel: Mittelwert nach Gruppe\ncrp &lt;- c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n            \"Therapie\", \"Therapie\", \"Kontrolle\")\n\ntapply(crp, gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\nHier wird der Mittelwert von crp getrennt nach Gruppe berechnet.\n\n\n\n5.5.2 tapply() mit anderen Funktionen\nMaximum pro Gruppe:\ntapply(crp, gruppe, max)\nMinimum pro Gruppe:\ntapply(crp, gruppe, min)\nMedian pro Gruppe:\ntapply(crp, gruppe, median)\nStandardabweichung pro Gruppe:\ntapply(crp, gruppe, sd)\n\n\n\n5.5.3 tapply() mit Data-Frame-Spalten\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\n)\n\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\n\n\n\n5.5.4 Mehrere Kennwerte mit tapply()\ntapply() kann auch mit selbst geschriebenen Funktionen kombiniert werden.\ntapply(lab$crp_mg_l, lab$gruppe, function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nDas Ergebnis ist etwas komplexer, weil pro Gruppe mehrere Werte berechnet werden.\nEine übersichtlichere Variante ist:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = mean)\nOder für mehrere Kennwerte:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nFür den Einstieg ist tapply() aber sehr gut geeignet, um das Prinzip gruppierter Berechnungen zu verstehen.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -243,8 +243,8 @@
     "objectID": "chapters/03-daten-transformieren.html#mapply",
     "href": "chapters/03-daten-transformieren.html#mapply",
     "title": "4  Daten transformieren",
-    "section": "5.5 mapply()",
-    "text": "5.5 mapply()\nMehrere Vektoren gleichzeitig.\nmapply(function(x, y) x + y,\n       c(1,2,3),\n       c(10,20,30))",
+    "section": "5.6 mapply()",
+    "text": "5.6 mapply()\nmapply() wird verwendet, wenn eine Funktion mehrere Eingaben gleichzeitig braucht.\nAllgemeine Form:\nmapply(FUN, ...)\nDabei steht ... für mehrere Vektoren oder Listen, die parallel verarbeitet werden.\n\n\n5.6.1 Einfaches Beispiel\nx &lt;- c(1, 2, 3)\ny &lt;- c(10, 20, 30)\n\nmapply(function(a, b) a + b, x, y)\nAusgabe:\n[1] 11 22 33\nDas entspricht:\n1 + 10\n2 + 20\n3 + 30\n\n\n\n5.6.2 Beispiel: BMI berechnen\ngewicht &lt;- c(70, 82, 65)\ngroesse &lt;- c(1.75, 1.82, 1.68)\n\nmapply(function(g, h) g / h^2, gewicht, groesse)\nAusgabe:\n[1] 22.85714 24.75546 23.03005\nHier bekommt die Funktion immer zwei Werte gleichzeitig:\ngewicht[1] und groesse[1]\ngewicht[2] und groesse[2]\ngewicht[3] und groesse[3]\n\n\n\n5.6.3 mapply() mit benannter Funktion\nMan kann zuerst eine eigene Funktion schreiben:\nbmi &lt;- function(gewicht, groesse) {\n  gewicht / groesse^2\n}\nDann kann man diese Funktion mit mapply() verwenden:\nmapply(bmi, gewicht, groesse)\nDas ist oft übersichtlicher als eine anonyme Funktion.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -253,8 +253,8 @@
     "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen",
     "href": "chapters/03-daten-transformieren.html#anonyme-funktionen",
     "title": "4  Daten transformieren",
-    "section": "6.1 Anonyme Funktionen",
-    "text": "6.1 Anonyme Funktionen\n\nsapply(1:5, function(x) x^2)\n\n[1]  1  4  9 16 25\n\n\n\nBeispiel: Log-Transformation\n\nwerte &lt;- c(1, 10, 100)\n\nsapply(werte, function(x) log10(x))\n\n[1] 0 1 2",
+    "section": "6.3 Anonyme Funktionen",
+    "text": "6.3 Anonyme Funktionen\nManchmal braucht man eine Funktion nur ein einziges Mal. Dann muss man ihr keinen eigenen Namen geben. Eine solche Funktion nennt man anonyme Funktion.\nBeispiel:\nsapply(1:5, function(x) x^2)\nAusgabe:\n[1]  1  4  9 16 25\nDie Funktion\nfunction(x) x^2\nwird direkt innerhalb von sapply() definiert. Sie hat keinen Namen, sondern wird sofort verwendet.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -263,8 +263,8 @@
     "objectID": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
     "href": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
     "title": "4  Daten transformieren",
-    "section": "6.2 Funktionen als Argumente",
-    "text": "6.2 Funktionen als Argumente\n\nanalyse &lt;- function(x, FUN) {\n    FUN(x)\n}\n\nanalyse(c(1, 2, 3), mean)\n\n[1] 2\n\nanalyse(c(1, 2, 3), sd)\n\n[1] 1",
+    "section": "6.7 Funktionen als Argumente",
+    "text": "6.7 Funktionen als Argumente\nEine Funktion kann an eine andere Funktion übergeben werden. Das wurde bei den apply-Funktionen bereits genutzt. Man kann dieses Prinzip auch in eigenen Funktionen verwenden.\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\nDiese Funktion hat zwei Argumente:\n\n\n\nArgument\nBedeutung\n\n\n\n\nx\nDaten, die ausgewertet werden sollen\n\n\nFUN\nFunktion, die auf x angewendet werden soll\n\n\n\nBeispiel:\nanalyse(c(1, 2, 3), mean)\nAusgabe:\n[1] 2\nNun mit einer anderen Funktion:\nanalyse(c(1, 2, 3), sd)\nAusgabe:\n[1] 1\nDie Funktion analyse() bleibt gleich. Nur die übergebene Funktion ändert sich.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -273,8 +273,8 @@
     "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
     "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
     "title": "4  Daten transformieren",
-    "section": "6.3 Funktionen erzeugen Funktionen",
-    "text": "6.3 Funktionen erzeugen Funktionen\n\nmultiplier &lt;- function(faktor) {\n    function(x) x * faktor\n}\n\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\n\nmal2(10)\n\n[1] 20\n\nmal5(10)\n\n[1] 50",
+    "section": "6.10 Funktionen erzeugen Funktionen",
+    "text": "6.10 Funktionen erzeugen Funktionen\nFunktionen können nicht nur Werte zurückgeben. Sie können auch neue Funktionen zurückgeben.\nBeispiel:\nmultiplier &lt;- function(faktor) {\n  function(x) {\n    x * faktor\n  }\n}\nDiese Funktion erzeugt eine neue Funktion.\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\nNun sind mal2 und mal5 selbst Funktionen.\nmal2(10)\nAusgabe:\n[1] 20\nmal5(10)\nAusgabe:\n[1] 50",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -283,8 +283,8 @@
     "objectID": "chapters/03-daten-transformieren.html#typische-fehler-1",
     "href": "chapters/03-daten-transformieren.html#typische-fehler-1",
     "title": "4  Daten transformieren",
-    "section": "6.4 Typische Fehler",
-    "text": "6.4 Typische Fehler\n\n6.4.1 Funktion nicht aufrufen\nbmi\nstatt:\nbmi(72, 1.78)\n\n\n\n6.4.2 Falscher Rückgabetyp bei lapply\nlapply(df, mean)\nliefert Liste, kein Vektor.\nFalls Vektor gewünscht:\nsapply(df, mean)",
+    "section": "5.8 Typische Fehler",
+    "text": "5.8 Typische Fehler\n\n5.8.1 Fehler 1: apply() auf gemischte Data Frames anwenden\napply(lab, 2, mean)\nProblem:\nDer Data Frame enthält Textspalten wie patient_id und gruppe. Dadurch kann mean() nicht sinnvoll auf alle Spalten angewendet werden.\nBesser:\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\n\n\n\n5.8.2 Fehler 2: lapply() gibt eine Liste zurück\nlapply(lab[num_spalten], mean)\nDas Ergebnis ist eine Liste.\nWenn man lieber einen Vektor möchte:\nsapply(lab[num_spalten], mean)\n\n\n\n5.8.3 Fehler 3: MARGIN bei apply() verwechseln\napply(werte, 1, mean)\nbedeutet zeilenweise.\napply(werte, 2, mean)\nbedeutet spaltenweise.\nMerksatz:\n\n1 steht für Zeilen, 2 steht für Spalten.\n\n\n\n\n5.8.4 Fehler 4: Fehlende Werte nicht beachten\nx &lt;- c(3, 4, NA, 6)\n\nmean(x)\nAusgabe:\n[1] NA\nBesser:\nmean(x, na.rm = TRUE)\nDas funktioniert auch mit apply-Funktionen:\nsapply(lab[num_spalten], mean, na.rm = TRUE)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -293,8 +293,8 @@
     "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben",
     "href": "chapters/03-daten-transformieren.html#übungsaufgaben",
     "title": "4  Daten transformieren",
-    "section": "6.5 Übungsaufgaben",
-    "text": "6.5 Übungsaufgaben\n\n6.5.1 Aufgabe 1\nErstellen Sie ein Programm, das eine Körpertemperatur bewertet:\n\nunter 37.5: Normal\n37.5 bis 38: erhöht\nüber 38: Fieber\n\n\n\n6.5.2 Aufgabe 2\nBerechnen Sie mit einer for-Schleife die Summe der Werte:\nc(3, 5, 7, 2)\n\n\n6.5.3 Aufgabe 3\nSimulieren Sie Zellteilungen mit einer while-Schleife, bis 10.000 Zellen erreicht sind.",
+    "section": "6.15 Übungsaufgaben",
+    "text": "6.15 Übungsaufgaben\n\n6.15.1 Aufgabe\nErstellen Sie eine Funktion bewerte_temperatur(), die eine Körpertemperatur bewertet.\nRegeln:\n\nunter 37.5: \"normal\"\n37.5 bis unter 38: \"erhöht\"\nab 38: \"Fieber\"\n\nWenden Sie die Funktion anschließend mit sapply() auf diesen Vektor an:\ntemperaturen &lt;- c(36.9, 37.6, 38.2, 39.0)\n\n\n\n6.15.2 Aufgabe\nGegeben sei der folgende Vektor:\nwerte &lt;- c(2, 4, 6, 8, 10)\nVerwenden Sie sapply() mit einer anonymen Funktion, um jeden Wert durch seinen Maximalwert zu teilen.\nDas gewünschte Ergebnis ist:\n[1] 0.2 0.4 0.6 0.8 1.0\n\n\n\n6.15.3 Aufgabe\nSchreiben Sie eine Funktion analyse(), die einen Vektor und eine Funktion als Argument erhält.\nDie Funktion soll so aufgerufen werden können:\nanalyse(c(4, 8, 10, 12), mean)\nanalyse(c(4, 8, 10, 12), median)\nanalyse(c(4, 8, 10, 12), max)\n\n\n\n6.15.4 Aufgabe\nErweitern Sie die Funktion analyse() so, dass zusätzliche Argumente weitergegeben werden können.\nDie Funktion soll zum Beispiel mit fehlenden Werten funktionieren:\nwerte &lt;- c(4, 8, NA, 12)\n\nanalyse(werte, mean, na.rm = TRUE)\n\n\n\n6.15.5 Aufgabe\nSchreiben Sie eine Funktion kleiner_als(), die eine neue Funktion erzeugt.\nBeispiel:\nkleiner_als_10 &lt;- kleiner_als(10)\n\nkleiner_als_10(c(5, 12, 8, 20))\nGewünschte Ausgabe:\n[1]  TRUE FALSE  TRUE FALSE",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -307,6 +307,486 @@
     "text": "3.6 prüfen.\n\n3.6.1 Zugriff auf Factor-Elemente\nAuf einzelne Elemente kann wie bei Vektoren zugegriffen werden.\n\nfarben[1]\n\n[1] rot\nLevels: rot blau gruen\n\nfarben[1:3]\n\n[1] rot  blau rot \nLevels: rot blau gruen\n\n\n\n\n\n3.6.2 Wichtige Funktionen für Factors\n\n\n\nFunktion\nBedeutung\n\n\n\n\nfactor()\nFactor erzeugen\n\n\nlevels()\nLevels anzeigen oder setzen\n\n\nnlevels()\nAnzahl der Levels\n\n\nas.factor()\nObjekt in Factor umwandeln\n\n\nas.character()\nFactor in Zeichenkette umwandeln\n\n\nas.numeric()\nFactor intern als Zahl darstellen\n\n\n\n\n\n\n\n\n\n\nTipMerke\n\n\n\nFactors werden in R häufig für kategoriale Daten verwendet, z. B.:\n\nGeschlecht\nFarben\nKlassen oder Gruppen\nBewertungen\n\nDie möglichen Kategorien eines Factors heißen Levels.\n\n\n\n\n\n\n\n\nWarningTypischer Anfängerfehler: as.numeric() bei Factors\n\n\n\nEin häufiger Fehler ist die direkte Umwandlung eines Factors in numerische Werte.\nx &lt;- factor(c(\"10\", \"20\", \"30\"))\nas.numeric(x)\nDas Ergebnis ist nicht 10 20 30, sondern:\n1 2 3\nGrund:\nR speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Werte.\nRichtige Umwandlung\nas.numeric(as.character(x))\nDabei wird der Factor zuerst in Zeichenketten und anschließend in numerische Werte umgewandelt.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Daten repräsentieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
+    "href": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "5.1 Grundidee der apply-Funktionen",
+    "text": "5.1 Grundidee der apply-Funktionen\nViele Aufgaben folgen demselben Muster:\n\nNimm mehrere Elemente und wende auf jedes Element dieselbe Funktion an.\n\nZum Beispiel:\nx &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6),\n  c = c(7, 8, 9)\n)\nWir möchten für jedes Element den Mittelwert berechnen.\nMit einer Schleife:\nergebnis &lt;- list()\n\nfor (i in names(x)) {\n  ergebnis[[i]] &lt;- mean(x[[i]])\n}\n\nergebnis\nMit lapply() kürzer:\nlapply(x, mean)\nDie apply-Funktion übernimmt hier die Wiederholung.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispielmatrix",
+    "href": "chapters/03-daten-transformieren.html#beispielmatrix",
+    "title": "4  Daten transformieren",
+    "section": "5.3 Beispielmatrix",
+    "text": "5.3 Beispielmatrix\nwerte &lt;- matrix(\n  c(5, 6, 7,\n    8, 9, 10,\n    11, 12, 13),\n  nrow = 3,\n  byrow = TRUE\n)\n\nwerte\nDie Matrix sieht so aus:\n     [,1] [,2] [,3]\n[1,]    5    6    7\n[2,]    8    9   10\n[3,]   11   12   13",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply-zeilenweise",
+    "href": "chapters/03-daten-transformieren.html#apply-zeilenweise",
+    "title": "4  Daten transformieren",
+    "section": "5.4 apply() zeilenweise",
+    "text": "5.4 apply() zeilenweise\nMit MARGIN = 1 wird die Funktion auf jede Zeile angewendet.\napply(werte, 1, mean)\nAusgabe:\n[1]  6  9 12\nErklärung:\nmean(c(5, 6, 7))\nmean(c(8, 9, 10))\nmean(c(11, 12, 13))\nR berechnet also den Mittelwert jeder Zeile.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply-spaltenweise",
+    "href": "chapters/03-daten-transformieren.html#apply-spaltenweise",
+    "title": "4  Daten transformieren",
+    "section": "5.5 apply() spaltenweise",
+    "text": "5.5 apply() spaltenweise\nMit MARGIN = 2 wird die Funktion auf jede Spalte angewendet.\napply(werte, 2, mean)\nAusgabe:\n[1]  8  9 10\nErklärung:\nmean(c(5, 8, 11))\nmean(c(6, 9, 12))\nmean(c(7, 10, 13))\nR berechnet also den Mittelwert jeder Spalte.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#weitere-beispiele-mit-apply",
+    "href": "chapters/03-daten-transformieren.html#weitere-beispiele-mit-apply",
+    "title": "4  Daten transformieren",
+    "section": "5.6 Weitere Beispiele mit apply()",
+    "text": "5.6 Weitere Beispiele mit apply()\nMaximum pro Zeile:\napply(werte, 1, max)\nMinimum pro Spalte:\napply(werte, 2, min)\nSumme pro Zeile:\napply(werte, 1, sum)\nStandardabweichung pro Spalte:\napply(werte, 2, sd)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply-mit-eigener-funktion",
+    "href": "chapters/03-daten-transformieren.html#apply-mit-eigener-funktion",
+    "title": "4  Daten transformieren",
+    "section": "5.7 apply() mit eigener Funktion",
+    "text": "5.7 apply() mit eigener Funktion\nMan kann auch eigene Funktionen verwenden.\napply(werte, 1, function(x) max(x) - min(x))\nHier wird für jede Zeile die Spannweite berechnet.\nAusgabe:\n[1] 2 2 2\nDie anonyme Funktion\nfunction(x) max(x) - min(x)\nnimmt jeweils eine Zeile entgegen und berechnet:\ngrößter Wert - kleinster Wert",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#wichtiger-hinweis-zu-data-frames",
+    "href": "chapters/03-daten-transformieren.html#wichtiger-hinweis-zu-data-frames",
+    "title": "4  Daten transformieren",
+    "section": "5.8 Wichtiger Hinweis zu Data Frames",
+    "text": "5.8 Wichtiger Hinweis zu Data Frames\napply() kann auch auf Data Frames angewendet werden, ist dort aber mit Vorsicht zu verwenden.\nBeispiel:\ndf &lt;- data.frame(\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df, 2, mean)\nDas funktioniert, weil alle Spalten numerisch sind.\nProblematisch wird es bei gemischten Datentypen:\ndf2 &lt;- data.frame(\n  name = c(\"Anna\", \"Ben\", \"Clara\"),\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df2, 2, mean)\nHier kann es zu Problemen kommen, weil apply() den Data Frame intern oft in eine Matrix umwandelt.\nEine Matrix kann aber nur einen Datentyp enthalten. Wenn eine Textspalte vorhanden ist, werden deshalb häufig auch die numerischen Werte in Text umgewandelt.\nFür Data Frames sind deshalb oft lapply() oder sapply() besser geeignet.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply-1",
+    "href": "chapters/03-daten-transformieren.html#apply-1",
+    "title": "4  Daten transformieren",
+    "section": "5.3 apply()",
+    "text": "5.3 apply()\nFür Matrizen oder Data Frames.\nSyntax\napply(objekt, margin, funktion)\n\nmargin = 1 → zeilenweise\n\nmargin = 2 → spaltenweise\n\n\nBeispiel: Mittelwert pro Spalte\n\ndaten &lt;- matrix(c(5, 6, 7, 8, 9, 10), nrow = 3)\n\napply(daten, 2, mean)\n\n[1] 6 9\n\n\nBeispiel: Maximum pro Zeile\n\napply(daten, 1, max)\n\n[1]  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-mit-liste",
+    "href": "chapters/03-daten-transformieren.html#beispiel-mit-liste",
+    "title": "4  Daten transformieren",
+    "section": "5.4 Beispiel mit Liste",
+    "text": "5.4 Beispiel mit Liste\nmesswerte &lt;- list(\n  patient_a = c(120, 125, 130),\n  patient_b = c(140, 138, 142),\n  patient_c = c(110, 115, 118)\n)\n\nlapply(messwerte, mean)\nAusgabe:\n$patient_a\n[1] 125\n\n$patient_b\n[1] 140\n\n$patient_c\n[1] 114.3333\nJedes Listenelement wird einzeln an mean() übergeben.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#lapply-bei-data-frames",
+    "href": "chapters/03-daten-transformieren.html#lapply-bei-data-frames",
+    "title": "4  Daten transformieren",
+    "section": "5.5 lapply() bei Data Frames",
+    "text": "5.5 lapply() bei Data Frames\nEin Data Frame ist intern eine Liste von Spalten.\nDeshalb kann man lapply() sehr gut auf Data Frames anwenden.\ndaten &lt;- data.frame(\n  alter = c(23, 34, 45),\n  gewicht = c(65, 82, 74),\n  puls = c(70, 80, 76)\n)\n\nlapply(daten, mean)\nAusgabe:\n$alter\n[1] 34\n\n$gewicht\n[1] 73.66667\n\n$puls\n[1] 75.33333\nHier wird der Mittelwert für jede Spalte berechnet.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#datentypen-mit-lapply-prüfen",
+    "href": "chapters/03-daten-transformieren.html#datentypen-mit-lapply-prüfen",
+    "title": "4  Daten transformieren",
+    "section": "5.6 Datentypen mit lapply() prüfen",
+    "text": "5.6 Datentypen mit lapply() prüfen\nlapply(daten, class)\nAusgabe:\n$alter\n[1] \"numeric\"\n\n$gewicht\n[1] \"numeric\"\n\n$puls\n[1] \"numeric\"\nDas ist besonders hilfreich, wenn man einen Data Frame untersucht.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#lapply-mit-eigener-funktion",
+    "href": "chapters/03-daten-transformieren.html#lapply-mit-eigener-funktion",
+    "title": "4  Daten transformieren",
+    "section": "5.7 lapply() mit eigener Funktion",
+    "text": "5.7 lapply() mit eigener Funktion\nlapply(daten, function(x) {\n  c(\n    mittelwert = mean(x),\n    minimum = min(x),\n    maximum = max(x)\n  )\n})\nAusgabe:\n$alter\nmittelwert   minimum   maximum \n       34        23        45 \n\n$gewicht\nmittelwert   minimum   maximum \n 73.66667        65        82 \n\n$puls\nmittelwert   minimum   maximum \n 75.33333        70        80\nHier wird auf jede Spalte dieselbe kleine Auswertungsfunktion angewendet.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-lapply-versus-sapply",
+    "href": "chapters/03-daten-transformieren.html#beispiel-lapply-versus-sapply",
+    "title": "4  Daten transformieren",
+    "section": "6.1 Beispiel: lapply() versus sapply()",
+    "text": "6.1 Beispiel: lapply() versus sapply()\nwerte &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6)\n)\n\nlapply(werte, mean)\nAusgabe:\n$a\n[1] 2\n\n$b\n[1] 5\nMit sapply():\nsapply(werte, mean)\nAusgabe:\na b \n2 5\nDas Ergebnis ist jetzt ein Vektor.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#sapply-bei-data-frames",
+    "href": "chapters/03-daten-transformieren.html#sapply-bei-data-frames",
+    "title": "4  Daten transformieren",
+    "section": "6.2 sapply() bei Data Frames",
+    "text": "6.2 sapply() bei Data Frames\nsapply(daten, mean)\nAusgabe:\n   alter  gewicht      puls \n34.00000 73.66667 75.33333\nDas ist oft praktischer als lapply(), wenn man einen übersichtlichen numerischen Ergebnisvektor möchte.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#sapply-zum-prüfen-von-datentypen",
+    "href": "chapters/03-daten-transformieren.html#sapply-zum-prüfen-von-datentypen",
+    "title": "4  Daten transformieren",
+    "section": "6.3 sapply() zum Prüfen von Datentypen",
+    "text": "6.3 sapply() zum Prüfen von Datentypen\npatienten &lt;- data.frame(\n  id = c(\"P001\", \"P002\", \"P003\"),\n  alter = c(45, 52, 39),\n  gruppe = c(\"Kontrolle\", \"Therapie\", \"Therapie\"),\n  crp = c(3.2, 7.8, 5.1)\n)\n\nsapply(patienten, class)\nMögliche Ausgabe:\n         id       alter      gruppe         crp \n\"character\"   \"numeric\" \"character\"   \"numeric\"\nDas ist eine sehr typische Anwendung von sapply().",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#sapply-mit-logischer-prüfung",
+    "href": "chapters/03-daten-transformieren.html#sapply-mit-logischer-prüfung",
+    "title": "4  Daten transformieren",
+    "section": "6.4 sapply() mit logischer Prüfung",
+    "text": "6.4 sapply() mit logischer Prüfung\nMan kann mit sapply() prüfen, welche Spalten numerisch sind.\nsapply(patienten, is.numeric)\nAusgabe:\n    id  alter gruppe    crp \n FALSE   TRUE  FALSE   TRUE\nDamit sieht man sofort, auf welche Spalten man mathematische Funktionen anwenden kann.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mittelwerte-nur-für-numerische-spalten-berechnen",
+    "href": "chapters/03-daten-transformieren.html#mittelwerte-nur-für-numerische-spalten-berechnen",
+    "title": "4  Daten transformieren",
+    "section": "6.5 Mittelwerte nur für numerische Spalten berechnen",
+    "text": "6.5 Mittelwerte nur für numerische Spalten berechnen\nnumerisch &lt;- sapply(patienten, is.numeric)\n\nsapply(patienten[numerisch], mean)\nAusgabe:\nalter   crp \n45.33  5.37\nDas ist sehr praktisch bei Data Frames mit gemischten Datentypen.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-mittelwert-nach-gruppe",
+    "href": "chapters/03-daten-transformieren.html#beispiel-mittelwert-nach-gruppe",
+    "title": "4  Daten transformieren",
+    "section": "7.1 Beispiel: Mittelwert nach Gruppe",
+    "text": "7.1 Beispiel: Mittelwert nach Gruppe\ncrp &lt;- c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n            \"Therapie\", \"Therapie\", \"Kontrolle\")\n\ntapply(crp, gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\nHier wird der Mittelwert von crp getrennt nach Gruppe berechnet.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#tapply-mit-anderen-funktionen",
+    "href": "chapters/03-daten-transformieren.html#tapply-mit-anderen-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "7.2 tapply() mit anderen Funktionen",
+    "text": "7.2 tapply() mit anderen Funktionen\nMaximum pro Gruppe:\ntapply(crp, gruppe, max)\nMinimum pro Gruppe:\ntapply(crp, gruppe, min)\nMedian pro Gruppe:\ntapply(crp, gruppe, median)\nStandardabweichung pro Gruppe:\ntapply(crp, gruppe, sd)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#tapply-mit-data-frame-spalten",
+    "href": "chapters/03-daten-transformieren.html#tapply-mit-data-frame-spalten",
+    "title": "4  Daten transformieren",
+    "section": "7.3 tapply() mit Data-Frame-Spalten",
+    "text": "7.3 tapply() mit Data-Frame-Spalten\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\n)\n\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mehrere-kennwerte-mit-tapply",
+    "href": "chapters/03-daten-transformieren.html#mehrere-kennwerte-mit-tapply",
+    "title": "4  Daten transformieren",
+    "section": "7.4 Mehrere Kennwerte mit tapply()",
+    "text": "7.4 Mehrere Kennwerte mit tapply()\ntapply() kann auch mit selbst geschriebenen Funktionen kombiniert werden.\ntapply(lab$crp_mg_l, lab$gruppe, function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nDas Ergebnis ist etwas komplexer, weil pro Gruppe mehrere Werte berechnet werden.\nEine übersichtlichere Variante ist:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = mean)\nOder für mehrere Kennwerte:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nFür den Einstieg ist tapply() aber sehr gut geeignet, um das Prinzip gruppierter Berechnungen zu verstehen.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#einfaches-beispiel",
+    "href": "chapters/03-daten-transformieren.html#einfaches-beispiel",
+    "title": "4  Daten transformieren",
+    "section": "8.1 Einfaches Beispiel",
+    "text": "8.1 Einfaches Beispiel\nx &lt;- c(1, 2, 3)\ny &lt;- c(10, 20, 30)\n\nmapply(function(a, b) a + b, x, y)\nAusgabe:\n[1] 11 22 33\nDas entspricht:\n1 + 10\n2 + 20\n3 + 30",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-bmi-berechnen",
+    "href": "chapters/03-daten-transformieren.html#beispiel-bmi-berechnen",
+    "title": "4  Daten transformieren",
+    "section": "8.2 Beispiel: BMI berechnen",
+    "text": "8.2 Beispiel: BMI berechnen\ngewicht &lt;- c(70, 82, 65)\ngroesse &lt;- c(1.75, 1.82, 1.68)\n\nmapply(function(g, h) g / h^2, gewicht, groesse)\nAusgabe:\n[1] 22.85714 24.75546 23.03005\nHier bekommt die Funktion immer zwei Werte gleichzeitig:\ngewicht[1] und groesse[1]\ngewicht[2] und groesse[2]\ngewicht[3] und groesse[3]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mapply-mit-benannter-funktion",
+    "href": "chapters/03-daten-transformieren.html#mapply-mit-benannter-funktion",
+    "title": "4  Daten transformieren",
+    "section": "8.3 mapply() mit benannter Funktion",
+    "text": "8.3 mapply() mit benannter Funktion\nMan kann zuerst eine eigene Funktion schreiben:\nbmi &lt;- function(gewicht, groesse) {\n  gewicht / groesse^2\n}\nDann kann man diese Funktion mit mapply() verwenden:\nmapply(bmi, gewicht, groesse)\nDas ist oft übersichtlicher als eine anonyme Funktion.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-datensatz",
+    "href": "chapters/03-daten-transformieren.html#beispiel-datensatz",
+    "title": "4  Daten transformieren",
+    "section": "9.1 Beispiel-Datensatz",
+    "text": "9.1 Beispiel-Datensatz\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),\n  glucose = c(90, 95, 130, 125, 118, 88)\n)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#welche-spalten-sind-numerisch",
+    "href": "chapters/03-daten-transformieren.html#welche-spalten-sind-numerisch",
+    "title": "4  Daten transformieren",
+    "section": "9.2 Welche Spalten sind numerisch?",
+    "text": "9.2 Welche Spalten sind numerisch?\nsapply(lab, is.numeric)\nAusgabe:\npatient_id     gruppe      alter   crp_mg_l    glucose \n     FALSE      FALSE       TRUE       TRUE       TRUE",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mittelwerte-aller-numerischen-spalten",
+    "href": "chapters/03-daten-transformieren.html#mittelwerte-aller-numerischen-spalten",
+    "title": "4  Daten transformieren",
+    "section": "9.3 Mittelwerte aller numerischen Spalten",
+    "text": "9.3 Mittelwerte aller numerischen Spalten\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\nAusgabe:\n    alter  crp_mg_l   glucose \n50.000000  5.050000 107.666667",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#mittelwert-von-crp-nach-gruppe",
+    "href": "chapters/03-daten-transformieren.html#mittelwert-von-crp-nach-gruppe",
+    "title": "4  Daten transformieren",
+    "section": "9.4 Mittelwert von CRP nach Gruppe",
+    "text": "9.4 Mittelwert von CRP nach Gruppe\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#maximum-von-glucose-nach-gruppe",
+    "href": "chapters/03-daten-transformieren.html#maximum-von-glucose-nach-gruppe",
+    "title": "4  Daten transformieren",
+    "section": "9.5 Maximum von Glucose nach Gruppe",
+    "text": "9.5 Maximum von Glucose nach Gruppe\ntapply(lab$glucose, lab$gruppe, max)\nAusgabe:\nKontrolle  Therapie \n       95       130",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#fehler-1-apply-auf-gemischte-data-frames-anwenden",
+    "href": "chapters/03-daten-transformieren.html#fehler-1-apply-auf-gemischte-data-frames-anwenden",
+    "title": "4  Daten transformieren",
+    "section": "10.1 Fehler 1: apply() auf gemischte Data Frames anwenden",
+    "text": "10.1 Fehler 1: apply() auf gemischte Data Frames anwenden\napply(lab, 2, mean)\nProblem:\nDer Data Frame enthält Textspalten wie patient_id und gruppe. Dadurch kann mean() nicht sinnvoll auf alle Spalten angewendet werden.\nBesser:\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#fehler-2-lapply-gibt-eine-liste-zurück",
+    "href": "chapters/03-daten-transformieren.html#fehler-2-lapply-gibt-eine-liste-zurück",
+    "title": "4  Daten transformieren",
+    "section": "10.2 Fehler 2: lapply() gibt eine Liste zurück",
+    "text": "10.2 Fehler 2: lapply() gibt eine Liste zurück\nlapply(lab[num_spalten], mean)\nDas Ergebnis ist eine Liste.\nWenn man lieber einen Vektor möchte:\nsapply(lab[num_spalten], mean)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#fehler-3-margin-bei-apply-verwechseln",
+    "href": "chapters/03-daten-transformieren.html#fehler-3-margin-bei-apply-verwechseln",
+    "title": "4  Daten transformieren",
+    "section": "10.3 Fehler 3: MARGIN bei apply() verwechseln",
+    "text": "10.3 Fehler 3: MARGIN bei apply() verwechseln\napply(werte, 1, mean)\nbedeutet zeilenweise.\napply(werte, 2, mean)\nbedeutet spaltenweise.\nMerksatz:\n\n1 steht für Zeilen, 2 steht für Spalten.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#fehler-4-fehlende-werte-nicht-beachten",
+    "href": "chapters/03-daten-transformieren.html#fehler-4-fehlende-werte-nicht-beachten",
+    "title": "4  Daten transformieren",
+    "section": "10.4 Fehler 4: Fehlende Werte nicht beachten",
+    "text": "10.4 Fehler 4: Fehlende Werte nicht beachten\nx &lt;- c(3, 4, NA, 6)\n\nmean(x)\nAusgabe:\n[1] NA\nBesser:\nmean(x, na.rm = TRUE)\nDas funktioniert auch mit apply-Funktionen:\nsapply(lab[num_spalten], mean, na.rm = TRUE)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#typische-fehler-2",
+    "href": "chapters/03-daten-transformieren.html#typische-fehler-2",
+    "title": "4  Daten transformieren",
+    "section": "6.14 Typische Fehler",
+    "text": "6.14 Typische Fehler\n\n6.14.1 Funktion nicht aufrufen\nEin häufiger Fehler ist, dass eine Funktion ohne Klammern geschrieben wird.\nquadrat\nDas zeigt nur die Funktion an.\nDie Funktion wird dadurch nicht ausgeführt.\nRichtig ist:\nquadrat(4)\nAusgabe:\n[1] 16\nMerksatz:\n\nEine Funktion wird erst durch runde Klammern ausgeführt.\n\n\n\n\n6.14.2 Argumente vergessen\nWenn eine Funktion ein Argument erwartet, muss dieses beim Aufruf angegeben werden.\nquadrat &lt;- function(x) {\n  x^2\n}\n\nquadrat()\nDas führt zu einem Fehler, weil x fehlt.\nRichtig:\nquadrat(5)\nAusgabe:\n[1] 25\n\n\n\n6.14.3 Funktion und Funktionsaufruf verwechseln\nBei sapply() und ähnlichen Funktionen wird häufig eine Funktion übergeben.\nsapply(1:5, sqrt)\nAusgabe:\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068\nHier steht sqrt ohne Klammern.\nDas ist richtig, weil sapply() die Funktion selbst benötigt.\nFalsch wäre:\nsapply(1:5, sqrt())\nHier würde sqrt() sofort aufgerufen werden, aber ohne Argument.\nMerksatz:\n\nWenn eine Funktion übergeben wird, schreibt man meistens den Funktionsnamen ohne Klammern.\n\n\n\n\n6.14.4 Rückgabetyp nicht beachten\nAnonyme Funktionen können unterschiedliche Rückgabetypen erzeugen.\nBeispiel:\nwerte &lt;- c(1, 2, 3)\n\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\" \"20\"    \"30\"\nDa einmal Text zurückgegeben wird, wandelt R auch die Zahlen in Text um.\nBesser ist es, innerhalb einer Funktion möglichst einheitliche Rückgabetypen zu verwenden.\nZum Beispiel nur Text:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    \"größer als 1\"\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\"        \"größer als 1\" \"größer als 1\"\nOder nur Zahlen:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    NA\n  }\n})\nAusgabe:\n[1] NA 20 30",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
+    "href": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
+    "title": "4  Daten transformieren",
+    "section": "5.7 apply-Funktionen im Vergleich",
+    "text": "5.7 apply-Funktionen im Vergleich\n\n5.7.1 Beispiel-Datensatz\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),\n  glucose = c(90, 95, 130, 125, 118, 88)\n)\n\n\n\n5.7.2 Welche Spalten sind numerisch?\nsapply(lab, is.numeric)\nAusgabe:\npatient_id     gruppe      alter   crp_mg_l    glucose \n     FALSE      FALSE       TRUE       TRUE       TRUE\n\n\n\n5.7.3 Mittelwerte aller numerischen Spalten\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\nAusgabe:\n    alter  crp_mg_l   glucose \n50.000000  5.050000 107.666667\n\n\n\n5.7.4 Mittelwert von CRP nach Gruppe\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\n\n\n\n5.7.5 Maximum von Glucose nach Gruppe\ntapply(lab$glucose, lab$gruppe, max)\nAusgabe:\nKontrolle  Therapie \n       95       130",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-sind-objekte",
+    "href": "chapters/03-daten-transformieren.html#funktionen-sind-objekte",
+    "title": "4  Daten transformieren",
+    "section": "6.1 Funktionen sind Objekte",
+    "text": "6.1 Funktionen sind Objekte\nIn R kann eine Funktion wie ein anderes Objekt gespeichert werden.\nquadrat &lt;- function(x) {\n  x^2\n}\nHier wird eine Funktion erstellt und im Objekt quadrat gespeichert.\nDie Funktion kann anschließend wie gewohnt aufgerufen werden:\nquadrat(4)\nAusgabe:\n[1] 16\nWichtig ist der Unterschied zwischen dem Funktionsobjekt und dem Funktionsaufruf.\nquadrat\nAusgabe:\nfunction(x) {\n  x^2\n}\nHier wird die Funktion selbst angezeigt.\nquadrat(4)\nAusgabe:\n[1] 16\nHier wird die Funktion ausgeführt.\nMerksatz:\n\nOhne Klammern sieht man die Funktion.\nMit Klammern wird die Funktion ausgeführt.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#warum-ist-das-nützlich",
+    "href": "chapters/03-daten-transformieren.html#warum-ist-das-nützlich",
+    "title": "4  Daten transformieren",
+    "section": "6.2 Warum ist das nützlich?",
+    "text": "6.2 Warum ist das nützlich?\nDass Funktionen als Objekte behandelt werden können, macht R sehr flexibel. Zum Beispiel können wir eine Funktion speichern:\nkennzahl &lt;- mean\nNun enthält kennzahl die Funktion mean().\nkennzahl(c(2, 4, 6))\nAusgabe:\n[1] 4\nDas wirkt zunächst ungewohnt, zeigt aber eine wichtige Idee:\n\nFunktionen können wie andere Objekte weitergegeben und verwendet werden.\n\nDiese Idee steckt auch hinter vielen apply-Funktionen.\nwerte &lt;- list(\n  a = c(2, 4, 6),\n  b = c(10, 20, 30)\n)\n\nsapply(werte, mean)\nAusgabe:\n a  b \n 4 20 \nHier wird die Funktion mean an sapply() übergeben. sapply() entscheidet, auf welche Elemente mean() angewendet wird.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen-schritt-für-schritt",
+    "href": "chapters/03-daten-transformieren.html#anonyme-funktionen-schritt-für-schritt",
+    "title": "4  Daten transformieren",
+    "section": "6.4 Anonyme Funktionen Schritt für Schritt",
+    "text": "6.4 Anonyme Funktionen Schritt für Schritt\nDer folgende Ausdruck kann zunächst schwer lesbar sein:\nsapply(1:5, function(x) x^2)\nMan kann ihn so lesen:\n\nNimm die Werte 1:5.\nWende auf jeden Wert eine Funktion an.\nDie Funktion heißt hier nicht extra.\nFür jeden Wert x wird x^2 berechnet.\n\nDie anonyme Funktion ist also:\nfunction(x) x^2\nSie entspricht inhaltlich dieser benannten Funktion:\nquadrat &lt;- function(x) {\n  x^2\n}\n\nsapply(1:5, quadrat)\nAusgabe:\n[1]  1  4  9 16 25\nBeide Varianten liefern dasselbe Ergebnis.\nDer Unterschied ist:\n\nquadrat ist eine benannte Funktion.\nfunction(x) x^2 ist eine anonyme Funktion.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#wann-verwendet-man-anonyme-funktionen",
+    "href": "chapters/03-daten-transformieren.html#wann-verwendet-man-anonyme-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "6.5 Wann verwendet man anonyme Funktionen?",
+    "text": "6.5 Wann verwendet man anonyme Funktionen?\nAnonyme Funktionen sind besonders praktisch, wenn eine Berechnung sehr kurz ist und nur an einer Stelle gebraucht wird.\nBeispiel: Logarithmieren von Messwerten.\nwerte &lt;- c(1, 10, 100)\n\nsapply(werte, function(x) log10(x))\nAusgabe:\n[1] 0 1 2\nHier wäre es möglich, vorher eine eigene Funktion zu definieren:\nlog_transform &lt;- function(x) {\n  log10(x)\n}\n\nsapply(werte, log_transform)\nAusgabe:\n[1] 0 1 2\nFür eine kurze einmalige Berechnung ist die anonyme Funktion aber kompakter.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-messwerte-klassifizieren",
+    "href": "chapters/03-daten-transformieren.html#beispiel-messwerte-klassifizieren",
+    "title": "4  Daten transformieren",
+    "section": "6.6 Beispiel: Messwerte klassifizieren",
+    "text": "6.6 Beispiel: Messwerte klassifizieren\nAnonyme Funktionen können auch Bedingungen enthalten.\ntemperatur &lt;- c(36.8, 37.6, 38.4, 39.1)\n\nsapply(temperatur, function(x) {\n  if (x &lt; 37.5) {\n    \"normal\"\n  } else if (x &lt; 38) {\n    \"erhöht\"\n  } else {\n    \"Fieber\"\n  }\n})\nAusgabe:\n[1] \"normal\" \"erhöht\" \"Fieber\" \"Fieber\"\nHier wird jede Temperatur einzeln bewertet. Die Funktion bekommt jeweils einen einzelnen Wert x und gibt eine Kategorie zurück.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#warum-funktionen-als-argumente-hilfreich-sind",
+    "href": "chapters/03-daten-transformieren.html#warum-funktionen-als-argumente-hilfreich-sind",
+    "title": "4  Daten transformieren",
+    "section": "6.8 Warum Funktionen als Argumente hilfreich sind",
+    "text": "6.8 Warum Funktionen als Argumente hilfreich sind\nDas folgende Beispiel zeigt den Vorteil. Ohne funktionales Programmieren könnte man mehrere einzelne Funktionen schreiben:\nanalyse_mittelwert &lt;- function(x) {\n  mean(x)\n}\n\nanalyse_standardabweichung &lt;- function(x) {\n  sd(x)\n}\n\nanalyse_median &lt;- function(x) {\n  median(x)\n}\nDas ist möglich, aber wiederholt viel Struktur.\nMit einer Funktion, die eine andere Funktion als Argument erhält, wird der Code allgemeiner:\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\nNun kann dieselbe Funktion unterschiedliche Kennzahlen berechnen:\nwerte &lt;- c(4, 8, 10, 12)\n\nanalyse(werte, mean)\nanalyse(werte, median)\nanalyse(werte, sd)\nAusgabe:\n[1] 8.5\n[1] 9\n[1] 3.41565\nDie zentrale Idee lautet:\n\nNicht die Analysefunktion wird jedes Mal neu geschrieben, sondern die gewünschte Auswertungsfunktion wird übergeben.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#zusätzliche-argumente-weitergeben",
+    "href": "chapters/03-daten-transformieren.html#zusätzliche-argumente-weitergeben",
+    "title": "4  Daten transformieren",
+    "section": "6.9 Zusätzliche Argumente weitergeben",
+    "text": "6.9 Zusätzliche Argumente weitergeben\nViele Funktionen benötigen zusätzliche Argumente.\nBeispiel:\nwerte &lt;- c(4, 8, NA, 12)\n\nmean(werte)\nAusgabe:\n[1] NA\nMit na.rm = TRUE werden fehlende Werte ignoriert:\nmean(werte, na.rm = TRUE)\nAusgabe:\n[1] 8\nUnsere Funktion analyse() kann so erweitert werden, dass zusätzliche Argumente weitergegeben werden.\nanalyse &lt;- function(x, FUN, ...) {\n  FUN(x, ...)\n}\nDie drei Punkte ... bedeuten:\n\nWeitere Argumente werden an die innere Funktion weitergereicht.\n\nJetzt funktioniert:\nanalyse(werte, mean, na.rm = TRUE)\nAusgabe:\n[1] 8\nDas ist ein sehr häufiges Muster in R.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen-schrittweise-erklärung",
+    "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen-schrittweise-erklärung",
+    "title": "4  Daten transformieren",
+    "section": "6.11 Funktionen erzeugen Funktionen: Schrittweise Erklärung",
+    "text": "6.11 Funktionen erzeugen Funktionen: Schrittweise Erklärung\nDie Funktion multiplier() bekommt einen Faktor.\nmultiplier &lt;- function(faktor) {\n  function(x) {\n    x * faktor\n  }\n}\nWenn wir schreiben:\nmal2 &lt;- multiplier(2)\ndann wird eine neue Funktion erzeugt.\nDiese neue Funktion merkt sich den Faktor 2.\nSie verhält sich ungefähr so:\nmal2 &lt;- function(x) {\n  x * 2\n}\nEntsprechend erzeugt\nmal5 &lt;- multiplier(5)\neine Funktion, die mit 5 multipliziert.\nmal5 &lt;- function(x) {\n  x * 5\n}\nDer wichtige Gedanke ist:\n\nEine Funktion kann eine andere Funktion bauen.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-grenzwertprüfungen-erzeugen",
+    "href": "chapters/03-daten-transformieren.html#beispiel-grenzwertprüfungen-erzeugen",
+    "title": "4  Daten transformieren",
+    "section": "6.12 Beispiel: Grenzwertprüfungen erzeugen",
+    "text": "6.12 Beispiel: Grenzwertprüfungen erzeugen\nEin praktisches Beispiel ist das Erzeugen von Prüf-Funktionen.\ngroesser_als &lt;- function(grenze) {\n  function(x) {\n    x &gt; grenze\n  }\n}\nNun können spezielle Prüf-Funktionen erzeugt werden.\ngroesser_als_5 &lt;- groesser_als(5)\ngroesser_als_10 &lt;- groesser_als(10)\nAnwendung:\ngroesser_als_5(c(3, 6, 9))\nAusgabe:\n[1] FALSE  TRUE  TRUE\ngroesser_als_10(c(3, 6, 12))\nAusgabe:\n[1] FALSE FALSE  TRUE\nDie Funktion groesser_als() erzeugt also Funktionen, die jeweils eine bestimmte Grenze prüfen.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#beispiel-mit-patientendaten",
+    "href": "chapters/03-daten-transformieren.html#beispiel-mit-patientendaten",
+    "title": "4  Daten transformieren",
+    "section": "6.13 Beispiel mit Patientendaten",
+    "text": "6.13 Beispiel mit Patientendaten\npatienten &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\"),\n  crp_mg_l = c(3.2, 6.1, 8.4, 2.9, 5.7)\n)\nWir erzeugen eine Funktion, die prüft, ob ein Wert über einer bestimmten Grenze liegt.\nueber_grenze &lt;- function(grenze) {\n  function(x) {\n    x &gt; grenze\n  }\n}\nNun erstellen wir eine konkrete Prüf-Funktion.\ncrp_erhoeht &lt;- ueber_grenze(5)\nAnwendung auf die CRP-Werte:\ncrp_erhoeht(patienten$crp_mg_l)\nAusgabe:\n[1] FALSE  TRUE  TRUE FALSE  TRUE\nDas Ergebnis kann als neue Spalte gespeichert werden:\npatienten$crp_erhoeht &lt;- crp_erhoeht(patienten$crp_mg_l)\n\npatienten\nAusgabe:\n  patient_id crp_mg_l crp_erhoeht\n1       P001      3.2       FALSE\n2       P002      6.1        TRUE\n3       P003      8.4        TRUE\n4       P004      2.9       FALSE\n5       P005      5.7        TRUE",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#lösungen",
+    "href": "chapters/03-daten-transformieren.html#lösungen",
+    "title": "4  Daten transformieren",
+    "section": "6.16 6.16 Lösungen",
+    "text": "6.16 6.16 Lösungen\n\n6.16.1 Lösung zu Aufgabe 1\nbewerte_temperatur &lt;- function(x) {\n  if (x &lt; 37.5) {\n    \"normal\"\n  } else if (x &lt; 38) {\n    \"erhöht\"\n  } else {\n    \"Fieber\"\n  }\n}\n\ntemperaturen &lt;- c(36.9, 37.6, 38.2, 39.0)\n\nsapply(temperaturen, bewerte_temperatur)\nAusgabe:\n[1] \"normal\" \"erhöht\" \"Fieber\" \"Fieber\"\n\n\n\n6.16.2 Lösung zu Aufgabe 2\nwerte &lt;- c(2, 4, 6, 8, 10)\n\nsapply(werte, function(x) x / max(werte))\nAusgabe:\n[1] 0.2 0.4 0.6 0.8 1.0\n\n\n\n6.16.3 Lösung zu Aufgabe 3\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\n\nanalyse(c(4, 8, 10, 12), mean)\nanalyse(c(4, 8, 10, 12), median)\nanalyse(c(4, 8, 10, 12), max)\nAusgabe:\n[1] 8.5\n[1] 9\n[1] 12\n\n\n\n6.16.4 Lösung zu Aufgabe 4\nanalyse &lt;- function(x, FUN, ...) {\n  FUN(x, ...)\n}\n\nwerte &lt;- c(4, 8, NA, 12)\n\nanalyse(werte, mean, na.rm = TRUE)\nAusgabe:\n[1] 8\n\n\n\n6.16.5 Lösung zu Aufgabe 5\nkleiner_als &lt;- function(grenze) {\n  function(x) {\n    x &lt; grenze\n  }\n}\n\nkleiner_als_10 &lt;- kleiner_als(10)\n\nkleiner_als_10(c(5, 12, 8, 20))\nAusgabe:\n[1]  TRUE FALSE  TRUE FALSE",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#zusammenfassung-1",
+    "href": "chapters/03-daten-transformieren.html#zusammenfassung-1",
+    "title": "4  Daten transformieren",
+    "section": "6.16 Zusammenfassung",
+    "text": "6.16 Zusammenfassung\nFunktionales Programmieren bedeutet in R, dass Funktionen selbst als Objekte behandelt werden.\nWichtige Punkte:\n\nFunktionen können gespeichert werden.\nFunktionen können ohne direkten Aufruf an andere Funktionen übergeben werden.\nAnonyme Funktionen sind nützlich für kurze einmalige Berechnungen.\nEigene Funktionen können andere Funktionen als Argument erhalten.\nMit ... können zusätzliche Argumente weitergegeben werden.\nFunktionen können neue Funktionen erzeugen.\nBeim Übergeben einer Funktion schreibt man den Funktionsnamen meist ohne Klammern.\n\nMerksatz:\n\nFunktionales Programmieren bedeutet: Funktionen sind nicht nur Werkzeuge, sondern selbst Objekte, mit denen man arbeiten kann.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben-1",
+    "href": "chapters/03-daten-transformieren.html#übungsaufgaben-1",
+    "title": "4  Daten transformieren",
+    "section": "6.17 Übungsaufgaben",
+    "text": "6.17 Übungsaufgaben\n\n6.17.1 Aufgabe\nErstellen Sie ein Programm, das eine Körpertemperatur bewertet:\n\nunter 37.5: Normal\n37.5 bis 38: erhöht\nüber 38: Fieber\n\n\n\n6.17.2 Aufgabe\nBerechnen Sie mit einer for-Schleife die Summe der Werte:\nc(3, 5, 7, 2)\n\n\n6.17.3 Aufgabe\nSimulieren Sie Zellteilungen mit einer while-Schleife, bis 10.000 Zellen erreicht sind.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
   }
 ]

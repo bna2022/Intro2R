@@ -2004,7 +2004,7 @@ Ausgabe:
 
 ## Übungsaufgaben
 
-### Aufgabe 1
+### Aufgabe
 
 Erstellen Sie eine Funktion `bewerte_temperatur()`, die eine Körpertemperatur bewertet.
 
@@ -2022,7 +2022,7 @@ temperaturen <- c(36.9, 37.6, 38.2, 39.0)
 
 ---
 
-### Aufgabe 2
+### Aufgabe
 
 Gegeben sei der folgende Vektor:
 
@@ -2040,7 +2040,7 @@ Das gewünschte Ergebnis ist:
 
 ---
 
-### Aufgabe 3
+### Aufgabe
 
 Schreiben Sie eine Funktion `analyse()`, die einen Vektor und eine Funktion als Argument erhält.
 
@@ -2054,7 +2054,7 @@ analyse(c(4, 8, 10, 12), max)
 
 ---
 
-### Aufgabe 4
+### Aufgabe
 
 Erweitern Sie die Funktion `analyse()` so, dass zusätzliche Argumente weitergegeben werden können.
 
@@ -2068,7 +2068,7 @@ analyse(werte, mean, na.rm = TRUE)
 
 ---
 
-### Aufgabe 5
+### Aufgabe
 
 Schreiben Sie eine Funktion `kleiner_als()`, die eine neue Funktion erzeugt.
 
@@ -2111,7 +2111,7 @@ Merksatz:
 
 ## Übungsaufgaben
 
-### Aufgabe 1
+### Aufgabe
 
 Erstellen Sie ein Programm, das eine Körpertemperatur bewertet:
 
@@ -2119,7 +2119,7 @@ Erstellen Sie ein Programm, das eine Körpertemperatur bewertet:
 -   37.5 bis 38: erhöht
 -   über 38: Fieber
 
-### Aufgabe 2
+### Aufgabe
 
 Berechnen Sie mit einer `for`-Schleife die Summe der Werte:
 
@@ -2127,7 +2127,7 @@ Berechnen Sie mit einer `for`-Schleife die Summe der Werte:
 c(3, 5, 7, 2)
 ```
 
-### Aufgabe 3
+### Aufgabe
 
 Simulieren Sie Zellteilungen mit einer `while`-Schleife, bis 10.000 Zellen erreicht sind.
 
