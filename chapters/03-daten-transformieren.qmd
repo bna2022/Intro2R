@@ -5,7 +5,16 @@ title: "Daten transformieren"
 ::: {.callout-tip title="Lernziele"}
 Lernziele dieses Kapitels sind:
 
--   die wichtigsten Kontrollstrukturen kennen
+Nach diesem Kapitel können Sie:
+
+- **Kontrollstrukturen** wie `if`, `else`, `for`, `while` und `repeat` in R einsetzen.
+- Bedingungen und Wiederholungen im Code formulieren.
+- die Grundidee der **apply-Funktionen** erklären.
+- `apply()`, `lapply()`, `sapply()`, `tapply()` und `mapply()` ihrem jeweiligen Einsatzbereich zuordnen.
+- erklären, was **funktionales Programmieren** in R bedeutet.
+- Funktionen als Objekte speichern, weitergeben und als Argumente verwenden.
+- anonyme Funktionen in apply-Funktionen einsetzen.
+- entscheiden, wann eine Schleife, eine apply-Funktion oder eine eigene Funktion sinnvoll ist.
 :::
 
 ## Kontrollstrukturen
