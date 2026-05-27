@@ -313,94 +313,909 @@ Hier wird `x` nie verändert. Dadurch endet die Schleife nicht.
 
 # apply-Funktionen
 
-Die apply-Familie ersetzt oft Schleifen.
+Die `apply`-Familie besteht aus mehreren Funktionen, mit denen man eine
+Funktion wiederholt auf mehrere Elemente eines Objekts anwenden kann.
 
-Vorteile:
+Sie wird häufig verwendet, wenn man sonst eine Schleife schreiben würde.
 
-- kürzerer Code  
-- übersichtlicher  
-- oft schneller  
-- leichter lesbar  
+Typische Anwendungen sind:
+
+- Mittelwerte mehrerer Spalten berechnen
+- Funktionen auf jede Spalte eines Data Frames anwenden
+- Gruppenweise Kennwerte berechnen
+- Mehrere Vektoren gleichzeitig verarbeiten
+- Datentypen prüfen
+- fehlende Werte zählen
+
+Die wichtigsten Funktionen sind:
+
+| Funktion | Typischer Einsatz | Ergebnis |
+|---|---|---|
+| `apply()` | Matrizen, Zeilen oder Spalten | Vektor, Matrix oder Liste |
+| `lapply()` | Listen oder Data Frames | immer Liste |
+| `sapply()` | Listen oder Data Frames | vereinfachtes Ergebnis |
+| `tapply()` | Werte nach Gruppen auswerten | gruppiertes Ergebnis |
+| `mapply()` | mehrere Vektoren gleichzeitig | Vektor, Matrix oder Liste |
 
 ---
 
-## apply()
+## Grundidee der apply-Funktionen
 
-Für Matrizen oder Data Frames.
+Viele Aufgaben folgen demselben Muster:
 
-**Syntax**
+> Nimm mehrere Elemente und wende auf jedes Element dieselbe Funktion an.
+
+Zum Beispiel:
 
 ```r
-apply(objekt, margin, funktion)
+x <- list(
+  a = c(1, 2, 3),
+  b = c(4, 5, 6),
+  c = c(7, 8, 9)
+)
 ```
 
-- `margin = 1` → zeilenweise  
-- `margin = 2` → spaltenweise  
+
+Wir möchten für jedes Element den Mittelwert berechnen.
+
+Mit einer Schleife:
+
+```r
+ergebnis <- list()
+
+for (i in names(x)) {
+  ergebnis[[i]] <- mean(x[[i]])
+}
+
+ergebnis
+```
+
+Mit `lapply()` kürzer:
+
+```r
+lapply(x, mean)
+```
+
+Die apply-Funktion übernimmt hier die Wiederholung.
 
 ---
 
-**Beispiel: Mittelwert pro Spalte**
+## `apply()`
 
-```{r echo = TRUE,tidy = TRUE}
-daten <- matrix(c(5,6,7,8,9,10), nrow = 3)
+`apply()` wird vor allem bei Matrizen verwendet.
 
-apply(daten, 2, mean)
+Allgemeine Form:
+
+```r
+apply(X, MARGIN, FUN)
 ```
 
-**Beispiel: Maximum pro Zeile**
+Dabei bedeutet:
 
-```{r echo = TRUE,tidy = TRUE}
-apply(daten, 1, max)
+| Argument | Bedeutung |
+|---|---|
+| `X` | Objekt, meist Matrix |
+| `MARGIN = 1` | Funktion zeilenweise anwenden |
+| `MARGIN = 2` | Funktion spaltenweise anwenden |
+| `FUN` | Funktion, die angewendet werden soll |
+
+---
+
+### Beispielmatrix
+
+```r
+werte <- matrix(
+  c(5, 6, 7,
+    8, 9, 10,
+    11, 12, 13),
+  nrow = 3,
+  byrow = TRUE
+)
+
+werte
+```
+
+Die Matrix sieht so aus:
+
+```r
+     [,1] [,2] [,3]
+[1,]    5    6    7
+[2,]    8    9   10
+[3,]   11   12   13
 ```
 
 ---
 
-## lapply()
+### `apply()` zeilenweise
 
-Gibt immer eine **Liste** zurück.
+Mit `MARGIN = 1` wird die Funktion auf jede Zeile angewendet.
 
-```{r echo = TRUE,tidy = TRUE}
-werte <- list(a = 1:3, b = 4:6)
+```r
+apply(werte, 1, mean)
+```
+
+Ausgabe:
+
+```r
+[1]  6  9 12
+```
+
+Erklärung:
+
+```r
+mean(c(5, 6, 7))
+mean(c(8, 9, 10))
+mean(c(11, 12, 13))
+```
+
+R berechnet also den Mittelwert jeder Zeile.
+
+---
+
+### `apply()` spaltenweise
+
+Mit `MARGIN = 2` wird die Funktion auf jede Spalte angewendet.
+
+```r
+apply(werte, 2, mean)
+```
+
+Ausgabe:
+
+```r
+[1]  8  9 10
+```
+
+Erklärung:
+
+```r
+mean(c(5, 8, 11))
+mean(c(6, 9, 12))
+mean(c(7, 10, 13))
+```
+
+R berechnet also den Mittelwert jeder Spalte.
+
+---
+
+### Weitere Beispiele mit `apply()`
+
+Maximum pro Zeile:
+
+```r
+apply(werte, 1, max)
+```
+
+Minimum pro Spalte:
+
+```r
+apply(werte, 2, min)
+```
+
+Summe pro Zeile:
+
+```r
+apply(werte, 1, sum)
+```
+
+Standardabweichung pro Spalte:
+
+```r
+apply(werte, 2, sd)
+```
+
+---
+
+### `apply()` mit eigener Funktion
+
+Man kann auch eigene Funktionen verwenden.
+
+```r
+apply(werte, 1, function(x) max(x) - min(x))
+```
+
+Hier wird für jede Zeile die Spannweite berechnet.
+
+Ausgabe:
+
+```r
+[1] 2 2 2
+```
+
+Die anonyme Funktion
+
+```r
+function(x) max(x) - min(x)
+```
+
+nimmt jeweils eine Zeile entgegen und berechnet:
+
+```r
+größter Wert - kleinster Wert
+```
+
+---
+
+### Wichtiger Hinweis zu Data Frames
+
+`apply()` kann auch auf Data Frames angewendet werden, ist dort aber mit Vorsicht zu verwenden.
+
+Beispiel:
+
+```r
+df <- data.frame(
+  alter = c(23, 34, 45),
+  groesse = c(1.70, 1.82, 1.65)
+)
+
+apply(df, 2, mean)
+```
+
+Das funktioniert, weil alle Spalten numerisch sind.
+
+Problematisch wird es bei gemischten Datentypen:
+
+```r
+df2 <- data.frame(
+  name = c("Anna", "Ben", "Clara"),
+  alter = c(23, 34, 45),
+  groesse = c(1.70, 1.82, 1.65)
+)
+
+apply(df2, 2, mean)
+```
+
+Hier kann es zu Problemen kommen, weil `apply()` den Data Frame intern oft in eine Matrix umwandelt.
+
+Eine Matrix kann aber nur einen Datentyp enthalten. Wenn eine Textspalte vorhanden ist, werden deshalb häufig auch die numerischen Werte in Text umgewandelt.
+
+Für Data Frames sind deshalb oft `lapply()` oder `sapply()` besser geeignet.
+
+---
+
+
+## `lapply()`
+
+`lapply()` steht für **list apply**.
+
+Allgemeine Form:
+
+```r
+lapply(X, FUN)
+```
+
+Wichtig:
+
+> `lapply()` gibt immer eine Liste zurück.
+
+---
+
+### Beispiel mit Liste
+
+```r
+messwerte <- list(
+  patient_a = c(120, 125, 130),
+  patient_b = c(140, 138, 142),
+  patient_c = c(110, 115, 118)
+)
+
+lapply(messwerte, mean)
+```
+
+Ausgabe:
+
+```r
+$patient_a
+[1] 125
+
+$patient_b
+[1] 140
+
+$patient_c
+[1] 114.3333
+```
+
+Jedes Listenelement wird einzeln an `mean()` übergeben.
+
+---
+
+### `lapply()` bei Data Frames
+
+Ein Data Frame ist intern eine Liste von Spalten.
+
+Deshalb kann man `lapply()` sehr gut auf Data Frames anwenden.
+
+```r
+daten <- data.frame(
+  alter = c(23, 34, 45),
+  gewicht = c(65, 82, 74),
+  puls = c(70, 80, 76)
+)
+
+lapply(daten, mean)
+```
+
+Ausgabe:
+
+```r
+$alter
+[1] 34
+
+$gewicht
+[1] 73.66667
+
+$puls
+[1] 75.33333
+```
+
+Hier wird der Mittelwert für jede Spalte berechnet.
+
+---
+
+### Datentypen mit `lapply()` prüfen
+
+```r
+lapply(daten, class)
+```
+
+Ausgabe:
+
+```r
+$alter
+[1] "numeric"
+
+$gewicht
+[1] "numeric"
+
+$puls
+[1] "numeric"
+```
+
+Das ist besonders hilfreich, wenn man einen Data Frame untersucht.
+
+---
+
+### `lapply()` mit eigener Funktion
+
+```r
+lapply(daten, function(x) {
+  c(
+    mittelwert = mean(x),
+    minimum = min(x),
+    maximum = max(x)
+  )
+})
+```
+
+Ausgabe:
+
+```r
+$alter
+mittelwert   minimum   maximum 
+       34        23        45 
+
+$gewicht
+mittelwert   minimum   maximum 
+ 73.66667        65        82 
+
+$puls
+mittelwert   minimum   maximum 
+ 75.33333        70        80
+```
+
+Hier wird auf jede Spalte dieselbe kleine Auswertungsfunktion angewendet.
+
+---
+
+## `sapply()`
+
+`sapply()` ist ähnlich wie `lapply()`.
+
+Der wichtigste Unterschied:
+
+> `sapply()` versucht, das Ergebnis zu vereinfachen.
+
+Das bedeutet:
+
+- Wenn möglich, wird eine Liste in einen Vektor umgewandelt.
+- Wenn möglich, wird eine Liste in eine Matrix umgewandelt.
+- Wenn das nicht eindeutig möglich ist, bleibt das Ergebnis eine Liste.
+
+---
+
+### Beispiel: `lapply()` versus `sapply()`
+
+```r
+werte <- list(
+  a = c(1, 2, 3),
+  b = c(4, 5, 6)
+)
 
 lapply(werte, mean)
 ```
 
+Ausgabe:
 
----
+```r
+$a
+[1] 2
 
-## sapply()
+$b
+[1] 5
+```
 
-Versucht das Ergebnis zu vereinfachen.
+Mit `sapply()`:
 
-```{r echo = TRUE,tidy = TRUE}
+```r
 sapply(werte, mean)
 ```
 
+Ausgabe:
+
+```r
+a b 
+2 5
+```
+
+Das Ergebnis ist jetzt ein Vektor.
+
 ---
 
-## tapply()
+### `sapply()` bei Data Frames
 
-Wendet Funktionen auf Gruppen an.
+```r
+sapply(daten, mean)
+```
 
-**Beispiel: Mittlere Glucose nach Gruppe**
+Ausgabe:
 
-```{r echo = TRUE,tidy = TRUE}
-glucose <- c(90, 100, 130, 140)
-gruppe  <- c("Kontrolle", "Kontrolle", "Diabetes", "Diabetes")
+```r
+   alter  gewicht      puls 
+34.00000 73.66667 75.33333
+```
 
-tapply(glucose, gruppe, mean)
+Das ist oft praktischer als `lapply()`, wenn man einen übersichtlichen numerischen Ergebnisvektor möchte.
+
+---
+
+### `sapply()` zum Prüfen von Datentypen
+
+```r
+patienten <- data.frame(
+  id = c("P001", "P002", "P003"),
+  alter = c(45, 52, 39),
+  gruppe = c("Kontrolle", "Therapie", "Therapie"),
+  crp = c(3.2, 7.8, 5.1)
+)
+
+sapply(patienten, class)
+```
+
+Mögliche Ausgabe:
+
+```r
+         id       alter      gruppe         crp 
+"character"   "numeric" "character"   "numeric"
+```
+
+Das ist eine sehr typische Anwendung von `sapply()`.
+
+---
+
+### `sapply()` mit logischer Prüfung
+
+Man kann mit `sapply()` prüfen, welche Spalten numerisch sind.
+
+```r
+sapply(patienten, is.numeric)
+```
+
+Ausgabe:
+
+```r
+    id  alter gruppe    crp 
+ FALSE   TRUE  FALSE   TRUE
+```
+
+Damit sieht man sofort, auf welche Spalten man mathematische Funktionen anwenden kann.
+
+---
+
+### Mittelwerte nur für numerische Spalten berechnen
+
+```r
+numerisch <- sapply(patienten, is.numeric)
+
+sapply(patienten[numerisch], mean)
+```
+
+Ausgabe:
+
+```r
+alter   crp 
+45.33  5.37
+```
+
+Das ist sehr praktisch bei Data Frames mit gemischten Datentypen.
+
+---
+
+## `tapply()`
+
+`tapply()` wird verwendet, wenn Werte nach Gruppen ausgewertet werden sollen.
+
+Allgemeine Form:
+
+```r
+tapply(X, INDEX, FUN)
+```
+
+Dabei bedeutet:
+
+| Argument | Bedeutung |
+|---|---|
+| `X` | numerischer Vektor mit Werten |
+| `INDEX` | Gruppierungsvariable |
+| `FUN` | Funktion, die pro Gruppe angewendet wird |
+
+---
+
+### Beispiel: Mittelwert nach Gruppe
+
+```r
+crp <- c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)
+gruppe <- c("Kontrolle", "Kontrolle", "Therapie",
+            "Therapie", "Therapie", "Kontrolle")
+
+tapply(crp, gruppe, mean)
+```
+
+Ausgabe:
+
+```r
+Kontrolle  Therapie 
+ 3.366667  6.733333
+```
+
+Hier wird der Mittelwert von `crp` getrennt nach Gruppe berechnet.
+
+---
+
+### `tapply()` mit anderen Funktionen
+
+Maximum pro Gruppe:
+
+```r
+tapply(crp, gruppe, max)
+```
+
+Minimum pro Gruppe:
+
+```r
+tapply(crp, gruppe, min)
+```
+
+Median pro Gruppe:
+
+```r
+tapply(crp, gruppe, median)
+```
+
+Standardabweichung pro Gruppe:
+
+```r
+tapply(crp, gruppe, sd)
 ```
 
 ---
 
-## mapply()
-
-Mehrere Vektoren gleichzeitig.
+### `tapply()` mit Data-Frame-Spalten
 
 ```r
-mapply(function(x, y) x + y,
-       c(1,2,3),
-       c(10,20,30))
+lab <- data.frame(
+  patient_id = c("P001", "P002", "P003", "P004", "P005", "P006"),
+  gruppe = c("Kontrolle", "Kontrolle", "Therapie",
+             "Therapie", "Therapie", "Kontrolle"),
+  alter = c(45, 52, 39, 61, 48, 55),
+  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)
+)
+
+tapply(lab$crp_mg_l, lab$gruppe, mean)
+```
+
+Ausgabe:
+
+```r
+Kontrolle  Therapie 
+ 3.366667  6.733333
+```
+
+---
+
+### Mehrere Kennwerte mit `tapply()`
+
+`tapply()` kann auch mit selbst geschriebenen Funktionen kombiniert werden.
+
+```r
+tapply(lab$crp_mg_l, lab$gruppe, function(x) {
+  c(
+    mittelwert = mean(x),
+    median = median(x),
+    maximum = max(x)
+  )
+})
+```
+
+Das Ergebnis ist etwas komplexer, weil pro Gruppe mehrere Werte berechnet werden.
+
+Eine übersichtlichere Variante ist:
+
+```r
+aggregate(crp_mg_l ~ gruppe, data = lab, FUN = mean)
+```
+
+Oder für mehrere Kennwerte:
+
+```r
+aggregate(crp_mg_l ~ gruppe, data = lab, FUN = function(x) {
+  c(
+    mittelwert = mean(x),
+    median = median(x),
+    maximum = max(x)
+  )
+})
+```
+
+Für den Einstieg ist `tapply()` aber sehr gut geeignet, um das Prinzip gruppierter Berechnungen zu verstehen.
+
+---
+
+## `mapply()`
+
+`mapply()` wird verwendet, wenn eine Funktion mehrere Eingaben gleichzeitig braucht.
+
+Allgemeine Form:
+
+```r
+mapply(FUN, ...)
+```
+
+Dabei steht `...` für mehrere Vektoren oder Listen, die parallel verarbeitet werden.
+
+---
+
+### Einfaches Beispiel
+
+```r
+x <- c(1, 2, 3)
+y <- c(10, 20, 30)
+
+mapply(function(a, b) a + b, x, y)
+```
+
+Ausgabe:
+
+```r
+[1] 11 22 33
+```
+
+Das entspricht:
+
+```r
+1 + 10
+2 + 20
+3 + 30
+```
+
+---
+
+### Beispiel: BMI berechnen
+
+```r
+gewicht <- c(70, 82, 65)
+groesse <- c(1.75, 1.82, 1.68)
+
+mapply(function(g, h) g / h^2, gewicht, groesse)
+```
+
+Ausgabe:
+
+```r
+[1] 22.85714 24.75546 23.03005
+```
+
+Hier bekommt die Funktion immer zwei Werte gleichzeitig:
+
+```r
+gewicht[1] und groesse[1]
+gewicht[2] und groesse[2]
+gewicht[3] und groesse[3]
+```
+
+---
+
+### `mapply()` mit benannter Funktion
+
+Man kann zuerst eine eigene Funktion schreiben:
+
+```r
+bmi <- function(gewicht, groesse) {
+  gewicht / groesse^2
+}
+```
+
+Dann kann man diese Funktion mit `mapply()` verwenden:
+
+```r
+mapply(bmi, gewicht, groesse)
+```
+
+Das ist oft übersichtlicher als eine anonyme Funktion.
+
+---
+
+## apply-Funktionen im Vergleich
+
+### Beispiel-Datensatz
+
+```r
+lab <- data.frame(
+  patient_id = c("P001", "P002", "P003", "P004", "P005", "P006"),
+  gruppe = c("Kontrolle", "Kontrolle", "Therapie",
+             "Therapie", "Therapie", "Kontrolle"),
+  alter = c(45, 52, 39, 61, 48, 55),
+  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),
+  glucose = c(90, 95, 130, 125, 118, 88)
+)
+```
+
+---
+
+### Welche Spalten sind numerisch?
+
+```r
+sapply(lab, is.numeric)
+```
+
+Ausgabe:
+
+```r
+patient_id     gruppe      alter   crp_mg_l    glucose 
+     FALSE      FALSE       TRUE       TRUE       TRUE
+```
+
+---
+
+### Mittelwerte aller numerischen Spalten
+
+```r
+num_spalten <- sapply(lab, is.numeric)
+
+sapply(lab[num_spalten], mean)
+```
+
+Ausgabe:
+
+```r
+    alter  crp_mg_l   glucose 
+50.000000  5.050000 107.666667
+```
+
+---
+
+### Mittelwert von CRP nach Gruppe
+
+```r
+tapply(lab$crp_mg_l, lab$gruppe, mean)
+```
+
+Ausgabe:
+
+```r
+Kontrolle  Therapie 
+ 3.366667  6.733333
+```
+
+---
+
+### Maximum von Glucose nach Gruppe
+
+```r
+tapply(lab$glucose, lab$gruppe, max)
+```
+
+Ausgabe:
+
+```r
+Kontrolle  Therapie 
+       95       130
+```
+
+---
+
+## Typische Fehler
+
+### Fehler 1: `apply()` auf gemischte Data Frames anwenden
+
+```r
+apply(lab, 2, mean)
+```
+
+Problem:
+
+Der Data Frame enthält Textspalten wie `patient_id` und `gruppe`.
+Dadurch kann `mean()` nicht sinnvoll auf alle Spalten angewendet werden.
+
+Besser:
+
+```r
+num_spalten <- sapply(lab, is.numeric)
+
+sapply(lab[num_spalten], mean)
+```
+
+---
+
+### Fehler 2: `lapply()` gibt eine Liste zurück
+
+```r
+lapply(lab[num_spalten], mean)
+```
+
+Das Ergebnis ist eine Liste.
+
+Wenn man lieber einen Vektor möchte:
+
+```r
+sapply(lab[num_spalten], mean)
+```
+
+---
+
+### Fehler 3: `MARGIN` bei `apply()` verwechseln
+
+```r
+apply(werte, 1, mean)
+```
+
+bedeutet zeilenweise.
+
+```r
+apply(werte, 2, mean)
+```
+
+bedeutet spaltenweise.
+
+Merksatz:
+
+> `1` steht für Zeilen, `2` steht für Spalten.
+
+---
+
+### Fehler 4: Fehlende Werte nicht beachten
+
+```r
+x <- c(3, 4, NA, 6)
+
+mean(x)
+```
+
+Ausgabe:
+
+```r
+[1] NA
+```
+
+Besser:
+
+```r
+mean(x, na.rm = TRUE)
+```
+
+Das funktioniert auch mit apply-Funktionen:
+
+```r
+sapply(lab[num_spalten], mean, na.rm = TRUE)
 ```
 
 ---
