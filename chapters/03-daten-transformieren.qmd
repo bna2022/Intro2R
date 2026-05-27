@@ -1222,57 +1222,615 @@ sapply(lab[num_spalten], mean, na.rm = TRUE)
 
 # Funktionales Programmieren
 
-Hier werden Funktionen wie Daten behandelt:
+Im vorherigen Abschnitt wurden die `apply`-Funktionen eingeführt. Dort stand vor allem die Frage im Mittelpunkt:
 
-- Funktionen an Funktionen übergeben  
-- Funktionen erzeugen Funktionen  
-- anonyme Funktionen verwenden  
+> Wie kann eine Funktion auf mehrere Elemente angewendet werden?
+
+Funktionales Programmieren geht einen Schritt weiter. Hier werden Funktionen selbst als Objekte behandelt. Das bedeutet:
+
+- Funktionen können gespeichert werden.
+- Funktionen können an andere Funktionen übergeben werden.
+- Funktionen können innerhalb anderer Funktionen erzeugt werden.
+- Funktionen können direkt dort definiert werden, wo sie gebraucht werden.
+
+In R ist das besonders wichtig, weil viele Arbeitsschritte in der Datenanalyse immer wieder nach demselben Muster ablaufen:
+
+> Nimm Daten, wende eine Funktion darauf an und gib ein Ergebnis zurück.
+
+---
+
+## Funktionen sind Objekte
+
+In R kann eine Funktion wie ein anderes Objekt gespeichert werden.
+
+```r
+quadrat <- function(x) {
+  x^2
+}
+```
+
+Hier wird eine Funktion erstellt und im Objekt `quadrat` gespeichert.
+
+Die Funktion kann anschließend wie gewohnt aufgerufen werden:
+
+```r
+quadrat(4)
+```
+
+Ausgabe:
+
+```r
+[1] 16
+```
+
+Wichtig ist der Unterschied zwischen dem Funktionsobjekt und dem Funktionsaufruf.
+
+```r
+quadrat
+```
+
+Ausgabe:
+
+```r
+function(x) {
+  x^2
+}
+```
+
+Hier wird die Funktion selbst angezeigt.
+
+```r
+quadrat(4)
+```
+
+Ausgabe:
+
+```r
+[1] 16
+```
+
+Hier wird die Funktion ausgeführt.
+
+Merksatz:
+
+> Ohne Klammern sieht man die Funktion.  
+> Mit Klammern wird die Funktion ausgeführt.
+
+---
+
+## Warum ist das nützlich?
+
+Dass Funktionen als Objekte behandelt werden können, macht R sehr flexibel. Zum Beispiel können wir eine Funktion speichern:
+
+```r
+kennzahl <- mean
+```
+
+Nun enthält `kennzahl` die Funktion `mean()`.
+
+```r
+kennzahl(c(2, 4, 6))
+```
+
+Ausgabe:
+
+```r
+[1] 4
+```
+
+Das wirkt zunächst ungewohnt, zeigt aber eine wichtige Idee:
+
+> Funktionen können wie andere Objekte weitergegeben und verwendet werden.
+
+Diese Idee steckt auch hinter vielen `apply`-Funktionen.
+
+```r
+werte <- list(
+  a = c(2, 4, 6),
+  b = c(10, 20, 30)
+)
+
+sapply(werte, mean)
+```
+
+Ausgabe:
+
+```r
+ a  b 
+ 4 20 
+```
+
+Hier wird die Funktion `mean` an `sapply()` übergeben. `sapply()` entscheidet, auf welche Elemente `mean()` angewendet wird.
 
 ---
 
 ## Anonyme Funktionen
 
-```{r echo = TRUE,tidy = TRUE}
+Manchmal braucht man eine Funktion nur ein einziges Mal. Dann muss man ihr keinen eigenen Namen geben. Eine solche Funktion nennt man **anonyme Funktion**.
+
+Beispiel:
+
+```r
 sapply(1:5, function(x) x^2)
 ```
 
+Ausgabe:
+
+```r
+[1]  1  4  9 16 25
+```
+
+Die Funktion
+
+```r
+function(x) x^2
+```
+
+wird direkt innerhalb von `sapply()` definiert. Sie hat keinen Namen, sondern wird sofort verwendet.
+
 ---
 
-**Beispiel: Log-Transformation**
+## Anonyme Funktionen Schritt für Schritt
 
-```{r echo = TRUE,tidy = TRUE}
+Der folgende Ausdruck kann zunächst schwer lesbar sein:
+
+```r
+sapply(1:5, function(x) x^2)
+```
+
+Man kann ihn so lesen:
+
+1. Nimm die Werte `1:5`.
+2. Wende auf jeden Wert eine Funktion an.
+3. Die Funktion heißt hier nicht extra.
+4. Für jeden Wert `x` wird `x^2` berechnet.
+
+Die anonyme Funktion ist also:
+
+```r
+function(x) x^2
+```
+
+Sie entspricht inhaltlich dieser benannten Funktion:
+
+```r
+quadrat <- function(x) {
+  x^2
+}
+
+sapply(1:5, quadrat)
+```
+
+Ausgabe:
+
+```r
+[1]  1  4  9 16 25
+```
+
+Beide Varianten liefern dasselbe Ergebnis.
+
+Der Unterschied ist:
+
+- `quadrat` ist eine benannte Funktion.
+- `function(x) x^2` ist eine anonyme Funktion.
+
+---
+
+## Wann verwendet man anonyme Funktionen?
+
+Anonyme Funktionen sind besonders praktisch, wenn eine Berechnung sehr kurz ist und nur an einer Stelle gebraucht wird.
+
+Beispiel: Logarithmieren von Messwerten.
+
+```r
 werte <- c(1, 10, 100)
 
 sapply(werte, function(x) log10(x))
 ```
 
+Ausgabe:
+
+```r
+[1] 0 1 2
+```
+
+Hier wäre es möglich, vorher eine eigene Funktion zu definieren:
+
+```r
+log_transform <- function(x) {
+  log10(x)
+}
+
+sapply(werte, log_transform)
+```
+
+Ausgabe:
+
+```r
+[1] 0 1 2
+```
+
+Für eine kurze einmalige Berechnung ist die anonyme Funktion aber kompakter.
+
+---
+
+## Beispiel: Messwerte klassifizieren
+
+Anonyme Funktionen können auch Bedingungen enthalten.
+
+```r
+temperatur <- c(36.8, 37.6, 38.4, 39.1)
+
+sapply(temperatur, function(x) {
+  if (x < 37.5) {
+    "normal"
+  } else if (x < 38) {
+    "erhöht"
+  } else {
+    "Fieber"
+  }
+})
+```
+
+Ausgabe:
+
+```r
+[1] "normal" "erhöht" "Fieber" "Fieber"
+```
+
+Hier wird jede Temperatur einzeln bewertet. Die Funktion bekommt jeweils einen einzelnen Wert `x` und gibt eine Kategorie zurück.
+
 ---
 
 ## Funktionen als Argumente
 
-```{r echo = TRUE,tidy = TRUE}
+Eine Funktion kann an eine andere Funktion übergeben werden. Das wurde bei den `apply`-Funktionen bereits genutzt. Man kann dieses Prinzip auch in eigenen Funktionen verwenden.
+
+```r
 analyse <- function(x, FUN) {
   FUN(x)
 }
-
-analyse(c(1,2,3), mean)
-analyse(c(1,2,3), sd)
 ```
+
+Diese Funktion hat zwei Argumente:
+
+| Argument | Bedeutung |
+|---|---|
+| `x` | Daten, die ausgewertet werden sollen |
+| `FUN` | Funktion, die auf `x` angewendet werden soll |
+
+Beispiel:
+
+```r
+analyse(c(1, 2, 3), mean)
+```
+
+Ausgabe:
+
+```r
+[1] 2
+```
+
+Nun mit einer anderen Funktion:
+
+```r
+analyse(c(1, 2, 3), sd)
+```
+
+Ausgabe:
+
+```r
+[1] 1
+```
+
+Die Funktion `analyse()` bleibt gleich. Nur die übergebene Funktion ändert sich.
+
+---
+
+## Warum Funktionen als Argumente hilfreich sind
+
+Das folgende Beispiel zeigt den Vorteil. Ohne funktionales Programmieren könnte man mehrere einzelne Funktionen schreiben:
+
+```r
+analyse_mittelwert <- function(x) {
+  mean(x)
+}
+
+analyse_standardabweichung <- function(x) {
+  sd(x)
+}
+
+analyse_median <- function(x) {
+  median(x)
+}
+```
+
+Das ist möglich, aber wiederholt viel Struktur.
+
+Mit einer Funktion, die eine andere Funktion als Argument erhält, wird der Code allgemeiner:
+
+```r
+analyse <- function(x, FUN) {
+  FUN(x)
+}
+```
+
+Nun kann dieselbe Funktion unterschiedliche Kennzahlen berechnen:
+
+```r
+werte <- c(4, 8, 10, 12)
+
+analyse(werte, mean)
+analyse(werte, median)
+analyse(werte, sd)
+```
+
+Ausgabe:
+
+```r
+[1] 8.5
+[1] 9
+[1] 3.41565
+```
+
+Die zentrale Idee lautet:
+
+> Nicht die Analysefunktion wird jedes Mal neu geschrieben, sondern die gewünschte Auswertungsfunktion wird übergeben.
+
+---
+
+## Zusätzliche Argumente weitergeben
+
+Viele Funktionen benötigen zusätzliche Argumente.
+
+Beispiel:
+
+```r
+werte <- c(4, 8, NA, 12)
+
+mean(werte)
+```
+
+Ausgabe:
+
+```r
+[1] NA
+```
+
+Mit `na.rm = TRUE` werden fehlende Werte ignoriert:
+
+```r
+mean(werte, na.rm = TRUE)
+```
+
+Ausgabe:
+
+```r
+[1] 8
+```
+
+Unsere Funktion `analyse()` kann so erweitert werden, dass zusätzliche Argumente weitergegeben werden.
+
+```r
+analyse <- function(x, FUN, ...) {
+  FUN(x, ...)
+}
+```
+
+Die drei Punkte `...` bedeuten:
+
+> Weitere Argumente werden an die innere Funktion weitergereicht.
+
+Jetzt funktioniert:
+
+```r
+analyse(werte, mean, na.rm = TRUE)
+```
+
+Ausgabe:
+
+```r
+[1] 8
+```
+
+Das ist ein sehr häufiges Muster in R.
 
 ---
 
 ## Funktionen erzeugen Funktionen
 
-```{r echo = TRUE,tidy = TRUE}
-multiplier <- function(faktor) {
-  function(x) x * faktor
-}
+Funktionen können nicht nur Werte zurückgeben. Sie können auch neue Funktionen zurückgeben.
 
+Beispiel:
+
+```r
+multiplier <- function(faktor) {
+  function(x) {
+    x * faktor
+  }
+}
+```
+
+Diese Funktion erzeugt eine neue Funktion.
+
+```r
 mal2 <- multiplier(2)
 mal5 <- multiplier(5)
+```
 
+Nun sind `mal2` und `mal5` selbst Funktionen.
+
+```r
 mal2(10)
+```
+
+Ausgabe:
+
+```r
+[1] 20
+```
+
+```r
 mal5(10)
+```
+
+Ausgabe:
+
+```r
+[1] 50
+```
+
+---
+
+## Funktionen erzeugen Funktionen: Schrittweise Erklärung
+
+Die Funktion `multiplier()` bekommt einen Faktor.
+
+```r
+multiplier <- function(faktor) {
+  function(x) {
+    x * faktor
+  }
+}
+```
+
+Wenn wir schreiben:
+
+```r
+mal2 <- multiplier(2)
+```
+
+dann wird eine neue Funktion erzeugt.
+
+Diese neue Funktion merkt sich den Faktor `2`.
+
+Sie verhält sich ungefähr so:
+
+```r
+mal2 <- function(x) {
+  x * 2
+}
+```
+
+Entsprechend erzeugt
+
+```r
+mal5 <- multiplier(5)
+```
+
+eine Funktion, die mit `5` multipliziert.
+
+```r
+mal5 <- function(x) {
+  x * 5
+}
+```
+
+Der wichtige Gedanke ist:
+
+> Eine Funktion kann eine andere Funktion bauen.
+
+---
+
+## Beispiel: Grenzwertprüfungen erzeugen
+
+Ein praktisches Beispiel ist das Erzeugen von Prüf-Funktionen.
+
+```r
+groesser_als <- function(grenze) {
+  function(x) {
+    x > grenze
+  }
+}
+```
+
+Nun können spezielle Prüf-Funktionen erzeugt werden.
+
+```r
+groesser_als_5 <- groesser_als(5)
+groesser_als_10 <- groesser_als(10)
+```
+
+Anwendung:
+
+```r
+groesser_als_5(c(3, 6, 9))
+```
+
+Ausgabe:
+
+```r
+[1] FALSE  TRUE  TRUE
+```
+
+```r
+groesser_als_10(c(3, 6, 12))
+```
+
+Ausgabe:
+
+```r
+[1] FALSE FALSE  TRUE
+```
+
+Die Funktion `groesser_als()` erzeugt also Funktionen, die jeweils eine bestimmte Grenze prüfen.
+
+---
+
+## Beispiel mit Patientendaten
+
+```r
+patienten <- data.frame(
+  patient_id = c("P001", "P002", "P003", "P004", "P005"),
+  crp_mg_l = c(3.2, 6.1, 8.4, 2.9, 5.7)
+)
+```
+
+Wir erzeugen eine Funktion, die prüft, ob ein Wert über einer bestimmten Grenze liegt.
+
+```r
+ueber_grenze <- function(grenze) {
+  function(x) {
+    x > grenze
+  }
+}
+```
+
+Nun erstellen wir eine konkrete Prüf-Funktion.
+
+```r
+crp_erhoeht <- ueber_grenze(5)
+```
+
+Anwendung auf die CRP-Werte:
+
+```r
+crp_erhoeht(patienten$crp_mg_l)
+```
+
+Ausgabe:
+
+```r
+[1] FALSE  TRUE  TRUE FALSE  TRUE
+```
+
+Das Ergebnis kann als neue Spalte gespeichert werden:
+
+```r
+patienten$crp_erhoeht <- crp_erhoeht(patienten$crp_mg_l)
+
+patienten
+```
+
+Ausgabe:
+
+```r
+  patient_id crp_mg_l crp_erhoeht
+1       P001      3.2       FALSE
+2       P002      6.1        TRUE
+3       P003      8.4        TRUE
+4       P004      2.9       FALSE
+5       P005      5.7        TRUE
 ```
 
 ---
@@ -1281,32 +1839,266 @@ mal5(10)
 
 ### Funktion nicht aufrufen
 
+Ein häufiger Fehler ist, dass eine Funktion ohne Klammern geschrieben wird.
+
 ```r
-bmi
+quadrat
 ```
 
-statt:
+Das zeigt nur die Funktion an.
+
+Die Funktion wird dadurch nicht ausgeführt.
+
+Richtig ist:
 
 ```r
-bmi(72, 1.78)
+quadrat(4)
+```
+
+Ausgabe:
+
+```r
+[1] 16
+```
+
+Merksatz:
+
+> Eine Funktion wird erst durch runde Klammern ausgeführt.
+
+---
+
+### Argumente vergessen
+
+Wenn eine Funktion ein Argument erwartet, muss dieses beim Aufruf angegeben werden.
+
+```r
+quadrat <- function(x) {
+  x^2
+}
+
+quadrat()
+```
+
+Das führt zu einem Fehler, weil `x` fehlt.
+
+Richtig:
+
+```r
+quadrat(5)
+```
+
+Ausgabe:
+
+```r
+[1] 25
 ```
 
 ---
 
-### Falscher Rückgabetyp bei lapply
+### Funktion und Funktionsaufruf verwechseln
+
+Bei `sapply()` und ähnlichen Funktionen wird häufig eine Funktion übergeben.
 
 ```r
-lapply(df, mean)
+sapply(1:5, sqrt)
 ```
 
-liefert Liste, kein Vektor.
-
-Falls Vektor gewünscht:
+Ausgabe:
 
 ```r
-sapply(df, mean)
+[1] 1.000000 1.414214 1.732051 2.000000 2.236068
 ```
 
+Hier steht `sqrt` ohne Klammern.
+
+Das ist richtig, weil `sapply()` die Funktion selbst benötigt.
+
+Falsch wäre:
+
+```r
+sapply(1:5, sqrt())
+```
+
+Hier würde `sqrt()` sofort aufgerufen werden, aber ohne Argument.
+
+Merksatz:
+
+> Wenn eine Funktion übergeben wird, schreibt man meistens den Funktionsnamen ohne Klammern.
+
+---
+
+### Rückgabetyp nicht beachten
+
+Anonyme Funktionen können unterschiedliche Rückgabetypen erzeugen.
+
+Beispiel:
+
+```r
+werte <- c(1, 2, 3)
+
+sapply(werte, function(x) {
+  if (x > 1) {
+    x * 10
+  } else {
+    "klein"
+  }
+})
+```
+
+Ausgabe:
+
+```r
+[1] "klein" "20"    "30"
+```
+
+Da einmal Text zurückgegeben wird, wandelt R auch die Zahlen in Text um.
+
+Besser ist es, innerhalb einer Funktion möglichst einheitliche Rückgabetypen zu verwenden.
+
+Zum Beispiel nur Text:
+
+```r
+sapply(werte, function(x) {
+  if (x > 1) {
+    "größer als 1"
+  } else {
+    "klein"
+  }
+})
+```
+
+Ausgabe:
+
+```r
+[1] "klein"        "größer als 1" "größer als 1"
+```
+
+Oder nur Zahlen:
+
+```r
+sapply(werte, function(x) {
+  if (x > 1) {
+    x * 10
+  } else {
+    NA
+  }
+})
+```
+
+Ausgabe:
+
+```r
+[1] NA 20 30
+```
+
+---
+
+## Übungsaufgaben
+
+### Aufgabe 1
+
+Erstellen Sie eine Funktion `bewerte_temperatur()`, die eine Körpertemperatur bewertet.
+
+Regeln:
+
+- unter 37.5: `"normal"`
+- 37.5 bis unter 38: `"erhöht"`
+- ab 38: `"Fieber"`
+
+Wenden Sie die Funktion anschließend mit `sapply()` auf diesen Vektor an:
+
+```r
+temperaturen <- c(36.9, 37.6, 38.2, 39.0)
+```
+
+---
+
+### Aufgabe 2
+
+Gegeben sei der folgende Vektor:
+
+```r
+werte <- c(2, 4, 6, 8, 10)
+```
+
+Verwenden Sie `sapply()` mit einer anonymen Funktion, um jeden Wert durch seinen Maximalwert zu teilen.
+
+Das gewünschte Ergebnis ist:
+
+```r
+[1] 0.2 0.4 0.6 0.8 1.0
+```
+
+---
+
+### Aufgabe 3
+
+Schreiben Sie eine Funktion `analyse()`, die einen Vektor und eine Funktion als Argument erhält.
+
+Die Funktion soll so aufgerufen werden können:
+
+```r
+analyse(c(4, 8, 10, 12), mean)
+analyse(c(4, 8, 10, 12), median)
+analyse(c(4, 8, 10, 12), max)
+```
+
+---
+
+### Aufgabe 4
+
+Erweitern Sie die Funktion `analyse()` so, dass zusätzliche Argumente weitergegeben werden können.
+
+Die Funktion soll zum Beispiel mit fehlenden Werten funktionieren:
+
+```r
+werte <- c(4, 8, NA, 12)
+
+analyse(werte, mean, na.rm = TRUE)
+```
+
+---
+
+### Aufgabe 5
+
+Schreiben Sie eine Funktion `kleiner_als()`, die eine neue Funktion erzeugt.
+
+Beispiel:
+
+```r
+kleiner_als_10 <- kleiner_als(10)
+
+kleiner_als_10(c(5, 12, 8, 20))
+```
+
+Gewünschte Ausgabe:
+
+```r
+[1]  TRUE FALSE  TRUE FALSE
+```
+
+---
+
+
+## Zusammenfassung
+
+Funktionales Programmieren bedeutet in R, dass Funktionen selbst als Objekte behandelt werden.
+
+Wichtige Punkte:
+
+- Funktionen können gespeichert werden.
+- Funktionen können ohne direkten Aufruf an andere Funktionen übergeben werden.
+- Anonyme Funktionen sind nützlich für kurze einmalige Berechnungen.
+- Eigene Funktionen können andere Funktionen als Argument erhalten.
+- Mit `...` können zusätzliche Argumente weitergegeben werden.
+- Funktionen können neue Funktionen erzeugen.
+- Beim Übergeben einer Funktion schreibt man den Funktionsnamen meist ohne Klammern.
+
+Merksatz:
+
+> Funktionales Programmieren bedeutet: Funktionen sind nicht nur Werkzeuge, sondern selbst Objekte, mit denen man arbeiten kann.
+
+---
 
 ## Übungsaufgaben
 

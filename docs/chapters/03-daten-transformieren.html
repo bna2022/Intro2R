@@ -266,19 +266,40 @@ background-size: cover;
   </ul></li>
   <li><a href="#funktionales-programmieren" id="toc-funktionales-programmieren" class="nav-link" data-scroll-target="#funktionales-programmieren"><span class="header-section-number">6</span> Funktionales Programmieren</a>
   <ul class="collapse">
-  <li><a href="#anonyme-funktionen" id="toc-anonyme-funktionen" class="nav-link" data-scroll-target="#anonyme-funktionen"><span class="header-section-number">6.1</span> Anonyme Funktionen</a></li>
-  <li><a href="#funktionen-als-argumente" id="toc-funktionen-als-argumente" class="nav-link" data-scroll-target="#funktionen-als-argumente"><span class="header-section-number">6.2</span> Funktionen als Argumente</a></li>
-  <li><a href="#funktionen-erzeugen-funktionen" id="toc-funktionen-erzeugen-funktionen" class="nav-link" data-scroll-target="#funktionen-erzeugen-funktionen"><span class="header-section-number">6.3</span> Funktionen erzeugen Funktionen</a></li>
-  <li><a href="#typische-fehler-2" id="toc-typische-fehler-2" class="nav-link" data-scroll-target="#typische-fehler-2"><span class="header-section-number">6.4</span> Typische Fehler</a>
+  <li><a href="#funktionen-sind-objekte" id="toc-funktionen-sind-objekte" class="nav-link" data-scroll-target="#funktionen-sind-objekte"><span class="header-section-number">6.1</span> Funktionen sind Objekte</a></li>
+  <li><a href="#warum-ist-das-nützlich" id="toc-warum-ist-das-nützlich" class="nav-link" data-scroll-target="#warum-ist-das-nützlich"><span class="header-section-number">6.2</span> Warum ist das nützlich?</a></li>
+  <li><a href="#anonyme-funktionen" id="toc-anonyme-funktionen" class="nav-link" data-scroll-target="#anonyme-funktionen"><span class="header-section-number">6.3</span> Anonyme Funktionen</a></li>
+  <li><a href="#anonyme-funktionen-schritt-für-schritt" id="toc-anonyme-funktionen-schritt-für-schritt" class="nav-link" data-scroll-target="#anonyme-funktionen-schritt-für-schritt"><span class="header-section-number">6.4</span> Anonyme Funktionen Schritt für Schritt</a></li>
+  <li><a href="#wann-verwendet-man-anonyme-funktionen" id="toc-wann-verwendet-man-anonyme-funktionen" class="nav-link" data-scroll-target="#wann-verwendet-man-anonyme-funktionen"><span class="header-section-number">6.5</span> Wann verwendet man anonyme Funktionen?</a></li>
+  <li><a href="#beispiel-messwerte-klassifizieren" id="toc-beispiel-messwerte-klassifizieren" class="nav-link" data-scroll-target="#beispiel-messwerte-klassifizieren"><span class="header-section-number">6.6</span> Beispiel: Messwerte klassifizieren</a></li>
+  <li><a href="#funktionen-als-argumente" id="toc-funktionen-als-argumente" class="nav-link" data-scroll-target="#funktionen-als-argumente"><span class="header-section-number">6.7</span> Funktionen als Argumente</a></li>
+  <li><a href="#warum-funktionen-als-argumente-hilfreich-sind" id="toc-warum-funktionen-als-argumente-hilfreich-sind" class="nav-link" data-scroll-target="#warum-funktionen-als-argumente-hilfreich-sind"><span class="header-section-number">6.8</span> Warum Funktionen als Argumente hilfreich sind</a></li>
+  <li><a href="#zusätzliche-argumente-weitergeben" id="toc-zusätzliche-argumente-weitergeben" class="nav-link" data-scroll-target="#zusätzliche-argumente-weitergeben"><span class="header-section-number">6.9</span> Zusätzliche Argumente weitergeben</a></li>
+  <li><a href="#funktionen-erzeugen-funktionen" id="toc-funktionen-erzeugen-funktionen" class="nav-link" data-scroll-target="#funktionen-erzeugen-funktionen"><span class="header-section-number">6.10</span> Funktionen erzeugen Funktionen</a></li>
+  <li><a href="#funktionen-erzeugen-funktionen-schrittweise-erklärung" id="toc-funktionen-erzeugen-funktionen-schrittweise-erklärung" class="nav-link" data-scroll-target="#funktionen-erzeugen-funktionen-schrittweise-erklärung"><span class="header-section-number">6.11</span> Funktionen erzeugen Funktionen: Schrittweise Erklärung</a></li>
+  <li><a href="#beispiel-grenzwertprüfungen-erzeugen" id="toc-beispiel-grenzwertprüfungen-erzeugen" class="nav-link" data-scroll-target="#beispiel-grenzwertprüfungen-erzeugen"><span class="header-section-number">6.12</span> Beispiel: Grenzwertprüfungen erzeugen</a></li>
+  <li><a href="#beispiel-mit-patientendaten" id="toc-beispiel-mit-patientendaten" class="nav-link" data-scroll-target="#beispiel-mit-patientendaten"><span class="header-section-number">6.13</span> Beispiel mit Patientendaten</a></li>
+  <li><a href="#typische-fehler-2" id="toc-typische-fehler-2" class="nav-link" data-scroll-target="#typische-fehler-2"><span class="header-section-number">6.14</span> Typische Fehler</a>
   <ul class="collapse">
-  <li><a href="#funktion-nicht-aufrufen" id="toc-funktion-nicht-aufrufen" class="nav-link" data-scroll-target="#funktion-nicht-aufrufen"><span class="header-section-number">6.4.1</span> Funktion nicht aufrufen</a></li>
-  <li><a href="#falscher-rückgabetyp-bei-lapply" id="toc-falscher-rückgabetyp-bei-lapply" class="nav-link" data-scroll-target="#falscher-rückgabetyp-bei-lapply"><span class="header-section-number">6.4.2</span> Falscher Rückgabetyp bei lapply</a></li>
+  <li><a href="#funktion-nicht-aufrufen" id="toc-funktion-nicht-aufrufen" class="nav-link" data-scroll-target="#funktion-nicht-aufrufen"><span class="header-section-number">6.14.1</span> Funktion nicht aufrufen</a></li>
+  <li><a href="#argumente-vergessen" id="toc-argumente-vergessen" class="nav-link" data-scroll-target="#argumente-vergessen"><span class="header-section-number">6.14.2</span> Argumente vergessen</a></li>
+  <li><a href="#funktion-und-funktionsaufruf-verwechseln" id="toc-funktion-und-funktionsaufruf-verwechseln" class="nav-link" data-scroll-target="#funktion-und-funktionsaufruf-verwechseln"><span class="header-section-number">6.14.3</span> Funktion und Funktionsaufruf verwechseln</a></li>
+  <li><a href="#rückgabetyp-nicht-beachten" id="toc-rückgabetyp-nicht-beachten" class="nav-link" data-scroll-target="#rückgabetyp-nicht-beachten"><span class="header-section-number">6.14.4</span> Rückgabetyp nicht beachten</a></li>
   </ul></li>
-  <li><a href="#übungsaufgaben" id="toc-übungsaufgaben" class="nav-link" data-scroll-target="#übungsaufgaben"><span class="header-section-number">6.5</span> Übungsaufgaben</a>
+  <li><a href="#übungsaufgaben" id="toc-übungsaufgaben" class="nav-link" data-scroll-target="#übungsaufgaben"><span class="header-section-number">6.15</span> Übungsaufgaben</a>
   <ul class="collapse">
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link" data-scroll-target="#aufgabe-1"><span class="header-section-number">6.5.1</span> Aufgabe 1</a></li>
-  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2"><span class="header-section-number">6.5.2</span> Aufgabe 2</a></li>
-  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3"><span class="header-section-number">6.5.3</span> Aufgabe 3</a></li>
+  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link" data-scroll-target="#aufgabe-1"><span class="header-section-number">6.15.1</span> Aufgabe 1</a></li>
+  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2"><span class="header-section-number">6.15.2</span> Aufgabe 2</a></li>
+  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3"><span class="header-section-number">6.15.3</span> Aufgabe 3</a></li>
+  <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4"><span class="header-section-number">6.15.4</span> Aufgabe 4</a></li>
+  <li><a href="#aufgabe-5" id="toc-aufgabe-5" class="nav-link" data-scroll-target="#aufgabe-5"><span class="header-section-number">6.15.5</span> Aufgabe 5</a></li>
+  </ul></li>
+  <li><a href="#zusammenfassung-1" id="toc-zusammenfassung-1" class="nav-link" data-scroll-target="#zusammenfassung-1"><span class="header-section-number">6.16</span> Zusammenfassung</a></li>
+  <li><a href="#übungsaufgaben-1" id="toc-übungsaufgaben-1" class="nav-link" data-scroll-target="#übungsaufgaben-1"><span class="header-section-number">6.17</span> Übungsaufgaben</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-1-1" id="toc-aufgabe-1-1" class="nav-link" data-scroll-target="#aufgabe-1-1"><span class="header-section-number">6.17.1</span> Aufgabe 1</a></li>
+  <li><a href="#aufgabe-2-1" id="toc-aufgabe-2-1" class="nav-link" data-scroll-target="#aufgabe-2-1"><span class="header-section-number">6.17.2</span> Aufgabe 2</a></li>
+  <li><a href="#aufgabe-3-1" id="toc-aufgabe-3-1" class="nav-link" data-scroll-target="#aufgabe-3-1"><span class="header-section-number">6.17.3</span> Aufgabe 3</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -1312,95 +1333,523 @@ background-size: cover;
 </section>
 <section id="funktionales-programmieren" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Funktionales Programmieren</h1>
-<p>Hier werden Funktionen wie Daten behandelt:</p>
+<p>Im vorherigen Abschnitt wurden die <code>apply</code>-Funktionen eingeführt. Dort stand vor allem die Frage im Mittelpunkt:</p>
+<blockquote class="blockquote">
+<p>Wie kann eine Funktion auf mehrere Elemente angewendet werden?</p>
+</blockquote>
+<p>Funktionales Programmieren geht einen Schritt weiter. Hier werden Funktionen selbst als Objekte behandelt. Das bedeutet:</p>
 <ul>
-<li>Funktionen an Funktionen übergeben<br>
-</li>
-<li>Funktionen erzeugen Funktionen<br>
-</li>
-<li>anonyme Funktionen verwenden</li>
+<li>Funktionen können gespeichert werden.</li>
+<li>Funktionen können an andere Funktionen übergeben werden.</li>
+<li>Funktionen können innerhalb anderer Funktionen erzeugt werden.</li>
+<li>Funktionen können direkt dort definiert werden, wo sie gebraucht werden.</li>
+</ul>
+<p>In R ist das besonders wichtig, weil viele Arbeitsschritte in der Datenanalyse immer wieder nach demselben Muster ablaufen:</p>
+<blockquote class="blockquote">
+<p>Nimm Daten, wende eine Funktion darauf an und gib ein Ergebnis zurück.</p>
+</blockquote>
+<hr>
+<section id="funktionen-sind-objekte" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="funktionen-sind-objekte"><span class="header-section-number">6.1</span> Funktionen sind Objekte</h2>
+<p>In R kann eine Funktion wie ein anderes Objekt gespeichert werden.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>quadrat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wird eine Funktion erstellt und im Objekt <code>quadrat</code> gespeichert.</p>
+<p>Die Funktion kann anschließend wie gewohnt aufgerufen werden:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadrat</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Wichtig ist der Unterschied zwischen dem Funktionsobjekt und dem Funktionsaufruf.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>quadrat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x) {</span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wird die Funktion selbst angezeigt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadrat</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wird die Funktion ausgeführt.</p>
+<p>Merksatz:</p>
+<blockquote class="blockquote">
+<p>Ohne Klammern sieht man die Funktion.<br>
+Mit Klammern wird die Funktion ausgeführt.</p>
+</blockquote>
+<hr>
+</section>
+<section id="warum-ist-das-nützlich" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="warum-ist-das-nützlich"><span class="header-section-number">6.2</span> Warum ist das nützlich?</h2>
+<p>Dass Funktionen als Objekte behandelt werden können, macht R sehr flexibel. Zum Beispiel können wir eine Funktion speichern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>kennzahl <span class="ot">&lt;-</span> mean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun enthält <code>kennzahl</code> die Funktion <code>mean()</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kennzahl</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das wirkt zunächst ungewohnt, zeigt aber eine wichtige Idee:</p>
+<blockquote class="blockquote">
+<p>Funktionen können wie andere Objekte weitergegeben und verwendet werden.</p>
+</blockquote>
+<p>Diese Idee steckt auch hinter vielen <code>apply</code>-Funktionen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),</span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a> a  b </span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span> <span class="dv">20</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wird die Funktion <code>mean</code> an <code>sapply()</code> übergeben. <code>sapply()</code> entscheidet, auf welche Elemente <code>mean()</code> angewendet wird.</p>
+<hr>
+</section>
+<section id="anonyme-funktionen" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="anonyme-funktionen"><span class="header-section-number">6.3</span> Anonyme Funktionen</h2>
+<p>Manchmal braucht man eine Funktion nur ein einziges Mal. Dann muss man ihr keinen eigenen Namen geben. Eine solche Funktion nennt man <strong>anonyme Funktion</strong>.</p>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">1</span>  <span class="dv">4</span>  <span class="dv">9</span> <span class="dv">16</span> <span class="dv">25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Funktion</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>wird direkt innerhalb von <code>sapply()</code> definiert. Sie hat keinen Namen, sondern wird sofort verwendet.</p>
+<hr>
+</section>
+<section id="anonyme-funktionen-schritt-für-schritt" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="anonyme-funktionen-schritt-für-schritt"><span class="header-section-number">6.4</span> Anonyme Funktionen Schritt für Schritt</h2>
+<p>Der folgende Ausdruck kann zunächst schwer lesbar sein:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Man kann ihn so lesen:</p>
+<ol type="1">
+<li>Nimm die Werte <code>1:5</code>.</li>
+<li>Wende auf jeden Wert eine Funktion an.</li>
+<li>Die Funktion heißt hier nicht extra.</li>
+<li>Für jeden Wert <code>x</code> wird <code>x^2</code> berechnet.</li>
+</ol>
+<p>Die anonyme Funktion ist also:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sie entspricht inhaltlich dieser benannten Funktion:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>quadrat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, quadrat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">1</span>  <span class="dv">4</span>  <span class="dv">9</span> <span class="dv">16</span> <span class="dv">25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Beide Varianten liefern dasselbe Ergebnis.</p>
+<p>Der Unterschied ist:</p>
+<ul>
+<li><code>quadrat</code> ist eine benannte Funktion.</li>
+<li><code>function(x) x^2</code> ist eine anonyme Funktion.</li>
 </ul>
 <hr>
-<section id="anonyme-funktionen" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="anonyme-funktionen"><span class="header-section-number">6.1</span> Anonyme Funktionen</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  1  4  9 16 25</code></pre>
-</div>
-</div>
-<hr>
-<p><strong>Beispiel: Log-Transformation</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) <span class="fu">log10</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0 1 2</code></pre>
-</div>
-</div>
-<hr>
 </section>
-<section id="funktionen-als-argumente" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="funktionen-als-argumente"><span class="header-section-number">6.2</span> Funktionen als Argumente</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN) {</span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">FUN</span>(x)</span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
+<section id="wann-verwendet-man-anonyme-funktionen" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="wann-verwendet-man-anonyme-funktionen"><span class="header-section-number">6.5</span> Wann verwendet man anonyme Funktionen?</h2>
+<p>Anonyme Funktionen sind besonders praktisch, wenn eine Berechnung sehr kurz ist und nur an einer Stelle gebraucht wird.</p>
+<p>Beispiel: Logarithmieren von Messwerten.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) <span class="fu">log10</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">1</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wäre es möglich, vorher eine eigene Funktion zu definieren:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>log_transform <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log10</span>(x)</span>
+<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, log_transform)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">1</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Für eine kurze einmalige Berechnung ist die anonyme Funktion aber kompakter.</p>
 <hr>
 </section>
-<section id="funktionen-erzeugen-funktionen" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="funktionen-erzeugen-funktionen"><span class="header-section-number">6.3</span> Funktionen erzeugen Funktionen</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>multiplier <span class="ot">&lt;-</span> <span class="cf">function</span>(faktor) {</span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">function</span>(x) x <span class="sc">*</span> faktor</span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>mal2 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">2</span>)</span>
-<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>mal5 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">5</span>)</span>
-<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mal2</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mal5</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 50</code></pre>
-</div>
-</div>
+<section id="beispiel-messwerte-klassifizieren" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="beispiel-messwerte-klassifizieren"><span class="header-section-number">6.6</span> Beispiel: Messwerte klassifizieren</h2>
+<p>Anonyme Funktionen können auch Bedingungen enthalten.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>temperatur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">36.8</span>, <span class="fl">37.6</span>, <span class="fl">38.4</span>, <span class="fl">39.1</span>)</span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(temperatur, <span class="cf">function</span>(x) {</span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="fl">37.5</span>) {</span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"normal"</span></span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">38</span>) {</span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"erhöht"</span></span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fieber"</span></span>
+<span id="cb138-10"><a href="#cb138-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb138-11"><a href="#cb138-11" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"normal"</span> <span class="st">"erhöht"</span> <span class="st">"Fieber"</span> <span class="st">"Fieber"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier wird jede Temperatur einzeln bewertet. Die Funktion bekommt jeweils einen einzelnen Wert <code>x</code> und gibt eine Kategorie zurück.</p>
 <hr>
 </section>
-<section id="typische-fehler-2" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="typische-fehler-2"><span class="header-section-number">6.4</span> Typische Fehler</h2>
-<section id="funktion-nicht-aufrufen" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="funktion-nicht-aufrufen"><span class="header-section-number">6.4.1</span> Funktion nicht aufrufen</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>bmi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>statt:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bmi</span>(<span class="dv">72</span>, <span class="fl">1.78</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="funktionen-als-argumente" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="funktionen-als-argumente"><span class="header-section-number">6.7</span> Funktionen als Argumente</h2>
+<p>Eine Funktion kann an eine andere Funktion übergeben werden. Das wurde bei den <code>apply</code>-Funktionen bereits genutzt. Man kann dieses Prinzip auch in eigenen Funktionen verwenden.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN) {</span>
+<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">FUN</span>(x)</span>
+<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Diese Funktion hat zwei Argumente:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x</code></td>
+<td>Daten, die ausgewertet werden sollen</td>
+</tr>
+<tr class="even">
+<td><code>FUN</code></td>
+<td>Funktion, die auf <code>x</code> angewendet werden soll</td>
+</tr>
+</tbody>
+</table>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun mit einer anderen Funktion:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Funktion <code>analyse()</code> bleibt gleich. Nur die übergebene Funktion ändert sich.</p>
 <hr>
 </section>
-<section id="falscher-rückgabetyp-bei-lapply" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="falscher-rückgabetyp-bei-lapply"><span class="header-section-number">6.4.2</span> Falscher Rückgabetyp bei lapply</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(df, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>liefert Liste, kein Vektor.</p>
-<p>Falls Vektor gewünscht:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="warum-funktionen-als-argumente-hilfreich-sind" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="warum-funktionen-als-argumente-hilfreich-sind"><span class="header-section-number">6.8</span> Warum Funktionen als Argumente hilfreich sind</h2>
+<p>Das folgende Beispiel zeigt den Vorteil. Ohne funktionales Programmieren könnte man mehrere einzelne Funktionen schreiben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>analyse_mittelwert <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)</span>
+<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb145-4"><a href="#cb145-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a>analyse_standardabweichung <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb145-6"><a href="#cb145-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)</span>
+<span id="cb145-7"><a href="#cb145-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb145-8"><a href="#cb145-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-9"><a href="#cb145-9" aria-hidden="true" tabindex="-1"></a>analyse_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb145-10"><a href="#cb145-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">median</span>(x)</span>
+<span id="cb145-11"><a href="#cb145-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das ist möglich, aber wiederholt viel Struktur.</p>
+<p>Mit einer Funktion, die eine andere Funktion als Argument erhält, wird der Code allgemeiner:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN) {</span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">FUN</span>(x)</span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun kann dieselbe Funktion unterschiedliche Kennzahlen berechnen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(werte, mean)</span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(werte, median)</span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(werte, sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">8.5</span></span>
+<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">9</span></span>
+<span id="cb148-3"><a href="#cb148-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">3.41565</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die zentrale Idee lautet:</p>
+<blockquote class="blockquote">
+<p>Nicht die Analysefunktion wird jedes Mal neu geschrieben, sondern die gewünschte Auswertungsfunktion wird übergeben.</p>
+</blockquote>
+<hr>
+</section>
+<section id="zusätzliche-argumente-weitergeben" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="zusätzliche-argumente-weitergeben"><span class="header-section-number">6.9</span> Zusätzliche Argumente weitergeben</h2>
+<p>Viele Funktionen benötigen zusätzliche Argumente.</p>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">12</span>)</span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(werte)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mit <code>na.rm = TRUE</code> werden fehlende Werte ignoriert:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(werte, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unsere Funktion <code>analyse()</code> kann so erweitert werden, dass zusätzliche Argumente weitergegeben werden.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN, ...) {</span>
+<span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">FUN</span>(x, ...)</span>
+<span id="cb153-3"><a href="#cb153-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die drei Punkte <code>...</code> bedeuten:</p>
+<blockquote class="blockquote">
+<p>Weitere Argumente werden an die innere Funktion weitergereicht.</p>
+</blockquote>
+<p>Jetzt funktioniert:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(werte, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das ist ein sehr häufiges Muster in R.</p>
+<hr>
+</section>
+<section id="funktionen-erzeugen-funktionen" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="funktionen-erzeugen-funktionen"><span class="header-section-number">6.10</span> Funktionen erzeugen Funktionen</h2>
+<p>Funktionen können nicht nur Werte zurückgeben. Sie können auch neue Funktionen zurückgeben.</p>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>multiplier <span class="ot">&lt;-</span> <span class="cf">function</span>(faktor) {</span>
+<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">*</span> faktor</span>
+<span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Diese Funktion erzeugt eine neue Funktion.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>mal2 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">2</span>)</span>
+<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a>mal5 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun sind <code>mal2</code> und <code>mal5</code> selbst Funktionen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mal2</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mal5</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="funktionen-erzeugen-funktionen-schrittweise-erklärung" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="funktionen-erzeugen-funktionen-schrittweise-erklärung"><span class="header-section-number">6.11</span> Funktionen erzeugen Funktionen: Schrittweise Erklärung</h2>
+<p>Die Funktion <code>multiplier()</code> bekommt einen Faktor.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>multiplier <span class="ot">&lt;-</span> <span class="cf">function</span>(faktor) {</span>
+<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">*</span> faktor</span>
+<span id="cb162-4"><a href="#cb162-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb162-5"><a href="#cb162-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Wenn wir schreiben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a>mal2 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>dann wird eine neue Funktion erzeugt.</p>
+<p>Diese neue Funktion merkt sich den Faktor <code>2</code>.</p>
+<p>Sie verhält sich ungefähr so:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>mal2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Entsprechend erzeugt</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>mal5 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>eine Funktion, die mit <code>5</code> multipliziert.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>mal5 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Der wichtige Gedanke ist:</p>
+<blockquote class="blockquote">
+<p>Eine Funktion kann eine andere Funktion bauen.</p>
+</blockquote>
+<hr>
+</section>
+<section id="beispiel-grenzwertprüfungen-erzeugen" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="beispiel-grenzwertprüfungen-erzeugen"><span class="header-section-number">6.12</span> Beispiel: Grenzwertprüfungen erzeugen</h2>
+<p>Ein praktisches Beispiel ist das Erzeugen von Prüf-Funktionen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>groesser_als <span class="ot">&lt;-</span> <span class="cf">function</span>(grenze) {</span>
+<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">&gt;</span> grenze</span>
+<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb167-5"><a href="#cb167-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun können spezielle Prüf-Funktionen erzeugt werden.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a>groesser_als_5 <span class="ot">&lt;-</span> <span class="fu">groesser_als</span>(<span class="dv">5</span>)</span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>groesser_als_10 <span class="ot">&lt;-</span> <span class="fu">groesser_als</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Anwendung:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groesser_als_5</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span>  <span class="cn">TRUE</span>  <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groesser_als_10</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Funktion <code>groesser_als()</code> erzeugt also Funktionen, die jeweils eine bestimmte Grenze prüfen.</p>
+<hr>
+</section>
+<section id="beispiel-mit-patientendaten" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="beispiel-mit-patientendaten"><span class="header-section-number">6.13</span> Beispiel mit Patientendaten</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>patienten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">patient_id =</span> <span class="fu">c</span>(<span class="st">"P001"</span>, <span class="st">"P002"</span>, <span class="st">"P003"</span>, <span class="st">"P004"</span>, <span class="st">"P005"</span>),</span>
+<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">crp_mg_l =</span> <span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">6.1</span>, <span class="fl">8.4</span>, <span class="fl">2.9</span>, <span class="fl">5.7</span>)</span>
+<span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Wir erzeugen eine Funktion, die prüft, ob ein Wert über einer bestimmten Grenze liegt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>ueber_grenze <span class="ot">&lt;-</span> <span class="cf">function</span>(grenze) {</span>
+<span id="cb174-2"><a href="#cb174-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb174-3"><a href="#cb174-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">&gt;</span> grenze</span>
+<span id="cb174-4"><a href="#cb174-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb174-5"><a href="#cb174-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nun erstellen wir eine konkrete Prüf-Funktion.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>crp_erhoeht <span class="ot">&lt;-</span> <span class="fu">ueber_grenze</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Anwendung auf die CRP-Werte:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb176"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crp_erhoeht</span>(patienten<span class="sc">$</span>crp_mg_l)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span>  <span class="cn">TRUE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das Ergebnis kann als neue Spalte gespeichert werden:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb178"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>patienten<span class="sc">$</span>crp_erhoeht <span class="ot">&lt;-</span> <span class="fu">crp_erhoeht</span>(patienten<span class="sc">$</span>crp_mg_l)</span>
+<span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="#cb178-3" aria-hidden="true" tabindex="-1"></a>patienten</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>  patient_id crp_mg_l crp_erhoeht</span>
+<span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>       P001      <span class="fl">3.2</span>       <span class="cn">FALSE</span></span>
+<span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>       P002      <span class="fl">6.1</span>        <span class="cn">TRUE</span></span>
+<span id="cb179-4"><a href="#cb179-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>       P003      <span class="fl">8.4</span>        <span class="cn">TRUE</span></span>
+<span id="cb179-5"><a href="#cb179-5" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>       P004      <span class="fl">2.9</span>       <span class="cn">FALSE</span></span>
+<span id="cb179-6"><a href="#cb179-6" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>       P005      <span class="fl">5.7</span>        <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="typische-fehler-2" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="typische-fehler-2"><span class="header-section-number">6.14</span> Typische Fehler</h2>
+<section id="funktion-nicht-aufrufen" class="level3" data-number="6.14.1">
+<h3 data-number="6.14.1" class="anchored" data-anchor-id="funktion-nicht-aufrufen"><span class="header-section-number">6.14.1</span> Funktion nicht aufrufen</h3>
+<p>Ein häufiger Fehler ist, dass eine Funktion ohne Klammern geschrieben wird.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb180"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a>quadrat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das zeigt nur die Funktion an.</p>
+<p>Die Funktion wird dadurch nicht ausgeführt.</p>
+<p>Richtig ist:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadrat</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Merksatz:</p>
+<blockquote class="blockquote">
+<p>Eine Funktion wird erst durch runde Klammern ausgeführt.</p>
+</blockquote>
+<hr>
+</section>
+<section id="argumente-vergessen" class="level3" data-number="6.14.2">
+<h3 data-number="6.14.2" class="anchored" data-anchor-id="argumente-vergessen"><span class="header-section-number">6.14.2</span> Argumente vergessen</h3>
+<p>Wenn eine Funktion ein Argument erwartet, muss dieses beim Aufruf angegeben werden.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a>quadrat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quadrat</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das führt zu einem Fehler, weil <code>x</code> fehlt.</p>
+<p>Richtig:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadrat</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb185"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="funktion-und-funktionsaufruf-verwechseln" class="level3" data-number="6.14.3">
+<h3 data-number="6.14.3" class="anchored" data-anchor-id="funktion-und-funktionsaufruf-verwechseln"><span class="header-section-number">6.14.3</span> Funktion und Funktionsaufruf verwechseln</h3>
+<p>Bei <code>sapply()</code> und ähnlichen Funktionen wird häufig eine Funktion übergeben.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, sqrt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1.000000</span> <span class="fl">1.414214</span> <span class="fl">1.732051</span> <span class="fl">2.000000</span> <span class="fl">2.236068</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier steht <code>sqrt</code> ohne Klammern.</p>
+<p>Das ist richtig, weil <code>sapply()</code> die Funktion selbst benötigt.</p>
+<p>Falsch wäre:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">sqrt</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier würde <code>sqrt()</code> sofort aufgerufen werden, aber ohne Argument.</p>
+<p>Merksatz:</p>
+<blockquote class="blockquote">
+<p>Wenn eine Funktion übergeben wird, schreibt man meistens den Funktionsnamen ohne Klammern.</p>
+</blockquote>
+<hr>
+</section>
+<section id="rückgabetyp-nicht-beachten" class="level3" data-number="6.14.4">
+<h3 data-number="6.14.4" class="anchored" data-anchor-id="rückgabetyp-nicht-beachten"><span class="header-section-number">6.14.4</span> Rückgabetyp nicht beachten</h3>
+<p>Anonyme Funktionen können unterschiedliche Rückgabetypen erzeugen.</p>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb189-2"><a href="#cb189-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) {</span>
+<span id="cb189-4"><a href="#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb189-5"><a href="#cb189-5" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb189-6"><a href="#cb189-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb189-7"><a href="#cb189-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"klein"</span></span>
+<span id="cb189-8"><a href="#cb189-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb189-9"><a href="#cb189-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb190"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"klein"</span> <span class="st">"20"</span>    <span class="st">"30"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Da einmal Text zurückgegeben wird, wandelt R auch die Zahlen in Text um.</p>
+<p>Besser ist es, innerhalb einer Funktion möglichst einheitliche Rückgabetypen zu verwenden.</p>
+<p>Zum Beispiel nur Text:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) {</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb191-3"><a href="#cb191-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"größer als 1"</span></span>
+<span id="cb191-4"><a href="#cb191-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb191-5"><a href="#cb191-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"klein"</span></span>
+<span id="cb191-6"><a href="#cb191-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb191-7"><a href="#cb191-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"klein"</span>        <span class="st">"größer als 1"</span> <span class="st">"größer als 1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Oder nur Zahlen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) {</span>
+<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb193-3"><a href="#cb193-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb193-4"><a href="#cb193-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb193-5"><a href="#cb193-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA</span></span>
+<span id="cb193-6"><a href="#cb193-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb193-7"><a href="#cb193-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">NA</span> <span class="dv">20</span> <span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
 </section>
-<section id="übungsaufgaben" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="übungsaufgaben"><span class="header-section-number">6.5</span> Übungsaufgaben</h2>
-<section id="aufgabe-1" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="aufgabe-1"><span class="header-section-number">6.5.1</span> Aufgabe 1</h3>
+<section id="übungsaufgaben" class="level2" data-number="6.15">
+<h2 data-number="6.15" class="anchored" data-anchor-id="übungsaufgaben"><span class="header-section-number">6.15</span> Übungsaufgaben</h2>
+<section id="aufgabe-1" class="level3" data-number="6.15.1">
+<h3 data-number="6.15.1" class="anchored" data-anchor-id="aufgabe-1"><span class="header-section-number">6.15.1</span> Aufgabe 1</h3>
+<p>Erstellen Sie eine Funktion <code>bewerte_temperatur()</code>, die eine Körpertemperatur bewertet.</p>
+<p>Regeln:</p>
+<ul>
+<li>unter 37.5: <code>"normal"</code></li>
+<li>37.5 bis unter 38: <code>"erhöht"</code></li>
+<li>ab 38: <code>"Fieber"</code></li>
+</ul>
+<p>Wenden Sie die Funktion anschließend mit <code>sapply()</code> auf diesen Vektor an:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>temperaturen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">36.9</span>, <span class="fl">37.6</span>, <span class="fl">38.2</span>, <span class="fl">39.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="aufgabe-2" class="level3" data-number="6.15.2">
+<h3 data-number="6.15.2" class="anchored" data-anchor-id="aufgabe-2"><span class="header-section-number">6.15.2</span> Aufgabe 2</h3>
+<p>Gegeben sei der folgende Vektor:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Verwenden Sie <code>sapply()</code> mit einer anonymen Funktion, um jeden Wert durch seinen Maximalwert zu teilen.</p>
+<p>Das gewünschte Ergebnis ist:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.2</span> <span class="fl">0.4</span> <span class="fl">0.6</span> <span class="fl">0.8</span> <span class="fl">1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="aufgabe-3" class="level3" data-number="6.15.3">
+<h3 data-number="6.15.3" class="anchored" data-anchor-id="aufgabe-3"><span class="header-section-number">6.15.3</span> Aufgabe 3</h3>
+<p>Schreiben Sie eine Funktion <code>analyse()</code>, die einen Vektor und eine Funktion als Argument erhält.</p>
+<p>Die Funktion soll so aufgerufen werden können:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>), mean)</span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>), median)</span>
+<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>), max)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="aufgabe-4" class="level3" data-number="6.15.4">
+<h3 data-number="6.15.4" class="anchored" data-anchor-id="aufgabe-4"><span class="header-section-number">6.15.4</span> Aufgabe 4</h3>
+<p>Erweitern Sie die Funktion <code>analyse()</code> so, dass zusätzliche Argumente weitergegeben werden können.</p>
+<p>Die Funktion soll zum Beispiel mit fehlenden Werten funktionieren:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb199"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">12</span>)</span>
+<span id="cb199-2"><a href="#cb199-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-3"><a href="#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="fu">analyse</span>(werte, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="aufgabe-5" class="level3" data-number="6.15.5">
+<h3 data-number="6.15.5" class="anchored" data-anchor-id="aufgabe-5"><span class="header-section-number">6.15.5</span> Aufgabe 5</h3>
+<p>Schreiben Sie eine Funktion <code>kleiner_als()</code>, die eine neue Funktion erzeugt.</p>
+<p>Beispiel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>kleiner_als_10 <span class="ot">&lt;-</span> <span class="fu">kleiner_als</span>(<span class="dv">10</span>)</span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kleiner_als_10</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">20</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Gewünschte Ausgabe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb201"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="cn">TRUE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="zusammenfassung-1" class="level2" data-number="6.16">
+<h2 data-number="6.16" class="anchored" data-anchor-id="zusammenfassung-1"><span class="header-section-number">6.16</span> Zusammenfassung</h2>
+<p>Funktionales Programmieren bedeutet in R, dass Funktionen selbst als Objekte behandelt werden.</p>
+<p>Wichtige Punkte:</p>
+<ul>
+<li>Funktionen können gespeichert werden.</li>
+<li>Funktionen können ohne direkten Aufruf an andere Funktionen übergeben werden.</li>
+<li>Anonyme Funktionen sind nützlich für kurze einmalige Berechnungen.</li>
+<li>Eigene Funktionen können andere Funktionen als Argument erhalten.</li>
+<li>Mit <code>...</code> können zusätzliche Argumente weitergegeben werden.</li>
+<li>Funktionen können neue Funktionen erzeugen.</li>
+<li>Beim Übergeben einer Funktion schreibt man den Funktionsnamen meist ohne Klammern.</li>
+</ul>
+<p>Merksatz:</p>
+<blockquote class="blockquote">
+<p>Funktionales Programmieren bedeutet: Funktionen sind nicht nur Werkzeuge, sondern selbst Objekte, mit denen man arbeiten kann.</p>
+</blockquote>
+<hr>
+</section>
+<section id="übungsaufgaben-1" class="level2" data-number="6.17">
+<h2 data-number="6.17" class="anchored" data-anchor-id="übungsaufgaben-1"><span class="header-section-number">6.17</span> Übungsaufgaben</h2>
+<section id="aufgabe-1-1" class="level3" data-number="6.17.1">
+<h3 data-number="6.17.1" class="anchored" data-anchor-id="aufgabe-1-1"><span class="header-section-number">6.17.1</span> Aufgabe 1</h3>
 <p>Erstellen Sie ein Programm, das eine Körpertemperatur bewertet:</p>
 <ul>
 <li>unter 37.5: Normal</li>
@@ -1408,13 +1857,13 @@ background-size: cover;
 <li>über 38: Fieber</li>
 </ul>
 </section>
-<section id="aufgabe-2" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="aufgabe-2"><span class="header-section-number">6.5.2</span> Aufgabe 2</h3>
+<section id="aufgabe-2-1" class="level3" data-number="6.17.2">
+<h3 data-number="6.17.2" class="anchored" data-anchor-id="aufgabe-2-1"><span class="header-section-number">6.17.2</span> Aufgabe 2</h3>
 <p>Berechnen Sie mit einer <code>for</code>-Schleife die Summe der Werte:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="aufgabe-3" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="aufgabe-3"><span class="header-section-number">6.5.3</span> Aufgabe 3</h3>
+<section id="aufgabe-3-1" class="level3" data-number="6.17.3">
+<h3 data-number="6.17.3" class="anchored" data-anchor-id="aufgabe-3-1"><span class="header-section-number">6.17.3</span> Aufgabe 3</h3>
 <p>Simulieren Sie Zellteilungen mit einer <code>while</code>-Schleife, bis 10.000 Zellen erreicht sind.</p>
 <hr>
 
