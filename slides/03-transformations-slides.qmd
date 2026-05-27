@@ -1,0 +1,770 @@
+---
+title: "03 Daten transformieren"
+subtitle: "Kontrollstrukturen, noch einmal die Methode `apply` und anonyme Funktionen"
+date: "2026-05-28"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 3
+    footer: "03 Daten transformieren"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    resources:
+      - ../figures/*.png
+    format:
+  
+  beamer:
+    slide-level: 3
+    keep-tex: true
+    toc: true
+    toc-depth: 1
+    aspectratio: 169
+    highlight-style: pygments
+    theme: default
+
+    include-in-header:
+      text: |
+        \input{beamerthemeBHT.sty}
+
+    fontsize: 10pt
+
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Überblick
+
+### Lernziele
+
+Nach dieser Sitzung können Sie:
+
+- Bedingungen mit `if`, `else` und `else if` formulieren
+- Wiederholungen mit Schleifen umsetzen
+- `apply()`, `lapply()`, `sapply()` und `tapply()` unterscheiden
+- anonyme Funktionen in `apply`-Funktionen verwenden
+- einfache Datentransformationen in R strukturieren
+
+# Kontrollstrukturen
+
+### Was sind Kontrollstrukturen?
+
+Kontrollstrukturen steuern, **welcher Code ausgeführt wird**.
+
+Sie ermöglichen:
+
+- Entscheidungen
+- Wiederholungen
+- strukturierte Programmabläufe
+
+### Anweisungsblöcke
+
+Mehrere Befehle können mit `{ }` zusammengefasst werden.
+
+```{r echo = TRUE}
+{
+  gewicht <- 72
+  groesse <- 1.78
+  bmi <- gewicht / groesse^2
+  bmi
+}
+```
+
+### Bedingte Ausführung mit `if`
+
+Code wird nur ausgeführt, wenn eine Bedingung erfüllt ist.
+
+```{r echo = TRUE}
+temperatur <- 38.5
+
+if (temperatur >= 38) {
+  print("Fieber vorhanden")
+}
+```
+
+### `if` und `else`
+
+Mit `else` wird eine Alternative formuliert.
+
+```{r echo = TRUE}
+systole <- 128
+
+if (systole >= 140) {
+  print("Hypertonie möglich")
+} else {
+  print("Normalbereich")
+}
+```
+
+### Mehrere Fälle unterscheiden
+
+Mit `else if` können mehrere Bedingungen geprüft werden.
+
+```{r echo = TRUE}
+bmi <- 27.4
+
+if (bmi < 18.5) {
+  print("Untergewicht")
+} else if (bmi < 25) {
+  print("Normalgewicht")
+} else if (bmi < 30) {
+  print("Übergewicht")
+} else {
+  print("Adipositas")
+}
+```
+
+### Vergleichs- und logische Operatoren
+
+| Operator | Bedeutung      |
+|----------|----------------|
+| `==`     | gleich         |
+| `!=`     | ungleich       |
+| `>`      | größer         |
+| `<`      | kleiner        |
+| `>=`     | größer gleich  |
+| `<=`     | kleiner gleich |
+| `&`      | und            |
+| `|`      | oder           |
+| `!`      | nicht          |
+
+### Beispiel: logische Verknüpfung
+
+```{r echo = TRUE}
+alter <- 67
+raucher <- TRUE
+
+if (alter > 65 & raucher) {
+  print("Erhöhtes Risiko")
+}
+```
+
+### Schleifen
+
+Schleifen wiederholen Befehle mehrfach.
+
+Besonders wichtig:
+
+- `for`: bekannte Anzahl von Wiederholungen
+- `while`: Wiederholung solange Bedingung erfüllt ist
+- `repeat`: Wiederholung bis `break`
+
+### `for`-Schleife
+
+```{r echo = TRUE}
+werte <- c(4.2, 5.1, 6.0)
+
+for (wert in werte) {
+  print(wert)
+}
+```
+
+### `for`-Schleife: Mittelwert
+
+```{r echo = TRUE}
+proben <- c(8.1, 7.9, 8.4, 8.0)
+
+summe <- 0
+
+for (wert in proben) {
+  summe <- summe + wert
+}
+
+mittelwert <- summe / length(proben)
+mittelwert
+```
+
+### `while`-Schleife
+
+Eine `while`-Schleife läuft, solange die Bedingung wahr ist.
+
+```{r echo = TRUE}
+zellen <- 100
+
+while (zellen < 1000) {
+  zellen <- zellen * 2
+  print(zellen)
+}
+```
+
+### `break` und `next`
+
+- `break` beendet eine Schleife
+- `next` überspringt den aktuellen Durchlauf
+
+```{r echo = TRUE}
+for (i in 1:5) {
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+```
+
+### Typische Fehler
+
+- fehlende `{ }`
+- Bedingung ergibt nicht `TRUE` oder `FALSE`
+- Endlosschleife
+- Objekt wird innerhalb der Schleife nicht verändert
+
+### Übung: Kontrollstrukturen
+
+Gegeben ist folgender Vektor:
+
+```{r echo = TRUE}
+temperatur <- c(36.8, 37.4, 38.2, 39.0, 36.5)
+```
+
+Bearbeiten Sie:
+
+1.  Geben Sie mit einer `for`-Schleife jede Temperatur aus.
+2.  Geben Sie zusätzlich aus, ob die Temperatur `"normal"` oder
+    `"Fieber"` ist. Verwenden Sie dafür eine `if`-`else`-Struktur.
+3.  Zählen Sie, wie viele Werte mindestens `38` sind.
+
+# apply-Funktionen
+
+### Grundidee
+
+Viele Aufgaben folgen demselben Muster:
+
+> Wende dieselbe Funktion auf mehrere Elemente an.
+
+Die `apply`-Familie ersetzt häufig Schleifen.
+
+Typische Anwendungen:
+
+- Mittelwerte mehrerer Spalten berechnen
+- Datentypen prüfen
+- Gruppen vergleichen
+- fehlende Werte zählen
+
+### Überblick
+
+| Funktion   | Typischer Einsatz         | Ergebnis                  |
+|------------|---------------------------|---------------------------|
+| `apply()`  | Matrizen                  | Vektor, Matrix oder Liste |
+| `lapply()` | Listen, Data Frames       | immer Liste               |
+| `sapply()` | Listen, Data Frames       | vereinfachtes Ergebnis    |
+| `tapply()` | Gruppenvergleiche         | gruppiertes Ergebnis      |
+| `mapply()` | mehrere Eingaben parallel | Vektor, Matrix oder Liste |
+
+### `apply()`
+
+`apply()` wird häufig bei Matrizen verwendet.
+
+Allgemeine Form:
+
+``` r
+apply(X, MARGIN, FUN)
+```
+
+Dabei gilt:
+
+- `MARGIN = 1`: zeilenweise
+- `MARGIN = 2`: spaltenweise
+- `FUN`: anzuwendende Funktion
+
+### Beispielmatrix
+
+```{r echo = TRUE}
+werte <- matrix(
+  c(5, 6, 7,
+    8, 9, 10,
+    11, 12, 13),
+  nrow = 3,
+  byrow = TRUE
+)
+
+werte
+```
+
+### `apply()` zeilenweise
+
+```{r echo = TRUE}
+apply(werte, 1, mean)
+```
+
+`MARGIN = 1` bedeutet:
+
+> Berechne den Mittelwert jeder Zeile.
+
+### `apply()` spaltenweise
+
+```{r echo = TRUE}
+apply(werte, 2, mean)
+```
+
+`MARGIN = 2` bedeutet:
+
+> Berechne den Mittelwert jeder Spalte.
+
+### Weitere Beispiele
+
+```{r echo = TRUE}
+apply(werte, 1, max)
+apply(werte, 2, min)
+apply(werte, 1, sum)
+apply(werte, 2, sd)
+```
+
+### Eigene Funktion in `apply()`
+
+```{r echo = TRUE}
+apply(werte, 1, function(x) max(x) - min(x))
+```
+
+Hier wird für jede Zeile die Spannweite berechnet:
+
+``` r
+größter Wert - kleinster Wert
+```
+
+### Vorsicht bei Data Frames
+
+`apply()` wandelt Data Frames oft intern in Matrizen um.
+
+Das ist problematisch, wenn verschiedene Datentypen enthalten sind.
+
+```{r echo = TRUE}
+df <- data.frame(
+  name = c("Anna", "Ben", "Clara"),
+  alter = c(23, 34, 45),
+  groesse = c(1.70, 1.82, 1.65)
+)
+
+str(df)
+```
+
+### `lapply()`
+
+`lapply()` steht für **list apply**.
+
+Wichtig: `lapply()` gibt immer eine Liste zurück.
+
+```{r echo = TRUE}
+messwerte <- list(
+  patient_a = c(120, 125, 130),
+  patient_b = c(140, 138, 142),
+  patient_c = c(110, 115, 118)
+)
+
+lapply(messwerte, mean)
+```
+
+### `lapply()` bei Data Frames
+
+Ein Data Frame ist intern eine Liste von Spalten.
+
+```{r echo = TRUE}
+daten <- data.frame(
+  alter = c(23, 34, 45),
+  gewicht = c(65, 82, 74),
+  puls = c(70, 80, 76)
+)
+
+lapply(daten, mean)
+```
+
+### Datentypen prüfen
+
+```{r echo = TRUE}
+lapply(daten, class)
+```
+
+Das ist besonders hilfreich, um einen Data Frame zu untersuchen.
+
+### `sapply()`
+
+`sapply()` ist ähnlich wie `lapply()`.
+
+Der wichtigste Unterschied: `sapply()` versucht, das Ergebnis zu
+vereinfachen.
+
+```{r echo = TRUE}
+werte_liste <- list(
+  a = c(1, 2, 3),
+  b = c(4, 5, 6)
+)
+
+lapply(werte_liste, mean)
+sapply(werte_liste, mean)
+```
+
+### `sapply()` bei Data Frames
+
+```{r echo = TRUE}
+sapply(daten, mean)
+```
+
+Das Ergebnis ist hier ein numerischer Vektor.
+
+### Numerische Spalten erkennen
+
+```{r echo = TRUE}
+patienten <- data.frame(
+  id = c("P001", "P002", "P003"),
+  alter = c(45, 52, 39),
+  gruppe = c("Kontrolle", "Therapie", "Therapie"),
+  crp = c(3.2, 7.8, 5.1)
+)
+
+sapply(patienten, is.numeric)
+```
+
+### Mittelwerte numerischer Spalten
+
+```{r echo = TRUE}
+numerisch <- sapply(patienten, is.numeric)
+
+sapply(patienten[numerisch], mean)
+```
+
+### `tapply()`
+
+`tapply()` berechnet Kennwerte getrennt nach Gruppen.
+
+Allgemeine Form:
+
+``` r
+tapply(X, INDEX, FUN)
+```
+
+Dabei gilt:
+
+- `X`: Werte
+- `INDEX`: Gruppierungsvariable
+- `FUN`: Funktion
+
+### Mittelwert nach Gruppe
+
+```{r echo = TRUE}
+crp <- c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)
+gruppe <- c("Kontrolle", "Kontrolle", "Therapie",
+            "Therapie", "Therapie", "Kontrolle")
+
+tapply(crp, gruppe, mean)
+```
+
+### Weitere Kennwerte nach Gruppe
+
+```{r echo = TRUE}
+tapply(crp, gruppe, max)
+tapply(crp, gruppe, min)
+tapply(crp, gruppe, median)
+```
+
+### `tapply()` mit Data Frame
+
+```{r echo = TRUE}
+lab <- data.frame(
+  patient_id = c("P001", "P002", "P003", "P004", "P005", "P006"),
+  gruppe = c("Kontrolle", "Kontrolle", "Therapie",
+             "Therapie", "Therapie", "Kontrolle"),
+  alter = c(45, 52, 39, 61, 48, 55),
+  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),
+  glucose = c(90, 95, 130, 125, 118, 88)
+)
+
+tapply(lab$crp_mg_l, lab$gruppe, mean)
+```
+
+### Mehrere Kennwerte
+
+```{r echo = TRUE}
+tapply(lab$crp_mg_l, lab$gruppe, function(x) {
+  c(
+    mittelwert = mean(x),
+    median = median(x),
+    maximum = max(x)
+  )
+})
+```
+
+### `mapply()`
+
+`mapply()` wird verwendet, wenn eine Funktion mehrere Eingaben
+gleichzeitig braucht.
+
+```{r echo = TRUE}
+gewicht <- c(70, 82, 65)
+groesse <- c(1.75, 1.82, 1.68)
+
+mapply(function(g, h) g / h^2, gewicht, groesse)
+```
+
+### Typische Fehler bei apply-Funktionen
+
+- `apply()` auf gemischte Data Frames anwenden
+- vergessen, dass `lapply()` eine Liste zurückgibt
+- `MARGIN = 1` und `MARGIN = 2` verwechseln
+- fehlende Werte nicht beachten
+
+```{r echo = TRUE}
+x <- c(3, 4, NA, 6)
+
+mean(x)
+mean(x, na.rm = TRUE)
+```
+
+### Übung: apply-Funktionen
+
+Verwenden Sie den Data Frame `lab`.
+
+Bearbeiten Sie:
+
+1.  Prüfen Sie mit `sapply()`, welche Spalten numerisch sind.
+2.  Berechnen Sie die Mittelwerte aller numerischen Spalten.
+3.  Berechnen Sie den Mittelwert von `crp_mg_l` getrennt nach `gruppe`.
+4.  Berechnen Sie das Maximum von `glucose` getrennt nach `gruppe`.
+5.  Berechnen Sie mit `apply()` die Zeilensummen einer kleinen Matrix.
+
+# Funktionales Programmieren
+
+### Grundidee
+
+Beim funktionalen Programmieren werden Funktionen selbst wie Objekte
+behandelt.
+
+Das bedeutet:
+
+- Funktionen können gespeichert werden
+- Funktionen können übergeben werden
+- Funktionen können direkt dort definiert werden, wo sie gebraucht
+  werden
+
+### Funktionen sind Objekte
+
+```{r echo = TRUE}
+quadrat <- function(x) {
+  x^2
+}
+
+quadrat(4)
+```
+
+Die Funktion wird im Objekt `quadrat` gespeichert.
+
+### Funktion anzeigen oder ausführen?
+
+```{r echo = TRUE}
+quadrat
+quadrat(4)
+```
+
+Merksatz:
+
+> Ohne Klammern sieht man die Funktion.\
+> Mit Klammern wird die Funktion ausgeführt.
+
+### Funktionen speichern
+
+```{r echo = TRUE}
+kennzahl <- mean
+
+kennzahl(c(2, 4, 6))
+```
+
+Hier enthält `kennzahl` die Funktion `mean()`.
+
+### Funktionen als Argumente
+
+Eine Funktion kann an eine andere Funktion übergeben werden.
+
+```{r echo = TRUE}
+werte <- list(
+  a = c(2, 4, 6),
+  b = c(10, 20, 30)
+)
+
+sapply(werte, mean)
+```
+
+`mean` wird hier an `sapply()` übergeben.
+
+### Anonyme Funktionen
+
+Manchmal braucht man eine Funktion nur einmal.
+
+Dann muss sie keinen eigenen Namen bekommen.
+
+```{r echo = TRUE}
+sapply(1:5, function(x) x^2)
+```
+
+Die Funktion
+
+``` r
+function(x) x^2
+```
+
+wird direkt verwendet.
+
+### Anonyme Funktion Schritt für Schritt
+
+```{r echo = TRUE}
+sapply(1:5, function(x) x^2)
+```
+
+Lesart:
+
+1.  Nimm die Werte `1:5`.
+2.  Wende auf jeden Wert eine Funktion an.
+3.  Die Funktion bekommt jeweils einen Wert `x`.
+4.  Für jeden Wert wird `x^2` berechnet.
+
+### Benannte und anonyme Funktion
+
+```{r echo = TRUE}
+quadrat <- function(x) {
+  x^2
+}
+
+sapply(1:5, quadrat)
+sapply(1:5, function(x) x^2)
+```
+
+Beide Varianten liefern dasselbe Ergebnis.
+
+### Wann anonyme Funktionen?
+
+Anonyme Funktionen sind praktisch, wenn die Berechnung:
+
+- kurz ist
+- nur einmal gebraucht wird
+- direkt im Kontext verständlich ist
+
+```{r echo = TRUE}
+werte <- c(1, 10, 100)
+
+sapply(werte, function(x) log10(x))
+```
+
+### Anonyme Funktionen mit Bedingungen
+
+```{r echo = TRUE}
+temperatur <- c(36.8, 37.6, 38.4, 39.1)
+
+sapply(temperatur, function(x) {
+  if (x < 37.5) {
+    "normal"
+  } else if (x < 38) {
+    "erhöht"
+  } else {
+    "Fieber"
+  }
+})
+```
+
+### Eigene Funktion mit Funktionsargument
+
+```{r echo = TRUE}
+analyse <- function(x, FUN) {
+  FUN(x)
+}
+
+analyse(c(1, 2, 3), mean)
+analyse(c(1, 2, 3), sd)
+```
+
+Die Funktion `analyse()` bleibt gleich.
+
+Nur die übergebene Funktion ändert sich.
+
+### Zusätzliche Argumente mit `...`
+
+```{r echo = TRUE}
+analyse <- function(x, FUN, ...) {
+  FUN(x, ...)
+}
+
+werte <- c(4, 8, NA, 12)
+
+analyse(werte, mean, na.rm = TRUE)
+```
+
+Die drei Punkte `...` geben weitere Argumente weiter.
+
+### Funktionen erzeugen Funktionen
+
+Funktionen können auch neue Funktionen zurückgeben.
+
+```{r echo = TRUE}
+multiplier <- function(faktor) {
+  function(x) {
+    x * faktor
+  }
+}
+
+mal2 <- multiplier(2)
+mal5 <- multiplier(5)
+
+mal2(10)
+mal5(10)
+```
+
+### Prüf-Funktionen erzeugen
+
+```{r echo = TRUE}
+groesser_als <- function(grenze) {
+  function(x) {
+    x > grenze
+  }
+}
+
+groesser_als_5 <- groesser_als(5)
+
+groesser_als_5(c(3, 6, 9))
+```
+
+### Übung: Funktionales Programmieren
+
+Lösen Sie die Aufgaben aus
+
+<https://bna2022.github.io/Intro2R/chapters/03-daten-transformieren.html#%C3%BCbungsaufgaben>
+
+# Abschluss
+
+### Zusammenfassung
+
+Heute haben Sie gelernt:
+
+- Kontrollstrukturen steuern Programmabläufe
+- Schleifen wiederholen Befehle
+- `apply()` arbeitet häufig mit Matrizen
+- `lapply()` gibt immer eine Liste zurück
+- `sapply()` vereinfacht das Ergebnis
+- `tapply()` berechnet Kennwerte nach Gruppen
+- anonyme Funktionen sind kurze Funktionen ohne Namen
+
+### Mini-Wiederholung
+
+Welche Funktion passt?
+
+| Aufgabe                         | Funktion   |
+|---------------------------------|------------|
+| Mittelwert jeder Matrixspalte   | `apply()`  |
+| Funktion auf jede Listeneinheit | `lapply()` |
+| kompakter Ergebnisvektor        | `sapply()` |
+| Mittelwert nach Gruppe          | `tapply()` |
+| mehrere Vektoren parallel       | `mapply()` |
+
+### Abschlussübung
+
+Erstellen Sie einen eigenen kleinen Data Frame mit:
+
+- einer ID-Spalte
+- einer Gruppen-Spalte
+- zwei numerischen Messwert-Spalten
+
+Bearbeiten Sie:
+
+1.  Prüfen Sie die Datentypen mit `sapply()`.
+2.  Berechnen Sie Mittelwerte für alle numerischen Spalten.
+3.  Berechnen Sie einen Messwert getrennt nach Gruppe.
+4.  Verwenden Sie eine anonyme Funktion für Minimum, Median und Maximum.
+5.  Klassifizieren Sie einen Messwert mit `if` und `else`.

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="03-transformations-slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="03-transformations-slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="03-transformations-slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="03-transformations-slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="03-transformations-slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="03-transformations-slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="03-transformations-slides_files/libs/quarto-html/quarto-syntax-highlighting-1d5e050edb13250d4f64432100cad504.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="dcterms.date" content="2026-05-28">
+  <title>03 Daten transformieren</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="03-transformations-slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="03-transformations-slides_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="03-transformations-slides_files/libs/revealjs/dist/theme/quarto-5c0ac592d9a82a8a81a5c70fe1796313.css">
+  <link rel="stylesheet" href="slides.css">
+  <link href="03-transformations-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="03-transformations-slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="03-transformations-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="03-transformations-slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">03 Daten transformieren</h1>
+  <p class="subtitle">Kontrollstrukturen, noch einmal die Methode <code>apply</code> und anonyme Funktionen</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-05-28</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/überblick" id="/toc-überblick">Überblick</a></li>
+<li><a href="#/kontrollstrukturen" id="/toc-kontrollstrukturen">Kontrollstrukturen</a></li>
+<li><a href="#/apply-funktionen" id="/toc-apply-funktionen">apply-Funktionen</a></li>
+<li><a href="#/funktionales-programmieren" id="/toc-funktionales-programmieren">Funktionales Programmieren</a></li>
+<li><a href="#/abschluss" id="/toc-abschluss">Abschluss</a></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="überblick" class="title-slide slide level1 center">
+<h1>Überblick</h1>
+
+</section>
+<section id="lernziele" class="slide level3">
+<h3>Lernziele</h3>
+<p>Nach dieser Sitzung können Sie:</p>
+<ul>
+<li>Bedingungen mit <code>if</code>, <code>else</code> und <code>else if</code> formulieren</li>
+<li>Wiederholungen mit Schleifen umsetzen</li>
+<li><code>apply()</code>, <code>lapply()</code>, <code>sapply()</code> und <code>tapply()</code> unterscheiden</li>
+<li>anonyme Funktionen in <code>apply</code>-Funktionen verwenden</li>
+<li>einfache Datentransformationen in R strukturieren</li>
+</ul>
+</section></section>
+<section>
+<section id="kontrollstrukturen" class="title-slide slide level1 center">
+<h1>Kontrollstrukturen</h1>
+
+</section>
+<section id="was-sind-kontrollstrukturen" class="slide level3">
+<h3>Was sind Kontrollstrukturen?</h3>
+<p>Kontrollstrukturen steuern, <strong>welcher Code ausgeführt wird</strong>.</p>
+<p>Sie ermöglichen:</p>
+<ul>
+<li>Entscheidungen</li>
+<li>Wiederholungen</li>
+<li>strukturierte Programmabläufe</li>
+</ul>
+</section>
+<section id="anweisungsblöcke" class="slide level3">
+<h3>Anweisungsblöcke</h3>
+<p>Mehrere Befehle können mit <code>{ }</code> zusammengefasst werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>{</span>
+<span id="cb1-2"><a href=""></a>  gewicht <span class="ot">&lt;-</span> <span class="dv">72</span></span>
+<span id="cb1-3"><a href=""></a>  groesse <span class="ot">&lt;-</span> <span class="fl">1.78</span></span>
+<span id="cb1-4"><a href=""></a>  bmi <span class="ot">&lt;-</span> gewicht <span class="sc">/</span> groesse<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-5"><a href=""></a>  bmi</span>
+<span id="cb1-6"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22.7244</code></pre>
+</div>
+</div>
+</section>
+<section id="bedingte-ausführung-mit-if" class="slide level3">
+<h3>Bedingte Ausführung mit <code>if</code></h3>
+<p>Code wird nur ausgeführt, wenn eine Bedingung erfüllt ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>temperatur <span class="ot">&lt;-</span> <span class="fl">38.5</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="cf">if</span> (temperatur <span class="sc">&gt;=</span> <span class="dv">38</span>) {</span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Fieber vorhanden"</span>)</span>
+<span id="cb3-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Fieber vorhanden"</code></pre>
+</div>
+</div>
+</section>
+<section id="if-und-else" class="slide level3">
+<h3><code>if</code> und <code>else</code></h3>
+<p>Mit <code>else</code> wird eine Alternative formuliert.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>systole <span class="ot">&lt;-</span> <span class="dv">128</span></span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="cf">if</span> (systole <span class="sc">&gt;=</span> <span class="dv">140</span>) {</span>
+<span id="cb5-4"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Hypertonie möglich"</span>)</span>
+<span id="cb5-5"><a href=""></a>} <span class="cf">else</span> {</span>
+<span id="cb5-6"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Normalbereich"</span>)</span>
+<span id="cb5-7"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Normalbereich"</code></pre>
+</div>
+</div>
+</section>
+<section id="mehrere-fälle-unterscheiden" class="slide level3">
+<h3>Mehrere Fälle unterscheiden</h3>
+<p>Mit <code>else if</code> können mehrere Bedingungen geprüft werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>bmi <span class="ot">&lt;-</span> <span class="fl">27.4</span></span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a><span class="cf">if</span> (bmi <span class="sc">&lt;</span> <span class="fl">18.5</span>) {</span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Untergewicht"</span>)</span>
+<span id="cb7-5"><a href=""></a>} <span class="cf">else</span> <span class="cf">if</span> (bmi <span class="sc">&lt;</span> <span class="dv">25</span>) {</span>
+<span id="cb7-6"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Normalgewicht"</span>)</span>
+<span id="cb7-7"><a href=""></a>} <span class="cf">else</span> <span class="cf">if</span> (bmi <span class="sc">&lt;</span> <span class="dv">30</span>) {</span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Übergewicht"</span>)</span>
+<span id="cb7-9"><a href=""></a>} <span class="cf">else</span> {</span>
+<span id="cb7-10"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Adipositas"</span>)</span>
+<span id="cb7-11"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Übergewicht"</code></pre>
+</div>
+</div>
+</section>
+<section id="vergleichs--und-logische-operatoren" class="slide level3">
+<h3>Vergleichs- und logische Operatoren</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>gleich</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>ungleich</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>größer</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>kleiner</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>größer gleich</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>kleiner gleich</td>
+</tr>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>und</td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>oder</td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>nicht</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="beispiel-logische-verknüpfung" class="slide level3">
+<h3>Beispiel: logische Verknüpfung</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>alter <span class="ot">&lt;-</span> <span class="dv">67</span></span>
+<span id="cb9-2"><a href=""></a>raucher <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a><span class="cf">if</span> (alter <span class="sc">&gt;</span> <span class="dv">65</span> <span class="sc">&amp;</span> raucher) {</span>
+<span id="cb9-5"><a href=""></a>  <span class="fu">print</span>(<span class="st">"Erhöhtes Risiko"</span>)</span>
+<span id="cb9-6"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Erhöhtes Risiko"</code></pre>
+</div>
+</div>
+</section>
+<section id="schleifen" class="slide level3">
+<h3>Schleifen</h3>
+<p>Schleifen wiederholen Befehle mehrfach.</p>
+<p>Besonders wichtig:</p>
+<ul>
+<li><code>for</code>: bekannte Anzahl von Wiederholungen</li>
+<li><code>while</code>: Wiederholung solange Bedingung erfüllt ist</li>
+<li><code>repeat</code>: Wiederholung bis <code>break</code></li>
+</ul>
+</section>
+<section id="for-schleife" class="slide level3">
+<h3><code>for</code>-Schleife</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.2</span>, <span class="fl">5.1</span>, <span class="fl">6.0</span>)</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="cf">for</span> (wert <span class="cf">in</span> werte) {</span>
+<span id="cb11-4"><a href=""></a>  <span class="fu">print</span>(wert)</span>
+<span id="cb11-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.2
+[1] 5.1
+[1] 6</code></pre>
+</div>
+</div>
+</section>
+<section id="for-schleife-mittelwert" class="slide level3">
+<h3><code>for</code>-Schleife: Mittelwert</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>proben <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.1</span>, <span class="fl">7.9</span>, <span class="fl">8.4</span>, <span class="fl">8.0</span>)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>summe <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a><span class="cf">for</span> (wert <span class="cf">in</span> proben) {</span>
+<span id="cb13-6"><a href=""></a>  summe <span class="ot">&lt;-</span> summe <span class="sc">+</span> wert</span>
+<span id="cb13-7"><a href=""></a>}</span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a>mittelwert <span class="ot">&lt;-</span> summe <span class="sc">/</span> <span class="fu">length</span>(proben)</span>
+<span id="cb13-10"><a href=""></a>mittelwert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.1</code></pre>
+</div>
+</div>
+</section>
+<section id="while-schleife" class="slide level3">
+<h3><code>while</code>-Schleife</h3>
+<p>Eine <code>while</code>-Schleife läuft, solange die Bedingung wahr ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>zellen <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="cf">while</span> (zellen <span class="sc">&lt;</span> <span class="dv">1000</span>) {</span>
+<span id="cb15-4"><a href=""></a>  zellen <span class="ot">&lt;-</span> zellen <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb15-5"><a href=""></a>  <span class="fu">print</span>(zellen)</span>
+<span id="cb15-6"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200
+[1] 400
+[1] 800
+[1] 1600</code></pre>
+</div>
+</div>
+</section>
+<section id="break-und-next" class="slide level3">
+<h3><code>break</code> und <code>next</code></h3>
+<ul>
+<li><code>break</code> beendet eine Schleife</li>
+<li><code>next</code> überspringt den aktuellen Durchlauf</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb17-2"><a href=""></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb17-3"><a href=""></a>    <span class="cf">next</span></span>
+<span id="cb17-4"><a href=""></a>  }</span>
+<span id="cb17-5"><a href=""></a>  <span class="fu">print</span>(i)</span>
+<span id="cb17-6"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 4
+[1] 5</code></pre>
+</div>
+</div>
+</section>
+<section id="typische-fehler" class="slide level3">
+<h3>Typische Fehler</h3>
+<ul>
+<li>fehlende <code>{ }</code></li>
+<li>Bedingung ergibt nicht <code>TRUE</code> oder <code>FALSE</code></li>
+<li>Endlosschleife</li>
+<li>Objekt wird innerhalb der Schleife nicht verändert</li>
+</ul>
+</section>
+<section id="übung-kontrollstrukturen" class="slide level3">
+<h3>Übung: Kontrollstrukturen</h3>
+<p>Gegeben ist folgender Vektor:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>temperatur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">36.8</span>, <span class="fl">37.4</span>, <span class="fl">38.2</span>, <span class="fl">39.0</span>, <span class="fl">36.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Bearbeiten Sie:</p>
+<ol type="1">
+<li>Geben Sie mit einer <code>for</code>-Schleife jede Temperatur aus.</li>
+<li>Geben Sie zusätzlich aus, ob die Temperatur <code>"normal"</code> oder <code>"Fieber"</code> ist. Verwenden Sie dafür eine <code>if</code>-<code>else</code>-Struktur.</li>
+<li>Zählen Sie, wie viele Werte mindestens <code>38</code> sind.</li>
+</ol>
+</section></section>
+<section>
+<section id="apply-funktionen" class="title-slide slide level1 center">
+<h1>apply-Funktionen</h1>
+
+</section>
+<section id="grundidee" class="slide level3">
+<h3>Grundidee</h3>
+<p>Viele Aufgaben folgen demselben Muster:</p>
+<blockquote>
+<p>Wende dieselbe Funktion auf mehrere Elemente an.</p>
+</blockquote>
+<p>Die <code>apply</code>-Familie ersetzt häufig Schleifen.</p>
+<p>Typische Anwendungen:</p>
+<ul>
+<li>Mittelwerte mehrerer Spalten berechnen</li>
+<li>Datentypen prüfen</li>
+<li>Gruppen vergleichen</li>
+<li>fehlende Werte zählen</li>
+</ul>
+</section>
+<section id="überblick-1" class="slide level3">
+<h3>Überblick</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Funktion</th>
+<th>Typischer Einsatz</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apply()</code></td>
+<td>Matrizen</td>
+<td>Vektor, Matrix oder Liste</td>
+</tr>
+<tr class="even">
+<td><code>lapply()</code></td>
+<td>Listen, Data Frames</td>
+<td>immer Liste</td>
+</tr>
+<tr class="odd">
+<td><code>sapply()</code></td>
+<td>Listen, Data Frames</td>
+<td>vereinfachtes Ergebnis</td>
+</tr>
+<tr class="even">
+<td><code>tapply()</code></td>
+<td>Gruppenvergleiche</td>
+<td>gruppiertes Ergebnis</td>
+</tr>
+<tr class="odd">
+<td><code>mapply()</code></td>
+<td>mehrere Eingaben parallel</td>
+<td>Vektor, Matrix oder Liste</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="apply" class="slide level3">
+<h3><code>apply()</code></h3>
+<p><code>apply()</code> wird häufig bei Matrizen verwendet.</p>
+<p>Allgemeine Form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">apply</span>(X, MARGIN, FUN)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dabei gilt:</p>
+<ul>
+<li><code>MARGIN = 1</code>: zeilenweise</li>
+<li><code>MARGIN = 2</code>: spaltenweise</li>
+<li><code>FUN</code>: anzuwendende Funktion</li>
+</ul>
+</section>
+<section id="beispielmatrix" class="slide level3">
+<h3>Beispielmatrix</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>,</span>
+<span id="cb21-3"><a href=""></a>    <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>,</span>
+<span id="cb21-4"><a href=""></a>    <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>),</span>
+<span id="cb21-5"><a href=""></a>  <span class="at">nrow =</span> <span class="dv">3</span>,</span>
+<span id="cb21-6"><a href=""></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb21-7"><a href=""></a>)</span>
+<span id="cb21-8"><a href=""></a></span>
+<span id="cb21-9"><a href=""></a>werte</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    5    6    7
+[2,]    8    9   10
+[3,]   11   12   13</code></pre>
+</div>
+</div>
+</section>
+<section id="apply-zeilenweise" class="slide level3">
+<h3><code>apply()</code> zeilenweise</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">1</span>, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  6  9 12</code></pre>
+</div>
+</div>
+<p><code>MARGIN = 1</code> bedeutet:</p>
+<blockquote>
+<p>Berechne den Mittelwert jeder Zeile.</p>
+</blockquote>
+</section>
+<section id="apply-spaltenweise" class="slide level3">
+<h3><code>apply()</code> spaltenweise</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">2</span>, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  8  9 10</code></pre>
+</div>
+</div>
+<p><code>MARGIN = 2</code> bedeutet:</p>
+<blockquote>
+<p>Berechne den Mittelwert jeder Spalte.</p>
+</blockquote>
+</section>
+<section id="weitere-beispiele" class="slide level3">
+<h3>Weitere Beispiele</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">1</span>, max)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7 10 13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">2</span>, min)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 6 7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">1</span>, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18 27 36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">2</span>, sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 3 3</code></pre>
+</div>
+</div>
+</section>
+<section id="eigene-funktion-in-apply" class="slide level3">
+<h3>Eigene Funktion in <code>apply()</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">apply</span>(werte, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 2 2</code></pre>
+</div>
+</div>
+<p>Hier wird für jede Zeile die Spannweite berechnet:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>größter Wert <span class="sc">-</span> kleinster Wert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vorsicht-bei-data-frames" class="slide level3">
+<h3>Vorsicht bei Data Frames</h3>
+<p><code>apply()</code> wandelt Data Frames oft intern in Matrizen um.</p>
+<p>Das ist problematisch, wenn verschiedene Datentypen enthalten sind.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anna"</span>, <span class="st">"Ben"</span>, <span class="st">"Clara"</span>),</span>
+<span id="cb38-3"><a href=""></a>  <span class="at">alter =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">34</span>, <span class="dv">45</span>),</span>
+<span id="cb38-4"><a href=""></a>  <span class="at">groesse =</span> <span class="fu">c</span>(<span class="fl">1.70</span>, <span class="fl">1.82</span>, <span class="fl">1.65</span>)</span>
+<span id="cb38-5"><a href=""></a>)</span>
+<span id="cb38-6"><a href=""></a></span>
+<span id="cb38-7"><a href=""></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3 obs. of  3 variables:
+ $ name   : chr  "Anna" "Ben" "Clara"
+ $ alter  : num  23 34 45
+ $ groesse: num  1.7 1.82 1.65</code></pre>
+</div>
+</div>
+</section>
+<section id="lapply" class="slide level3">
+<h3><code>lapply()</code></h3>
+<p><code>lapply()</code> steht für <strong>list apply</strong>.</p>
+<p>Wichtig: <code>lapply()</code> gibt immer eine Liste zurück.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>messwerte <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb40-2"><a href=""></a>  <span class="at">patient_a =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">125</span>, <span class="dv">130</span>),</span>
+<span id="cb40-3"><a href=""></a>  <span class="at">patient_b =</span> <span class="fu">c</span>(<span class="dv">140</span>, <span class="dv">138</span>, <span class="dv">142</span>),</span>
+<span id="cb40-4"><a href=""></a>  <span class="at">patient_c =</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">115</span>, <span class="dv">118</span>)</span>
+<span id="cb40-5"><a href=""></a>)</span>
+<span id="cb40-6"><a href=""></a></span>
+<span id="cb40-7"><a href=""></a><span class="fu">lapply</span>(messwerte, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$patient_a
+[1] 125
+
+$patient_b
+[1] 140
+
+$patient_c
+[1] 114.3333</code></pre>
+</div>
+</div>
+</section>
+<section id="lapply-bei-data-frames" class="slide level3">
+<h3><code>lapply()</code> bei Data Frames</h3>
+<p>Ein Data Frame ist intern eine Liste von Spalten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>daten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb42-2"><a href=""></a>  <span class="at">alter =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">34</span>, <span class="dv">45</span>),</span>
+<span id="cb42-3"><a href=""></a>  <span class="at">gewicht =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">82</span>, <span class="dv">74</span>),</span>
+<span id="cb42-4"><a href=""></a>  <span class="at">puls =</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">76</span>)</span>
+<span id="cb42-5"><a href=""></a>)</span>
+<span id="cb42-6"><a href=""></a></span>
+<span id="cb42-7"><a href=""></a><span class="fu">lapply</span>(daten, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alter
+[1] 34
+
+$gewicht
+[1] 73.66667
+
+$puls
+[1] 75.33333</code></pre>
+</div>
+</div>
+</section>
+<section id="datentypen-prüfen" class="slide level3">
+<h3>Datentypen prüfen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">lapply</span>(daten, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alter
+[1] "numeric"
+
+$gewicht
+[1] "numeric"
+
+$puls
+[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Das ist besonders hilfreich, um einen Data Frame zu untersuchen.</p>
+</section>
+<section id="sapply" class="slide level3">
+<h3><code>sapply()</code></h3>
+<p><code>sapply()</code> ist ähnlich wie <code>lapply()</code>.</p>
+<p>Der wichtigste Unterschied: <code>sapply()</code> versucht, das Ergebnis zu vereinfachen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>werte_liste <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb46-2"><a href=""></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb46-3"><a href=""></a>  <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb46-4"><a href=""></a>)</span>
+<span id="cb46-5"><a href=""></a></span>
+<span id="cb46-6"><a href=""></a><span class="fu">lapply</span>(werte_liste, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$a
+[1] 2
+
+$b
+[1] 5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">sapply</span>(werte_liste, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>a b 
+2 5 </code></pre>
+</div>
+</div>
+</section>
+<section id="sapply-bei-data-frames" class="slide level3">
+<h3><code>sapply()</code> bei Data Frames</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">sapply</span>(daten, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   alter  gewicht     puls 
+34.00000 73.66667 75.33333 </code></pre>
+</div>
+</div>
+<p>Das Ergebnis ist hier ein numerischer Vektor.</p>
+</section>
+<section id="numerische-spalten-erkennen" class="slide level3">
+<h3>Numerische Spalten erkennen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>patienten <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb52-2"><a href=""></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="st">"P001"</span>, <span class="st">"P002"</span>, <span class="st">"P003"</span>),</span>
+<span id="cb52-3"><a href=""></a>  <span class="at">alter =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">39</span>),</span>
+<span id="cb52-4"><a href=""></a>  <span class="at">gruppe =</span> <span class="fu">c</span>(<span class="st">"Kontrolle"</span>, <span class="st">"Therapie"</span>, <span class="st">"Therapie"</span>),</span>
+<span id="cb52-5"><a href=""></a>  <span class="at">crp =</span> <span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">7.8</span>, <span class="fl">5.1</span>)</span>
+<span id="cb52-6"><a href=""></a>)</span>
+<span id="cb52-7"><a href=""></a></span>
+<span id="cb52-8"><a href=""></a><span class="fu">sapply</span>(patienten, is.numeric)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id  alter gruppe    crp 
+ FALSE   TRUE  FALSE   TRUE </code></pre>
+</div>
+</div>
+</section>
+<section id="mittelwerte-numerischer-spalten" class="slide level3">
+<h3>Mittelwerte numerischer Spalten</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>numerisch <span class="ot">&lt;-</span> <span class="fu">sapply</span>(patienten, is.numeric)</span>
+<span id="cb54-2"><a href=""></a></span>
+<span id="cb54-3"><a href=""></a><span class="fu">sapply</span>(patienten[numerisch], mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    alter       crp 
+45.333333  5.366667 </code></pre>
+</div>
+</div>
+</section>
+<section id="tapply" class="slide level3">
+<h3><code>tapply()</code></h3>
+<p><code>tapply()</code> berechnet Kennwerte getrennt nach Gruppen.</p>
+<p>Allgemeine Form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">tapply</span>(X, INDEX, FUN)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dabei gilt:</p>
+<ul>
+<li><code>X</code>: Werte</li>
+<li><code>INDEX</code>: Gruppierungsvariable</li>
+<li><code>FUN</code>: Funktion</li>
+</ul>
+</section>
+<section id="mittelwert-nach-gruppe" class="slide level3">
+<h3>Mittelwert nach Gruppe</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>crp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">4.1</span>, <span class="fl">7.8</span>, <span class="fl">6.5</span>, <span class="fl">5.9</span>, <span class="fl">2.8</span>)</span>
+<span id="cb57-2"><a href=""></a>gruppe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Kontrolle"</span>, <span class="st">"Kontrolle"</span>, <span class="st">"Therapie"</span>,</span>
+<span id="cb57-3"><a href=""></a>            <span class="st">"Therapie"</span>, <span class="st">"Therapie"</span>, <span class="st">"Kontrolle"</span>)</span>
+<span id="cb57-4"><a href=""></a></span>
+<span id="cb57-5"><a href=""></a><span class="fu">tapply</span>(crp, gruppe, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kontrolle  Therapie 
+ 3.366667  6.733333 </code></pre>
+</div>
+</div>
+</section>
+<section id="weitere-kennwerte-nach-gruppe" class="slide level3">
+<h3>Weitere Kennwerte nach Gruppe</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">tapply</span>(crp, gruppe, max)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kontrolle  Therapie 
+      4.1       7.8 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">tapply</span>(crp, gruppe, min)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kontrolle  Therapie 
+      2.8       5.9 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">tapply</span>(crp, gruppe, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kontrolle  Therapie 
+      3.2       6.5 </code></pre>
+</div>
+</div>
+</section>
+<section id="tapply-mit-data-frame" class="slide level3">
+<h3><code>tapply()</code> mit Data Frame</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>lab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb65-2"><a href=""></a>  <span class="at">patient_id =</span> <span class="fu">c</span>(<span class="st">"P001"</span>, <span class="st">"P002"</span>, <span class="st">"P003"</span>, <span class="st">"P004"</span>, <span class="st">"P005"</span>, <span class="st">"P006"</span>),</span>
+<span id="cb65-3"><a href=""></a>  <span class="at">gruppe =</span> <span class="fu">c</span>(<span class="st">"Kontrolle"</span>, <span class="st">"Kontrolle"</span>, <span class="st">"Therapie"</span>,</span>
+<span id="cb65-4"><a href=""></a>             <span class="st">"Therapie"</span>, <span class="st">"Therapie"</span>, <span class="st">"Kontrolle"</span>),</span>
+<span id="cb65-5"><a href=""></a>  <span class="at">alter =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">39</span>, <span class="dv">61</span>, <span class="dv">48</span>, <span class="dv">55</span>),</span>
+<span id="cb65-6"><a href=""></a>  <span class="at">crp_mg_l =</span> <span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">4.1</span>, <span class="fl">7.8</span>, <span class="fl">6.5</span>, <span class="fl">5.9</span>, <span class="fl">2.8</span>),</span>
+<span id="cb65-7"><a href=""></a>  <span class="at">glucose =</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">95</span>, <span class="dv">130</span>, <span class="dv">125</span>, <span class="dv">118</span>, <span class="dv">88</span>)</span>
+<span id="cb65-8"><a href=""></a>)</span>
+<span id="cb65-9"><a href=""></a></span>
+<span id="cb65-10"><a href=""></a><span class="fu">tapply</span>(lab<span class="sc">$</span>crp_mg_l, lab<span class="sc">$</span>gruppe, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kontrolle  Therapie 
+ 3.366667  6.733333 </code></pre>
+</div>
+</div>
+</section>
+<section id="mehrere-kennwerte" class="slide level3">
+<h3>Mehrere Kennwerte</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">tapply</span>(lab<span class="sc">$</span>crp_mg_l, lab<span class="sc">$</span>gruppe, <span class="cf">function</span>(x) {</span>
+<span id="cb67-2"><a href=""></a>  <span class="fu">c</span>(</span>
+<span id="cb67-3"><a href=""></a>    <span class="at">mittelwert =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb67-4"><a href=""></a>    <span class="at">median =</span> <span class="fu">median</span>(x),</span>
+<span id="cb67-5"><a href=""></a>    <span class="at">maximum =</span> <span class="fu">max</span>(x)</span>
+<span id="cb67-6"><a href=""></a>  )</span>
+<span id="cb67-7"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Kontrolle
+mittelwert     median    maximum 
+  3.366667   3.200000   4.100000 
+
+$Therapie
+mittelwert     median    maximum 
+  6.733333   6.500000   7.800000 </code></pre>
+</div>
+</div>
+</section>
+<section id="mapply" class="slide level3">
+<h3><code>mapply()</code></h3>
+<p><code>mapply()</code> wird verwendet, wenn eine Funktion mehrere Eingaben gleichzeitig braucht.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>gewicht <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">82</span>, <span class="dv">65</span>)</span>
+<span id="cb69-2"><a href=""></a>groesse <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.75</span>, <span class="fl">1.82</span>, <span class="fl">1.68</span>)</span>
+<span id="cb69-3"><a href=""></a></span>
+<span id="cb69-4"><a href=""></a><span class="fu">mapply</span>(<span class="cf">function</span>(g, h) g <span class="sc">/</span> h<span class="sc">^</span><span class="dv">2</span>, gewicht, groesse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22.85714 24.75546 23.03005</code></pre>
+</div>
+</div>
+</section>
+<section id="typische-fehler-bei-apply-funktionen" class="slide level3">
+<h3>Typische Fehler bei apply-Funktionen</h3>
+<ul>
+<li><code>apply()</code> auf gemischte Data Frames anwenden</li>
+<li>vergessen, dass <code>lapply()</code> eine Liste zurückgibt</li>
+<li><code>MARGIN = 1</code> und <code>MARGIN = 2</code> verwechseln</li>
+<li>fehlende Werte nicht beachten</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb71-2"><a href=""></a></span>
+<span id="cb71-3"><a href=""></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.333333</code></pre>
+</div>
+</div>
+</section>
+<section id="übung-apply-funktionen" class="slide level3">
+<h3>Übung: apply-Funktionen</h3>
+<p>Verwenden Sie den Data Frame <code>lab</code>.</p>
+<p>Bearbeiten Sie:</p>
+<ol type="1">
+<li>Prüfen Sie mit <code>sapply()</code>, welche Spalten numerisch sind.</li>
+<li>Berechnen Sie die Mittelwerte aller numerischen Spalten.</li>
+<li>Berechnen Sie den Mittelwert von <code>crp_mg_l</code> getrennt nach <code>gruppe</code>.</li>
+<li>Berechnen Sie das Maximum von <code>glucose</code> getrennt nach <code>gruppe</code>.</li>
+<li>Berechnen Sie mit <code>apply()</code> die Zeilensummen einer kleinen Matrix.</li>
+</ol>
+</section></section>
+<section>
+<section id="funktionales-programmieren" class="title-slide slide level1 center">
+<h1>Funktionales Programmieren</h1>
+
+</section>
+<section id="grundidee-1" class="slide level3">
+<h3>Grundidee</h3>
+<p>Beim funktionalen Programmieren werden Funktionen selbst wie Objekte behandelt.</p>
+<p>Das bedeutet:</p>
+<ul>
+<li>Funktionen können gespeichert werden</li>
+<li>Funktionen können übergeben werden</li>
+<li>Funktionen können direkt dort definiert werden, wo sie gebraucht werden</li>
+</ul>
+</section>
+<section id="funktionen-sind-objekte" class="slide level3">
+<h3>Funktionen sind Objekte</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>quadrat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb75-2"><a href=""></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb75-3"><a href=""></a>}</span>
+<span id="cb75-4"><a href=""></a></span>
+<span id="cb75-5"><a href=""></a><span class="fu">quadrat</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<p>Die Funktion wird im Objekt <code>quadrat</code> gespeichert.</p>
+</section>
+<section id="funktion-anzeigen-oder-ausführen" class="slide level3">
+<h3>Funktion anzeigen oder ausführen?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>quadrat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x) 
+{
+    x^2
+}</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">quadrat</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<p>Merksatz:</p>
+<blockquote>
+<p>Ohne Klammern sieht man die Funktion.<br>
+Mit Klammern wird die Funktion ausgeführt.</p>
+</blockquote>
+</section>
+<section id="funktionen-speichern" class="slide level3">
+<h3>Funktionen speichern</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>kennzahl <span class="ot">&lt;-</span> mean</span>
+<span id="cb81-2"><a href=""></a></span>
+<span id="cb81-3"><a href=""></a><span class="fu">kennzahl</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Hier enthält <code>kennzahl</code> die Funktion <code>mean()</code>.</p>
+</section>
+<section id="funktionen-als-argumente" class="slide level3">
+<h3>Funktionen als Argumente</h3>
+<p>Eine Funktion kann an eine andere Funktion übergeben werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb83-2"><a href=""></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),</span>
+<span id="cb83-3"><a href=""></a>  <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb83-4"><a href=""></a>)</span>
+<span id="cb83-5"><a href=""></a></span>
+<span id="cb83-6"><a href=""></a><span class="fu">sapply</span>(werte, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> a  b 
+ 4 20 </code></pre>
+</div>
+</div>
+<p><code>mean</code> wird hier an <code>sapply()</code> übergeben.</p>
+</section>
+<section id="anonyme-funktionen" class="slide level3">
+<h3>Anonyme Funktionen</h3>
+<p>Manchmal braucht man eine Funktion nur einmal.</p>
+<p>Dann muss sie keinen eigenen Namen bekommen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+</div>
+<p>Die Funktion</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>wird direkt verwendet.</p>
+</section>
+<section id="anonyme-funktion-schritt-für-schritt" class="slide level3">
+<h3>Anonyme Funktion Schritt für Schritt</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+</div>
+<p>Lesart:</p>
+<ol type="1">
+<li>Nimm die Werte <code>1:5</code>.</li>
+<li>Wende auf jeden Wert eine Funktion an.</li>
+<li>Die Funktion bekommt jeweils einen Wert <code>x</code>.</li>
+<li>Für jeden Wert wird <code>x^2</code> berechnet.</li>
+</ol>
+</section>
+<section id="benannte-und-anonyme-funktion" class="slide level3">
+<h3>Benannte und anonyme Funktion</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>quadrat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb90-2"><a href=""></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb90-3"><a href=""></a>}</span>
+<span id="cb90-4"><a href=""></a></span>
+<span id="cb90-5"><a href=""></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, quadrat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+</div>
+<p>Beide Varianten liefern dasselbe Ergebnis.</p>
+</section>
+<section id="wann-anonyme-funktionen" class="slide level3">
+<h3>Wann anonyme Funktionen?</h3>
+<p>Anonyme Funktionen sind praktisch, wenn die Berechnung:</p>
+<ul>
+<li>kurz ist</li>
+<li>nur einmal gebraucht wird</li>
+<li>direkt im Kontext verständlich ist</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb94-2"><a href=""></a></span>
+<span id="cb94-3"><a href=""></a><span class="fu">sapply</span>(werte, <span class="cf">function</span>(x) <span class="fu">log10</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2</code></pre>
+</div>
+</div>
+</section>
+<section id="anonyme-funktionen-mit-bedingungen" class="slide level3">
+<h3>Anonyme Funktionen mit Bedingungen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a>temperatur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">36.8</span>, <span class="fl">37.6</span>, <span class="fl">38.4</span>, <span class="fl">39.1</span>)</span>
+<span id="cb96-2"><a href=""></a></span>
+<span id="cb96-3"><a href=""></a><span class="fu">sapply</span>(temperatur, <span class="cf">function</span>(x) {</span>
+<span id="cb96-4"><a href=""></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="fl">37.5</span>) {</span>
+<span id="cb96-5"><a href=""></a>    <span class="st">"normal"</span></span>
+<span id="cb96-6"><a href=""></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">38</span>) {</span>
+<span id="cb96-7"><a href=""></a>    <span class="st">"erhöht"</span></span>
+<span id="cb96-8"><a href=""></a>  } <span class="cf">else</span> {</span>
+<span id="cb96-9"><a href=""></a>    <span class="st">"Fieber"</span></span>
+<span id="cb96-10"><a href=""></a>  }</span>
+<span id="cb96-11"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "normal" "erhöht" "Fieber" "Fieber"</code></pre>
+</div>
+</div>
+</section>
+<section id="eigene-funktion-mit-funktionsargument" class="slide level3">
+<h3>Eigene Funktion mit Funktionsargument</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN) {</span>
+<span id="cb98-2"><a href=""></a>  <span class="fu">FUN</span>(x)</span>
+<span id="cb98-3"><a href=""></a>}</span>
+<span id="cb98-4"><a href=""></a></span>
+<span id="cb98-5"><a href=""></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="fu">analyse</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Die Funktion <code>analyse()</code> bleibt gleich.</p>
+<p>Nur die übergebene Funktion ändert sich.</p>
+</section>
+<section id="zusätzliche-argumente-mit-..." class="slide level3">
+<h3>Zusätzliche Argumente mit <code>...</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>analyse <span class="ot">&lt;-</span> <span class="cf">function</span>(x, FUN, ...) {</span>
+<span id="cb102-2"><a href=""></a>  <span class="fu">FUN</span>(x, ...)</span>
+<span id="cb102-3"><a href=""></a>}</span>
+<span id="cb102-4"><a href=""></a></span>
+<span id="cb102-5"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">12</span>)</span>
+<span id="cb102-6"><a href=""></a></span>
+<span id="cb102-7"><a href=""></a><span class="fu">analyse</span>(werte, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<p>Die drei Punkte <code>...</code> geben weitere Argumente weiter.</p>
+</section>
+<section id="funktionen-erzeugen-funktionen" class="slide level3">
+<h3>Funktionen erzeugen Funktionen</h3>
+<p>Funktionen können auch neue Funktionen zurückgeben.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>multiplier <span class="ot">&lt;-</span> <span class="cf">function</span>(faktor) {</span>
+<span id="cb104-2"><a href=""></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb104-3"><a href=""></a>    x <span class="sc">*</span> faktor</span>
+<span id="cb104-4"><a href=""></a>  }</span>
+<span id="cb104-5"><a href=""></a>}</span>
+<span id="cb104-6"><a href=""></a></span>
+<span id="cb104-7"><a href=""></a>mal2 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">2</span>)</span>
+<span id="cb104-8"><a href=""></a>mal5 <span class="ot">&lt;-</span> <span class="fu">multiplier</span>(<span class="dv">5</span>)</span>
+<span id="cb104-9"><a href=""></a></span>
+<span id="cb104-10"><a href=""></a><span class="fu">mal2</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a><span class="fu">mal5</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+</div>
+</section>
+<section id="prüf-funktionen-erzeugen" class="slide level3">
+<h3>Prüf-Funktionen erzeugen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a>groesser_als <span class="ot">&lt;-</span> <span class="cf">function</span>(grenze) {</span>
+<span id="cb108-2"><a href=""></a>  <span class="cf">function</span>(x) {</span>
+<span id="cb108-3"><a href=""></a>    x <span class="sc">&gt;</span> grenze</span>
+<span id="cb108-4"><a href=""></a>  }</span>
+<span id="cb108-5"><a href=""></a>}</span>
+<span id="cb108-6"><a href=""></a></span>
+<span id="cb108-7"><a href=""></a>groesser_als_5 <span class="ot">&lt;-</span> <span class="fu">groesser_als</span>(<span class="dv">5</span>)</span>
+<span id="cb108-8"><a href=""></a></span>
+<span id="cb108-9"><a href=""></a><span class="fu">groesser_als_5</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="übung-funktionales-programmieren" class="slide level3">
+<h3>Übung: Funktionales Programmieren</h3>
+<p>Gegeben ist folgender Vektor:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a>werte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Bearbeiten Sie:</p>
+<ol type="1">
+<li>Schreiben Sie eine Funktion <code>analyse()</code>, die einen Vektor und eine Funktion erhält.</li>
+<li>Berechnen Sie mit <code>analyse()</code> den Mittelwert.</li>
+<li>Berechnen Sie mit <code>analyse()</code> den Median.</li>
+<li>Erweitern Sie <code>analyse()</code> um <code>...</code>.</li>
+<li>Berechnen Sie den Mittelwert mit <code>na.rm = TRUE</code>.</li>
+<li>Verwenden Sie <code>sapply()</code> mit einer anonymen Funktion, um alle Werte zu quadrieren.</li>
+</ol>
+</section></section>
+<section>
+<section id="abschluss" class="title-slide slide level1 center">
+<h1>Abschluss</h1>
+
+</section>
+<section id="zusammenfassung" class="slide level3">
+<h3>Zusammenfassung</h3>
+<p>Heute haben Sie gelernt:</p>
+<ul>
+<li>Kontrollstrukturen steuern Programmabläufe</li>
+<li>Schleifen wiederholen Befehle</li>
+<li><code>apply()</code> arbeitet häufig mit Matrizen</li>
+<li><code>lapply()</code> gibt immer eine Liste zurück</li>
+<li><code>sapply()</code> vereinfacht das Ergebnis</li>
+<li><code>tapply()</code> berechnet Kennwerte nach Gruppen</li>
+<li>anonyme Funktionen sind kurze Funktionen ohne Namen</li>
+</ul>
+</section>
+<section id="mini-wiederholung" class="slide level3">
+<h3>Mini-Wiederholung</h3>
+<p>Welche Funktion passt?</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Aufgabe</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mittelwert jeder Matrixspalte</td>
+<td><code>apply()</code></td>
+</tr>
+<tr class="even">
+<td>Funktion auf jede Listeneinheit</td>
+<td><code>lapply()</code></td>
+</tr>
+<tr class="odd">
+<td>kompakter Ergebnisvektor</td>
+<td><code>sapply()</code></td>
+</tr>
+<tr class="even">
+<td>Mittelwert nach Gruppe</td>
+<td><code>tapply()</code></td>
+</tr>
+<tr class="odd">
+<td>mehrere Vektoren parallel</td>
+<td><code>mapply()</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="abschlussübung" class="slide level3">
+<h3>Abschlussübung</h3>
+<p>Erstellen Sie einen eigenen kleinen Data Frame mit:</p>
+<ul>
+<li>einer ID-Spalte</li>
+<li>einer Gruppen-Spalte</li>
+<li>zwei numerischen Messwert-Spalten</li>
+</ul>
+<p>Bearbeiten Sie:</p>
+<ol type="1">
+<li>Prüfen Sie die Datentypen mit <code>sapply()</code>.</li>
+<li>Berechnen Sie Mittelwerte für alle numerischen Spalten.</li>
+<li>Berechnen Sie einen Messwert getrennt nach Gruppe.</li>
+<li>Verwenden Sie eine anonyme Funktion für Minimum, Median und Maximum.</li>
+<li>Klassifizieren Sie einen Messwert mit <code>if</code> und <code>else</code>.</li>
+</ol>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>03 Daten transformieren</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="03-transformations-slides_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="03-transformations-slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

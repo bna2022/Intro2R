@@ -42,12 +42,12 @@ editor_options:
 
 Nach der Sitzung können Sie …
 
--   zentrale Datenstrukturen in R unterscheiden
--   Vektoren erzeugen, indizieren und filtern
--   Matrizen und Data Frames gezielt auslesen
--   Listen als flexible Container verstehen
--   Factors für kategoriale Variablen einsetzen
--   einfache Auswertungen mit `sapply()` und `tapply()` durchführen
+- zentrale Datenstrukturen in R unterscheiden
+- Vektoren erzeugen, indizieren und filtern
+- Matrizen und Data Frames gezielt auslesen
+- Listen als flexible Container verstehen
+- Factors für kategoriale Variablen einsetzen
+- einfache Auswertungen mit `sapply()` und `tapply()` durchführen
 
 ::: notes
 Vorschlag Zeitplan: Einstieg 5 Min., Vektoren 25 Min., Matrizen/Listen
@@ -96,9 +96,9 @@ x
 
 Wichtig:
 
--   atomare Vektoren enthalten Werte **eines** Datentyps
--   viele R-Funktionen arbeiten automatisch elementweise
--   Vektoren sind Grundlage für viele andere Datenstrukturen
+- atomare Vektoren enthalten Werte **eines** Datentyps
+- viele R-Funktionen arbeiten automatisch elementweise
+- Vektoren sind Grundlage für viele andere Datenstrukturen
 
 ## Vektoren erzeugen
 
@@ -149,10 +149,10 @@ x[-c(1, 2)]
 
 Merksatz:
 
--   `x[i]`: einzelnes Element
--   `x[i:j]`: zusammenhängender Bereich
--   `x[c(...)]`: beliebige Auswahl
--   `x[-i]`: Element ausschließen
+- `x[i]`: einzelnes Element
+- `x[i:j]`: zusammenhängender Bereich
+- `x[c(...)]`: beliebige Auswahl
+- `x[-i]`: Element ausschließen
 
 ## Logische Indizierung
 
@@ -299,9 +299,9 @@ Eine Matrix ist ein zweidimensionaler Container.
 
 Eigenschaften:
 
--   Zeilen × Spalten
--   alle Elemente haben denselben Datentyp
--   nützlich für numerische Berechnungen und lineare Algebra
+- Zeilen × Spalten
+- alle Elemente haben denselben Datentyp
+- nützlich für numerische Berechnungen und lineare Algebra
 
 ## Matrix erzeugen
 
@@ -511,8 +511,8 @@ L[[1]]
 ::: fragment
 Merke:
 
--   `L[i]` gibt eine Liste zurück
--   `L[[i]]` gibt das Element zurück
+- `L[i]` gibt eine Liste zurück
+- `L[[i]]` gibt das Element zurück
 :::
 
 ## Zugriff auf Listen
@@ -527,10 +527,10 @@ L$servus
 
 Erstellen Sie eine Liste `person` mit:
 
--   Name
--   Alter
--   Lieblingszahlen als Vektor
--   einer logischen Angabe `student`
+- Name
+- Alter
+- Lieblingszahlen als Vektor
+- einer logischen Angabe `student`
 
 1\. Geben Sie nur den Namen aus.\
 2. Geben Sie nur die Lieblingszahlen aus.\
@@ -558,10 +558,10 @@ Ein Data Frame ist die zentrale Struktur für tabellarische Daten.
 
 Eigenschaften:
 
--   zweidimensional: Zeilen und Spalten
--   jede Spalte ist ein Vektor
--   Spalten dürfen unterschiedliche Datentypen haben
--   innerhalb einer Spalte ist der Datentyp einheitlich
+- zweidimensional: Zeilen und Spalten
+- jede Spalte ist ein Vektor
+- Spalten dürfen unterschiedliche Datentypen haben
+- innerhalb einer Spalte ist der Datentyp einheitlich
 
 ## Data Frame erstellen
 
@@ -616,8 +616,8 @@ U[!(U$Species == "setosa"), ]
 
 `!` dreht logische Werte um:
 
--   aus `TRUE` wird `FALSE`
--   aus `FALSE` wird `TRUE`
+- aus `TRUE` wird `FALSE`
+- aus `FALSE` wird `TRUE`
 
 ## Mehrere Werte mit `%in%`
 
@@ -711,10 +711,6 @@ Nutzen Sie weiter `lab`.
 4.  Berechnen Sie Mittelwert, Median und Maximum von CRP getrennt nach
     Gruppe.
 
-``` r
-# Ihre Lösung
-```
-
 ## Häufigkeitstabellen mit `table()`
 
 Mit `table()` kann man zählen, wie oft Werte vorkommen.
@@ -802,11 +798,11 @@ Factors repräsentieren kategoriale Variablen.
 
 Beispiele:
 
--   Geschlecht
--   Farben
--   Gruppen
--   Bewertungen
--   Klassen
+- Geschlecht
+- Farben
+- Gruppen
+- Bewertungen
+- Klassen
 
 Die möglichen Kategorien heißen **Levels**.
 
@@ -894,9 +890,9 @@ tapply(umsatz, abteilung, sum)
 
 `tapply(werte, gruppe, funktion)`
 
--   `werte`: Werte, mit denen gerechnet wird
--   `gruppe`: Gruppierungsvariable, oft Factor
--   `funktion`: Funktion pro Gruppe
+- `werte`: Werte, mit denen gerechnet wird
+- `gruppe`: Gruppierungsvariable, oft Factor
+- `funktion`: Funktion pro Gruppe
 
 Beispiel:
 
@@ -922,7 +918,7 @@ Für `Marketing` gibt es keinen Wert, aber der Level existiert.
 
 Deshalb erscheint `NA`.
 
-# Abschluss
+# Zusammenfassung
 
 ## Verständnisfragen
 
@@ -938,9 +934,9 @@ Deshalb erscheint `NA`.
 
 Erstellen Sie einen kleinen Data Frame mit mindestens:
 
--   einer ID-Spalte
--   einer numerischen Messwert-Spalte
--   einer kategorialen Gruppen-Spalte
+- einer ID-Spalte
+- einer numerischen Messwert-Spalte
+- einer kategorialen Gruppen-Spalte
 
 Bearbeiten Sie:
 
