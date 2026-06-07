@@ -1,0 +1,815 @@
+---
+title: Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`
+---
+
+## Überblick
+
+In dieser Einheit lernen Sie, wie Sie Daten in R so vorbereiten, dass sie analysierbar werden. Im Mittelpunkt stehen drei Pakete aus dem `tidyverse`:
+
+- `dplyr` für das Auswählen, Filtern, Sortieren, Gruppieren und Zusammenfassen von Daten,
+- `tidyr` für das Umformen von Datensätzen in ein „tidy“ Format,
+- `stringr` für das Bereinigen von Textwerten.
+
+::: {.callout-tip title="Lernziele"}
+1. Spalten mit `select()` auswählen oder ausschließen,
+2. Zeilen mit `filter()` anhand von Bedingungen filtern,
+3. mehrere Arbeitsschritte mit dem Pipe-Operator `|>` lesbar verknüpfen,
+4. Daten mit `arrange()` sortieren und mit `distinct()` Duplikate reduzieren,
+5. Gruppierungen mit `group_by()` erstellen und mit `summarize()` zusammenfassen,
+6. Datensätze mit `pivot_wider()` in ein breiteres, tidy Format bringen,
+7. Zeichenketten mit Funktionen aus `stringr` bereinigen.
+:::
+
+## Motivation für `dplyr`
+
+Sie haben bereits mit **Dataframes** gearbeitet. Das ist wichtig: Ein Dataframe ist in R die zentrale Datenstruktur für tabellarische Daten. Sie wissen vermutlich schon, wie man Spalten mit `$` anspricht, Zeilen mit eckigen Klammern auswählt und einfache Zusammenfassungen berechnet.
+
+Warum lernen wir jetzt trotzdem noch `dplyr`?
+
+Weil Dataframes zwar die **Datenstruktur** sind, aber noch keine besonders gute **Sprache für Datenanalyse**. Mit base R kann man sehr viel machen, aber bei längeren Analysen wird Code schnell schwer lesbar:
+
+```r
+gapminder[gapminder$country == "Germany" & gapminder$year >= 1990,
+          c("country", "year", "lifeExp", "gdpPercap")]
+```
+
+Der Code funktioniert, aber er vermischt mehrere Dinge auf einmal:
+
+- Welche Zeilen sollen behalten werden?
+- Welche Spalten interessieren uns?
+- In welcher Reihenfolge sollen die Schritte passieren?
+- Was ist eigentlich das Ziel dieser Operation?
+
+Mit `dplyr` schreiben wir dieselbe Idee näher an der natürlichen Sprache:
+
+```{r}
+# Pakete einbinden
+library(tidyverse)
+library(gapminder)
+```
+
+```r
+gapminder |>
+  filter(country == "Germany", year >= 1990) |>
+  select(country, year, lifeExp, gdpPercap)
+```
+
+Das liest sich wie eine kleine Analyseanweisung:
+
+> Nimm `gapminder`, dann behalte Deutschland ab 1990, dann wähle die interessierenden Variablen aus.
+
+`dplyr` ersetzt Dataframes also nicht. Es hilft Ihnen, **besser mit Dataframes zu arbeiten**.
+
+### Warum `dplyr`, wenn wir schon Dataframes kennen?
+
+#### 1. Code wird lesbarer
+
+Viele Analysen bestehen aus mehreren kleinen Schritten: filtern, auswählen, sortieren, neue Variablen berechnen, gruppieren, zusammenfassen. Mit `dplyr` bekommt jeder dieser Schritte einen klaren Namen.
+
+| Fragestellung | `dplyr`-Funktion |
+|---|---|
+| Welche Zeilen brauche ich? | `filter()` |
+| Welche Spalten brauche ich? | `select()` |
+| Wie sortiere ich die Daten? | `arrange()` |
+| Wie berechne ich neue Variablen? | `mutate()` |
+| Wie fasse ich Gruppen zusammen? | `group_by()` + `summarise()` |
+
+Dadurch wird der Code nicht nur für Sie selbst verständlicher, sondern auch für andere Personen, die Ihre Analyse nachvollziehen sollen.
+
+#### 2. Analysen werden weniger fehleranfällig
+
+Base-R-Code mit eckigen Klammern ist mächtig, aber leicht zu verwechseln:
+
+```r
+gapminder[zeilen, spalten]
+```
+
+Wenn Zeilen- und Spaltenlogik in einer einzigen Klammer stehen, passieren schnell Fehler: ein Komma vergessen, eine Spalte falsch geschrieben, eine Bedingung an der falschen Stelle verwendet.
+
+Mit `dplyr` wird jeder Schritt explizit:
+
+```r
+gapminder |>
+  filter(continent == "Africa") |>
+  select(country, year, lifeExp)
+```
+
+Hier ist klar: Erst werden Zeilen gefiltert, dann Spalten ausgewählt.
+
+#### 3. Zwischenschritte werden vermeidbar
+
+Beim Arbeiten mit Dataframes entstehen oft viele Zwischenobjekte:
+
+```r
+africa <- gapminder[gapminder$continent == "Africa", ]
+africa_small <- africa[, c("country", "year", "lifeExp")]
+africa_2007 <- africa_small[africa_small$year == 2007, ]
+```
+
+Das funktioniert, aber der Workspace wird schnell unübersichtlich. Außerdem besteht die Gefahr, später versehentlich mit einem alten Zwischenobjekt weiterzuarbeiten.
+
+Mit einer Pipe-Kette bleibt die Analyse kompakt:
+
+```r
+gapminder |>
+  filter(continent == "Africa") |>
+  select(country, year, lifeExp) |>
+  filter(year == 2007)
+```
+
+#### 4. Die gleiche Denkweise funktioniert für kleine und große Daten
+
+Bei kleinen Beispieldatensätzen ist base R oft ausreichend. In realen Projekten werden Datensätze aber größer, Analysen länger und Arbeitsschritte wiederholbarer. `dplyr` bietet eine Grammatik, die mitwächst: vom einfachen Filtern bis zu gruppierten Auswertungen.
+
+#### 5. `dplyr` passt gut zu Grafiken und Berichten
+
+Viele Analysen enden nicht mit einer Tabelle, sondern mit einer Grafik, einem Bericht oder einer statistischen Auswertung. `dplyr` lässt sich gut mit `ggplot2`, R Markdown oder Quarto kombinieren:
+
+
+
+```{r}
+gapminder |>
+  filter(country == "Germany") |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line()
+```
+
+Die Datenaufbereitung steht direkt vor der Grafik. Dadurch bleibt nachvollziehbar, welche Daten tatsächlich visualisiert wurden.
+
+
+
+## Vorbereitung: Pakete laden
+
+In diesem Kapitel verwenden wir:
+
+- `dplyr` für Datenmanipulation,
+- `ggplot2` für Grafiken,
+- `gapminder` für den Beispieldatensatz.
+
+Diese Pakete müssen einmal installiert und in jeder neuen R-Sitzung geladen werden.
+
+```{r}
+# Nur einmal nötig:
+# install.packages("tidyverse")
+# install.packages("gapminder")
+
+# In jeder neuen Sitzung nötig:
+library(tidyverse)
+library(gapminder)
+```
+
+`tidyverse` lädt unter anderem `dplyr`, `ggplot2`, `tidyr`, `readr`, `stringr`, `forcats`, `purrr` und `tibble`.
+
+> **Hinweis**  
+> Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie den Paketnamen voranstellen, zum Beispiel `dplyr::select()`. Dadurch machen Sie eindeutig, welche Funktion gemeint ist.
+
+---
+
+## 1 Den Gapminder-Datensatz kennenlernen
+
+Bevor wir mit `dplyr` Daten verändern, sollten wir den Datensatz einmal in Ruhe kennenlernen. In einer echten Analyse ist dieser Schritt sehr wichtig: Wir wollen wissen, **welche Beobachtungen in den Zeilen stehen**, **welche Variablen in den Spalten stehen** und **welche Datentypen** R für diese Variablen verwendet.
+
+Der Datensatz `gapminder` ist im Paket `gapminder` enthalten. Jede Zeile beschreibt ein Land in einem bestimmten Jahr.
+
+Schauen wir uns den Datensatz zunächst einfach an:
+
+```{r echo = TRUE}
+gapminder
+```
+
+### 1.1 Was bedeutet „tibble“?
+
+`gapminder` ist kein gewöhnlicher Dataframe, sondern ein **tibble**. Ein tibble ist eine moderne Variante eines Dataframes. Für unsere Arbeit bedeutet das:
+
+- Ein tibble ist weiterhin tabellarisch aufgebaut: Zeilen sind Beobachtungen, Spalten sind Variablen.
+- Ein tibble kann mit den gleichen Grundideen wie ein Dataframe verwendet werden.
+- Die Ausgabe in der Konsole ist kompakter und übersichtlicher.
+- R zeigt nicht automatisch alle Zeilen und alle Spalten an, sondern nur einen sinnvollen Ausschnitt.
+
+Das ist besonders praktisch, wenn Datensätze größer werden. Bei einem klassischen Dataframe kann die Ausgabe schnell unübersichtlich werden, wenn viele Zeilen oder Spalten vorhanden sind. Ein tibble zeigt stattdessen zuerst eine kurze Zusammenfassung: Anzahl der Zeilen, Anzahl der Spalten, Spaltennamen und Datentypen.
+
+### 1.2 Zeilen, Spalten und Variablen
+
+Die sechs Variablen sind:
+
+| Variable | Bedeutung | Datentyp in R |
+|---|---|---|
+| `country` | Land | Faktor / kategoriale Variable |
+| `continent` | Kontinent | Faktor / kategoriale Variable |
+| `year` | Jahr | Ganzzahl |
+| `lifeExp` | Lebenserwartung bei Geburt | numerische Variable |
+| `pop` | Bevölkerungszahl | Ganzzahl |
+| `gdpPercap` | Bruttoinlandsprodukt pro Kopf | numerische Variable |
+
+Die kleinen Angaben unter den Spaltennamen zeigen die Datentypen:
+
+| Anzeige | Bedeutung |
+|---|---|
+| `<fct>` | Faktor, also eine kategoriale Variable |
+| `<int>` | Integer, also eine ganze Zahl |
+| `<dbl>` | Double, also eine numerische Variable mit Dezimalstellen |
+
+Diese Informationen sind wichtig, weil viele Funktionen je nach Datentyp unterschiedlich arbeiten. Mit numerischen Variablen können wir zum Beispiel Mittelwerte berechnen. Bei kategorialen Variablen wie `continent` oder `country` interessieren uns eher Häufigkeiten oder Gruppenvergleiche.
+
+### 1.3 Ist `gapminder` wirklich ein Dataframe?
+
+Ein tibble ist eine spezielle Form eines Dataframes. Das können wir mit `class()` prüfen:
+
+```{r echo = TRUE}
+class(gapminder)
+```
+
+Das bedeutet: `gapminder` ist gleichzeitig ein tibble **und** ein Dataframe. Die Bezeichnungen `tbl_df` und `tbl` zeigen die tibble-Eigenschaften. `data.frame` zeigt, dass R den Datensatz weiterhin als Dataframe behandeln kann.
+
+Für Sie ist das eine gute Nachricht: Alles, was Sie über Dataframes gelernt haben, bleibt nützlich. `dplyr` baut darauf auf und bietet eine besser lesbare Sprache für typische Arbeitsschritte.
+
+### 1.4 Ein Dataframe in ein Tibble umwandeln
+
+Mit `as_tibble()` können wir ein bestehendes Dataframe in ein Tibble umwandeln:
+
+```{r}
+daten_df <- data.frame(
+  land = c("Deutschland", "Frankreich", "Italien"),
+  jahr = c(2000, 2000, 2000),
+  lebenserwartung = c(78.0, 79.1, 79.8)
+)
+
+daten_tbl <- as_tibble(daten_df)
+
+daten_tbl
+```
+
+Mit `class()` können wir prüfen, was daraus geworden ist:
+
+```{r}
+class(daten_tbl)
+```
+
+Die Ausgabe zeigt: Ein Tibble ist weiterhin ein `data.frame`, hat aber zusätzliche Klassen wie `tbl_df` und `tbl`.
+
+**Merke:**  
+Ein Dataframe wird mit `as_tibble()` in ein Tibble umgewandelt.
+
+```{r}
+mein_tibble <- as_tibble(daten_df)
+```
+
+### 1.5 Den Datensatz kompakt untersuchen
+
+Für eine erste Orientierung eignen sich diese Befehle:
+
+```r
+nrow(gapminder)      # Anzahl der Zeilen
+ncol(gapminder)      # Anzahl der Spalten
+names(gapminder)     # Namen der Variablen
+class(gapminder)     # Objektklasse
+```
+
+Eine besonders praktische Funktion aus dem tidyverse ist `glimpse()`:
+
+```r
+glimpse(gapminder)
+```
+
+`glimpse()` zeigt jede Variable in einer eigenen Zeile. Das ist hilfreich, weil man schnell erkennt:
+
+- welche Variablen vorhanden sind,
+- welchen Datentyp sie haben,
+- wie typische Werte aussehen.
+
+Zum Vergleich können Sie auch `str()` verwenden:
+
+```r
+str(gapminder)
+```
+
+Beide Funktionen geben Strukturinformationen aus. `glimpse()` ist häufig etwas angenehmer zu lesen, besonders bei breiten Tabellen mit vielen Spalten.
+
+### 1.6 Erste inhaltliche Fragen an den Datensatz
+
+Schon bevor wir Daten filtern oder verändern, können wir einfache Fragen stellen:
+
+```{r echo = TRUE}
+unique(gapminder$continent)
+```
+
+Dieser Befehl zeigt, welche Kontinente im Datensatz vorkommen.
+
+```{r echo = TRUE}
+range(gapminder$year)
+```
+
+Dieser Befehl zeigt das kleinste und größte Jahr.
+
+```{r echo = TRUE}
+length(unique(gapminder$country))
+```
+
+Dieser Befehl zeigt, wie viele Länder im Datensatz enthalten sind.
+
+Diese Befehle sind base R. Sie funktionieren gut und zeigen: `dplyr` ersetzt unser bisheriges Wissen nicht. Im nächsten Schritt lernen wir aber eine Schreibweise kennen, mit der solche Analysen lesbarer werden: den Pipe Operator. 
+
+Mit dem Pipe Operator aus `dplyr` könnten wir die Anzahl der Länder zum Beispiel so bestimmen:
+
+```r
+gapminder |>
+  distinct(country) |>
+  nrow()
+```
+
+Gelesen bedeutet das:
+
+> Nimm `gapminder`, behalte jede Ausprägung von `country` nur einmal und zähle dann die Zeilen.
+
+### Aufgabe: Erste Orientierung
+
+Führen Sie die folgenden Befehle aus:
+
+```r
+nrow(gapminder)
+ncol(gapminder)
+names(gapminder)
+class(gapminder)
+glimpse(gapminder)
+summary(gapminder)
+```
+
+Beantworten Sie anschließend:
+
+1. Wie viele Beobachtungen enthält der Datensatz?
+2. Wie viele Variablen enthält der Datensatz?
+3. Welche Variablen sind kategorial?
+4. Welche Variablen sind numerisch?
+5. In welchem Zeitraum liegen die Daten?
+
+## 2 Zeilen auswählen mit `filter()`
+
+Mit `filter()` wählen Sie Zeilen aus, die eine Bedingung erfüllen.
+
+### 2.1 Ein Land auswählen
+
+```r
+gapminder |>
+  filter(country == "Germany")
+```
+
+Dieser Code behält nur Zeilen, in denen `country` genau den Wert `"Germany"` hat.
+
+Zum Vergleich in base R:
+
+```r
+gapminder[gapminder$country == "Germany", ]
+```
+
+Beide Varianten liefern dasselbe Ergebnis. Die `dplyr`-Variante ist jedoch näher an der Frage formuliert: „Filtere die Daten auf Deutschland.“
+
+### 2.2 Mehrere Bedingungen verwenden
+
+```r
+gapminder |>
+  filter(country == "Germany", year >= 1990)
+```
+
+Mehrere Bedingungen innerhalb von `filter()` werden wie ein logisches UND behandelt. Es bleiben also nur Zeilen erhalten, bei denen alle Bedingungen erfüllt sind.
+
+Sie können Bedingungen auch explizit mit `&` verbinden:
+
+```r
+gapminder |>
+  filter(country == "Germany" & year >= 1990)
+```
+
+### 2.3 Mehrere Länder auswählen
+
+Für mehrere mögliche Werte nutzen Sie `%in%`:
+
+```r
+gapminder |>
+  filter(country %in% c("Germany", "France", "Italy"))
+```
+
+Das liest sich als: Behalte Zeilen, bei denen `country` in der angegebenen Liste vorkommt.
+
+### Aufgabe: Filtern üben
+
+Schreiben Sie `dplyr`-Code für die folgenden Fragen:
+
+1. Alle Daten für `Japan`.
+2. Alle Daten für `Brazil` ab 1980.
+3. Alle Daten für die Länder `Germany`, `Switzerland` und `Austria`.
+4. Alle Zeilen, in denen die Lebenserwartung unter 40 Jahren liegt.
+5. Alle Zeilen aus dem Jahr 2007 mit einer Bevölkerung über 100 Millionen.
+
+Beispielstruktur:
+
+```r
+gapminder |>
+  filter(____ == ____)
+```
+
+---
+
+## 3 Einzelne Spalten auswählen
+
+Mit `select()` wählen Sie Spalten aus.
+
+```r
+gapminder |>
+  select(country, year, lifeExp)
+```
+
+Das Ergebnis enthält nur die drei genannten Spalten.
+
+### 3.1 Spalten ausschließen
+
+```r
+gapminder |>
+  select(-pop)
+```
+
+Das Minuszeichen bedeutet: Diese Spalte wird entfernt.
+
+Mehrere Spalten können Sie so ausschließen:
+
+```r
+gapminder |>
+  select(-c(pop, gdpPercap))
+```
+
+### 3.2 Spalten umsortieren
+
+`select()` kann Spalten auch in eine neue Reihenfolge bringen:
+
+```r
+gapminder |>
+  select(year, country, continent, lifeExp, pop, gdpPercap)
+```
+
+### 3.3 Hilfsfunktionen in `select()`
+
+Bei vielen Spaltennamen können Hilfsfunktionen nützlich sein:
+
+```r
+gapminder |>
+  select(starts_with("c"))
+```
+
+Dieser Code wählt Spalten aus, deren Name mit `c` beginnt: `country` und `continent`.
+
+```r
+gapminder |>
+  select(contains("p"))
+```
+
+Dieser Code wählt Spalten aus, deren Name den Buchstaben `p` enthält.
+
+### Aufgabe: Spalten auswählen
+
+Erstellen Sie jeweils einen Datensatz mit:
+
+1. nur `country`, `year` und `lifeExp`,
+2. nur `country`, `continent` und `pop`,
+3. allen Spalten außer `gdpPercap`,
+4. allen Spalten, deren Name den Buchstaben `p` enthält.
+
+---
+
+## 4 Arbeitsschritte verbinden mit `|>`
+
+Der Pipe-Operator `|>` übergibt das Ergebnis eines Schrittes an den nächsten Schritt. Man kann ihn als „dann“ lesen.
+
+```r
+gapminder |>
+  filter(country == "Germany") |>
+  select(year, lifeExp)
+```
+
+Lesen Sie den Code laut:
+
+> Nimm `gapminder`, dann filtere Deutschland, dann wähle Jahr und Lebenserwartung.
+
+Das ist einer der wichtigsten Vorteile von `dplyr`: Der Code beschreibt eine Datenanalyse als nachvollziehbare Schrittfolge.
+
+### 4.1 Eine typische Analysekette
+
+```r
+gapminder |>
+  filter(continent == "Europe", year == 2007) |>
+  select(country, lifeExp, gdpPercap) |>
+  arrange(desc(lifeExp))
+```
+
+Dieser Code macht vier Dinge:
+
+1. Er nimmt den Datensatz `gapminder`.
+2. Er behält nur europäische Länder im Jahr 2007.
+3. Er wählt drei Spalten aus.
+4. Er sortiert absteigend nach Lebenserwartung.
+
+### Aufgabe: Pipe-Ketten lesen
+
+Beschreiben Sie in eigenen Worten, was dieser Code macht:
+
+```r
+gapminder |>
+  filter(continent == "Asia", year == 2007) |>
+  select(country, pop, lifeExp) |>
+  arrange(desc(pop))
+```
+
+Schreiben Sie anschließend eine eigene Pipe-Kette für folgende Frage:
+
+> Welche afrikanischen Länder hatten im Jahr 2007 die höchste Lebenserwartung?
+
+---
+
+## 5 Daten sortieren mit `arrange()`
+
+Mit `arrange()` sortieren Sie Zeilen nach einer oder mehreren Variablen.
+
+### 5.1 Aufsteigend sortieren
+
+```r
+gapminder |>
+  arrange(lifeExp)
+```
+
+Die kleinsten Werte stehen oben.
+
+### 5.2 Absteigend sortieren
+
+```r
+gapminder |>
+  arrange(desc(lifeExp))
+```
+
+Die größten Werte stehen oben.
+
+### 5.3 Nur die wichtigsten Spalten anzeigen
+
+Sortierte Tabellen sind übersichtlicher, wenn Sie vorher oder nachher Spalten auswählen:
+
+```r
+gapminder |>
+  filter(year == 2007) |>
+  select(country, continent, lifeExp) |>
+  arrange(desc(lifeExp))
+```
+
+### Aufgabe: Sortieren
+
+Beantworten Sie mit Code:
+
+1. Welche Länder hatten 2007 die niedrigste Lebenserwartung?
+2. Welche Länder hatten 2007 die höchste Bevölkerung?
+3. Welche Länder hatten 2007 das höchste BIP pro Kopf?
+4. Ändert sich die Antwort, wenn Sie nur europäische Länder betrachten?
+
+Nutzen Sie `head()` oder `slice_head()`, um nur die ersten Zeilen auszugeben:
+
+```r
+gapminder |>
+  filter(year == 2007) |>
+  arrange(desc(pop)) |>
+  slice_head(n = 10)
+```
+
+---
+
+## 6 Neue Variablen berechnen mit `mutate()`
+
+Mit `mutate()` erzeugen Sie neue Spalten oder verändern bestehende Spalten.
+
+### 6.1 Bevölkerung in Millionen
+
+Die Spalte `pop` enthält absolute Bevölkerungszahlen. Für Tabellen ist eine Angabe in Millionen oft lesbarer.
+
+```r
+gapminder |>
+  mutate(pop_mio = pop / 1000000) |>
+  select(country, year, pop, pop_mio)
+```
+
+### 6.2 BIP insgesamt schätzen
+
+`gdpPercap` ist das BIP pro Kopf. Eine grobe Schätzung des gesamten BIP erhalten Sie durch Multiplikation mit der Bevölkerung:
+
+```r
+gapminder |>
+  mutate(gdp_total = gdpPercap * pop) |>
+  select(country, year, pop, gdpPercap, gdp_total)
+```
+
+### 6.3 Lebenserwartung kategorisieren
+
+```r
+gapminder |>
+  mutate(lifeExp_group = case_when(
+    lifeExp < 50 ~ "unter 50",
+    lifeExp < 70 ~ "50 bis unter 70",
+    TRUE ~ "70 und mehr"
+  )) |>
+  select(country, year, lifeExp, lifeExp_group)
+```
+
+`case_when()` ist nützlich, wenn Sie mehrere Bedingungen in Kategorien übersetzen möchten. Die letzte Zeile `TRUE ~ "70 und mehr"` aus dem Beispiel funktioniert hier wie eine Auffangkategorie: Alle Beobachtungen, die keine der vorherigen Bedingungen erfüllen, erhalten diesen Wert.
+
+### Aufgabe: Neue Variablen
+
+Erstellen Sie einen Datensatz für das Jahr 2007 mit:
+
+1. `pop_mio`: Bevölkerung in Millionen,
+2. `gdp_total`: geschätztes gesamtes BIP,
+3. `high_lifeExp`: `TRUE`, wenn die Lebenserwartung mindestens 75 Jahre beträgt, sonst `FALSE`.
+
+Startcode:
+
+```r
+gapminder |>
+  filter(year == 2007) |>
+  mutate(
+    pop_mio = ____,
+    gdp_total = ____,
+    high_lifeExp = ____
+  )
+```
+
+---
+
+## 7 Spalten umbenennen mit `rename()`
+
+Manchmal sind Spaltennamen nicht besonders verständlich oder passen nicht gut zur Analyse. Mit `rename()` können wir Spalten gezielt umbenennen.
+
+Die Reihenfolge ist dabei wichtig:
+
+```{r}
+#| eval: false
+
+neuer_name = alter_name
+```
+
+Beispiel mit `gapminder`:
+
+```{r}
+gapminder_deutsch <- gapminder |>
+  rename(
+    land = country,
+    kontinent = continent,
+    jahr = year,
+    lebenserwartung = lifeExp,
+    bevoelkerung = pop,
+    bip_pro_kopf = gdpPercap
+  )
+
+gapminder_deutsch |>
+  select(land, jahr, lebenserwartung, bip_pro_kopf)
+```
+Links steht also der neue Name, rechts der bisherige Name. Die ursprüngliche Tabelle `gapminder` wird dadurch nicht dauerhaft verändert, solange wir das Ergebnis nicht speichern.
+
+
+`rename()` ist besonders nützlich, wenn Spaltennamen später in Tabellen, Auswertungen oder Grafiken verständlicher erscheinen sollen.
+
+**Merke:**  
+Mit `rename()` ändern wir Spaltennamen:
+
+```{r}
+#| eval: false
+
+daten_neu <- daten |>
+  rename(neuer_name = alter_name)
+```
+
+---
+
+## 8 Gruppieren und zusammenfassen mit `group_by()` und `summarise()`
+
+Viele Forschungsfragen beziehen sich nicht auf einzelne Zeilen, sondern auf Gruppen:
+
+- Wie hoch ist die durchschnittliche Lebenserwartung pro Kontinent?
+- Wie verändert sich die Bevölkerung pro Kontinent über die Zeit?
+- Welche Länder haben die höchste oder niedrigste Lebenserwartung?
+
+Dafür kombinieren wir `group_by()` und `summarise()`.
+
+### 8.1 Durchschnittliche Lebenserwartung pro Kontinent
+
+```r
+gapminder |>
+  filter(year == 2007) |>
+  group_by(continent) |>
+  summarise(mean_lifeExp = mean(lifeExp))
+```
+
+Dieser Code bedeutet:
+
+1. Behalte nur das Jahr 2007.
+2. Gruppiere die Daten nach Kontinent.
+3. Berechne pro Kontinent die mittlere Lebenserwartung.
+
+### 8.2 Mehrere Kennzahlen berechnen
+
+```r
+gapminder |>
+  filter(year == 2007) |>
+  group_by(continent) |>
+  summarise(
+    mean_lifeExp = mean(lifeExp),
+    min_lifeExp = min(lifeExp),
+    max_lifeExp = max(lifeExp),
+    n_countries = n()
+  )
+```
+
+`n()` zählt, wie viele Zeilen in jeder Gruppe enthalten sind.
+
+### 8.3 Gruppierung über mehrere Variablen
+
+```r
+gapminder |>
+  group_by(continent, year) |>
+  summarise(mean_lifeExp = mean(lifeExp), .groups = "drop")
+```
+
+Jetzt wird für jede Kombination aus Kontinent und Jahr eine Zusammenfassung berechnet. Das Argument `.groups = "drop"` sorgt dafür, dass die Gruppierung nach der Zusammenfassung wieder aufgehoben wird. Das Ergebnis ist dadurch eine normale Tabelle und spätere Berechnungen werden nicht versehentlich weiterhin gruppiert ausgeführt.
+
+### Aufgabe: Gruppierte Auswertungen
+
+Beantworten Sie mit `group_by()` und `summarise()`:
+
+1. Wie hoch ist die durchschnittliche Lebenserwartung pro Kontinent im Jahr 1952?
+2. Wie hoch ist sie im Jahr 2007?
+3. Wie viele Länder enthält jeder Kontinent im Datensatz?
+4. Wie groß ist die Gesamtbevölkerung pro Kontinent im Jahr 2007?
+5. Welcher Kontinent hatte 2007 im Mittel das höchste BIP pro Kopf?
+
+---
+
+# 11 Mini-Projekt
+
+Bearbeiten Sie eine der folgenden Analysefragen. Dokumentieren Sie Ihren Code und schreiben Sie zu jedem Schritt einen kurzen Kommentar.
+
+## Option A: Lebenserwartung in Europa
+
+Untersuchen Sie die Entwicklung der Lebenserwartung in europäischen Ländern.
+
+Leitfragen:
+
+1. Welche europäischen Länder hatten 1952 die höchste Lebenserwartung?
+2. Welche hatten 2007 die höchste Lebenserwartung?
+3. Wie stark ist die Lebenserwartung in jedem europäischen Land gestiegen?
+4. Welche Länder zeigen die größten Veränderungen?
+
+## Option B: Bevölkerung und BIP pro Kopf
+
+Untersuchen Sie den Zusammenhang zwischen Bevölkerung und BIP pro Kopf im Jahr 2007.
+
+Leitfragen:
+
+1. Welche Länder hatten 2007 die größte Bevölkerung?
+2. Welche Länder hatten 2007 das höchste BIP pro Kopf?
+3. Gibt es sichtbare Unterschiede zwischen Kontinenten?
+4. Wie könnten Ausreißer die Interpretation beeinflussen?
+
+## Option C: Kontinente im Vergleich
+
+Vergleichen Sie die Kontinente im Jahr 2007.
+
+Leitfragen:
+
+1. Wie hoch ist die mittlere Lebenserwartung pro Kontinent?
+2. Wie groß ist die Gesamtbevölkerung pro Kontinent?
+3. Wie hoch ist das mittlere BIP pro Kopf pro Kontinent?
+4. Welche Kennzahl eignet sich am besten für einen fairen Vergleich? Warum?
+
+---
+
+# 5 Zusammenfassung
+
+In dieser Einheit haben Sie gelernt:
+
+- Mit `select()` wählen Sie Spalten aus oder schließen sie aus.
+- Mit `filter()` behalten Sie nur Zeilen, die eine Bedingung erfüllen.
+- Mit dem Pipe-Operator `|>` schreiben Sie Datenanalyse-Code schrittweise und lesbar.
+- Mit `arrange()` sortieren Sie Daten.
+- Mit `distinct()` reduzieren Sie wiederholte Beobachtungen.
+- Mit `group_by()` und `summarize()` berechnen Sie gruppierte Kennzahlen.
+- Mit `pivot_wider()` formen Sie lange Daten in breite Daten um.
+- Mit `stringr` bereinigen Sie Textwerte.
+
+## Reflexionsfragen
+
+1. Warum ist Datenbereinigung ein wichtiger Schritt vor der Analyse?
+2. Was kann passieren, wenn ein Datensatz noch gruppiert ist und Sie weitere Berechnungen durchführen?
+3. Wann ist automatische Textbereinigung hilfreich, und wann kann sie problematisch sein?
+4. Welche der Funktionen aus dieser Einheit werden Sie vermutlich am häufigsten verwenden?
+
+---
+
+# Quelle und Lizenz
+
+Dieses Skript ist eine didaktische Adaption der Inhalte aus:
+
+CS50’s Introduction to Programming with R, Lecture 4: *Tidying Data*.  
+Quelle: https://cs50.harvard.edu/r/notes/4/
+
+Die CS50-Kursmaterialien stehen unter der Creative-Commons-Lizenz **CC BY-NC-SA 4.0**. Entsprechend ist diese Bearbeitung ebenfalls unter **CC BY-NC-SA 4.0** zu verwenden. Die Bearbeitung wurde ins Deutsche übertragen, neu strukturiert und um Selbstlernaufgaben, Hinweise sowie eigenständige Beispieldatensätze ergänzt.
