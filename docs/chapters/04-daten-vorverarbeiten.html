@@ -212,68 +212,83 @@ background-size: cover;
   <li><a href="#warum-dplyr-wenn-wir-schon-dataframes-kennen" id="toc-warum-dplyr-wenn-wir-schon-dataframes-kennen" class="nav-link" data-scroll-target="#warum-dplyr-wenn-wir-schon-dataframes-kennen"><span class="header-section-number">5.2.1</span> Warum <code>dplyr</code>, wenn wir schon Dataframes kennen?</a></li>
   </ul></li>
   <li><a href="#vorbereitung-pakete-laden" id="toc-vorbereitung-pakete-laden" class="nav-link" data-scroll-target="#vorbereitung-pakete-laden"><span class="header-section-number">5.3</span> Vorbereitung: Pakete laden</a></li>
-  <li><a href="#den-gapminder-datensatz-kennenlernen" id="toc-den-gapminder-datensatz-kennenlernen" class="nav-link" data-scroll-target="#den-gapminder-datensatz-kennenlernen"><span class="header-section-number">5.4</span> 1 Den Gapminder-Datensatz kennenlernen</a>
+  <li><a href="#den-gapminder-datensatz-kennenlernen" id="toc-den-gapminder-datensatz-kennenlernen" class="nav-link" data-scroll-target="#den-gapminder-datensatz-kennenlernen"><span class="header-section-number">5.4</span> Den Gapminder-Datensatz kennenlernen</a>
   <ul class="collapse">
-  <li><a href="#was-bedeutet-tibble" id="toc-was-bedeutet-tibble" class="nav-link" data-scroll-target="#was-bedeutet-tibble"><span class="header-section-number">5.4.1</span> 1.1 Was bedeutet „tibble“?</a></li>
-  <li><a href="#zeilen-spalten-und-variablen" id="toc-zeilen-spalten-und-variablen" class="nav-link" data-scroll-target="#zeilen-spalten-und-variablen"><span class="header-section-number">5.4.2</span> 1.2 Zeilen, Spalten und Variablen</a></li>
-  <li><a href="#ist-gapminder-wirklich-ein-dataframe" id="toc-ist-gapminder-wirklich-ein-dataframe" class="nav-link" data-scroll-target="#ist-gapminder-wirklich-ein-dataframe"><span class="header-section-number">5.4.3</span> 1.3 Ist <code>gapminder</code> wirklich ein Dataframe?</a></li>
-  <li><a href="#ein-dataframe-in-ein-tibble-umwandeln" id="toc-ein-dataframe-in-ein-tibble-umwandeln" class="nav-link" data-scroll-target="#ein-dataframe-in-ein-tibble-umwandeln"><span class="header-section-number">5.4.4</span> 1.4 Ein Dataframe in ein Tibble umwandeln</a></li>
-  <li><a href="#den-datensatz-kompakt-untersuchen" id="toc-den-datensatz-kompakt-untersuchen" class="nav-link" data-scroll-target="#den-datensatz-kompakt-untersuchen"><span class="header-section-number">5.4.5</span> 1.5 Den Datensatz kompakt untersuchen</a></li>
-  <li><a href="#erste-inhaltliche-fragen-an-den-datensatz" id="toc-erste-inhaltliche-fragen-an-den-datensatz" class="nav-link" data-scroll-target="#erste-inhaltliche-fragen-an-den-datensatz"><span class="header-section-number">5.4.6</span> 1.6 Erste inhaltliche Fragen an den Datensatz</a></li>
+  <li><a href="#was-bedeutet-tibble" id="toc-was-bedeutet-tibble" class="nav-link" data-scroll-target="#was-bedeutet-tibble"><span class="header-section-number">5.4.1</span> Was bedeutet „tibble“?</a></li>
+  <li><a href="#zeilen-spalten-und-variablen" id="toc-zeilen-spalten-und-variablen" class="nav-link" data-scroll-target="#zeilen-spalten-und-variablen"><span class="header-section-number">5.4.2</span> Zeilen, Spalten und Variablen</a></li>
+  <li><a href="#ist-gapminder-wirklich-ein-dataframe" id="toc-ist-gapminder-wirklich-ein-dataframe" class="nav-link" data-scroll-target="#ist-gapminder-wirklich-ein-dataframe"><span class="header-section-number">5.4.3</span> Ist <code>gapminder</code> wirklich ein Dataframe?</a></li>
+  <li><a href="#ein-dataframe-in-ein-tibble-umwandeln" id="toc-ein-dataframe-in-ein-tibble-umwandeln" class="nav-link" data-scroll-target="#ein-dataframe-in-ein-tibble-umwandeln"><span class="header-section-number">5.4.4</span> Ein Dataframe in ein Tibble umwandeln</a></li>
+  <li><a href="#den-datensatz-kompakt-untersuchen" id="toc-den-datensatz-kompakt-untersuchen" class="nav-link" data-scroll-target="#den-datensatz-kompakt-untersuchen"><span class="header-section-number">5.4.5</span> Den Datensatz kompakt untersuchen</a></li>
+  <li><a href="#erste-inhaltliche-fragen-an-den-datensatz" id="toc-erste-inhaltliche-fragen-an-den-datensatz" class="nav-link" data-scroll-target="#erste-inhaltliche-fragen-an-den-datensatz"><span class="header-section-number">5.4.6</span> Erste inhaltliche Fragen an den Datensatz</a></li>
   <li><a href="#aufgabe-erste-orientierung" id="toc-aufgabe-erste-orientierung" class="nav-link" data-scroll-target="#aufgabe-erste-orientierung"><span class="header-section-number">5.4.7</span> Aufgabe: Erste Orientierung</a></li>
   </ul></li>
-  <li><a href="#zeilen-auswählen-mit-filter" id="toc-zeilen-auswählen-mit-filter" class="nav-link" data-scroll-target="#zeilen-auswählen-mit-filter"><span class="header-section-number">5.5</span> 2 Zeilen auswählen mit <code>filter()</code></a>
+  <li><a href="#zeilen-auswählen-mit-filter" id="toc-zeilen-auswählen-mit-filter" class="nav-link" data-scroll-target="#zeilen-auswählen-mit-filter"><span class="header-section-number">5.5</span> Zeilen auswählen mit <code>filter()</code></a>
   <ul class="collapse">
-  <li><a href="#ein-land-auswählen" id="toc-ein-land-auswählen" class="nav-link" data-scroll-target="#ein-land-auswählen"><span class="header-section-number">5.5.1</span> 2.1 Ein Land auswählen</a></li>
-  <li><a href="#mehrere-bedingungen-verwenden" id="toc-mehrere-bedingungen-verwenden" class="nav-link" data-scroll-target="#mehrere-bedingungen-verwenden"><span class="header-section-number">5.5.2</span> 2.2 Mehrere Bedingungen verwenden</a></li>
-  <li><a href="#mehrere-länder-auswählen" id="toc-mehrere-länder-auswählen" class="nav-link" data-scroll-target="#mehrere-länder-auswählen"><span class="header-section-number">5.5.3</span> 2.3 Mehrere Länder auswählen</a></li>
+  <li><a href="#ein-land-auswählen" id="toc-ein-land-auswählen" class="nav-link" data-scroll-target="#ein-land-auswählen"><span class="header-section-number">5.5.1</span> Ein Land auswählen</a></li>
+  <li><a href="#mehrere-bedingungen-verwenden" id="toc-mehrere-bedingungen-verwenden" class="nav-link" data-scroll-target="#mehrere-bedingungen-verwenden"><span class="header-section-number">5.5.2</span> Mehrere Bedingungen verwenden</a></li>
+  <li><a href="#mehrere-länder-auswählen" id="toc-mehrere-länder-auswählen" class="nav-link" data-scroll-target="#mehrere-länder-auswählen"><span class="header-section-number">5.5.3</span> Mehrere Länder auswählen</a></li>
   <li><a href="#aufgabe-filtern-üben" id="toc-aufgabe-filtern-üben" class="nav-link" data-scroll-target="#aufgabe-filtern-üben"><span class="header-section-number">5.5.4</span> Aufgabe: Filtern üben</a></li>
   </ul></li>
-  <li><a href="#einzelne-spalten-auswählen" id="toc-einzelne-spalten-auswählen" class="nav-link" data-scroll-target="#einzelne-spalten-auswählen"><span class="header-section-number">5.6</span> 3 Einzelne Spalten auswählen</a>
+  <li><a href="#einzelne-spalten-auswählen" id="toc-einzelne-spalten-auswählen" class="nav-link" data-scroll-target="#einzelne-spalten-auswählen"><span class="header-section-number">5.6</span> Einzelne Spalten auswählen</a>
   <ul class="collapse">
-  <li><a href="#spalten-ausschließen" id="toc-spalten-ausschließen" class="nav-link" data-scroll-target="#spalten-ausschließen"><span class="header-section-number">5.6.1</span> 3.1 Spalten ausschließen</a></li>
-  <li><a href="#spalten-umsortieren" id="toc-spalten-umsortieren" class="nav-link" data-scroll-target="#spalten-umsortieren"><span class="header-section-number">5.6.2</span> 3.2 Spalten umsortieren</a></li>
-  <li><a href="#hilfsfunktionen-in-select" id="toc-hilfsfunktionen-in-select" class="nav-link" data-scroll-target="#hilfsfunktionen-in-select"><span class="header-section-number">5.6.3</span> 3.3 Hilfsfunktionen in <code>select()</code></a></li>
+  <li><a href="#spalten-ausschließen" id="toc-spalten-ausschließen" class="nav-link" data-scroll-target="#spalten-ausschließen"><span class="header-section-number">5.6.1</span> Spalten ausschließen</a></li>
+  <li><a href="#spalten-umsortieren" id="toc-spalten-umsortieren" class="nav-link" data-scroll-target="#spalten-umsortieren"><span class="header-section-number">5.6.2</span> Spalten umsortieren</a></li>
+  <li><a href="#hilfsfunktionen-in-select" id="toc-hilfsfunktionen-in-select" class="nav-link" data-scroll-target="#hilfsfunktionen-in-select"><span class="header-section-number">5.6.3</span> Hilfsfunktionen in <code>select()</code></a></li>
   <li><a href="#aufgabe-spalten-auswählen" id="toc-aufgabe-spalten-auswählen" class="nav-link" data-scroll-target="#aufgabe-spalten-auswählen"><span class="header-section-number">5.6.4</span> Aufgabe: Spalten auswählen</a></li>
   </ul></li>
-  <li><a href="#arbeitsschritte-verbinden-mit" id="toc-arbeitsschritte-verbinden-mit" class="nav-link" data-scroll-target="#arbeitsschritte-verbinden-mit"><span class="header-section-number">5.7</span> 4 Arbeitsschritte verbinden mit <code>|&gt;</code></a>
+  <li><a href="#arbeitsschritte-verbinden-mit" id="toc-arbeitsschritte-verbinden-mit" class="nav-link" data-scroll-target="#arbeitsschritte-verbinden-mit"><span class="header-section-number">5.7</span> Arbeitsschritte verbinden mit <code>|&gt;</code></a>
   <ul class="collapse">
-  <li><a href="#eine-typische-analysekette" id="toc-eine-typische-analysekette" class="nav-link" data-scroll-target="#eine-typische-analysekette"><span class="header-section-number">5.7.1</span> 4.1 Eine typische Analysekette</a></li>
+  <li><a href="#eine-typische-analysekette" id="toc-eine-typische-analysekette" class="nav-link" data-scroll-target="#eine-typische-analysekette"><span class="header-section-number">5.7.1</span> Eine typische Analysekette</a></li>
   <li><a href="#aufgabe-pipe-ketten-lesen" id="toc-aufgabe-pipe-ketten-lesen" class="nav-link" data-scroll-target="#aufgabe-pipe-ketten-lesen"><span class="header-section-number">5.7.2</span> Aufgabe: Pipe-Ketten lesen</a></li>
   </ul></li>
-  <li><a href="#daten-sortieren-mit-arrange" id="toc-daten-sortieren-mit-arrange" class="nav-link" data-scroll-target="#daten-sortieren-mit-arrange"><span class="header-section-number">5.8</span> 5 Daten sortieren mit <code>arrange()</code></a>
+  <li><a href="#daten-sortieren-mit-arrange" id="toc-daten-sortieren-mit-arrange" class="nav-link" data-scroll-target="#daten-sortieren-mit-arrange"><span class="header-section-number">5.8</span> Daten sortieren mit <code>arrange()</code></a>
   <ul class="collapse">
-  <li><a href="#aufsteigend-sortieren" id="toc-aufsteigend-sortieren" class="nav-link" data-scroll-target="#aufsteigend-sortieren"><span class="header-section-number">5.8.1</span> 5.1 Aufsteigend sortieren</a></li>
-  <li><a href="#absteigend-sortieren" id="toc-absteigend-sortieren" class="nav-link" data-scroll-target="#absteigend-sortieren"><span class="header-section-number">5.8.2</span> 5.2 Absteigend sortieren</a></li>
-  <li><a href="#nur-die-wichtigsten-spalten-anzeigen" id="toc-nur-die-wichtigsten-spalten-anzeigen" class="nav-link" data-scroll-target="#nur-die-wichtigsten-spalten-anzeigen"><span class="header-section-number">5.8.3</span> 5.3 Nur die wichtigsten Spalten anzeigen</a></li>
+  <li><a href="#aufsteigend-sortieren" id="toc-aufsteigend-sortieren" class="nav-link" data-scroll-target="#aufsteigend-sortieren"><span class="header-section-number">5.8.1</span> Aufsteigend sortieren</a></li>
+  <li><a href="#absteigend-sortieren" id="toc-absteigend-sortieren" class="nav-link" data-scroll-target="#absteigend-sortieren"><span class="header-section-number">5.8.2</span> Absteigend sortieren</a></li>
+  <li><a href="#nur-die-wichtigsten-spalten-anzeigen" id="toc-nur-die-wichtigsten-spalten-anzeigen" class="nav-link" data-scroll-target="#nur-die-wichtigsten-spalten-anzeigen"><span class="header-section-number">5.8.3</span> Nur die wichtigsten Spalten anzeigen</a></li>
   <li><a href="#aufgabe-sortieren" id="toc-aufgabe-sortieren" class="nav-link" data-scroll-target="#aufgabe-sortieren"><span class="header-section-number">5.8.4</span> Aufgabe: Sortieren</a></li>
   </ul></li>
-  <li><a href="#neue-variablen-berechnen-mit-mutate" id="toc-neue-variablen-berechnen-mit-mutate" class="nav-link" data-scroll-target="#neue-variablen-berechnen-mit-mutate"><span class="header-section-number">5.9</span> 6 Neue Variablen berechnen mit <code>mutate()</code></a>
+  <li><a href="#neue-variablen-berechnen-mit-mutate" id="toc-neue-variablen-berechnen-mit-mutate" class="nav-link" data-scroll-target="#neue-variablen-berechnen-mit-mutate"><span class="header-section-number">5.9</span> Neue Variablen berechnen mit <code>mutate()</code></a>
   <ul class="collapse">
-  <li><a href="#bevölkerung-in-millionen" id="toc-bevölkerung-in-millionen" class="nav-link" data-scroll-target="#bevölkerung-in-millionen"><span class="header-section-number">5.9.1</span> 6.1 Bevölkerung in Millionen</a></li>
-  <li><a href="#bip-insgesamt-schätzen" id="toc-bip-insgesamt-schätzen" class="nav-link" data-scroll-target="#bip-insgesamt-schätzen"><span class="header-section-number">5.9.2</span> 6.2 BIP insgesamt schätzen</a></li>
-  <li><a href="#lebenserwartung-kategorisieren" id="toc-lebenserwartung-kategorisieren" class="nav-link" data-scroll-target="#lebenserwartung-kategorisieren"><span class="header-section-number">5.9.3</span> 6.3 Lebenserwartung kategorisieren</a></li>
+  <li><a href="#bevölkerung-in-millionen" id="toc-bevölkerung-in-millionen" class="nav-link" data-scroll-target="#bevölkerung-in-millionen"><span class="header-section-number">5.9.1</span> Bevölkerung in Millionen</a></li>
+  <li><a href="#bip-insgesamt-schätzen" id="toc-bip-insgesamt-schätzen" class="nav-link" data-scroll-target="#bip-insgesamt-schätzen"><span class="header-section-number">5.9.2</span> BIP insgesamt schätzen</a></li>
+  <li><a href="#lebenserwartung-kategorisieren" id="toc-lebenserwartung-kategorisieren" class="nav-link" data-scroll-target="#lebenserwartung-kategorisieren"><span class="header-section-number">5.9.3</span> Lebenserwartung kategorisieren</a></li>
   <li><a href="#aufgabe-neue-variablen" id="toc-aufgabe-neue-variablen" class="nav-link" data-scroll-target="#aufgabe-neue-variablen"><span class="header-section-number">5.9.4</span> Aufgabe: Neue Variablen</a></li>
   </ul></li>
-  <li><a href="#spalten-umbenennen-mit-rename" id="toc-spalten-umbenennen-mit-rename" class="nav-link" data-scroll-target="#spalten-umbenennen-mit-rename"><span class="header-section-number">5.10</span> 7 Spalten umbenennen mit <code>rename()</code></a></li>
-  <li><a href="#gruppieren-und-zusammenfassen-mit-group_by-und-summarise" id="toc-gruppieren-und-zusammenfassen-mit-group_by-und-summarise" class="nav-link" data-scroll-target="#gruppieren-und-zusammenfassen-mit-group_by-und-summarise"><span class="header-section-number">5.11</span> 8 Gruppieren und zusammenfassen mit <code>group_by()</code> und <code>summarise()</code></a>
+  <li><a href="#spalten-umbenennen-mit-rename" id="toc-spalten-umbenennen-mit-rename" class="nav-link" data-scroll-target="#spalten-umbenennen-mit-rename"><span class="header-section-number">5.10</span> Spalten umbenennen mit <code>rename()</code></a></li>
+  <li><a href="#gruppieren-und-zusammenfassen-mit-group_by-und-summarise" id="toc-gruppieren-und-zusammenfassen-mit-group_by-und-summarise" class="nav-link" data-scroll-target="#gruppieren-und-zusammenfassen-mit-group_by-und-summarise"><span class="header-section-number">5.11</span> Gruppieren und zusammenfassen mit <code>group_by()</code> und <code>summarise()</code></a>
   <ul class="collapse">
-  <li><a href="#durchschnittliche-lebenserwartung-pro-kontinent" id="toc-durchschnittliche-lebenserwartung-pro-kontinent" class="nav-link" data-scroll-target="#durchschnittliche-lebenserwartung-pro-kontinent"><span class="header-section-number">5.11.1</span> 8.1 Durchschnittliche Lebenserwartung pro Kontinent</a></li>
-  <li><a href="#mehrere-kennzahlen-berechnen" id="toc-mehrere-kennzahlen-berechnen" class="nav-link" data-scroll-target="#mehrere-kennzahlen-berechnen"><span class="header-section-number">5.11.2</span> 8.2 Mehrere Kennzahlen berechnen</a></li>
-  <li><a href="#gruppierung-über-mehrere-variablen" id="toc-gruppierung-über-mehrere-variablen" class="nav-link" data-scroll-target="#gruppierung-über-mehrere-variablen"><span class="header-section-number">5.11.3</span> 8.3 Gruppierung über mehrere Variablen</a></li>
+  <li><a href="#durchschnittliche-lebenserwartung-pro-kontinent" id="toc-durchschnittliche-lebenserwartung-pro-kontinent" class="nav-link" data-scroll-target="#durchschnittliche-lebenserwartung-pro-kontinent"><span class="header-section-number">5.11.1</span> Durchschnittliche Lebenserwartung pro Kontinent</a></li>
+  <li><a href="#mehrere-kennzahlen-berechnen" id="toc-mehrere-kennzahlen-berechnen" class="nav-link" data-scroll-target="#mehrere-kennzahlen-berechnen"><span class="header-section-number">5.11.2</span> Mehrere Kennzahlen berechnen</a></li>
+  <li><a href="#gruppierung-über-mehrere-variablen" id="toc-gruppierung-über-mehrere-variablen" class="nav-link" data-scroll-target="#gruppierung-über-mehrere-variablen"><span class="header-section-number">5.11.3</span> Gruppierung über mehrere Variablen</a></li>
   <li><a href="#aufgabe-gruppierte-auswertungen" id="toc-aufgabe-gruppierte-auswertungen" class="nav-link" data-scroll-target="#aufgabe-gruppierte-auswertungen"><span class="header-section-number">5.11.4</span> Aufgabe: Gruppierte Auswertungen</a></li>
   </ul></li>
-  <li><a href="#mini-projekt" id="toc-mini-projekt" class="nav-link" data-scroll-target="#mini-projekt"><span class="header-section-number">6</span> 11 Mini-Projekt</a>
+  <li><a href="#daten-umformen-mit-tidyr" id="toc-daten-umformen-mit-tidyr" class="nav-link" data-scroll-target="#daten-umformen-mit-tidyr"><span class="header-section-number">5.12</span> Daten umformen mit <code>tidyr</code></a>
   <ul class="collapse">
-  <li><a href="#option-a-lebenserwartung-in-europa" id="toc-option-a-lebenserwartung-in-europa" class="nav-link" data-scroll-target="#option-a-lebenserwartung-in-europa"><span class="header-section-number">6.1</span> Option A: Lebenserwartung in Europa</a></li>
-  <li><a href="#option-b-bevölkerung-und-bip-pro-kopf" id="toc-option-b-bevölkerung-und-bip-pro-kopf" class="nav-link" data-scroll-target="#option-b-bevölkerung-und-bip-pro-kopf"><span class="header-section-number">6.2</span> Option B: Bevölkerung und BIP pro Kopf</a></li>
-  <li><a href="#option-c-kontinente-im-vergleich" id="toc-option-c-kontinente-im-vergleich" class="nav-link" data-scroll-target="#option-c-kontinente-im-vergleich"><span class="header-section-number">6.3</span> Option C: Kontinente im Vergleich</a></li>
+  <li><a href="#was-bedeutet-tidy-data" id="toc-was-bedeutet-tidy-data" class="nav-link" data-scroll-target="#was-bedeutet-tidy-data"><span class="header-section-number">5.12.1</span> Was bedeutet tidy data?</a></li>
+  <li><a href="#warum-daten-trotzdem-umformen" id="toc-warum-daten-trotzdem-umformen" class="nav-link" data-scroll-target="#warum-daten-trotzdem-umformen"><span class="header-section-number">5.12.2</span> Warum Daten trotzdem umformen?</a></li>
+  <li><a href="#vom-langen-ins-breite-format-mit-pivot_wider" id="toc-vom-langen-ins-breite-format-mit-pivot_wider" class="nav-link" data-scroll-target="#vom-langen-ins-breite-format-mit-pivot_wider"><span class="header-section-number">5.12.3</span> Vom langen ins breite Format mit <code>pivot_wider()</code></a></li>
+  <li><a href="#vom-breiten-ins-lange-format-mit-pivot_longer" id="toc-vom-breiten-ins-lange-format-mit-pivot_longer" class="nav-link" data-scroll-target="#vom-breiten-ins-lange-format-mit-pivot_longer"><span class="header-section-number">5.12.4</span> Vom breiten ins lange Format mit <code>pivot_longer()</code></a></li>
+  <li><a href="#datentypen-nach-dem-pivotieren-prüfen" id="toc-datentypen-nach-dem-pivotieren-prüfen" class="nav-link" data-scroll-target="#datentypen-nach-dem-pivotieren-prüfen"><span class="header-section-number">5.12.5</span> Datentypen nach dem Pivotieren prüfen</a></li>
+  <li><a href="#beispiel-vergleich-ausgewählter-jahre" id="toc-beispiel-vergleich-ausgewählter-jahre" class="nav-link" data-scroll-target="#beispiel-vergleich-ausgewählter-jahre"><span class="header-section-number">5.12.6</span> Beispiel: Vergleich ausgewählter Jahre</a></li>
+  <li><a href="#aufgabe-bevölkerung-vergleichen" id="toc-aufgabe-bevölkerung-vergleichen" class="nav-link" data-scroll-target="#aufgabe-bevölkerung-vergleichen"><span class="header-section-number">5.12.7</span> Aufgabe: Bevölkerung vergleichen</a></li>
+  <li><a href="#aufgabe-zurück-ins-lange-format" id="toc-aufgabe-zurück-ins-lange-format" class="nav-link" data-scroll-target="#aufgabe-zurück-ins-lange-format"><span class="header-section-number">5.12.8</span> Aufgabe: Zurück ins lange Format</a></li>
   </ul></li>
-  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">7</span> 5 Zusammenfassung</a>
+  <li><a href="#textdaten-bereinigen-mit-stringr" id="toc-textdaten-bereinigen-mit-stringr" class="nav-link" data-scroll-target="#textdaten-bereinigen-mit-stringr"><span class="header-section-number">5.13</span> Textdaten bereinigen mit <code>stringr</code></a>
   <ul class="collapse">
-  <li><a href="#reflexionsfragen" id="toc-reflexionsfragen" class="nav-link" data-scroll-target="#reflexionsfragen"><span class="header-section-number">7.1</span> Reflexionsfragen</a></li>
+  <li><a href="#ein-kleines-beispiel-mit-ländernamen" id="toc-ein-kleines-beispiel-mit-ländernamen" class="nav-link" data-scroll-target="#ein-kleines-beispiel-mit-ländernamen"><span class="header-section-number">5.13.1</span> Ein kleines Beispiel mit Ländernamen</a></li>
+  <li><a href="#leerzeichen-bereinigen" id="toc-leerzeichen-bereinigen" class="nav-link" data-scroll-target="#leerzeichen-bereinigen"><span class="header-section-number">5.13.2</span> Leerzeichen bereinigen</a></li>
+  <li><a href="#groß--und-kleinschreibung-vereinheitlichen" id="toc-groß--und-kleinschreibung-vereinheitlichen" class="nav-link" data-scroll-target="#groß--und-kleinschreibung-vereinheitlichen"><span class="header-section-number">5.13.3</span> Groß- und Kleinschreibung vereinheitlichen</a></li>
+  <li><a href="#textmuster-suchen-mit-str_detect" id="toc-textmuster-suchen-mit-str_detect" class="nav-link" data-scroll-target="#textmuster-suchen-mit-str_detect"><span class="header-section-number">5.13.4</span> Textmuster suchen mit <code>str_detect()</code></a></li>
+  <li><a href="#schreibweisen-gezielt-korrigieren" id="toc-schreibweisen-gezielt-korrigieren" class="nav-link" data-scroll-target="#schreibweisen-gezielt-korrigieren"><span class="header-section-number">5.13.5</span> Schreibweisen gezielt korrigieren</a></li>
+  <li><a href="#warum-ist-das-wichtig" id="toc-warum-ist-das-wichtig" class="nav-link" data-scroll-target="#warum-ist-das-wichtig"><span class="header-section-number">5.13.6</span> Warum ist das wichtig?</a></li>
+  <li><a href="#beispiel-gruppieren-nach-bereinigten-ländernamen" id="toc-beispiel-gruppieren-nach-bereinigten-ländernamen" class="nav-link" data-scroll-target="#beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.13.7</span> Beispiel: Gruppieren nach bereinigten Ländernamen</a></li>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">5.13.8</span> Übung</a></li>
+  <li><a href="#merke" id="toc-merke" class="nav-link" data-scroll-target="#merke"><span class="header-section-number">5.13.9</span> Merke</a></li>
   </ul></li>
-  <li><a href="#quelle-und-lizenz" id="toc-quelle-und-lizenz" class="nav-link" data-scroll-target="#quelle-und-lizenz"><span class="header-section-number">8</span> Quelle und Lizenz</a></li>
+  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">5.14</span> Zusammenfassung</a></li>
+  <li><a href="#reflexionsfragen" id="toc-reflexionsfragen" class="nav-link" data-scroll-target="#reflexionsfragen"><span class="header-section-number">5.15</span> Reflexionsfragen</a></li>
+  <li><a href="#quelle-und-lizenz" id="toc-quelle-und-lizenz" class="nav-link" data-scroll-target="#quelle-und-lizenz"><span class="header-section-number">6</span> Quelle und Lizenz</a></li>
   </ul>
 </nav>
     </div>
@@ -498,7 +513,7 @@ Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie 
 <hr>
 </section>
 <section id="den-gapminder-datensatz-kennenlernen" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="den-gapminder-datensatz-kennenlernen"><span class="header-section-number">5.4</span> 1 Den Gapminder-Datensatz kennenlernen</h2>
+<h2 data-number="5.4" class="anchored" data-anchor-id="den-gapminder-datensatz-kennenlernen"><span class="header-section-number">5.4</span> Den Gapminder-Datensatz kennenlernen</h2>
 <p>Bevor wir mit <code>dplyr</code> Daten verändern, sollten wir den Datensatz einmal in Ruhe kennenlernen. In einer echten Analyse ist dieser Schritt sehr wichtig: Wir wollen wissen, <strong>welche Beobachtungen in den Zeilen stehen</strong>, <strong>welche Variablen in den Spalten stehen</strong> und <strong>welche Datentypen</strong> R für diese Variablen verwendet.</p>
 <p>Der Datensatz <code>gapminder</code> ist im Paket <code>gapminder</code> enthalten. Jede Zeile beschreibt ein Land in einem bestimmten Jahr.</p>
 <p>Schauen wir uns den Datensatz zunächst einfach an:</p>
@@ -522,7 +537,7 @@ Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie 
 </div>
 </div>
 <section id="was-bedeutet-tibble" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="was-bedeutet-tibble"><span class="header-section-number">5.4.1</span> 1.1 Was bedeutet „tibble“?</h3>
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="was-bedeutet-tibble"><span class="header-section-number">5.4.1</span> Was bedeutet „tibble“?</h3>
 <p><code>gapminder</code> ist kein gewöhnlicher Dataframe, sondern ein <strong>tibble</strong>. Ein tibble ist eine moderne Variante eines Dataframes. Für unsere Arbeit bedeutet das:</p>
 <ul>
 <li>Ein tibble ist weiterhin tabellarisch aufgebaut: Zeilen sind Beobachtungen, Spalten sind Variablen.</li>
@@ -533,7 +548,7 @@ Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie 
 <p>Das ist besonders praktisch, wenn Datensätze größer werden. Bei einem klassischen Dataframe kann die Ausgabe schnell unübersichtlich werden, wenn viele Zeilen oder Spalten vorhanden sind. Ein tibble zeigt stattdessen zuerst eine kurze Zusammenfassung: Anzahl der Zeilen, Anzahl der Spalten, Spaltennamen und Datentypen.</p>
 </section>
 <section id="zeilen-spalten-und-variablen" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="zeilen-spalten-und-variablen"><span class="header-section-number">5.4.2</span> 1.2 Zeilen, Spalten und Variablen</h3>
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="zeilen-spalten-und-variablen"><span class="header-section-number">5.4.2</span> Zeilen, Spalten und Variablen</h3>
 <p>Die sechs Variablen sind:</p>
 <table class="caption-top table">
 <thead>
@@ -602,7 +617,7 @@ Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie 
 <p>Diese Informationen sind wichtig, weil viele Funktionen je nach Datentyp unterschiedlich arbeiten. Mit numerischen Variablen können wir zum Beispiel Mittelwerte berechnen. Bei kategorialen Variablen wie <code>continent</code> oder <code>country</code> interessieren uns eher Häufigkeiten oder Gruppenvergleiche.</p>
 </section>
 <section id="ist-gapminder-wirklich-ein-dataframe" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="ist-gapminder-wirklich-ein-dataframe"><span class="header-section-number">5.4.3</span> 1.3 Ist <code>gapminder</code> wirklich ein Dataframe?</h3>
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="ist-gapminder-wirklich-ein-dataframe"><span class="header-section-number">5.4.3</span> Ist <code>gapminder</code> wirklich ein Dataframe?</h3>
 <p>Ein tibble ist eine spezielle Form eines Dataframes. Das können wir mit <code>class()</code> prüfen:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -614,7 +629,7 @@ Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie 
 <p>Für Sie ist das eine gute Nachricht: Alles, was Sie über Dataframes gelernt haben, bleibt nützlich. <code>dplyr</code> baut darauf auf und bietet eine besser lesbare Sprache für typische Arbeitsschritte.</p>
 </section>
 <section id="ein-dataframe-in-ein-tibble-umwandeln" class="level3" data-number="5.4.4">
-<h3 data-number="5.4.4" class="anchored" data-anchor-id="ein-dataframe-in-ein-tibble-umwandeln"><span class="header-section-number">5.4.4</span> 1.4 Ein Dataframe in ein Tibble umwandeln</h3>
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="ein-dataframe-in-ein-tibble-umwandeln"><span class="header-section-number">5.4.4</span> Ein Dataframe in ein Tibble umwandeln</h3>
 <p>Mit <code>as_tibble()</code> können wir ein bestehendes Dataframe in ein Tibble umwandeln:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>daten_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -650,7 +665,7 @@ Ein Dataframe wird mit <code>as_tibble()</code> in ein Tibble umgewandelt.</p>
 </div>
 </section>
 <section id="den-datensatz-kompakt-untersuchen" class="level3" data-number="5.4.5">
-<h3 data-number="5.4.5" class="anchored" data-anchor-id="den-datensatz-kompakt-untersuchen"><span class="header-section-number">5.4.5</span> 1.5 Den Datensatz kompakt untersuchen</h3>
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="den-datensatz-kompakt-untersuchen"><span class="header-section-number">5.4.5</span> Den Datensatz kompakt untersuchen</h3>
 <p>Für eine erste Orientierung eignen sich diese Befehle:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(gapminder)      <span class="co"># Anzahl der Zeilen</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(gapminder)      <span class="co"># Anzahl der Spalten</span></span>
@@ -669,7 +684,7 @@ Ein Dataframe wird mit <code>as_tibble()</code> in ein Tibble umgewandelt.</p>
 <p>Beide Funktionen geben Strukturinformationen aus. <code>glimpse()</code> ist häufig etwas angenehmer zu lesen, besonders bei breiten Tabellen mit vielen Spalten.</p>
 </section>
 <section id="erste-inhaltliche-fragen-an-den-datensatz" class="level3" data-number="5.4.6">
-<h3 data-number="5.4.6" class="anchored" data-anchor-id="erste-inhaltliche-fragen-an-den-datensatz"><span class="header-section-number">5.4.6</span> 1.6 Erste inhaltliche Fragen an den Datensatz</h3>
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="erste-inhaltliche-fragen-an-den-datensatz"><span class="header-section-number">5.4.6</span> Erste inhaltliche Fragen an den Datensatz</h3>
 <p>Schon bevor wir Daten filtern oder verändern, können wir einfache Fragen stellen:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -723,10 +738,10 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="zeilen-auswählen-mit-filter" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="zeilen-auswählen-mit-filter"><span class="header-section-number">5.5</span> 2 Zeilen auswählen mit <code>filter()</code></h2>
+<h2 data-number="5.5" class="anchored" data-anchor-id="zeilen-auswählen-mit-filter"><span class="header-section-number">5.5</span> Zeilen auswählen mit <code>filter()</code></h2>
 <p>Mit <code>filter()</code> wählen Sie Zeilen aus, die eine Bedingung erfüllen.</p>
 <section id="ein-land-auswählen" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="ein-land-auswählen"><span class="header-section-number">5.5.1</span> 2.1 Ein Land auswählen</h3>
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="ein-land-auswählen"><span class="header-section-number">5.5.1</span> Ein Land auswählen</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dieser Code behält nur Zeilen, in denen <code>country</code> genau den Wert <code>"Germany"</code> hat.</p>
@@ -735,7 +750,7 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 <p>Beide Varianten liefern dasselbe Ergebnis. Die <code>dplyr</code>-Variante ist jedoch näher an der Frage formuliert: „Filtere die Daten auf Deutschland.“</p>
 </section>
 <section id="mehrere-bedingungen-verwenden" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="mehrere-bedingungen-verwenden"><span class="header-section-number">5.5.2</span> 2.2 Mehrere Bedingungen verwenden</h3>
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="mehrere-bedingungen-verwenden"><span class="header-section-number">5.5.2</span> Mehrere Bedingungen verwenden</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>, year <span class="sc">&gt;=</span> <span class="dv">1990</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Mehrere Bedingungen innerhalb von <code>filter()</code> werden wie ein logisches UND behandelt. Es bleiben also nur Zeilen erhalten, bei denen alle Bedingungen erfüllt sind.</p>
@@ -744,7 +759,7 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span> <span class="sc">&amp;</span> year <span class="sc">&gt;=</span> <span class="dv">1990</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="mehrere-länder-auswählen" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="mehrere-länder-auswählen"><span class="header-section-number">5.5.3</span> 2.3 Mehrere Länder auswählen</h3>
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="mehrere-länder-auswählen"><span class="header-section-number">5.5.3</span> Mehrere Länder auswählen</h3>
 <p>Für mehrere mögliche Werte nutzen Sie <code>%in%</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -767,13 +782,13 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="einzelne-spalten-auswählen" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="einzelne-spalten-auswählen"><span class="header-section-number">5.6</span> 3 Einzelne Spalten auswählen</h2>
+<h2 data-number="5.6" class="anchored" data-anchor-id="einzelne-spalten-auswählen"><span class="header-section-number">5.6</span> Einzelne Spalten auswählen</h2>
 <p>Mit <code>select()</code> wählen Sie Spalten aus.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Das Ergebnis enthält nur die drei genannten Spalten.</p>
 <section id="spalten-ausschließen" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="spalten-ausschließen"><span class="header-section-number">5.6.1</span> 3.1 Spalten ausschließen</h3>
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="spalten-ausschließen"><span class="header-section-number">5.6.1</span> Spalten ausschließen</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>pop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Das Minuszeichen bedeutet: Diese Spalte wird entfernt.</p>
@@ -782,13 +797,13 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(pop, gdpPercap))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="spalten-umsortieren" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="spalten-umsortieren"><span class="header-section-number">5.6.2</span> 3.2 Spalten umsortieren</h3>
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="spalten-umsortieren"><span class="header-section-number">5.6.2</span> Spalten umsortieren</h3>
 <p><code>select()</code> kann Spalten auch in eine neue Reihenfolge bringen:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, continent, lifeExp, pop, gdpPercap)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="hilfsfunktionen-in-select" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="hilfsfunktionen-in-select"><span class="header-section-number">5.6.3</span> 3.3 Hilfsfunktionen in <code>select()</code></h3>
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="hilfsfunktionen-in-select"><span class="header-section-number">5.6.3</span> Hilfsfunktionen in <code>select()</code></h3>
 <p>Bei vielen Spaltennamen können Hilfsfunktionen nützlich sein:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"c"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -810,7 +825,7 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="arbeitsschritte-verbinden-mit" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="arbeitsschritte-verbinden-mit"><span class="header-section-number">5.7</span> 4 Arbeitsschritte verbinden mit <code>|&gt;</code></h2>
+<h2 data-number="5.7" class="anchored" data-anchor-id="arbeitsschritte-verbinden-mit"><span class="header-section-number">5.7</span> Arbeitsschritte verbinden mit <code>|&gt;</code></h2>
 <p>Der Pipe-Operator <code>|&gt;</code> übergibt das Ergebnis eines Schrittes an den nächsten Schritt. Man kann ihn als „dann“ lesen.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>) <span class="sc">|&gt;</span></span>
@@ -821,7 +836,7 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </blockquote>
 <p>Das ist einer der wichtigsten Vorteile von <code>dplyr</code>: Der Code beschreibt eine Datenanalyse als nachvollziehbare Schrittfolge.</p>
 <section id="eine-typische-analysekette" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="eine-typische-analysekette"><span class="header-section-number">5.7.1</span> 4.1 Eine typische Analysekette</h3>
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="eine-typische-analysekette"><span class="header-section-number">5.7.1</span> Eine typische Analysekette</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Europe"</span>, year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
@@ -849,22 +864,22 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="daten-sortieren-mit-arrange" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="daten-sortieren-mit-arrange"><span class="header-section-number">5.8</span> 5 Daten sortieren mit <code>arrange()</code></h2>
+<h2 data-number="5.8" class="anchored" data-anchor-id="daten-sortieren-mit-arrange"><span class="header-section-number">5.8</span> Daten sortieren mit <code>arrange()</code></h2>
 <p>Mit <code>arrange()</code> sortieren Sie Zeilen nach einer oder mehreren Variablen.</p>
 <section id="aufsteigend-sortieren" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="aufsteigend-sortieren"><span class="header-section-number">5.8.1</span> 5.1 Aufsteigend sortieren</h3>
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="aufsteigend-sortieren"><span class="header-section-number">5.8.1</span> Aufsteigend sortieren</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die kleinsten Werte stehen oben.</p>
 </section>
 <section id="absteigend-sortieren" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="absteigend-sortieren"><span class="header-section-number">5.8.2</span> 5.2 Absteigend sortieren</h3>
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="absteigend-sortieren"><span class="header-section-number">5.8.2</span> Absteigend sortieren</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die größten Werte stehen oben.</p>
 </section>
 <section id="nur-die-wichtigsten-spalten-anzeigen" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="nur-die-wichtigsten-spalten-anzeigen"><span class="header-section-number">5.8.3</span> 5.3 Nur die wichtigsten Spalten anzeigen</h3>
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="nur-die-wichtigsten-spalten-anzeigen"><span class="header-section-number">5.8.3</span> Nur die wichtigsten Spalten anzeigen</h3>
 <p>Sortierte Tabellen sind übersichtlicher, wenn Sie vorher oder nachher Spalten auswählen:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
@@ -889,24 +904,24 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="neue-variablen-berechnen-mit-mutate" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="neue-variablen-berechnen-mit-mutate"><span class="header-section-number">5.9</span> 6 Neue Variablen berechnen mit <code>mutate()</code></h2>
+<h2 data-number="5.9" class="anchored" data-anchor-id="neue-variablen-berechnen-mit-mutate"><span class="header-section-number">5.9</span> Neue Variablen berechnen mit <code>mutate()</code></h2>
 <p>Mit <code>mutate()</code> erzeugen Sie neue Spalten oder verändern bestehende Spalten.</p>
 <section id="bevölkerung-in-millionen" class="level3" data-number="5.9.1">
-<h3 data-number="5.9.1" class="anchored" data-anchor-id="bevölkerung-in-millionen"><span class="header-section-number">5.9.1</span> 6.1 Bevölkerung in Millionen</h3>
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="bevölkerung-in-millionen"><span class="header-section-number">5.9.1</span> Bevölkerung in Millionen</h3>
 <p>Die Spalte <code>pop</code> enthält absolute Bevölkerungszahlen. Für Tabellen ist eine Angabe in Millionen oft lesbarer.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop_mio =</span> pop <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">|&gt;</span></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, pop, pop_mio)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="bip-insgesamt-schätzen" class="level3" data-number="5.9.2">
-<h3 data-number="5.9.2" class="anchored" data-anchor-id="bip-insgesamt-schätzen"><span class="header-section-number">5.9.2</span> 6.2 BIP insgesamt schätzen</h3>
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="bip-insgesamt-schätzen"><span class="header-section-number">5.9.2</span> BIP insgesamt schätzen</h3>
 <p><code>gdpPercap</code> ist das BIP pro Kopf. Eine grobe Schätzung des gesamten BIP erhalten Sie durch Multiplikation mit der Bevölkerung:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdp_total =</span> gdpPercap <span class="sc">*</span> pop) <span class="sc">|&gt;</span></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, pop, gdpPercap, gdp_total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="lebenserwartung-kategorisieren" class="level3" data-number="5.9.3">
-<h3 data-number="5.9.3" class="anchored" data-anchor-id="lebenserwartung-kategorisieren"><span class="header-section-number">5.9.3</span> 6.3 Lebenserwartung kategorisieren</h3>
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="lebenserwartung-kategorisieren"><span class="header-section-number">5.9.3</span> Lebenserwartung kategorisieren</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lifeExp_group =</span> <span class="fu">case_when</span>(</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    lifeExp <span class="sc">&lt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"unter 50"</span>,</span>
@@ -936,7 +951,7 @@ Levels: Africa Americas Asia Europe Oceania</code></pre>
 </section>
 </section>
 <section id="spalten-umbenennen-mit-rename" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="spalten-umbenennen-mit-rename"><span class="header-section-number">5.10</span> 7 Spalten umbenennen mit <code>rename()</code></h2>
+<h2 data-number="5.10" class="anchored" data-anchor-id="spalten-umbenennen-mit-rename"><span class="header-section-number">5.10</span> Spalten umbenennen mit <code>rename()</code></h2>
 <p>Manchmal sind Spaltennamen nicht besonders verständlich oder passen nicht gut zur Analyse. Mit <code>rename()</code> können wir Spalten gezielt umbenennen.</p>
 <p>Die Reihenfolge ist dabei wichtig:</p>
 <div class="cell">
@@ -984,7 +999,7 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 <hr>
 </section>
 <section id="gruppieren-und-zusammenfassen-mit-group_by-und-summarise" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="gruppieren-und-zusammenfassen-mit-group_by-und-summarise"><span class="header-section-number">5.11</span> 8 Gruppieren und zusammenfassen mit <code>group_by()</code> und <code>summarise()</code></h2>
+<h2 data-number="5.11" class="anchored" data-anchor-id="gruppieren-und-zusammenfassen-mit-group_by-und-summarise"><span class="header-section-number">5.11</span> Gruppieren und zusammenfassen mit <code>group_by()</code> und <code>summarise()</code></h2>
 <p>Viele Forschungsfragen beziehen sich nicht auf einzelne Zeilen, sondern auf Gruppen:</p>
 <ul>
 <li>Wie hoch ist die durchschnittliche Lebenserwartung pro Kontinent?</li>
@@ -993,7 +1008,7 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 </ul>
 <p>Dafür kombinieren wir <code>group_by()</code> und <code>summarise()</code>.</p>
 <section id="durchschnittliche-lebenserwartung-pro-kontinent" class="level3" data-number="5.11.1">
-<h3 data-number="5.11.1" class="anchored" data-anchor-id="durchschnittliche-lebenserwartung-pro-kontinent"><span class="header-section-number">5.11.1</span> 8.1 Durchschnittliche Lebenserwartung pro Kontinent</h3>
+<h3 data-number="5.11.1" class="anchored" data-anchor-id="durchschnittliche-lebenserwartung-pro-kontinent"><span class="header-section-number">5.11.1</span> Durchschnittliche Lebenserwartung pro Kontinent</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
@@ -1006,7 +1021,7 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 </ol>
 </section>
 <section id="mehrere-kennzahlen-berechnen" class="level3" data-number="5.11.2">
-<h3 data-number="5.11.2" class="anchored" data-anchor-id="mehrere-kennzahlen-berechnen"><span class="header-section-number">5.11.2</span> 8.2 Mehrere Kennzahlen berechnen</h3>
+<h3 data-number="5.11.2" class="anchored" data-anchor-id="mehrere-kennzahlen-berechnen"><span class="header-section-number">5.11.2</span> Mehrere Kennzahlen berechnen</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
@@ -1019,7 +1034,7 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 <p><code>n()</code> zählt, wie viele Zeilen in jeder Gruppe enthalten sind.</p>
 </section>
 <section id="gruppierung-über-mehrere-variablen" class="level3" data-number="5.11.3">
-<h3 data-number="5.11.3" class="anchored" data-anchor-id="gruppierung-über-mehrere-variablen"><span class="header-section-number">5.11.3</span> 8.3 Gruppierung über mehrere Variablen</h3>
+<h3 data-number="5.11.3" class="anchored" data-anchor-id="gruppierung-über-mehrere-variablen"><span class="header-section-number">5.11.3</span> Gruppierung über mehrere Variablen</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">|&gt;</span></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1038,46 +1053,523 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 <hr>
 </section>
 </section>
-<section id="mini-projekt" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 11 Mini-Projekt</h1>
-<p>Bearbeiten Sie eine der folgenden Analysefragen. Dokumentieren Sie Ihren Code und schreiben Sie zu jedem Schritt einen kurzen Kommentar.</p>
-<section id="option-a-lebenserwartung-in-europa" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="option-a-lebenserwartung-in-europa"><span class="header-section-number">6.1</span> Option A: Lebenserwartung in Europa</h2>
-<p>Untersuchen Sie die Entwicklung der Lebenserwartung in europäischen Ländern.</p>
-<p>Leitfragen:</p>
+<section id="daten-umformen-mit-tidyr" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="daten-umformen-mit-tidyr"><span class="header-section-number">5.12</span> Daten umformen mit <code>tidyr</code></h2>
+<p>Bisher haben wir mit <code>dplyr</code> Daten gefiltert, sortiert, umbenannt, gruppiert und zusammengefasst. Das funktioniert besonders gut, wenn die Daten bereits in einer geeigneten Form vorliegen.</p>
+<p>In der Praxis liegen Daten aber häufig nicht genau so vor, wie wir sie für eine Analyse brauchen. Manchmal stehen mehrere Messzeitpunkte in verschiedenen Spalten. Manchmal stehen Variablennamen als Werte in einer Spalte. Für solche Fälle nutzen wir <code>tidyr</code>.</p>
+<p><code>tidyr</code> hilft dabei, Daten in eine <strong>tidy</strong> Form zu bringen.</p>
+<section id="was-bedeutet-tidy-data" class="level3" data-number="5.12.1">
+<h3 data-number="5.12.1" class="anchored" data-anchor-id="was-bedeutet-tidy-data"><span class="header-section-number">5.12.1</span> Was bedeutet tidy data?</h3>
+<p>Eine Tabelle ist tidy, wenn sie drei Grundregeln erfüllt:</p>
 <ol type="1">
-<li>Welche europäischen Länder hatten 1952 die höchste Lebenserwartung?</li>
-<li>Welche hatten 2007 die höchste Lebenserwartung?</li>
-<li>Wie stark ist die Lebenserwartung in jedem europäischen Land gestiegen?</li>
-<li>Welche Länder zeigen die größten Veränderungen?</li>
+<li>Jede Variable steht in einer eigenen Spalte.</li>
+<li>Jede Beobachtung steht in einer eigenen Zeile.</li>
+<li>Jeder Wert steht in einer eigenen Zelle.</li>
 </ol>
+<p>Diese Regeln klingen zunächst einfach. Sie sind aber sehr hilfreich, weil viele Funktionen aus dem <code>tidyverse</code> genau mit dieser Struktur besonders gut arbeiten.</p>
+<p>Beim <code>gapminder</code>-Datensatz sehen wir diese Struktur bereits:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Jede Zeile beschreibt eine Beobachtung: ein Land in einem bestimmten Jahr.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent, year, lifeExp, pop, gdpPercap)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Die Variablen stehen in eigenen Spalten:</p>
+<ul>
+<li><code>country</code>: Land</li>
+<li><code>continent</code>: Kontinent</li>
+<li><code>year</code>: Jahr</li>
+<li><code>lifeExp</code>: Lebenserwartung</li>
+<li><code>pop</code>: Bevölkerung</li>
+<li><code>gdpPercap</code>: BIP pro Kopf</li>
+</ul>
 </section>
-<section id="option-b-bevölkerung-und-bip-pro-kopf" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="option-b-bevölkerung-und-bip-pro-kopf"><span class="header-section-number">6.2</span> Option B: Bevölkerung und BIP pro Kopf</h2>
-<p>Untersuchen Sie den Zusammenhang zwischen Bevölkerung und BIP pro Kopf im Jahr 2007.</p>
-<p>Leitfragen:</p>
-<ol type="1">
-<li>Welche Länder hatten 2007 die größte Bevölkerung?</li>
-<li>Welche Länder hatten 2007 das höchste BIP pro Kopf?</li>
-<li>Gibt es sichtbare Unterschiede zwischen Kontinenten?</li>
-<li>Wie könnten Ausreißer die Interpretation beeinflussen?</li>
-</ol>
+<section id="warum-daten-trotzdem-umformen" class="level3" data-number="5.12.2">
+<h3 data-number="5.12.2" class="anchored" data-anchor-id="warum-daten-trotzdem-umformen"><span class="header-section-number">5.12.2</span> Warum Daten trotzdem umformen?</h3>
+<p>Obwohl <code>gapminder</code> bereits tidy ist, möchten wir Daten manchmal in eine andere Form bringen.</p>
+<p>Für Analysen mit <code>dplyr</code> ist häufig das <strong>lange Format</strong> praktisch:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   country      year lifeExp
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952    28.8
+ 2 Afghanistan  1957    30.3
+ 3 Afghanistan  1962    32.0
+ 4 Afghanistan  1967    34.0
+ 5 Afghanistan  1972    36.1
+ 6 Afghanistan  1977    38.4
+ 7 Afghanistan  1982    39.9
+ 8 Afghanistan  1987    40.8
+ 9 Afghanistan  1992    41.7
+10 Afghanistan  1997    41.8
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Für Tabellen oder Vergleiche ist manchmal das <strong>breite Format</strong> übersichtlicher. Zum Beispiel könnten die Jahre eigene Spalten sein.</p>
 </section>
-<section id="option-c-kontinente-im-vergleich" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="option-c-kontinente-im-vergleich"><span class="header-section-number">6.3</span> Option C: Kontinente im Vergleich</h2>
-<p>Vergleichen Sie die Kontinente im Jahr 2007.</p>
-<p>Leitfragen:</p>
-<ol type="1">
-<li>Wie hoch ist die mittlere Lebenserwartung pro Kontinent?</li>
-<li>Wie groß ist die Gesamtbevölkerung pro Kontinent?</li>
-<li>Wie hoch ist das mittlere BIP pro Kopf pro Kontinent?</li>
-<li>Welche Kennzahl eignet sich am besten für einen fairen Vergleich? Warum?</li>
-</ol>
-<hr>
+<section id="vom-langen-ins-breite-format-mit-pivot_wider" class="level3" data-number="5.12.3">
+<h3 data-number="5.12.3" class="anchored" data-anchor-id="vom-langen-ins-breite-format-mit-pivot_wider"><span class="header-section-number">5.12.3</span> Vom langen ins breite Format mit <code>pivot_wider()</code></h3>
+<p>Mit <code>pivot_wider()</code> machen wir eine Tabelle breiter. Werte aus einer Spalte werden dabei zu neuen Spaltennamen.</p>
+<p>Im folgenden Beispiel betrachten wir die Lebenserwartung ausgewählter Länder:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>gapminder_klein <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp)</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>gapminder_klein</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 3
+   country  year lifeExp
+   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
+ 1 France   1952    67.4
+ 2 France   1957    68.9
+ 3 France   1962    70.5
+ 4 France   1967    71.6
+ 5 France   1972    72.4
+ 6 France   1977    73.8
+ 7 France   1982    74.9
+ 8 France   1987    76.3
+ 9 France   1992    77.5
+10 France   1997    78.6
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<p>Aktuell steht jedes Jahr in einer eigenen Zeile. Mit <code>pivot_wider()</code> können wir die Jahre zu Spalten machen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>gapminder_breit <span class="ot">&lt;-</span> gapminder_klein <span class="sc">|&gt;</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> year,</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> lifeExp</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>gapminder_breit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 13
+  country `1952` `1957` `1962` `1967` `1972` `1977` `1982` `1987` `1992` `1997`
+  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 France    67.4   68.9   70.5   71.6   72.4   73.8   74.9   76.3   77.5   78.6
+2 Germany   67.5   69.1   70.3   70.8   71     72.5   73.8   74.8   76.1   77.3
+3 Italy     65.9   67.8   69.2   71.1   72.2   73.5   75.0   76.4   77.4   78.8
+# ℹ 2 more variables: `2002` &lt;dbl&gt;, `2007` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Die Argumente bedeuten:</p>
+<ul>
+<li><code>names_from = year</code>: Die Werte aus <code>year</code> werden zu neuen Spaltennamen.</li>
+<li><code>values_from = lifeExp</code>: Die Werte aus <code>lifeExp</code> werden in diese neuen Spalten eingetragen.</li>
+</ul>
+<p>Das Ergebnis ist breiter: Pro Land gibt es nur noch eine Zeile, aber mehrere Jahresspalten.</p>
+</section>
+<section id="vom-breiten-ins-lange-format-mit-pivot_longer" class="level3" data-number="5.12.4">
+<h3 data-number="5.12.4" class="anchored" data-anchor-id="vom-breiten-ins-lange-format-mit-pivot_longer"><span class="header-section-number">5.12.4</span> Vom breiten ins lange Format mit <code>pivot_longer()</code></h3>
+<p>Häufig müssen wir den umgekehrten Weg gehen: Eine breite Tabelle soll wieder länger werden.</p>
+<p>Dazu verwenden wir <code>pivot_longer()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>gapminder_lang <span class="ot">&lt;-</span> gapminder_breit <span class="sc">|&gt;</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>country,</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"lifeExp"</span></span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-8"><a href="#cb83-8" aria-hidden="true" tabindex="-1"></a>gapminder_lang</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 3
+   country year  lifeExp
+   &lt;fct&gt;   &lt;chr&gt;   &lt;dbl&gt;
+ 1 France  1952     67.4
+ 2 France  1957     68.9
+ 3 France  1962     70.5
+ 4 France  1967     71.6
+ 5 France  1972     72.4
+ 6 France  1977     73.8
+ 7 France  1982     74.9
+ 8 France  1987     76.3
+ 9 France  1992     77.5
+10 France  1997     78.6
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<p>Die Argumente bedeuten:</p>
+<ul>
+<li><code>cols = -country</code>: Alle Spalten außer <code>country</code> sollen umgeformt werden.</li>
+<li><code>names_to = "year"</code>: Die bisherigen Spaltennamen werden in einer neuen Spalte <code>year</code> gesammelt.</li>
+<li><code>values_to = "lifeExp"</code>: Die Werte aus den bisherigen Spalten werden in einer neuen Spalte <code>lifeExp</code> gesammelt.</li>
+</ul>
+<p>Nach dem Umformen sieht die Tabelle wieder ähnlich aus wie vorher: ein Land und ein Jahr pro Zeile.</p>
+</section>
+<section id="datentypen-nach-dem-pivotieren-prüfen" class="level3" data-number="5.12.5">
+<h3 data-number="5.12.5" class="anchored" data-anchor-id="datentypen-nach-dem-pivotieren-prüfen"><span class="header-section-number">5.12.5</span> Datentypen nach dem Pivotieren prüfen</h3>
+<p>Nach dem Umformen sollten wir prüfen, ob die Datentypen noch passen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>gapminder_lang <span class="sc">|&gt;</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 36
+Columns: 3
+$ country &lt;fct&gt; "France", "France", "France", "France", "France", "France", "F…
+$ year    &lt;chr&gt; "1952", "1957", "1962", "1967", "1972", "1977", "1982", "1987"…
+$ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76.340…</code></pre>
+</div>
+</div>
+<p>Beim Pivotieren werden Spaltennamen manchmal als Text interpretiert. Das kann bei Jahreszahlen passieren.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>gapminder_lang <span class="ot">&lt;-</span> gapminder_lang <span class="sc">|&gt;</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>gapminder_lang <span class="sc">|&gt;</span></span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 36
+Columns: 3
+$ country &lt;fct&gt; "France", "France", "France", "France", "France", "France", "F…
+$ year    &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, 20…
+$ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76.340…</code></pre>
+</div>
+</div>
+<p>Jetzt ist <code>year</code> wieder eine Zahl.</p>
+</section>
+<section id="beispiel-vergleich-ausgewählter-jahre" class="level3" data-number="5.12.6">
+<h3 data-number="5.12.6" class="anchored" data-anchor-id="beispiel-vergleich-ausgewählter-jahre"><span class="header-section-number">5.12.6</span> Beispiel: Vergleich ausgewählter Jahre</h3>
+<p>Ein breites Format ist hilfreich, wenn wir Werte aus mehreren Jahren direkt nebeneinanderstellen möchten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>lifeExp_vergleich <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent, year, lifeExp) <span class="sc">|&gt;</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> year,</span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> lifeExp,</span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">"lifeExp_"</span></span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>lifeExp_vergleich</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 4
+   country     continent lifeExp_1952 lifeExp_2007
+   &lt;fct&gt;       &lt;fct&gt;            &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Afghanistan Asia              28.8         43.8
+ 2 Albania     Europe            55.2         76.4
+ 3 Algeria     Africa            43.1         72.3
+ 4 Angola      Africa            30.0         42.7
+ 5 Argentina   Americas          62.5         75.3
+ 6 Australia   Oceania           69.1         81.2
+ 7 Austria     Europe            66.8         79.8
+ 8 Bahrain     Asia              50.9         75.6
+ 9 Bangladesh  Asia              37.5         64.1
+10 Belgium     Europe            68           79.4
+# ℹ 132 more rows</code></pre>
+</div>
+</div>
+<p>Jetzt können wir die Veränderung zwischen 1952 und 2007 berechnen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>lifeExp_vergleich <span class="ot">&lt;-</span> lifeExp_vergleich <span class="sc">|&gt;</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">veraenderung =</span> lifeExp_2007 <span class="sc">-</span> lifeExp_1952</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>lifeExp_vergleich <span class="sc">|&gt;</span></span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(veraenderung))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 5
+   country            continent lifeExp_1952 lifeExp_2007 veraenderung
+   &lt;fct&gt;              &lt;fct&gt;            &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Oman               Asia              37.6         75.6         38.1
+ 2 Vietnam            Asia              40.4         74.2         33.8
+ 3 Indonesia          Asia              37.5         70.6         33.2
+ 4 Saudi Arabia       Asia              39.9         72.8         32.9
+ 5 Libya              Africa            42.7         74.0         31.2
+ 6 Korea, Rep.        Asia              47.5         78.6         31.2
+ 7 Nicaragua          Americas          42.3         72.9         30.6
+ 8 West Bank and Gaza Asia              43.2         73.4         30.3
+ 9 Yemen, Rep.        Asia              32.5         62.7         30.2
+10 Gambia             Africa            30           59.4         29.4
+# ℹ 132 more rows</code></pre>
+</div>
+</div>
+<p>Hier wird deutlich, warum Umformen nützlich sein kann: Erst durch das breite Format stehen die beiden Jahre in derselben Zeile und können direkt miteinander verrechnet werden.</p>
+</section>
+<section id="aufgabe-bevölkerung-vergleichen" class="level3" data-number="5.12.7">
+<h3 data-number="5.12.7" class="anchored" data-anchor-id="aufgabe-bevölkerung-vergleichen"><span class="header-section-number">5.12.7</span> Aufgabe: Bevölkerung vergleichen</h3>
+<p>Erstellen Sie eine Tabelle, in der für jedes Land die Bevölkerung in den Jahren 1952 und 2007 nebeneinandersteht.</p>
+<p>Nutzen Sie dafür:</p>
+<ul>
+<li><code>filter()</code></li>
+<li><code>select()</code></li>
+<li><code>pivot_wider()</code></li>
+<li><code>mutate()</code></li>
+</ul>
+<p>Berechnen Sie anschließend die Veränderung der Bevölkerung zwischen 1952 und 2007.</p>
+</section>
+<section id="aufgabe-zurück-ins-lange-format" class="level3" data-number="5.12.8">
+<h3 data-number="5.12.8" class="anchored" data-anchor-id="aufgabe-zurück-ins-lange-format"><span class="header-section-number">5.12.8</span> Aufgabe: Zurück ins lange Format</h3>
+<p>Nehmen Sie Ihre breite Tabelle aus der vorherigen Übung und formen Sie sie wieder in ein langes Format um.</p>
+<p>Nutzen Sie dafür <code>pivot_longer()</code>.</p>
 </section>
 </section>
-<section id="zusammenfassung" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 5 Zusammenfassung</h1>
+<section id="textdaten-bereinigen-mit-stringr" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="textdaten-bereinigen-mit-stringr"><span class="header-section-number">5.13</span> Textdaten bereinigen mit <code>stringr</code></h2>
+<p>Bisher haben wir Daten mit <code>dplyr</code> bearbeitet und mit <code>tidyr</code> umgeformt. Manchmal liegt das Problem aber nicht in der Tabellenstruktur, sondern in den Textwerten selbst.</p>
+<p>Typische Probleme bei Textdaten sind:</p>
+<ul>
+<li>zusätzliche Leerzeichen,</li>
+<li>unterschiedliche Groß- und Kleinschreibung,</li>
+<li>uneinheitliche Schreibweisen,</li>
+<li>Werte, die nur teilweise gesucht oder ersetzt werden sollen.</li>
+</ul>
+<p>Für solche Aufgaben nutzen wir das Paket <code>stringr</code>.</p>
+<section id="ein-kleines-beispiel-mit-ländernamen" class="level3" data-number="5.13.1">
+<h3 data-number="5.13.1" class="anchored" data-anchor-id="ein-kleines-beispiel-mit-ländernamen"><span class="header-section-number">5.13.1</span> Ein kleines Beispiel mit Ländernamen</h3>
+<p>Der <code>gapminder</code>-Datensatz ist bereits sehr sauber. Damit wir typische Probleme sehen können, erzeugen wir zunächst eine kleine fehlerhafte Version einiger Ländernamen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>laender_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">" Germany"</span>, <span class="st">"france"</span>, <span class="st">"ITALY "</span>, <span class="st">"United  Kingdom"</span>, <span class="st">"bosnia and herzegovina"</span>),</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>),</span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lifeExp =</span> <span class="fu">c</span>(<span class="fl">79.4</span>, <span class="fl">80.7</span>, <span class="fl">80.5</span>, <span class="fl">79.4</span>, <span class="fl">74.9</span>)</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>laender_roh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  country                   year lifeExp
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt;
+1 " Germany"                2007    79.4
+2 "france"                  2007    80.7
+3 "ITALY "                  2007    80.5
+4 "United  Kingdom"         2007    79.4
+5 "bosnia and herzegovina"  2007    74.9</code></pre>
+</div>
+</div>
+<p>Die Ländernamen sind hier absichtlich uneinheitlich geschrieben.</p>
+</section>
+<section id="leerzeichen-bereinigen" class="level3" data-number="5.13.2">
+<h3 data-number="5.13.2" class="anchored" data-anchor-id="leerzeichen-bereinigen"><span class="header-section-number">5.13.2</span> Leerzeichen bereinigen</h3>
+<p>Mit <code>str_trim()</code> entfernen wir Leerzeichen am Anfang und Ende eines Textes. Mit <code>str_squish()</code> entfernen wir zusätzlich überflüssige Leerzeichen innerhalb eines Textes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_squish</span>()</span>
+<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 france                
+3 "ITALY "                  2007    80.5 ITALY                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 bosnia and herzegovina</code></pre>
+</div>
+</div>
+<p>Der Unterschied ist wichtig:</p>
+<ul>
+<li><code>str_trim()</code> entfernt Leerzeichen außen.</li>
+<li><code>str_squish()</code> reduziert mehrere Leerzeichen innerhalb eines Textes auf ein einzelnes Leerzeichen.</li>
+</ul>
+</section>
+<section id="groß--und-kleinschreibung-vereinheitlichen" class="level3" data-number="5.13.3">
+<h3 data-number="5.13.3" class="anchored" data-anchor-id="groß--und-kleinschreibung-vereinheitlichen"><span class="header-section-number">5.13.3</span> Groß- und Kleinschreibung vereinheitlichen</h3>
+<p>Mit <code>str_to_title()</code> können wir Text in eine einheitliche Schreibweise bringen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>laender_clean <span class="ot">&lt;-</span> laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_to_title</span>()</span>
+<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a>laender_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 France                
+3 "ITALY "                  2007    80.5 Italy                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 Bosnia And Herzegovina</code></pre>
+</div>
+</div>
+<p>Jetzt sind die Ländernamen deutlich einheitlicher.</p>
+</section>
+<section id="textmuster-suchen-mit-str_detect" class="level3" data-number="5.13.4">
+<h3 data-number="5.13.4" class="anchored" data-anchor-id="textmuster-suchen-mit-str_detect"><span class="header-section-number">5.13.4</span> Textmuster suchen mit <code>str_detect()</code></h3>
+<p>Mit <code>str_detect()</code> können wir prüfen, ob ein Text ein bestimmtes Muster enthält.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">contains_united =</span> <span class="fu">str_detect</span>(country_clean, <span class="st">"United"</span>)</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  country                   year lifeExp country_clean          contains_united
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                  &lt;lgl&gt;          
+1 " Germany"                2007    79.4 Germany                FALSE          
+2 "france"                  2007    80.7 France                 FALSE          
+3 "ITALY "                  2007    80.5 Italy                  FALSE          
+4 "United  Kingdom"         2007    79.4 United Kingdom         TRUE           
+5 "bosnia and herzegovina"  2007    74.9 Bosnia And Herzegovina FALSE          </code></pre>
+</div>
+</div>
+<p>Das Ergebnis ist eine neue logische Spalte mit <code>TRUE</code> oder <code>FALSE</code>.</p>
+<p>Das können wir auch direkt zum Filtern nutzen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(country_clean, <span class="st">"United"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  country          year lifeExp country_clean 
+  &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         
+1 United  Kingdom  2007    79.4 United Kingdom</code></pre>
+</div>
+</div>
+</section>
+<section id="schreibweisen-gezielt-korrigieren" class="level3" data-number="5.13.5">
+<h3 data-number="5.13.5" class="anchored" data-anchor-id="schreibweisen-gezielt-korrigieren"><span class="header-section-number">5.13.5</span> Schreibweisen gezielt korrigieren</h3>
+<p>Manchmal reicht eine automatische Bereinigung nicht aus. Zum Beispiel ist <code>"Bosnia And Herzegovina"</code> zwar formal vereinheitlicht, aber nicht die übliche Schreibweise im <code>gapminder</code>-Datensatz.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>laender_clean <span class="ot">&lt;-</span> laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> <span class="fu">case_when</span>(</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(country_clean, <span class="st">"Bosnia"</span>) <span class="sc">~</span> <span class="st">"Bosnia and Herzegovina"</span>,</span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> country_clean</span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb103-8"><a href="#cb103-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-9"><a href="#cb103-9" aria-hidden="true" tabindex="-1"></a>laender_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 France                
+3 "ITALY "                  2007    80.5 Italy                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 Bosnia and Herzegovina</code></pre>
+</div>
+</div>
+<p>Die letzte Zeile <code>TRUE ~ country_clean</code> bedeutet: Wenn keine der vorherigen Bedingungen zutrifft, bleibt der ursprüngliche bereinigte Wert erhalten.</p>
+</section>
+<section id="warum-ist-das-wichtig" class="level3" data-number="5.13.6">
+<h3 data-number="5.13.6" class="anchored" data-anchor-id="warum-ist-das-wichtig"><span class="header-section-number">5.13.6</span> Warum ist das wichtig?</h3>
+<p>Saubere Textwerte sind wichtig, weil R Zeichenketten exakt vergleicht. Für R sind diese Werte unterschiedlich:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">" Germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">"germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="st">"United Kingdom"</span> <span class="sc">==</span> <span class="st">"United  Kingdom"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Solche Unterschiede können dazu führen, dass Filter, Gruppierungen oder Joins nicht wie erwartet funktionieren.</p>
+</section>
+<section id="beispiel-gruppieren-nach-bereinigten-ländernamen" class="level3" data-number="5.13.7">
+<h3 data-number="5.13.7" class="anchored" data-anchor-id="beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.13.7</span> Beispiel: Gruppieren nach bereinigten Ländernamen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_to_title</span>()</span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country_clean) <span class="sc">|&gt;</span></span>
+<span id="cb111-9"><a href="#cb111-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb111-10"><a href="#cb111-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb111-11"><a href="#cb111-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb111-12"><a href="#cb111-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  country_clean          mean_lifeExp
+  &lt;chr&gt;                         &lt;dbl&gt;
+1 Bosnia And Herzegovina         74.9
+2 France                         80.7
+3 Germany                        79.4
+4 Italy                          80.5
+5 United Kingdom                 79.4</code></pre>
+</div>
+</div>
+<p>Hier sorgt die Bereinigung dafür, dass gleiche Länder nicht versehentlich als verschiedene Gruppen behandelt werden.</p>
+</section>
+<section id="übung" class="level3" data-number="5.13.8">
+<h3 data-number="5.13.8" class="anchored" data-anchor-id="übung"><span class="header-section-number">5.13.8</span> Übung</h3>
+<p>Erstellen Sie eine kleine Tabelle mit uneinheitlichen Kontinentnamen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>kontinente_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">continent =</span> <span class="fu">c</span>(<span class="st">" europe"</span>, <span class="st">"Europe "</span>, <span class="st">"EUROPE"</span>, <span class="st">"asia"</span>, <span class="st">"Asia  "</span>),</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Bereinigen Sie die Spalte <code>continent</code> so, dass daraus einheitliche Werte entstehen.</p>
+<p>Nutzen Sie dafür:</p>
+<ul>
+<li><code>str_trim()</code></li>
+<li><code>str_squish()</code></li>
+<li><code>str_to_title()</code></li>
+</ul>
+</section>
+<section id="merke" class="level3" data-number="5.13.9">
+<h3 data-number="5.13.9" class="anchored" data-anchor-id="merke"><span class="header-section-number">5.13.9</span> Merke</h3>
+<p><code>stringr</code> hilft uns, Textwerte zu bereinigen und zu durchsuchen.</p>
+<p>Wichtige Funktionen sind:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_trim</span>(text)       <span class="co"># Leerzeichen am Anfang und Ende entfernen</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_squish</span>(text)     <span class="co"># Mehrfache Leerzeichen reduzieren</span></span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(text)   <span class="co"># Einheitliche Groß-/Kleinschreibung</span></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(text, <span class="st">"Muster"</span>)  <span class="co"># Textmuster erkennen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="zusammenfassung" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">5.14</span> Zusammenfassung</h2>
 <p>In dieser Einheit haben Sie gelernt:</p>
 <ul>
 <li>Mit <code>select()</code> wählen Sie Spalten aus oder schließen sie aus.</li>
@@ -1089,8 +1581,9 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 <li>Mit <code>pivot_wider()</code> formen Sie lange Daten in breite Daten um.</li>
 <li>Mit <code>stringr</code> bereinigen Sie Textwerte.</li>
 </ul>
-<section id="reflexionsfragen" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="reflexionsfragen"><span class="header-section-number">7.1</span> Reflexionsfragen</h2>
+</section>
+<section id="reflexionsfragen" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="reflexionsfragen"><span class="header-section-number">5.15</span> Reflexionsfragen</h2>
 <ol type="1">
 <li>Warum ist Datenbereinigung ein wichtiger Schritt vor der Analyse?</li>
 <li>Was kann passieren, wenn ein Datensatz noch gruppiert ist und Sie weitere Berechnungen durchführen?</li>
@@ -1099,9 +1592,8 @@ Mit <code>rename()</code> ändern wir Spaltennamen:</p>
 </ol>
 <hr>
 </section>
-</section>
-<section id="quelle-und-lizenz" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Quelle und Lizenz</h1>
+<section id="quelle-und-lizenz" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Quelle und Lizenz</h1>
 <p>Dieses Skript ist eine didaktische Adaption der Inhalte aus:</p>
 <p>CS50’s Introduction to Programming with R, Lecture 4: <em>Tidying Data</em>.<br>
 Quelle: https://cs50.harvard.edu/r/notes/4/</p>
