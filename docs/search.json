@@ -200,6 +200,16 @@
     ]
   },
   {
+    "objectID": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
+    "href": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "5.1 Grundidee der apply-Funktionen",
+    "text": "5.1 Grundidee der apply-Funktionen\nViele Aufgaben folgen demselben Muster:\n\nNimm mehrere Elemente und wende auf jedes Element dieselbe Funktion an.\n\nZum Beispiel:\nx &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6),\n  c = c(7, 8, 9)\n)\nWir möchten für jedes Element den Mittelwert berechnen.\nMit einer Schleife:\nergebnis &lt;- list()\n\nfor (i in names(x)) {\n  ergebnis[[i]] &lt;- mean(x[[i]])\n}\n\nergebnis\nMit lapply() kürzer:\nlapply(x, mean)\nDie apply-Funktion übernimmt hier die Wiederholung.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
     "objectID": "chapters/03-daten-transformieren.html#apply",
     "href": "chapters/03-daten-transformieren.html#apply",
     "title": "4  Daten transformieren",
@@ -250,31 +260,11 @@
     ]
   },
   {
-    "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen",
-    "href": "chapters/03-daten-transformieren.html#anonyme-funktionen",
+    "objectID": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
+    "href": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
     "title": "4  Daten transformieren",
-    "section": "6.3 Anonyme Funktionen",
-    "text": "6.3 Anonyme Funktionen\nManchmal braucht man eine Funktion nur ein einziges Mal. Dann muss man ihr keinen eigenen Namen geben. Eine solche Funktion nennt man anonyme Funktion.\nBeispiel:\nsapply(1:5, function(x) x^2)\nAusgabe:\n[1]  1  4  9 16 25\nDie Funktion\nfunction(x) x^2\nwird direkt innerhalb von sapply() definiert. Sie hat keinen Namen, sondern wird sofort verwendet.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
-    "href": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
-    "title": "4  Daten transformieren",
-    "section": "6.7 Funktionen als Argumente",
-    "text": "6.7 Funktionen als Argumente\nEine Funktion kann an eine andere Funktion übergeben werden. Das wurde bei den apply-Funktionen bereits genutzt. Man kann dieses Prinzip auch in eigenen Funktionen verwenden.\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\nDiese Funktion hat zwei Argumente:\n\n\n\nArgument\nBedeutung\n\n\n\n\nx\nDaten, die ausgewertet werden sollen\n\n\nFUN\nFunktion, die auf x angewendet werden soll\n\n\n\nBeispiel:\nanalyse(c(1, 2, 3), mean)\nAusgabe:\n[1] 2\nNun mit einer anderen Funktion:\nanalyse(c(1, 2, 3), sd)\nAusgabe:\n[1] 1\nDie Funktion analyse() bleibt gleich. Nur die übergebene Funktion ändert sich.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
-    "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
-    "title": "4  Daten transformieren",
-    "section": "6.10 Funktionen erzeugen Funktionen",
-    "text": "6.10 Funktionen erzeugen Funktionen\nFunktionen können nicht nur Werte zurückgeben. Sie können auch neue Funktionen zurückgeben.\nBeispiel:\nmultiplier &lt;- function(faktor) {\n  function(x) {\n    x * faktor\n  }\n}\nDiese Funktion erzeugt eine neue Funktion.\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\nNun sind mal2 und mal5 selbst Funktionen.\nmal2(10)\nAusgabe:\n[1] 20\nmal5(10)\nAusgabe:\n[1] 50",
+    "section": "5.7 apply-Funktionen im Vergleich",
+    "text": "5.7 apply-Funktionen im Vergleich\n\n5.7.1 Beispiel-Datensatz\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),\n  glucose = c(90, 95, 130, 125, 118, 88)\n)\n\n\n\n5.7.2 Welche Spalten sind numerisch?\nsapply(lab, is.numeric)\nAusgabe:\npatient_id     gruppe      alter   crp_mg_l    glucose \n     FALSE      FALSE       TRUE       TRUE       TRUE\n\n\n\n5.7.3 Mittelwerte aller numerischen Spalten\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\nAusgabe:\n    alter  crp_mg_l   glucose \n50.000000  5.050000 107.666667\n\n\n\n5.7.4 Mittelwert von CRP nach Gruppe\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\n\n\n\n5.7.5 Maximum von Glucose nach Gruppe\ntapply(lab$glucose, lab$gruppe, max)\nAusgabe:\nKontrolle  Therapie \n       95       130",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -285,376 +275,6 @@
     "title": "4  Daten transformieren",
     "section": "5.8 Typische Fehler",
     "text": "5.8 Typische Fehler\n\n5.8.1 Fehler 1: apply() auf gemischte Data Frames anwenden\napply(lab, 2, mean)\nProblem:\nDer Data Frame enthält Textspalten wie patient_id und gruppe. Dadurch kann mean() nicht sinnvoll auf alle Spalten angewendet werden.\nBesser:\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\n\n\n\n5.8.2 Fehler 2: lapply() gibt eine Liste zurück\nlapply(lab[num_spalten], mean)\nDas Ergebnis ist eine Liste.\nWenn man lieber einen Vektor möchte:\nsapply(lab[num_spalten], mean)\n\n\n\n5.8.3 Fehler 3: MARGIN bei apply() verwechseln\napply(werte, 1, mean)\nbedeutet zeilenweise.\napply(werte, 2, mean)\nbedeutet spaltenweise.\nMerksatz:\n\n1 steht für Zeilen, 2 steht für Spalten.\n\n\n\n\n5.8.4 Fehler 4: Fehlende Werte nicht beachten\nx &lt;- c(3, 4, NA, 6)\n\nmean(x)\nAusgabe:\n[1] NA\nBesser:\nmean(x, na.rm = TRUE)\nDas funktioniert auch mit apply-Funktionen:\nsapply(lab[num_spalten], mean, na.rm = TRUE)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben",
-    "href": "chapters/03-daten-transformieren.html#übungsaufgaben",
-    "title": "4  Daten transformieren",
-    "section": "6.15 Übungsaufgaben",
-    "text": "6.15 Übungsaufgaben\n\n6.15.1 Aufgabe\nErstellen Sie eine Funktion bewerte_temperatur(), die eine Körpertemperatur bewertet.\nRegeln:\n\nunter 37.5: \"normal\"\n37.5 bis unter 38: \"erhöht\"\nab 38: \"Fieber\"\n\nWenden Sie die Funktion anschließend mit sapply() auf diesen Vektor an:\ntemperaturen &lt;- c(36.9, 37.6, 38.2, 39.0)\n\n\n\n6.15.2 Aufgabe\nGegeben sei der folgende Vektor:\nwerte &lt;- c(2, 4, 6, 8, 10)\nVerwenden Sie sapply() mit einer anonymen Funktion, um jeden Wert durch seinen Maximalwert zu teilen.\nDas gewünschte Ergebnis ist:\n[1] 0.2 0.4 0.6 0.8 1.0\n\n\n\n6.15.3 Aufgabe\nSchreiben Sie eine Funktion analyse(), die einen Vektor und eine Funktion als Argument erhält.\nDie Funktion soll so aufgerufen werden können:\nanalyse(c(4, 8, 10, 12), mean)\nanalyse(c(4, 8, 10, 12), median)\nanalyse(c(4, 8, 10, 12), max)\n\n\n\n6.15.4 Aufgabe\nErweitern Sie die Funktion analyse() so, dass zusätzliche Argumente weitergegeben werden können.\nDie Funktion soll zum Beispiel mit fehlenden Werten funktionieren:\nwerte &lt;- c(4, 8, NA, 12)\n\nanalyse(werte, mean, na.rm = TRUE)\n\n\n\n6.15.5 Aufgabe\nSchreiben Sie eine Funktion kleiner_als(), die eine neue Funktion erzeugt.\nBeispiel:\nkleiner_als_10 &lt;- kleiner_als(10)\n\nkleiner_als_10(c(5, 12, 8, 20))\nGewünschte Ausgabe:\n[1]  TRUE FALSE  TRUE FALSE",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/02-daten-repraesentieren.html#prüfen.",
-    "href": "chapters/02-daten-repraesentieren.html#prüfen.",
-    "title": "3  Daten repräsentieren",
-    "section": "3.6 prüfen.",
-    "text": "3.6 prüfen.\n\n3.6.1 Zugriff auf Factor-Elemente\nAuf einzelne Elemente kann wie bei Vektoren zugegriffen werden.\n\nfarben[1]\n\n[1] rot\nLevels: rot blau gruen\n\nfarben[1:3]\n\n[1] rot  blau rot \nLevels: rot blau gruen\n\n\n\n\n\n3.6.2 Wichtige Funktionen für Factors\n\n\n\nFunktion\nBedeutung\n\n\n\n\nfactor()\nFactor erzeugen\n\n\nlevels()\nLevels anzeigen oder setzen\n\n\nnlevels()\nAnzahl der Levels\n\n\nas.factor()\nObjekt in Factor umwandeln\n\n\nas.character()\nFactor in Zeichenkette umwandeln\n\n\nas.numeric()\nFactor intern als Zahl darstellen\n\n\n\n\n\n\n\n\n\n\nTipMerke\n\n\n\nFactors werden in R häufig für kategoriale Daten verwendet, z. B.:\n\nGeschlecht\nFarben\nKlassen oder Gruppen\nBewertungen\n\nDie möglichen Kategorien eines Factors heißen Levels.\n\n\n\n\n\n\n\n\nWarningTypischer Anfängerfehler: as.numeric() bei Factors\n\n\n\nEin häufiger Fehler ist die direkte Umwandlung eines Factors in numerische Werte.\nx &lt;- factor(c(\"10\", \"20\", \"30\"))\nas.numeric(x)\nDas Ergebnis ist nicht 10 20 30, sondern:\n1 2 3\nGrund:\nR speichert Factors intern als Indizes der Levels, nicht als die sichtbaren Werte.\nRichtige Umwandlung\nas.numeric(as.character(x))\nDabei wird der Factor zuerst in Zeichenketten und anschließend in numerische Werte umgewandelt.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Daten repräsentieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
-    "href": "chapters/03-daten-transformieren.html#grundidee-der-apply-funktionen",
-    "title": "4  Daten transformieren",
-    "section": "5.1 Grundidee der apply-Funktionen",
-    "text": "5.1 Grundidee der apply-Funktionen\nViele Aufgaben folgen demselben Muster:\n\nNimm mehrere Elemente und wende auf jedes Element dieselbe Funktion an.\n\nZum Beispiel:\nx &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6),\n  c = c(7, 8, 9)\n)\nWir möchten für jedes Element den Mittelwert berechnen.\nMit einer Schleife:\nergebnis &lt;- list()\n\nfor (i in names(x)) {\n  ergebnis[[i]] &lt;- mean(x[[i]])\n}\n\nergebnis\nMit lapply() kürzer:\nlapply(x, mean)\nDie apply-Funktion übernimmt hier die Wiederholung.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispielmatrix",
-    "href": "chapters/03-daten-transformieren.html#beispielmatrix",
-    "title": "4  Daten transformieren",
-    "section": "5.3 Beispielmatrix",
-    "text": "5.3 Beispielmatrix\nwerte &lt;- matrix(\n  c(5, 6, 7,\n    8, 9, 10,\n    11, 12, 13),\n  nrow = 3,\n  byrow = TRUE\n)\n\nwerte\nDie Matrix sieht so aus:\n     [,1] [,2] [,3]\n[1,]    5    6    7\n[2,]    8    9   10\n[3,]   11   12   13",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply-zeilenweise",
-    "href": "chapters/03-daten-transformieren.html#apply-zeilenweise",
-    "title": "4  Daten transformieren",
-    "section": "5.4 apply() zeilenweise",
-    "text": "5.4 apply() zeilenweise\nMit MARGIN = 1 wird die Funktion auf jede Zeile angewendet.\napply(werte, 1, mean)\nAusgabe:\n[1]  6  9 12\nErklärung:\nmean(c(5, 6, 7))\nmean(c(8, 9, 10))\nmean(c(11, 12, 13))\nR berechnet also den Mittelwert jeder Zeile.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply-spaltenweise",
-    "href": "chapters/03-daten-transformieren.html#apply-spaltenweise",
-    "title": "4  Daten transformieren",
-    "section": "5.5 apply() spaltenweise",
-    "text": "5.5 apply() spaltenweise\nMit MARGIN = 2 wird die Funktion auf jede Spalte angewendet.\napply(werte, 2, mean)\nAusgabe:\n[1]  8  9 10\nErklärung:\nmean(c(5, 8, 11))\nmean(c(6, 9, 12))\nmean(c(7, 10, 13))\nR berechnet also den Mittelwert jeder Spalte.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#weitere-beispiele-mit-apply",
-    "href": "chapters/03-daten-transformieren.html#weitere-beispiele-mit-apply",
-    "title": "4  Daten transformieren",
-    "section": "5.6 Weitere Beispiele mit apply()",
-    "text": "5.6 Weitere Beispiele mit apply()\nMaximum pro Zeile:\napply(werte, 1, max)\nMinimum pro Spalte:\napply(werte, 2, min)\nSumme pro Zeile:\napply(werte, 1, sum)\nStandardabweichung pro Spalte:\napply(werte, 2, sd)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply-mit-eigener-funktion",
-    "href": "chapters/03-daten-transformieren.html#apply-mit-eigener-funktion",
-    "title": "4  Daten transformieren",
-    "section": "5.7 apply() mit eigener Funktion",
-    "text": "5.7 apply() mit eigener Funktion\nMan kann auch eigene Funktionen verwenden.\napply(werte, 1, function(x) max(x) - min(x))\nHier wird für jede Zeile die Spannweite berechnet.\nAusgabe:\n[1] 2 2 2\nDie anonyme Funktion\nfunction(x) max(x) - min(x)\nnimmt jeweils eine Zeile entgegen und berechnet:\ngrößter Wert - kleinster Wert",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#wichtiger-hinweis-zu-data-frames",
-    "href": "chapters/03-daten-transformieren.html#wichtiger-hinweis-zu-data-frames",
-    "title": "4  Daten transformieren",
-    "section": "5.8 Wichtiger Hinweis zu Data Frames",
-    "text": "5.8 Wichtiger Hinweis zu Data Frames\napply() kann auch auf Data Frames angewendet werden, ist dort aber mit Vorsicht zu verwenden.\nBeispiel:\ndf &lt;- data.frame(\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df, 2, mean)\nDas funktioniert, weil alle Spalten numerisch sind.\nProblematisch wird es bei gemischten Datentypen:\ndf2 &lt;- data.frame(\n  name = c(\"Anna\", \"Ben\", \"Clara\"),\n  alter = c(23, 34, 45),\n  groesse = c(1.70, 1.82, 1.65)\n)\n\napply(df2, 2, mean)\nHier kann es zu Problemen kommen, weil apply() den Data Frame intern oft in eine Matrix umwandelt.\nEine Matrix kann aber nur einen Datentyp enthalten. Wenn eine Textspalte vorhanden ist, werden deshalb häufig auch die numerischen Werte in Text umgewandelt.\nFür Data Frames sind deshalb oft lapply() oder sapply() besser geeignet.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply-1",
-    "href": "chapters/03-daten-transformieren.html#apply-1",
-    "title": "4  Daten transformieren",
-    "section": "5.3 apply()",
-    "text": "5.3 apply()\nFür Matrizen oder Data Frames.\nSyntax\napply(objekt, margin, funktion)\n\nmargin = 1 → zeilenweise\n\nmargin = 2 → spaltenweise\n\n\nBeispiel: Mittelwert pro Spalte\n\ndaten &lt;- matrix(c(5, 6, 7, 8, 9, 10), nrow = 3)\n\napply(daten, 2, mean)\n\n[1] 6 9\n\n\nBeispiel: Maximum pro Zeile\n\napply(daten, 1, max)\n\n[1]  8  9 10",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-mit-liste",
-    "href": "chapters/03-daten-transformieren.html#beispiel-mit-liste",
-    "title": "4  Daten transformieren",
-    "section": "5.4 Beispiel mit Liste",
-    "text": "5.4 Beispiel mit Liste\nmesswerte &lt;- list(\n  patient_a = c(120, 125, 130),\n  patient_b = c(140, 138, 142),\n  patient_c = c(110, 115, 118)\n)\n\nlapply(messwerte, mean)\nAusgabe:\n$patient_a\n[1] 125\n\n$patient_b\n[1] 140\n\n$patient_c\n[1] 114.3333\nJedes Listenelement wird einzeln an mean() übergeben.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#lapply-bei-data-frames",
-    "href": "chapters/03-daten-transformieren.html#lapply-bei-data-frames",
-    "title": "4  Daten transformieren",
-    "section": "5.5 lapply() bei Data Frames",
-    "text": "5.5 lapply() bei Data Frames\nEin Data Frame ist intern eine Liste von Spalten.\nDeshalb kann man lapply() sehr gut auf Data Frames anwenden.\ndaten &lt;- data.frame(\n  alter = c(23, 34, 45),\n  gewicht = c(65, 82, 74),\n  puls = c(70, 80, 76)\n)\n\nlapply(daten, mean)\nAusgabe:\n$alter\n[1] 34\n\n$gewicht\n[1] 73.66667\n\n$puls\n[1] 75.33333\nHier wird der Mittelwert für jede Spalte berechnet.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#datentypen-mit-lapply-prüfen",
-    "href": "chapters/03-daten-transformieren.html#datentypen-mit-lapply-prüfen",
-    "title": "4  Daten transformieren",
-    "section": "5.6 Datentypen mit lapply() prüfen",
-    "text": "5.6 Datentypen mit lapply() prüfen\nlapply(daten, class)\nAusgabe:\n$alter\n[1] \"numeric\"\n\n$gewicht\n[1] \"numeric\"\n\n$puls\n[1] \"numeric\"\nDas ist besonders hilfreich, wenn man einen Data Frame untersucht.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#lapply-mit-eigener-funktion",
-    "href": "chapters/03-daten-transformieren.html#lapply-mit-eigener-funktion",
-    "title": "4  Daten transformieren",
-    "section": "5.7 lapply() mit eigener Funktion",
-    "text": "5.7 lapply() mit eigener Funktion\nlapply(daten, function(x) {\n  c(\n    mittelwert = mean(x),\n    minimum = min(x),\n    maximum = max(x)\n  )\n})\nAusgabe:\n$alter\nmittelwert   minimum   maximum \n       34        23        45 \n\n$gewicht\nmittelwert   minimum   maximum \n 73.66667        65        82 \n\n$puls\nmittelwert   minimum   maximum \n 75.33333        70        80\nHier wird auf jede Spalte dieselbe kleine Auswertungsfunktion angewendet.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-lapply-versus-sapply",
-    "href": "chapters/03-daten-transformieren.html#beispiel-lapply-versus-sapply",
-    "title": "4  Daten transformieren",
-    "section": "6.1 Beispiel: lapply() versus sapply()",
-    "text": "6.1 Beispiel: lapply() versus sapply()\nwerte &lt;- list(\n  a = c(1, 2, 3),\n  b = c(4, 5, 6)\n)\n\nlapply(werte, mean)\nAusgabe:\n$a\n[1] 2\n\n$b\n[1] 5\nMit sapply():\nsapply(werte, mean)\nAusgabe:\na b \n2 5\nDas Ergebnis ist jetzt ein Vektor.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#sapply-bei-data-frames",
-    "href": "chapters/03-daten-transformieren.html#sapply-bei-data-frames",
-    "title": "4  Daten transformieren",
-    "section": "6.2 sapply() bei Data Frames",
-    "text": "6.2 sapply() bei Data Frames\nsapply(daten, mean)\nAusgabe:\n   alter  gewicht      puls \n34.00000 73.66667 75.33333\nDas ist oft praktischer als lapply(), wenn man einen übersichtlichen numerischen Ergebnisvektor möchte.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#sapply-zum-prüfen-von-datentypen",
-    "href": "chapters/03-daten-transformieren.html#sapply-zum-prüfen-von-datentypen",
-    "title": "4  Daten transformieren",
-    "section": "6.3 sapply() zum Prüfen von Datentypen",
-    "text": "6.3 sapply() zum Prüfen von Datentypen\npatienten &lt;- data.frame(\n  id = c(\"P001\", \"P002\", \"P003\"),\n  alter = c(45, 52, 39),\n  gruppe = c(\"Kontrolle\", \"Therapie\", \"Therapie\"),\n  crp = c(3.2, 7.8, 5.1)\n)\n\nsapply(patienten, class)\nMögliche Ausgabe:\n         id       alter      gruppe         crp \n\"character\"   \"numeric\" \"character\"   \"numeric\"\nDas ist eine sehr typische Anwendung von sapply().",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#sapply-mit-logischer-prüfung",
-    "href": "chapters/03-daten-transformieren.html#sapply-mit-logischer-prüfung",
-    "title": "4  Daten transformieren",
-    "section": "6.4 sapply() mit logischer Prüfung",
-    "text": "6.4 sapply() mit logischer Prüfung\nMan kann mit sapply() prüfen, welche Spalten numerisch sind.\nsapply(patienten, is.numeric)\nAusgabe:\n    id  alter gruppe    crp \n FALSE   TRUE  FALSE   TRUE\nDamit sieht man sofort, auf welche Spalten man mathematische Funktionen anwenden kann.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mittelwerte-nur-für-numerische-spalten-berechnen",
-    "href": "chapters/03-daten-transformieren.html#mittelwerte-nur-für-numerische-spalten-berechnen",
-    "title": "4  Daten transformieren",
-    "section": "6.5 Mittelwerte nur für numerische Spalten berechnen",
-    "text": "6.5 Mittelwerte nur für numerische Spalten berechnen\nnumerisch &lt;- sapply(patienten, is.numeric)\n\nsapply(patienten[numerisch], mean)\nAusgabe:\nalter   crp \n45.33  5.37\nDas ist sehr praktisch bei Data Frames mit gemischten Datentypen.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-mittelwert-nach-gruppe",
-    "href": "chapters/03-daten-transformieren.html#beispiel-mittelwert-nach-gruppe",
-    "title": "4  Daten transformieren",
-    "section": "7.1 Beispiel: Mittelwert nach Gruppe",
-    "text": "7.1 Beispiel: Mittelwert nach Gruppe\ncrp &lt;- c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\ngruppe &lt;- c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n            \"Therapie\", \"Therapie\", \"Kontrolle\")\n\ntapply(crp, gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\nHier wird der Mittelwert von crp getrennt nach Gruppe berechnet.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#tapply-mit-anderen-funktionen",
-    "href": "chapters/03-daten-transformieren.html#tapply-mit-anderen-funktionen",
-    "title": "4  Daten transformieren",
-    "section": "7.2 tapply() mit anderen Funktionen",
-    "text": "7.2 tapply() mit anderen Funktionen\nMaximum pro Gruppe:\ntapply(crp, gruppe, max)\nMinimum pro Gruppe:\ntapply(crp, gruppe, min)\nMedian pro Gruppe:\ntapply(crp, gruppe, median)\nStandardabweichung pro Gruppe:\ntapply(crp, gruppe, sd)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#tapply-mit-data-frame-spalten",
-    "href": "chapters/03-daten-transformieren.html#tapply-mit-data-frame-spalten",
-    "title": "4  Daten transformieren",
-    "section": "7.3 tapply() mit Data-Frame-Spalten",
-    "text": "7.3 tapply() mit Data-Frame-Spalten\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8)\n)\n\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mehrere-kennwerte-mit-tapply",
-    "href": "chapters/03-daten-transformieren.html#mehrere-kennwerte-mit-tapply",
-    "title": "4  Daten transformieren",
-    "section": "7.4 Mehrere Kennwerte mit tapply()",
-    "text": "7.4 Mehrere Kennwerte mit tapply()\ntapply() kann auch mit selbst geschriebenen Funktionen kombiniert werden.\ntapply(lab$crp_mg_l, lab$gruppe, function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nDas Ergebnis ist etwas komplexer, weil pro Gruppe mehrere Werte berechnet werden.\nEine übersichtlichere Variante ist:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = mean)\nOder für mehrere Kennwerte:\naggregate(crp_mg_l ~ gruppe, data = lab, FUN = function(x) {\n  c(\n    mittelwert = mean(x),\n    median = median(x),\n    maximum = max(x)\n  )\n})\nFür den Einstieg ist tapply() aber sehr gut geeignet, um das Prinzip gruppierter Berechnungen zu verstehen.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#einfaches-beispiel",
-    "href": "chapters/03-daten-transformieren.html#einfaches-beispiel",
-    "title": "4  Daten transformieren",
-    "section": "8.1 Einfaches Beispiel",
-    "text": "8.1 Einfaches Beispiel\nx &lt;- c(1, 2, 3)\ny &lt;- c(10, 20, 30)\n\nmapply(function(a, b) a + b, x, y)\nAusgabe:\n[1] 11 22 33\nDas entspricht:\n1 + 10\n2 + 20\n3 + 30",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-bmi-berechnen",
-    "href": "chapters/03-daten-transformieren.html#beispiel-bmi-berechnen",
-    "title": "4  Daten transformieren",
-    "section": "8.2 Beispiel: BMI berechnen",
-    "text": "8.2 Beispiel: BMI berechnen\ngewicht &lt;- c(70, 82, 65)\ngroesse &lt;- c(1.75, 1.82, 1.68)\n\nmapply(function(g, h) g / h^2, gewicht, groesse)\nAusgabe:\n[1] 22.85714 24.75546 23.03005\nHier bekommt die Funktion immer zwei Werte gleichzeitig:\ngewicht[1] und groesse[1]\ngewicht[2] und groesse[2]\ngewicht[3] und groesse[3]",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mapply-mit-benannter-funktion",
-    "href": "chapters/03-daten-transformieren.html#mapply-mit-benannter-funktion",
-    "title": "4  Daten transformieren",
-    "section": "8.3 mapply() mit benannter Funktion",
-    "text": "8.3 mapply() mit benannter Funktion\nMan kann zuerst eine eigene Funktion schreiben:\nbmi &lt;- function(gewicht, groesse) {\n  gewicht / groesse^2\n}\nDann kann man diese Funktion mit mapply() verwenden:\nmapply(bmi, gewicht, groesse)\nDas ist oft übersichtlicher als eine anonyme Funktion.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#beispiel-datensatz",
-    "href": "chapters/03-daten-transformieren.html#beispiel-datensatz",
-    "title": "4  Daten transformieren",
-    "section": "9.1 Beispiel-Datensatz",
-    "text": "9.1 Beispiel-Datensatz\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),\n  glucose = c(90, 95, 130, 125, 118, 88)\n)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#welche-spalten-sind-numerisch",
-    "href": "chapters/03-daten-transformieren.html#welche-spalten-sind-numerisch",
-    "title": "4  Daten transformieren",
-    "section": "9.2 Welche Spalten sind numerisch?",
-    "text": "9.2 Welche Spalten sind numerisch?\nsapply(lab, is.numeric)\nAusgabe:\npatient_id     gruppe      alter   crp_mg_l    glucose \n     FALSE      FALSE       TRUE       TRUE       TRUE",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mittelwerte-aller-numerischen-spalten",
-    "href": "chapters/03-daten-transformieren.html#mittelwerte-aller-numerischen-spalten",
-    "title": "4  Daten transformieren",
-    "section": "9.3 Mittelwerte aller numerischen Spalten",
-    "text": "9.3 Mittelwerte aller numerischen Spalten\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\nAusgabe:\n    alter  crp_mg_l   glucose \n50.000000  5.050000 107.666667",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#mittelwert-von-crp-nach-gruppe",
-    "href": "chapters/03-daten-transformieren.html#mittelwert-von-crp-nach-gruppe",
-    "title": "4  Daten transformieren",
-    "section": "9.4 Mittelwert von CRP nach Gruppe",
-    "text": "9.4 Mittelwert von CRP nach Gruppe\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#maximum-von-glucose-nach-gruppe",
-    "href": "chapters/03-daten-transformieren.html#maximum-von-glucose-nach-gruppe",
-    "title": "4  Daten transformieren",
-    "section": "9.5 Maximum von Glucose nach Gruppe",
-    "text": "9.5 Maximum von Glucose nach Gruppe\ntapply(lab$glucose, lab$gruppe, max)\nAusgabe:\nKontrolle  Therapie \n       95       130",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#fehler-1-apply-auf-gemischte-data-frames-anwenden",
-    "href": "chapters/03-daten-transformieren.html#fehler-1-apply-auf-gemischte-data-frames-anwenden",
-    "title": "4  Daten transformieren",
-    "section": "10.1 Fehler 1: apply() auf gemischte Data Frames anwenden",
-    "text": "10.1 Fehler 1: apply() auf gemischte Data Frames anwenden\napply(lab, 2, mean)\nProblem:\nDer Data Frame enthält Textspalten wie patient_id und gruppe. Dadurch kann mean() nicht sinnvoll auf alle Spalten angewendet werden.\nBesser:\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#fehler-2-lapply-gibt-eine-liste-zurück",
-    "href": "chapters/03-daten-transformieren.html#fehler-2-lapply-gibt-eine-liste-zurück",
-    "title": "4  Daten transformieren",
-    "section": "10.2 Fehler 2: lapply() gibt eine Liste zurück",
-    "text": "10.2 Fehler 2: lapply() gibt eine Liste zurück\nlapply(lab[num_spalten], mean)\nDas Ergebnis ist eine Liste.\nWenn man lieber einen Vektor möchte:\nsapply(lab[num_spalten], mean)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#fehler-3-margin-bei-apply-verwechseln",
-    "href": "chapters/03-daten-transformieren.html#fehler-3-margin-bei-apply-verwechseln",
-    "title": "4  Daten transformieren",
-    "section": "10.3 Fehler 3: MARGIN bei apply() verwechseln",
-    "text": "10.3 Fehler 3: MARGIN bei apply() verwechseln\napply(werte, 1, mean)\nbedeutet zeilenweise.\napply(werte, 2, mean)\nbedeutet spaltenweise.\nMerksatz:\n\n1 steht für Zeilen, 2 steht für Spalten.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#fehler-4-fehlende-werte-nicht-beachten",
-    "href": "chapters/03-daten-transformieren.html#fehler-4-fehlende-werte-nicht-beachten",
-    "title": "4  Daten transformieren",
-    "section": "10.4 Fehler 4: Fehlende Werte nicht beachten",
-    "text": "10.4 Fehler 4: Fehlende Werte nicht beachten\nx &lt;- c(3, 4, NA, 6)\n\nmean(x)\nAusgabe:\n[1] NA\nBesser:\nmean(x, na.rm = TRUE)\nDas funktioniert auch mit apply-Funktionen:\nsapply(lab[num_spalten], mean, na.rm = TRUE)",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#typische-fehler-2",
-    "href": "chapters/03-daten-transformieren.html#typische-fehler-2",
-    "title": "4  Daten transformieren",
-    "section": "6.14 Typische Fehler",
-    "text": "6.14 Typische Fehler\n\n6.14.1 Funktion nicht aufrufen\nEin häufiger Fehler ist, dass eine Funktion ohne Klammern geschrieben wird.\nquadrat\nDas zeigt nur die Funktion an.\nDie Funktion wird dadurch nicht ausgeführt.\nRichtig ist:\nquadrat(4)\nAusgabe:\n[1] 16\nMerksatz:\n\nEine Funktion wird erst durch runde Klammern ausgeführt.\n\n\n\n\n6.14.2 Argumente vergessen\nWenn eine Funktion ein Argument erwartet, muss dieses beim Aufruf angegeben werden.\nquadrat &lt;- function(x) {\n  x^2\n}\n\nquadrat()\nDas führt zu einem Fehler, weil x fehlt.\nRichtig:\nquadrat(5)\nAusgabe:\n[1] 25\n\n\n\n6.14.3 Funktion und Funktionsaufruf verwechseln\nBei sapply() und ähnlichen Funktionen wird häufig eine Funktion übergeben.\nsapply(1:5, sqrt)\nAusgabe:\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068\nHier steht sqrt ohne Klammern.\nDas ist richtig, weil sapply() die Funktion selbst benötigt.\nFalsch wäre:\nsapply(1:5, sqrt())\nHier würde sqrt() sofort aufgerufen werden, aber ohne Argument.\nMerksatz:\n\nWenn eine Funktion übergeben wird, schreibt man meistens den Funktionsnamen ohne Klammern.\n\n\n\n\n6.14.4 Rückgabetyp nicht beachten\nAnonyme Funktionen können unterschiedliche Rückgabetypen erzeugen.\nBeispiel:\nwerte &lt;- c(1, 2, 3)\n\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\" \"20\"    \"30\"\nDa einmal Text zurückgegeben wird, wandelt R auch die Zahlen in Text um.\nBesser ist es, innerhalb einer Funktion möglichst einheitliche Rückgabetypen zu verwenden.\nZum Beispiel nur Text:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    \"größer als 1\"\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\"        \"größer als 1\" \"größer als 1\"\nOder nur Zahlen:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    NA\n  }\n})\nAusgabe:\n[1] NA 20 30",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
-    "href": "chapters/03-daten-transformieren.html#apply-funktionen-im-vergleich",
-    "title": "4  Daten transformieren",
-    "section": "5.7 apply-Funktionen im Vergleich",
-    "text": "5.7 apply-Funktionen im Vergleich\n\n5.7.1 Beispiel-Datensatz\nlab &lt;- data.frame(\n  patient_id = c(\"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\"),\n  gruppe = c(\"Kontrolle\", \"Kontrolle\", \"Therapie\",\n             \"Therapie\", \"Therapie\", \"Kontrolle\"),\n  alter = c(45, 52, 39, 61, 48, 55),\n  crp_mg_l = c(3.2, 4.1, 7.8, 6.5, 5.9, 2.8),\n  glucose = c(90, 95, 130, 125, 118, 88)\n)\n\n\n\n5.7.2 Welche Spalten sind numerisch?\nsapply(lab, is.numeric)\nAusgabe:\npatient_id     gruppe      alter   crp_mg_l    glucose \n     FALSE      FALSE       TRUE       TRUE       TRUE\n\n\n\n5.7.3 Mittelwerte aller numerischen Spalten\nnum_spalten &lt;- sapply(lab, is.numeric)\n\nsapply(lab[num_spalten], mean)\nAusgabe:\n    alter  crp_mg_l   glucose \n50.000000  5.050000 107.666667\n\n\n\n5.7.4 Mittelwert von CRP nach Gruppe\ntapply(lab$crp_mg_l, lab$gruppe, mean)\nAusgabe:\nKontrolle  Therapie \n 3.366667  6.733333\n\n\n\n5.7.5 Maximum von Glucose nach Gruppe\ntapply(lab$glucose, lab$gruppe, max)\nAusgabe:\nKontrolle  Therapie \n       95       130",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -675,6 +295,16 @@
     "title": "4  Daten transformieren",
     "section": "6.2 Warum ist das nützlich?",
     "text": "6.2 Warum ist das nützlich?\nDass Funktionen als Objekte behandelt werden können, macht R sehr flexibel. Zum Beispiel können wir eine Funktion speichern:\nkennzahl &lt;- mean\nNun enthält kennzahl die Funktion mean().\nkennzahl(c(2, 4, 6))\nAusgabe:\n[1] 4\nDas wirkt zunächst ungewohnt, zeigt aber eine wichtige Idee:\n\nFunktionen können wie andere Objekte weitergegeben und verwendet werden.\n\nDiese Idee steckt auch hinter vielen apply-Funktionen.\nwerte &lt;- list(\n  a = c(2, 4, 6),\n  b = c(10, 20, 30)\n)\n\nsapply(werte, mean)\nAusgabe:\n a  b \n 4 20 \nHier wird die Funktion mean an sapply() übergeben. sapply() entscheidet, auf welche Elemente mean() angewendet wird.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#anonyme-funktionen",
+    "href": "chapters/03-daten-transformieren.html#anonyme-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "6.3 Anonyme Funktionen",
+    "text": "6.3 Anonyme Funktionen\nManchmal braucht man eine Funktion nur ein einziges Mal. Dann muss man ihr keinen eigenen Namen geben. Eine solche Funktion nennt man anonyme Funktion.\nBeispiel:\nsapply(1:5, function(x) x^2)\nAusgabe:\n[1]  1  4  9 16 25\nDie Funktion\nfunction(x) x^2\nwird direkt innerhalb von sapply() definiert. Sie hat keinen Namen, sondern wird sofort verwendet.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -710,6 +340,16 @@
     ]
   },
   {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
+    "href": "chapters/03-daten-transformieren.html#funktionen-als-argumente",
+    "title": "4  Daten transformieren",
+    "section": "6.7 Funktionen als Argumente",
+    "text": "6.7 Funktionen als Argumente\nEine Funktion kann an eine andere Funktion übergeben werden. Das wurde bei den apply-Funktionen bereits genutzt. Man kann dieses Prinzip auch in eigenen Funktionen verwenden.\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\nDiese Funktion hat zwei Argumente:\n\n\n\nArgument\nBedeutung\n\n\n\n\nx\nDaten, die ausgewertet werden sollen\n\n\nFUN\nFunktion, die auf x angewendet werden soll\n\n\n\nBeispiel:\nanalyse(c(1, 2, 3), mean)\nAusgabe:\n[1] 2\nNun mit einer anderen Funktion:\nanalyse(c(1, 2, 3), sd)\nAusgabe:\n[1] 1\nDie Funktion analyse() bleibt gleich. Nur die übergebene Funktion ändert sich.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
     "objectID": "chapters/03-daten-transformieren.html#warum-funktionen-als-argumente-hilfreich-sind",
     "href": "chapters/03-daten-transformieren.html#warum-funktionen-als-argumente-hilfreich-sind",
     "title": "4  Daten transformieren",
@@ -725,6 +365,16 @@
     "title": "4  Daten transformieren",
     "section": "6.9 Zusätzliche Argumente weitergeben",
     "text": "6.9 Zusätzliche Argumente weitergeben\nViele Funktionen benötigen zusätzliche Argumente.\nBeispiel:\nwerte &lt;- c(4, 8, NA, 12)\n\nmean(werte)\nAusgabe:\n[1] NA\nMit na.rm = TRUE werden fehlende Werte ignoriert:\nmean(werte, na.rm = TRUE)\nAusgabe:\n[1] 8\nUnsere Funktion analyse() kann so erweitert werden, dass zusätzliche Argumente weitergegeben werden.\nanalyse &lt;- function(x, FUN, ...) {\n  FUN(x, ...)\n}\nDie drei Punkte ... bedeuten:\n\nWeitere Argumente werden an die innere Funktion weitergereicht.\n\nJetzt funktioniert:\nanalyse(werte, mean, na.rm = TRUE)\nAusgabe:\n[1] 8\nDas ist ein sehr häufiges Muster in R.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
+    "href": "chapters/03-daten-transformieren.html#funktionen-erzeugen-funktionen",
+    "title": "4  Daten transformieren",
+    "section": "6.10 Funktionen erzeugen Funktionen",
+    "text": "6.10 Funktionen erzeugen Funktionen\nFunktionen können nicht nur Werte zurückgeben. Sie können auch neue Funktionen zurückgeben.\nBeispiel:\nmultiplier &lt;- function(faktor) {\n  function(x) {\n    x * faktor\n  }\n}\nDiese Funktion erzeugt eine neue Funktion.\nmal2 &lt;- multiplier(2)\nmal5 &lt;- multiplier(5)\nNun sind mal2 und mal5 selbst Funktionen.\nmal2(10)\nAusgabe:\n[1] 20\nmal5(10)\nAusgabe:\n[1] 50",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -760,11 +410,21 @@
     ]
   },
   {
-    "objectID": "chapters/03-daten-transformieren.html#lösungen",
-    "href": "chapters/03-daten-transformieren.html#lösungen",
+    "objectID": "chapters/03-daten-transformieren.html#typische-fehler-2",
+    "href": "chapters/03-daten-transformieren.html#typische-fehler-2",
     "title": "4  Daten transformieren",
-    "section": "6.16 6.16 Lösungen",
-    "text": "6.16 6.16 Lösungen\n\n6.16.1 Lösung zu Aufgabe 1\nbewerte_temperatur &lt;- function(x) {\n  if (x &lt; 37.5) {\n    \"normal\"\n  } else if (x &lt; 38) {\n    \"erhöht\"\n  } else {\n    \"Fieber\"\n  }\n}\n\ntemperaturen &lt;- c(36.9, 37.6, 38.2, 39.0)\n\nsapply(temperaturen, bewerte_temperatur)\nAusgabe:\n[1] \"normal\" \"erhöht\" \"Fieber\" \"Fieber\"\n\n\n\n6.16.2 Lösung zu Aufgabe 2\nwerte &lt;- c(2, 4, 6, 8, 10)\n\nsapply(werte, function(x) x / max(werte))\nAusgabe:\n[1] 0.2 0.4 0.6 0.8 1.0\n\n\n\n6.16.3 Lösung zu Aufgabe 3\nanalyse &lt;- function(x, FUN) {\n  FUN(x)\n}\n\nanalyse(c(4, 8, 10, 12), mean)\nanalyse(c(4, 8, 10, 12), median)\nanalyse(c(4, 8, 10, 12), max)\nAusgabe:\n[1] 8.5\n[1] 9\n[1] 12\n\n\n\n6.16.4 Lösung zu Aufgabe 4\nanalyse &lt;- function(x, FUN, ...) {\n  FUN(x, ...)\n}\n\nwerte &lt;- c(4, 8, NA, 12)\n\nanalyse(werte, mean, na.rm = TRUE)\nAusgabe:\n[1] 8\n\n\n\n6.16.5 Lösung zu Aufgabe 5\nkleiner_als &lt;- function(grenze) {\n  function(x) {\n    x &lt; grenze\n  }\n}\n\nkleiner_als_10 &lt;- kleiner_als(10)\n\nkleiner_als_10(c(5, 12, 8, 20))\nAusgabe:\n[1]  TRUE FALSE  TRUE FALSE",
+    "section": "6.14 Typische Fehler",
+    "text": "6.14 Typische Fehler\n\n6.14.1 Funktion nicht aufrufen\nEin häufiger Fehler ist, dass eine Funktion ohne Klammern geschrieben wird.\nquadrat\nDas zeigt nur die Funktion an.\nDie Funktion wird dadurch nicht ausgeführt.\nRichtig ist:\nquadrat(4)\nAusgabe:\n[1] 16\nMerksatz:\n\nEine Funktion wird erst durch runde Klammern ausgeführt.\n\n\n\n\n6.14.2 Argumente vergessen\nWenn eine Funktion ein Argument erwartet, muss dieses beim Aufruf angegeben werden.\nquadrat &lt;- function(x) {\n  x^2\n}\n\nquadrat()\nDas führt zu einem Fehler, weil x fehlt.\nRichtig:\nquadrat(5)\nAusgabe:\n[1] 25\n\n\n\n6.14.3 Funktion und Funktionsaufruf verwechseln\nBei sapply() und ähnlichen Funktionen wird häufig eine Funktion übergeben.\nsapply(1:5, sqrt)\nAusgabe:\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068\nHier steht sqrt ohne Klammern.\nDas ist richtig, weil sapply() die Funktion selbst benötigt.\nFalsch wäre:\nsapply(1:5, sqrt())\nHier würde sqrt() sofort aufgerufen werden, aber ohne Argument.\nMerksatz:\n\nWenn eine Funktion übergeben wird, schreibt man meistens den Funktionsnamen ohne Klammern.\n\n\n\n\n6.14.4 Rückgabetyp nicht beachten\nAnonyme Funktionen können unterschiedliche Rückgabetypen erzeugen.\nBeispiel:\nwerte &lt;- c(1, 2, 3)\n\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\" \"20\"    \"30\"\nDa einmal Text zurückgegeben wird, wandelt R auch die Zahlen in Text um.\nBesser ist es, innerhalb einer Funktion möglichst einheitliche Rückgabetypen zu verwenden.\nZum Beispiel nur Text:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    \"größer als 1\"\n  } else {\n    \"klein\"\n  }\n})\nAusgabe:\n[1] \"klein\"        \"größer als 1\" \"größer als 1\"\nOder nur Zahlen:\nsapply(werte, function(x) {\n  if (x &gt; 1) {\n    x * 10\n  } else {\n    NA\n  }\n})\nAusgabe:\n[1] NA 20 30",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-daten-transformieren.html#übungsaufgaben",
+    "href": "chapters/03-daten-transformieren.html#übungsaufgaben",
+    "title": "4  Daten transformieren",
+    "section": "6.15 Übungsaufgaben",
+    "text": "6.15 Übungsaufgaben\n\n6.15.1 Aufgabe\nErstellen Sie eine Funktion bewerte_temperatur(), die eine Körpertemperatur bewertet.\nRegeln:\n\nunter 37.5: \"normal\"\n37.5 bis unter 38: \"erhöht\"\nab 38: \"Fieber\"\n\nWenden Sie die Funktion anschließend mit sapply() auf diesen Vektor an:\ntemperaturen &lt;- c(36.9, 37.6, 38.2, 39.0)\n\n\n\n6.15.2 Aufgabe\nGegeben sei der folgende Vektor:\nwerte &lt;- c(2, 4, 6, 8, 10)\nVerwenden Sie sapply() mit einer anonymen Funktion, um jeden Wert durch seinen Maximalwert zu teilen.\nDas gewünschte Ergebnis ist:\n[1] 0.2 0.4 0.6 0.8 1.0\n\n\n\n6.15.3 Aufgabe\nSchreiben Sie eine Funktion analyse(), die einen Vektor und eine Funktion als Argument erhält.\nDie Funktion soll so aufgerufen werden können:\nanalyse(c(4, 8, 10, 12), mean)\nanalyse(c(4, 8, 10, 12), median)\nanalyse(c(4, 8, 10, 12), max)\n\n\n\n6.15.4 Aufgabe\nErweitern Sie die Funktion analyse() so, dass zusätzliche Argumente weitergegeben werden können.\nDie Funktion soll zum Beispiel mit fehlenden Werten funktionieren:\nwerte &lt;- c(4, 8, NA, 12)\n\nanalyse(werte, mean, na.rm = TRUE)\n\n\n\n6.15.5 Aufgabe\nSchreiben Sie eine Funktion kleiner_als(), die eine neue Funktion erzeugt.\nBeispiel:\nkleiner_als_10 &lt;- kleiner_als(10)\n\nkleiner_als_10(c(5, 12, 8, 20))\nGewünschte Ausgabe:\n[1]  TRUE FALSE  TRUE FALSE",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
     ]
@@ -787,6 +447,166 @@
     "text": "6.17 Übungsaufgaben\n\n6.17.1 Aufgabe\nErstellen Sie ein Programm, das eine Körpertemperatur bewertet:\n\nunter 37.5: Normal\n37.5 bis 38: erhöht\nüber 38: Fieber\n\n\n\n6.17.2 Aufgabe\nBerechnen Sie mit einer for-Schleife die Summe der Werte:\nc(3, 5, 7, 2)\n\n\n6.17.3 Aufgabe\nSimulieren Sie Zellteilungen mit einer while-Schleife, bis 10.000 Zellen erreicht sind.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Daten transformieren</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html",
+    "href": "chapters/04-daten-vorverarbeiten.html",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "",
+    "text": "5.1 Überblick\nIn dieser Einheit lernen Sie, wie Sie Daten in R so vorbereiten, dass sie analysierbar werden. Im Mittelpunkt stehen drei Pakete aus dem tidyverse:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#überblick",
+    "href": "chapters/04-daten-vorverarbeiten.html#überblick",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "",
+    "text": "dplyr für das Auswählen, Filtern, Sortieren, Gruppieren und Zusammenfassen von Daten,\ntidyr für das Umformen von Datensätzen in ein „tidy“ Format,\nstringr für das Bereinigen von Textwerten.\n\n\n\n\n\n\n\nTipLernziele\n\n\n\n\nSpalten mit select() auswählen oder ausschließen,\nZeilen mit filter() anhand von Bedingungen filtern,\nmehrere Arbeitsschritte mit dem Pipe-Operator |&gt; lesbar verknüpfen,\nDaten mit arrange() sortieren und mit distinct() Duplikate reduzieren,\nGruppierungen mit group_by() erstellen und mit summarize() zusammenfassen,\nDatensätze mit pivot_wider() in ein breiteres, tidy Format bringen,\nZeichenketten mit Funktionen aus stringr bereinigen.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#motivation-für-dplyr",
+    "href": "chapters/04-daten-vorverarbeiten.html#motivation-für-dplyr",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.2 Motivation für dplyr",
+    "text": "5.2 Motivation für dplyr\nSie haben bereits mit Dataframes gearbeitet. Das ist wichtig: Ein Dataframe ist in R die zentrale Datenstruktur für tabellarische Daten. Sie wissen vermutlich schon, wie man Spalten mit $ anspricht, Zeilen mit eckigen Klammern auswählt und einfache Zusammenfassungen berechnet.\nWarum lernen wir jetzt trotzdem noch dplyr?\nWeil Dataframes zwar die Datenstruktur sind, aber noch keine besonders gute Sprache für Datenanalyse. Mit base R kann man sehr viel machen, aber bei längeren Analysen wird Code schnell schwer lesbar:\ngapminder[gapminder$country == \"Germany\" & gapminder$year &gt;= 1990,\n          c(\"country\", \"year\", \"lifeExp\", \"gdpPercap\")]\nDer Code funktioniert, aber er vermischt mehrere Dinge auf einmal:\n\nWelche Zeilen sollen behalten werden?\nWelche Spalten interessieren uns?\nIn welcher Reihenfolge sollen die Schritte passieren?\nWas ist eigentlich das Ziel dieser Operation?\n\nMit dplyr schreiben wir dieselbe Idee näher an der natürlichen Sprache:\n\n# Pakete einbinden\nlibrary(tidyverse)\n\nWarning: Paket 'tidyverse' wurde unter R Version 4.4.2 erstellt\n\n\nWarning: Paket 'ggplot2' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'tibble' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'tidyr' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'readr' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'purrr' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'dplyr' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'stringr' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'forcats' wurde unter R Version 4.4.3 erstellt\n\n\nWarning: Paket 'lubridate' wurde unter R Version 4.4.3 erstellt\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(gapminder)\n\nWarning: Paket 'gapminder' wurde unter R Version 4.4.3 erstellt\n\n\ngapminder |&gt;\n  filter(country == \"Germany\", year &gt;= 1990) |&gt;\n  select(country, year, lifeExp, gdpPercap)\nDas liest sich wie eine kleine Analyseanweisung:\n\nNimm gapminder, dann behalte Deutschland ab 1990, dann wähle die interessierenden Variablen aus.\n\ndplyr ersetzt Dataframes also nicht. Es hilft Ihnen, besser mit Dataframes zu arbeiten.\n\n5.2.1 Warum dplyr, wenn wir schon Dataframes kennen?\n\n5.2.1.1 1. Code wird lesbarer\nViele Analysen bestehen aus mehreren kleinen Schritten: filtern, auswählen, sortieren, neue Variablen berechnen, gruppieren, zusammenfassen. Mit dplyr bekommt jeder dieser Schritte einen klaren Namen.\n\n\n\nFragestellung\ndplyr-Funktion\n\n\n\n\nWelche Zeilen brauche ich?\nfilter()\n\n\nWelche Spalten brauche ich?\nselect()\n\n\nWie sortiere ich die Daten?\narrange()\n\n\nWie berechne ich neue Variablen?\nmutate()\n\n\nWie fasse ich Gruppen zusammen?\ngroup_by() + summarise()\n\n\n\nDadurch wird der Code nicht nur für Sie selbst verständlicher, sondern auch für andere Personen, die Ihre Analyse nachvollziehen sollen.\n\n\n5.2.1.2 2. Analysen werden weniger fehleranfällig\nBase-R-Code mit eckigen Klammern ist mächtig, aber leicht zu verwechseln:\ngapminder[zeilen, spalten]\nWenn Zeilen- und Spaltenlogik in einer einzigen Klammer stehen, passieren schnell Fehler: ein Komma vergessen, eine Spalte falsch geschrieben, eine Bedingung an der falschen Stelle verwendet.\nMit dplyr wird jeder Schritt explizit:\ngapminder |&gt;\n  filter(continent == \"Africa\") |&gt;\n  select(country, year, lifeExp)\nHier ist klar: Erst werden Zeilen gefiltert, dann Spalten ausgewählt.\n\n\n5.2.1.3 3. Zwischenschritte werden vermeidbar\nBeim Arbeiten mit Dataframes entstehen oft viele Zwischenobjekte:\nafrica &lt;- gapminder[gapminder$continent == \"Africa\", ]\nafrica_small &lt;- africa[, c(\"country\", \"year\", \"lifeExp\")]\nafrica_2007 &lt;- africa_small[africa_small$year == 2007, ]\nDas funktioniert, aber der Workspace wird schnell unübersichtlich. Außerdem besteht die Gefahr, später versehentlich mit einem alten Zwischenobjekt weiterzuarbeiten.\nMit einer Pipe-Kette bleibt die Analyse kompakt:\ngapminder |&gt;\n  filter(continent == \"Africa\") |&gt;\n  select(country, year, lifeExp) |&gt;\n  filter(year == 2007)\n\n\n5.2.1.4 4. Die gleiche Denkweise funktioniert für kleine und große Daten\nBei kleinen Beispieldatensätzen ist base R oft ausreichend. In realen Projekten werden Datensätze aber größer, Analysen länger und Arbeitsschritte wiederholbarer. dplyr bietet eine Grammatik, die mitwächst: vom einfachen Filtern bis zu gruppierten Auswertungen.\n\n\n5.2.1.5 5. dplyr passt gut zu Grafiken und Berichten\nViele Analysen enden nicht mit einer Tabelle, sondern mit einer Grafik, einem Bericht oder einer statistischen Auswertung. dplyr lässt sich gut mit ggplot2, R Markdown oder Quarto kombinieren:\n\ngapminder |&gt;\n  filter(country == \"Germany\") |&gt;\n  ggplot(aes(x = year, y = lifeExp)) +\n  geom_line()\n\n\n\n\n\n\n\n\nDie Datenaufbereitung steht direkt vor der Grafik. Dadurch bleibt nachvollziehbar, welche Daten tatsächlich visualisiert wurden.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#vorbereitung-pakete-laden",
+    "href": "chapters/04-daten-vorverarbeiten.html#vorbereitung-pakete-laden",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.3 Vorbereitung: Pakete laden",
+    "text": "5.3 Vorbereitung: Pakete laden\nIn diesem Kapitel verwenden wir:\n\ndplyr für Datenmanipulation,\nggplot2 für Grafiken,\ngapminder für den Beispieldatensatz.\n\nDiese Pakete müssen einmal installiert und in jeder neuen R-Sitzung geladen werden.\n\n# Nur einmal nötig:\n# install.packages(\"tidyverse\")\n# install.packages(\"gapminder\")\n\n# In jeder neuen Sitzung nötig:\nlibrary(tidyverse)\nlibrary(gapminder)\n\ntidyverse lädt unter anderem dplyr, ggplot2, tidyr, readr, stringr, forcats, purrr und tibble.\n\nHinweis\nWenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie den Paketnamen voranstellen, zum Beispiel dplyr::select(). Dadurch machen Sie eindeutig, welche Funktion gemeint ist.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#den-gapminder-datensatz-kennenlernen",
+    "href": "chapters/04-daten-vorverarbeiten.html#den-gapminder-datensatz-kennenlernen",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.4 1 Den Gapminder-Datensatz kennenlernen",
+    "text": "5.4 1 Den Gapminder-Datensatz kennenlernen\nBevor wir mit dplyr Daten verändern, sollten wir den Datensatz einmal in Ruhe kennenlernen. In einer echten Analyse ist dieser Schritt sehr wichtig: Wir wollen wissen, welche Beobachtungen in den Zeilen stehen, welche Variablen in den Spalten stehen und welche Datentypen R für diese Variablen verwendet.\nDer Datensatz gapminder ist im Paket gapminder enthalten. Jede Zeile beschreibt ein Land in einem bestimmten Jahr.\nSchauen wir uns den Datensatz zunächst einfach an:\n\ngapminder\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows\n\n\n\n5.4.1 1.1 Was bedeutet „tibble“?\ngapminder ist kein gewöhnlicher Dataframe, sondern ein tibble. Ein tibble ist eine moderne Variante eines Dataframes. Für unsere Arbeit bedeutet das:\n\nEin tibble ist weiterhin tabellarisch aufgebaut: Zeilen sind Beobachtungen, Spalten sind Variablen.\nEin tibble kann mit den gleichen Grundideen wie ein Dataframe verwendet werden.\nDie Ausgabe in der Konsole ist kompakter und übersichtlicher.\nR zeigt nicht automatisch alle Zeilen und alle Spalten an, sondern nur einen sinnvollen Ausschnitt.\n\nDas ist besonders praktisch, wenn Datensätze größer werden. Bei einem klassischen Dataframe kann die Ausgabe schnell unübersichtlich werden, wenn viele Zeilen oder Spalten vorhanden sind. Ein tibble zeigt stattdessen zuerst eine kurze Zusammenfassung: Anzahl der Zeilen, Anzahl der Spalten, Spaltennamen und Datentypen.\n\n\n5.4.2 1.2 Zeilen, Spalten und Variablen\nDie sechs Variablen sind:\n\n\n\nVariable\nBedeutung\nDatentyp in R\n\n\n\n\ncountry\nLand\nFaktor / kategoriale Variable\n\n\ncontinent\nKontinent\nFaktor / kategoriale Variable\n\n\nyear\nJahr\nGanzzahl\n\n\nlifeExp\nLebenserwartung bei Geburt\nnumerische Variable\n\n\npop\nBevölkerungszahl\nGanzzahl\n\n\ngdpPercap\nBruttoinlandsprodukt pro Kopf\nnumerische Variable\n\n\n\nDie kleinen Angaben unter den Spaltennamen zeigen die Datentypen:\n\n\n\nAnzeige\nBedeutung\n\n\n\n\n&lt;fct&gt;\nFaktor, also eine kategoriale Variable\n\n\n&lt;int&gt;\nInteger, also eine ganze Zahl\n\n\n&lt;dbl&gt;\nDouble, also eine numerische Variable mit Dezimalstellen\n\n\n\nDiese Informationen sind wichtig, weil viele Funktionen je nach Datentyp unterschiedlich arbeiten. Mit numerischen Variablen können wir zum Beispiel Mittelwerte berechnen. Bei kategorialen Variablen wie continent oder country interessieren uns eher Häufigkeiten oder Gruppenvergleiche.\n\n\n5.4.3 1.3 Ist gapminder wirklich ein Dataframe?\nEin tibble ist eine spezielle Form eines Dataframes. Das können wir mit class() prüfen:\n\nclass(gapminder)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\nDas bedeutet: gapminder ist gleichzeitig ein tibble und ein Dataframe. Die Bezeichnungen tbl_df und tbl zeigen die tibble-Eigenschaften. data.frame zeigt, dass R den Datensatz weiterhin als Dataframe behandeln kann.\nFür Sie ist das eine gute Nachricht: Alles, was Sie über Dataframes gelernt haben, bleibt nützlich. dplyr baut darauf auf und bietet eine besser lesbare Sprache für typische Arbeitsschritte.\n\n\n5.4.4 1.4 Ein Dataframe in ein Tibble umwandeln\nMit as_tibble() können wir ein bestehendes Dataframe in ein Tibble umwandeln:\n\ndaten_df &lt;- data.frame(\n  land = c(\"Deutschland\", \"Frankreich\", \"Italien\"),\n  jahr = c(2000, 2000, 2000),\n  lebenserwartung = c(78.0, 79.1, 79.8)\n)\n\ndaten_tbl &lt;- as_tibble(daten_df)\n\ndaten_tbl\n\n# A tibble: 3 × 3\n  land         jahr lebenserwartung\n  &lt;chr&gt;       &lt;dbl&gt;           &lt;dbl&gt;\n1 Deutschland  2000            78  \n2 Frankreich   2000            79.1\n3 Italien      2000            79.8\n\n\nMit class() können wir prüfen, was daraus geworden ist:\n\nclass(daten_tbl)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\nDie Ausgabe zeigt: Ein Tibble ist weiterhin ein data.frame, hat aber zusätzliche Klassen wie tbl_df und tbl.\nMerke:\nEin Dataframe wird mit as_tibble() in ein Tibble umgewandelt.\n\nmein_tibble &lt;- as_tibble(daten_df)\n\n\n\n5.4.5 1.5 Den Datensatz kompakt untersuchen\nFür eine erste Orientierung eignen sich diese Befehle:\nnrow(gapminder)      # Anzahl der Zeilen\nncol(gapminder)      # Anzahl der Spalten\nnames(gapminder)     # Namen der Variablen\nclass(gapminder)     # Objektklasse\nEine besonders praktische Funktion aus dem tidyverse ist glimpse():\nglimpse(gapminder)\nglimpse() zeigt jede Variable in einer eigenen Zeile. Das ist hilfreich, weil man schnell erkennt:\n\nwelche Variablen vorhanden sind,\nwelchen Datentyp sie haben,\nwie typische Werte aussehen.\n\nZum Vergleich können Sie auch str() verwenden:\nstr(gapminder)\nBeide Funktionen geben Strukturinformationen aus. glimpse() ist häufig etwas angenehmer zu lesen, besonders bei breiten Tabellen mit vielen Spalten.\n\n\n5.4.6 1.6 Erste inhaltliche Fragen an den Datensatz\nSchon bevor wir Daten filtern oder verändern, können wir einfache Fragen stellen:\n\nunique(gapminder$continent)\n\n[1] Asia     Europe   Africa   Americas Oceania \nLevels: Africa Americas Asia Europe Oceania\n\n\nDieser Befehl zeigt, welche Kontinente im Datensatz vorkommen.\n\nrange(gapminder$year)\n\n[1] 1952 2007\n\n\nDieser Befehl zeigt das kleinste und größte Jahr.\n\nlength(unique(gapminder$country))\n\n[1] 142\n\n\nDieser Befehl zeigt, wie viele Länder im Datensatz enthalten sind.\nDiese Befehle sind base R. Sie funktionieren gut und zeigen: dplyr ersetzt unser bisheriges Wissen nicht. Im nächsten Schritt lernen wir aber eine Schreibweise kennen, mit der solche Analysen lesbarer werden: den Pipe Operator.\nMit dem Pipe Operator aus dplyr könnten wir die Anzahl der Länder zum Beispiel so bestimmen:\ngapminder |&gt;\n  distinct(country) |&gt;\n  nrow()\nGelesen bedeutet das:\n\nNimm gapminder, behalte jede Ausprägung von country nur einmal und zähle dann die Zeilen.\n\n\n\n5.4.7 Aufgabe: Erste Orientierung\nFühren Sie die folgenden Befehle aus:\nnrow(gapminder)\nncol(gapminder)\nnames(gapminder)\nclass(gapminder)\nglimpse(gapminder)\nsummary(gapminder)\nBeantworten Sie anschließend:\n\nWie viele Beobachtungen enthält der Datensatz?\nWie viele Variablen enthält der Datensatz?\nWelche Variablen sind kategorial?\nWelche Variablen sind numerisch?\nIn welchem Zeitraum liegen die Daten?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#zeilen-auswählen-mit-filter",
+    "href": "chapters/04-daten-vorverarbeiten.html#zeilen-auswählen-mit-filter",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.5 2 Zeilen auswählen mit filter()",
+    "text": "5.5 2 Zeilen auswählen mit filter()\nMit filter() wählen Sie Zeilen aus, die eine Bedingung erfüllen.\n\n5.5.1 2.1 Ein Land auswählen\ngapminder |&gt;\n  filter(country == \"Germany\")\nDieser Code behält nur Zeilen, in denen country genau den Wert \"Germany\" hat.\nZum Vergleich in base R:\ngapminder[gapminder$country == \"Germany\", ]\nBeide Varianten liefern dasselbe Ergebnis. Die dplyr-Variante ist jedoch näher an der Frage formuliert: „Filtere die Daten auf Deutschland.“\n\n\n5.5.2 2.2 Mehrere Bedingungen verwenden\ngapminder |&gt;\n  filter(country == \"Germany\", year &gt;= 1990)\nMehrere Bedingungen innerhalb von filter() werden wie ein logisches UND behandelt. Es bleiben also nur Zeilen erhalten, bei denen alle Bedingungen erfüllt sind.\nSie können Bedingungen auch explizit mit & verbinden:\ngapminder |&gt;\n  filter(country == \"Germany\" & year &gt;= 1990)\n\n\n5.5.3 2.3 Mehrere Länder auswählen\nFür mehrere mögliche Werte nutzen Sie %in%:\ngapminder |&gt;\n  filter(country %in% c(\"Germany\", \"France\", \"Italy\"))\nDas liest sich als: Behalte Zeilen, bei denen country in der angegebenen Liste vorkommt.\n\n\n5.5.4 Aufgabe: Filtern üben\nSchreiben Sie dplyr-Code für die folgenden Fragen:\n\nAlle Daten für Japan.\nAlle Daten für Brazil ab 1980.\nAlle Daten für die Länder Germany, Switzerland und Austria.\nAlle Zeilen, in denen die Lebenserwartung unter 40 Jahren liegt.\nAlle Zeilen aus dem Jahr 2007 mit einer Bevölkerung über 100 Millionen.\n\nBeispielstruktur:\ngapminder |&gt;\n  filter(____ == ____)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#einzelne-spalten-auswählen",
+    "href": "chapters/04-daten-vorverarbeiten.html#einzelne-spalten-auswählen",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.6 3 Einzelne Spalten auswählen",
+    "text": "5.6 3 Einzelne Spalten auswählen\nMit select() wählen Sie Spalten aus.\ngapminder |&gt;\n  select(country, year, lifeExp)\nDas Ergebnis enthält nur die drei genannten Spalten.\n\n5.6.1 3.1 Spalten ausschließen\ngapminder |&gt;\n  select(-pop)\nDas Minuszeichen bedeutet: Diese Spalte wird entfernt.\nMehrere Spalten können Sie so ausschließen:\ngapminder |&gt;\n  select(-c(pop, gdpPercap))\n\n\n5.6.2 3.2 Spalten umsortieren\nselect() kann Spalten auch in eine neue Reihenfolge bringen:\ngapminder |&gt;\n  select(year, country, continent, lifeExp, pop, gdpPercap)\n\n\n5.6.3 3.3 Hilfsfunktionen in select()\nBei vielen Spaltennamen können Hilfsfunktionen nützlich sein:\ngapminder |&gt;\n  select(starts_with(\"c\"))\nDieser Code wählt Spalten aus, deren Name mit c beginnt: country und continent.\ngapminder |&gt;\n  select(contains(\"p\"))\nDieser Code wählt Spalten aus, deren Name den Buchstaben p enthält.\n\n\n5.6.4 Aufgabe: Spalten auswählen\nErstellen Sie jeweils einen Datensatz mit:\n\nnur country, year und lifeExp,\nnur country, continent und pop,\nallen Spalten außer gdpPercap,\nallen Spalten, deren Name den Buchstaben p enthält.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#arbeitsschritte-verbinden-mit",
+    "href": "chapters/04-daten-vorverarbeiten.html#arbeitsschritte-verbinden-mit",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.7 4 Arbeitsschritte verbinden mit |>",
+    "text": "5.7 4 Arbeitsschritte verbinden mit |&gt;\nDer Pipe-Operator |&gt; übergibt das Ergebnis eines Schrittes an den nächsten Schritt. Man kann ihn als „dann“ lesen.\ngapminder |&gt;\n  filter(country == \"Germany\") |&gt;\n  select(year, lifeExp)\nLesen Sie den Code laut:\n\nNimm gapminder, dann filtere Deutschland, dann wähle Jahr und Lebenserwartung.\n\nDas ist einer der wichtigsten Vorteile von dplyr: Der Code beschreibt eine Datenanalyse als nachvollziehbare Schrittfolge.\n\n5.7.1 4.1 Eine typische Analysekette\ngapminder |&gt;\n  filter(continent == \"Europe\", year == 2007) |&gt;\n  select(country, lifeExp, gdpPercap) |&gt;\n  arrange(desc(lifeExp))\nDieser Code macht vier Dinge:\n\nEr nimmt den Datensatz gapminder.\nEr behält nur europäische Länder im Jahr 2007.\nEr wählt drei Spalten aus.\nEr sortiert absteigend nach Lebenserwartung.\n\n\n\n5.7.2 Aufgabe: Pipe-Ketten lesen\nBeschreiben Sie in eigenen Worten, was dieser Code macht:\ngapminder |&gt;\n  filter(continent == \"Asia\", year == 2007) |&gt;\n  select(country, pop, lifeExp) |&gt;\n  arrange(desc(pop))\nSchreiben Sie anschließend eine eigene Pipe-Kette für folgende Frage:\n\nWelche afrikanischen Länder hatten im Jahr 2007 die höchste Lebenserwartung?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#daten-sortieren-mit-arrange",
+    "href": "chapters/04-daten-vorverarbeiten.html#daten-sortieren-mit-arrange",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.8 5 Daten sortieren mit arrange()",
+    "text": "5.8 5 Daten sortieren mit arrange()\nMit arrange() sortieren Sie Zeilen nach einer oder mehreren Variablen.\n\n5.8.1 5.1 Aufsteigend sortieren\ngapminder |&gt;\n  arrange(lifeExp)\nDie kleinsten Werte stehen oben.\n\n\n5.8.2 5.2 Absteigend sortieren\ngapminder |&gt;\n  arrange(desc(lifeExp))\nDie größten Werte stehen oben.\n\n\n5.8.3 5.3 Nur die wichtigsten Spalten anzeigen\nSortierte Tabellen sind übersichtlicher, wenn Sie vorher oder nachher Spalten auswählen:\ngapminder |&gt;\n  filter(year == 2007) |&gt;\n  select(country, continent, lifeExp) |&gt;\n  arrange(desc(lifeExp))\n\n\n5.8.4 Aufgabe: Sortieren\nBeantworten Sie mit Code:\n\nWelche Länder hatten 2007 die niedrigste Lebenserwartung?\nWelche Länder hatten 2007 die höchste Bevölkerung?\nWelche Länder hatten 2007 das höchste BIP pro Kopf?\nÄndert sich die Antwort, wenn Sie nur europäische Länder betrachten?\n\nNutzen Sie head() oder slice_head(), um nur die ersten Zeilen auszugeben:\ngapminder |&gt;\n  filter(year == 2007) |&gt;\n  arrange(desc(pop)) |&gt;\n  slice_head(n = 10)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#neue-variablen-berechnen-mit-mutate",
+    "href": "chapters/04-daten-vorverarbeiten.html#neue-variablen-berechnen-mit-mutate",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.9 6 Neue Variablen berechnen mit mutate()",
+    "text": "5.9 6 Neue Variablen berechnen mit mutate()\nMit mutate() erzeugen Sie neue Spalten oder verändern bestehende Spalten.\n\n5.9.1 6.1 Bevölkerung in Millionen\nDie Spalte pop enthält absolute Bevölkerungszahlen. Für Tabellen ist eine Angabe in Millionen oft lesbarer.\ngapminder |&gt;\n  mutate(pop_mio = pop / 1000000) |&gt;\n  select(country, year, pop, pop_mio)\n\n\n5.9.2 6.2 BIP insgesamt schätzen\ngdpPercap ist das BIP pro Kopf. Eine grobe Schätzung des gesamten BIP erhalten Sie durch Multiplikation mit der Bevölkerung:\ngapminder |&gt;\n  mutate(gdp_total = gdpPercap * pop) |&gt;\n  select(country, year, pop, gdpPercap, gdp_total)\n\n\n5.9.3 6.3 Lebenserwartung kategorisieren\ngapminder |&gt;\n  mutate(lifeExp_group = case_when(\n    lifeExp &lt; 50 ~ \"unter 50\",\n    lifeExp &lt; 70 ~ \"50 bis unter 70\",\n    TRUE ~ \"70 und mehr\"\n  )) |&gt;\n  select(country, year, lifeExp, lifeExp_group)\ncase_when() ist nützlich, wenn Sie mehrere Bedingungen in Kategorien übersetzen möchten. Die letzte Zeile TRUE ~ \"70 und mehr\" aus dem Beispiel funktioniert hier wie eine Auffangkategorie: Alle Beobachtungen, die keine der vorherigen Bedingungen erfüllen, erhalten diesen Wert.\n\n\n5.9.4 Aufgabe: Neue Variablen\nErstellen Sie einen Datensatz für das Jahr 2007 mit:\n\npop_mio: Bevölkerung in Millionen,\ngdp_total: geschätztes gesamtes BIP,\nhigh_lifeExp: TRUE, wenn die Lebenserwartung mindestens 75 Jahre beträgt, sonst FALSE.\n\nStartcode:\ngapminder |&gt;\n  filter(year == 2007) |&gt;\n  mutate(\n    pop_mio = ____,\n    gdp_total = ____,\n    high_lifeExp = ____\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#spalten-umbenennen-mit-rename",
+    "href": "chapters/04-daten-vorverarbeiten.html#spalten-umbenennen-mit-rename",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.10 7 Spalten umbenennen mit rename()",
+    "text": "5.10 7 Spalten umbenennen mit rename()\nManchmal sind Spaltennamen nicht besonders verständlich oder passen nicht gut zur Analyse. Mit rename() können wir Spalten gezielt umbenennen.\nDie Reihenfolge ist dabei wichtig:\n\nneuer_name = alter_name\n\nBeispiel mit gapminder:\n\ngapminder_deutsch &lt;- gapminder |&gt;\n  rename(\n    land = country,\n    kontinent = continent,\n    jahr = year,\n    lebenserwartung = lifeExp,\n    bevoelkerung = pop,\n    bip_pro_kopf = gdpPercap\n  )\n\ngapminder_deutsch |&gt;\n  select(land, jahr, lebenserwartung, bip_pro_kopf)\n\n# A tibble: 1,704 × 4\n   land         jahr lebenserwartung bip_pro_kopf\n   &lt;fct&gt;       &lt;int&gt;           &lt;dbl&gt;        &lt;dbl&gt;\n 1 Afghanistan  1952            28.8         779.\n 2 Afghanistan  1957            30.3         821.\n 3 Afghanistan  1962            32.0         853.\n 4 Afghanistan  1967            34.0         836.\n 5 Afghanistan  1972            36.1         740.\n 6 Afghanistan  1977            38.4         786.\n 7 Afghanistan  1982            39.9         978.\n 8 Afghanistan  1987            40.8         852.\n 9 Afghanistan  1992            41.7         649.\n10 Afghanistan  1997            41.8         635.\n# ℹ 1,694 more rows\n\n\nLinks steht also der neue Name, rechts der bisherige Name. Die ursprüngliche Tabelle gapminder wird dadurch nicht dauerhaft verändert, solange wir das Ergebnis nicht speichern.\nrename() ist besonders nützlich, wenn Spaltennamen später in Tabellen, Auswertungen oder Grafiken verständlicher erscheinen sollen.\nMerke:\nMit rename() ändern wir Spaltennamen:\n\ndaten_neu &lt;- daten |&gt;\n  rename(neuer_name = alter_name)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#gruppieren-und-zusammenfassen-mit-group_by-und-summarise",
+    "href": "chapters/04-daten-vorverarbeiten.html#gruppieren-und-zusammenfassen-mit-group_by-und-summarise",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "5.11 8 Gruppieren und zusammenfassen mit group_by() und summarise()",
+    "text": "5.11 8 Gruppieren und zusammenfassen mit group_by() und summarise()\nViele Forschungsfragen beziehen sich nicht auf einzelne Zeilen, sondern auf Gruppen:\n\nWie hoch ist die durchschnittliche Lebenserwartung pro Kontinent?\nWie verändert sich die Bevölkerung pro Kontinent über die Zeit?\nWelche Länder haben die höchste oder niedrigste Lebenserwartung?\n\nDafür kombinieren wir group_by() und summarise().\n\n5.11.1 8.1 Durchschnittliche Lebenserwartung pro Kontinent\ngapminder |&gt;\n  filter(year == 2007) |&gt;\n  group_by(continent) |&gt;\n  summarise(mean_lifeExp = mean(lifeExp))\nDieser Code bedeutet:\n\nBehalte nur das Jahr 2007.\nGruppiere die Daten nach Kontinent.\nBerechne pro Kontinent die mittlere Lebenserwartung.\n\n\n\n5.11.2 8.2 Mehrere Kennzahlen berechnen\ngapminder |&gt;\n  filter(year == 2007) |&gt;\n  group_by(continent) |&gt;\n  summarise(\n    mean_lifeExp = mean(lifeExp),\n    min_lifeExp = min(lifeExp),\n    max_lifeExp = max(lifeExp),\n    n_countries = n()\n  )\nn() zählt, wie viele Zeilen in jeder Gruppe enthalten sind.\n\n\n5.11.3 8.3 Gruppierung über mehrere Variablen\ngapminder |&gt;\n  group_by(continent, year) |&gt;\n  summarise(mean_lifeExp = mean(lifeExp), .groups = \"drop\")\nJetzt wird für jede Kombination aus Kontinent und Jahr eine Zusammenfassung berechnet. Das Argument .groups = \"drop\" sorgt dafür, dass die Gruppierung nach der Zusammenfassung wieder aufgehoben wird. Das Ergebnis ist dadurch eine normale Tabelle und spätere Berechnungen werden nicht versehentlich weiterhin gruppiert ausgeführt.\n\n\n5.11.4 Aufgabe: Gruppierte Auswertungen\nBeantworten Sie mit group_by() und summarise():\n\nWie hoch ist die durchschnittliche Lebenserwartung pro Kontinent im Jahr 1952?\nWie hoch ist sie im Jahr 2007?\nWie viele Länder enthält jeder Kontinent im Datensatz?\nWie groß ist die Gesamtbevölkerung pro Kontinent im Jahr 2007?\nWelcher Kontinent hatte 2007 im Mittel das höchste BIP pro Kopf?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#option-a-lebenserwartung-in-europa",
+    "href": "chapters/04-daten-vorverarbeiten.html#option-a-lebenserwartung-in-europa",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "6.1 Option A: Lebenserwartung in Europa",
+    "text": "6.1 Option A: Lebenserwartung in Europa\nUntersuchen Sie die Entwicklung der Lebenserwartung in europäischen Ländern.\nLeitfragen:\n\nWelche europäischen Länder hatten 1952 die höchste Lebenserwartung?\nWelche hatten 2007 die höchste Lebenserwartung?\nWie stark ist die Lebenserwartung in jedem europäischen Land gestiegen?\nWelche Länder zeigen die größten Veränderungen?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#option-b-bevölkerung-und-bip-pro-kopf",
+    "href": "chapters/04-daten-vorverarbeiten.html#option-b-bevölkerung-und-bip-pro-kopf",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "6.2 Option B: Bevölkerung und BIP pro Kopf",
+    "text": "6.2 Option B: Bevölkerung und BIP pro Kopf\nUntersuchen Sie den Zusammenhang zwischen Bevölkerung und BIP pro Kopf im Jahr 2007.\nLeitfragen:\n\nWelche Länder hatten 2007 die größte Bevölkerung?\nWelche Länder hatten 2007 das höchste BIP pro Kopf?\nGibt es sichtbare Unterschiede zwischen Kontinenten?\nWie könnten Ausreißer die Interpretation beeinflussen?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#option-c-kontinente-im-vergleich",
+    "href": "chapters/04-daten-vorverarbeiten.html#option-c-kontinente-im-vergleich",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "6.3 Option C: Kontinente im Vergleich",
+    "text": "6.3 Option C: Kontinente im Vergleich\nVergleichen Sie die Kontinente im Jahr 2007.\nLeitfragen:\n\nWie hoch ist die mittlere Lebenserwartung pro Kontinent?\nWie groß ist die Gesamtbevölkerung pro Kontinent?\nWie hoch ist das mittlere BIP pro Kopf pro Kontinent?\nWelche Kennzahl eignet sich am besten für einen fairen Vergleich? Warum?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-daten-vorverarbeiten.html#reflexionsfragen",
+    "href": "chapters/04-daten-vorverarbeiten.html#reflexionsfragen",
+    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
+    "section": "7.1 Reflexionsfragen",
+    "text": "7.1 Reflexionsfragen\n\nWarum ist Datenbereinigung ein wichtiger Schritt vor der Analyse?\nWas kann passieren, wenn ein Datensatz noch gruppiert ist und Sie weitere Berechnungen durchführen?\nWann ist automatische Textbereinigung hilfreich, und wann kann sie problematisch sein?\nWelche der Funktionen aus dieser Einheit werden Sie vermutlich am häufigsten verwenden?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
     ]
   }
 ]
