@@ -17,7 +17,7 @@ book:
     - chapters/01-einfuehrung.qmd
     - chapters/02-daten-repraesentieren.qmd
     - chapters/03-daten-transformieren.qmd
-    - chapters/04-daten-vorbereiten.qmd
+    - chapters/04-daten-vorverarbeiten.qmd
 
   search: true
 
