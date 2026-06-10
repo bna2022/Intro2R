@@ -570,46 +570,6 @@
     ]
   },
   {
-    "objectID": "chapters/04-daten-vorverarbeiten.html#option-a-lebenserwartung-in-europa",
-    "href": "chapters/04-daten-vorverarbeiten.html#option-a-lebenserwartung-in-europa",
-    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
-    "section": "6.1 Option A: Lebenserwartung in Europa",
-    "text": "6.1 Option A: Lebenserwartung in Europa\nUntersuchen Sie die Entwicklung der Lebenserwartung in europäischen Ländern.\nLeitfragen:\n\nWelche europäischen Länder hatten 1952 die höchste Lebenserwartung?\nWelche hatten 2007 die höchste Lebenserwartung?\nWie stark ist die Lebenserwartung in jedem europäischen Land gestiegen?\nWelche Länder zeigen die größten Veränderungen?",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-daten-vorverarbeiten.html#option-b-bevölkerung-und-bip-pro-kopf",
-    "href": "chapters/04-daten-vorverarbeiten.html#option-b-bevölkerung-und-bip-pro-kopf",
-    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
-    "section": "6.2 Option B: Bevölkerung und BIP pro Kopf",
-    "text": "6.2 Option B: Bevölkerung und BIP pro Kopf\nUntersuchen Sie den Zusammenhang zwischen Bevölkerung und BIP pro Kopf im Jahr 2007.\nLeitfragen:\n\nWelche Länder hatten 2007 die größte Bevölkerung?\nWelche Länder hatten 2007 das höchste BIP pro Kopf?\nGibt es sichtbare Unterschiede zwischen Kontinenten?\nWie könnten Ausreißer die Interpretation beeinflussen?",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-daten-vorverarbeiten.html#option-c-kontinente-im-vergleich",
-    "href": "chapters/04-daten-vorverarbeiten.html#option-c-kontinente-im-vergleich",
-    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
-    "section": "6.3 Option C: Kontinente im Vergleich",
-    "text": "6.3 Option C: Kontinente im Vergleich\nVergleichen Sie die Kontinente im Jahr 2007.\nLeitfragen:\n\nWie hoch ist die mittlere Lebenserwartung pro Kontinent?\nWie groß ist die Gesamtbevölkerung pro Kontinent?\nWie hoch ist das mittlere BIP pro Kopf pro Kontinent?\nWelche Kennzahl eignet sich am besten für einen fairen Vergleich? Warum?",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-daten-vorverarbeiten.html#reflexionsfragen",
-    "href": "chapters/04-daten-vorverarbeiten.html#reflexionsfragen",
-    "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
-    "section": "5.15 Reflexionsfragen",
-    "text": "5.15 Reflexionsfragen\n\nWarum ist Datenbereinigung ein wichtiger Schritt vor der Analyse?\nWas kann passieren, wenn ein Datensatz noch gruppiert ist und Sie weitere Berechnungen durchführen?\nWann ist automatische Textbereinigung hilfreich, und wann kann sie problematisch sein?\nWelche der Funktionen aus dieser Einheit werden Sie vermutlich am häufigsten verwenden?",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Daten aufbereiten mit  `dplyr`, `tidyr` und `stringr`</span>"
-    ]
-  },
-  {
     "objectID": "chapters/04-daten-vorverarbeiten.html#daten-umformen-mit-tidyr",
     "href": "chapters/04-daten-vorverarbeiten.html#daten-umformen-mit-tidyr",
     "title": "5  Daten aufbereiten mit dplyr, tidyr und stringr",
