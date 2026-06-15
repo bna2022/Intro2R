@@ -1,0 +1,802 @@
+---
+title: Daten visualsieren mit ggplot
+---
+
+## Überblick
+
+Dieses Kapitel orientiert sich am Kapitel *Data visualization* aus *Modern Statistics for Modern Biology*. Die Beispiele verwenden ähnliche beziehungsweise teilweise dieselben Daten: insbesondere den in R enthaltenen Datensatz `DNase` sowie eine kleine Gruppentabelle, die an die im Kapitel verwendeten Maus-Embryo-Gruppen angelehnt ist.
+
+## Lernziele
+
+Nach diesem Kapitel können Sie:
+
+- den Unterschied zwischen explorativer und erklärender Datenvisualisierung beschreiben,
+- einfache Grafiken mit `ggplot2` erstellen,
+- die Grundidee der *Grammar of Graphics* erklären,
+- Variablen auf visuelle Eigenschaften wie Position, Farbe, Form oder Größe abbilden,
+- geeignete Diagrammtypen für eindimensionale und zweidimensionale Daten auswählen,
+- Facetten, Farben, Achsenskalierungen und Themes gezielt einsetzen,
+- Grafiken reproduzierbar speichern.
+
+---
+
+## 1. Warum Daten visualisieren?
+
+Datenvisualisierung hat in der Statistik und Datenanalyse zwei zentrale Aufgaben.
+
+Erstens hilft sie bei der **Exploration**. Bevor formale Modelle oder Tests eingesetzt werden, können Grafiken zeigen, welche Muster, Ausreißer, Gruppenunterschiede oder Zusammenhänge in den Daten vorhanden sind.
+
+Zweitens dient Visualisierung der **Kommunikation**. Eine gute Grafik fasst eine Aussage so zusammen, dass andere sie schnell verstehen können. Dabei geht es nicht nur darum, eine „schöne“ Grafik zu erzeugen, sondern darum, eine inhaltliche Aussage klar und ehrlich zu vermitteln.
+
+Beispielhafte Fragen, die man mit Visualisierungen untersuchen kann:
+
+- Wie ist eine Variable verteilt?
+- Gibt es Ausreißer?
+- Hängen zwei Variablen zusammen?
+- Unterscheiden sich Gruppen voneinander?
+- Gibt es nichtlineare Zusammenhänge?
+- Gibt es Muster, die in einer Tabelle schwer erkennbar wären?
+
+---
+
+## 2. Erstes Beispiel: Patientendaten aus der Medizin
+
+Für den Einstieg verwenden wir einen echten medizinischen Beispieldatensatz: `Pima.tr` aus dem Paket `MASS`. Der Datensatz enthält Gesundheitsdaten von Frauen des Pima-Volks nahe Phoenix. Er wird häufig für Beispiele zur Diabetesklassifikation verwendet.
+
+Jede Zeile beschreibt eine Person mit mehreren medizinischen Messwerten, darunter Alter, Body-Mass-Index, Blutdruck, Glukosewert und Diabetesstatus.
+
+```{r, echo=TRUE}
+library(MASS)
+
+data(Pima.tr)
+
+head(Pima.tr)
+```
+
+Der Datensatz enthält unter anderem:
+
+| Variable | Bedeutung |
+|---|---|
+| `npreg` | Anzahl der Schwangerschaften |
+| `glu` | Glukosekonzentration |
+| `bp` | diastolischer Blutdruck |
+| `skin` | Hautfaltendicke |
+| `bmi` | Body-Mass-Index |
+| `ped` | Diabetes-Pedigree-Funktion |
+| `age` | Alter in Jahren |
+| `type` | Diabetesstatus: `Yes` oder `No` |
+
+Mit `str()` können Sie sich die Struktur des Datensatzes ansehen:
+
+```{r, echo=TRUE}
+str(Pima.tr)
+```
+
+Eine typische Fragestellung lautet:
+
+> Gibt es in diesen Daten einen Zusammenhang zwischen Alter, Glukosewert und Diabetesstatus?
+
+Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln. Für die späteren Beispiele verwenden wir zusätzlich den Datensatz `DNase`, der in R enthalten ist und stärker an das Beispielkapitel angelehnt ist.
+
+---
+
+## 3. Erste Grafiken mit Base R
+
+R besitzt eingebaute Grafikfunktionen, zum Beispiel `plot()`, `hist()` oder `boxplot()`.
+
+```{r, echo=TRUE}
+plot(Pima.tr$age, Pima.tr$glu)
+```
+
+Dieser Plot zeigt den Zusammenhang zwischen Alter und Glukosewert. Die Darstellung ist schnell erstellt, aber noch wenig beschriftet.
+
+Eine etwas bessere Variante ist:
+
+```{r, echo=TRUE}
+plot(
+  Pima.tr$age,
+  Pima.tr$glu,
+  xlab = "Alter in Jahren",
+  ylab = "Glukosekonzentration",
+  pch = 19,
+  col = "blue"
+)
+```
+
+Auch Histogramme und Boxplots sind mit Base R möglich:
+
+```{r, echo=TRUE}
+hist(Pima.tr$glu, breaks = 20, main = "")
+
+boxplot(glu ~ type, data = Pima.tr)
+```
+
+Das Histogramm zeigt die Verteilung der Glukosewerte. Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.
+
+Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber komplexer werden, zum Beispiel mit mehreren Gruppen, Farben, Legenden, Achsenanpassungen und Teilgrafiken, wird der Code oft unübersichtlich.
+
+---
+
+## 4. Von Base R zu ggplot2
+
+`ggplot2` verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, **welche Variablen wie dargestellt werden sollen**.
+
+Zuerst laden wir das Paket:
+
+```{r, echo=TRUE}
+library(ggplot2)
+```
+
+Der einfache Scatterplot aus Base R sieht in ggplot2 so aus:
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point()
+```
+
+Dieser Code bedeutet:
+
+- Verwende den Datensatz `Pima.tr`.
+- Trage `age` auf der x-Achse ab.
+- Trage `glu` auf der y-Achse ab.
+- Stelle die Beobachtungen als Punkte dar.
+
+---
+
+## 5. Die Grundidee von ggplot2
+
+Das Paket `ggplot2` basiert auf der Idee der **Grammar of Graphics**. Eine Grafik besteht aus mehreren Komponenten.
+
+| Komponente | Bedeutung |
+|---|---|
+| Daten | Der Datensatz, der visualisiert werden soll |
+| Ästhetiken | Zuordnung von Variablen zu visuellen Eigenschaften |
+| Geometrien | Die Art der Darstellung, z. B. Punkte, Linien, Balken |
+| Statistiken | Berechnungen auf den Daten, z. B. Zählen, Glätten oder Binning |
+| Skalen | Umsetzung von Datenwerten in Achsen, Farben oder Größen |
+| Koordinaten | Koordinatensystem, meistens kartesisch |
+| Facetten | Aufteilung in mehrere Teilgrafiken |
+| Theme | Gestaltung, z. B. Schriftgrößen, Hintergrund, Legende |
+
+Ein einfacher ggplot besteht meistens aus drei Teilen:
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(data = DATENSATZ, aes(x = VARIABLE1, y = VARIABLE2)) +
+  geom_...()
+```
+
+Beispiel:
+
+```{r, echo=TRUE}
+ggplot(data = Pima.tr, aes(x = age, y = glu)) +
+  geom_point()
+```
+
+---
+
+## 6. Ästhetiken: Variablen sichtbar machen
+
+Die Funktion `aes()` beschreibt, welche Variable auf welche visuelle Eigenschaft abgebildet wird.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point()
+```
+
+Hier werden zwei Variablen verwendet:
+
+- `age`: Position auf der x-Achse
+- `glu`: Position auf der y-Achse
+
+Zusätzlich kann eine dritte Variable über Farbe dargestellt werden:
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu, color = type)) +
+  geom_point(size = 3)
+```
+
+Hier zeigt die Farbe den Diabetesstatus (`type`).
+
+Typische Ästhetiken sind:
+
+| Ästhetik | Bedeutung |
+|---|---|
+| `x` | Position auf der x-Achse |
+| `y` | Position auf der y-Achse |
+| `color` | Farbe von Linien oder Punkten |
+| `fill` | Füllfarbe, z. B. bei Balken oder Boxplots |
+| `shape` | Symbolform |
+| `size` | Größe |
+| `alpha` | Transparenz |
+| `linetype` | Linientyp |
+
+Wichtig ist die Unterscheidung zwischen Eigenschaften innerhalb und außerhalb von `aes()`.
+
+Wenn eine Eigenschaft von einer Variable abhängen soll, steht sie innerhalb von `aes()`:
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu, color = type)) +
+  geom_point()
+```
+
+Wenn eine Eigenschaft für alle Punkte gleich sein soll, steht sie außerhalb von `aes()`:
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point(color = "blue")
+```
+
+
+## 7. Geometrien: Wie sollen die Daten dargestellt werden?
+
+Die Geometrie legt fest, welche grafischen Objekte verwendet werden.
+
+### Punktdiagramm
+
+Punktdiagramme eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point()
+```
+
+Interpretation: Mit steigender Konzentration steigt tendenziell auch die optische Dichte. Der Zusammenhang ist aber nicht einfach linear, sondern flacht bei höheren Konzentrationen ab.
+
+### Liniendiagramm
+
+Da die Messungen innerhalb eines Versuchslaufs bei verschiedenen Konzentrationen durchgeführt wurden, kann man die Punkte pro Run auch verbinden.
+
+```r
+ggplot(DNase, aes(x = conc, y = density, group = Run)) +
+  geom_line() +
+  geom_point()
+```
+
+Hier ist `group = Run` wichtig: Dadurch weiß ggplot2, welche Punkte miteinander verbunden werden sollen.
+
+### Histogramm
+
+Ein Histogramm zeigt die Verteilung einer metrischen Variable.
+
+```r
+ggplot(DNase, aes(x = density)) +
+  geom_histogram(bins = 25)
+```
+
+Die Wahl der Klassenanzahl oder Klassenbreite beeinflusst die Darstellung. Eine zu feine Einteilung erzeugt ein unruhiges Bild, eine zu grobe Einteilung kann wichtige Muster verdecken.
+
+```r
+ggplot(DNase, aes(x = density)) +
+  geom_histogram(binwidth = 0.1)
+```
+
+### Dichteplot
+
+Ein Dichteplot ist eine geglättete Darstellung einer Verteilung.
+
+```r
+ggplot(DNase, aes(x = density)) +
+  geom_density()
+```
+
+Dichteplots eignen sich besonders, wenn man mehrere Verteilungen vergleichen möchte.
+
+```r
+ggplot(DNase, aes(x = density, color = Run)) +
+  geom_density()
+```
+
+### Boxplot
+
+Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen.
+
+```r
+ggplot(DNase, aes(x = Run, y = density)) +
+  geom_boxplot()
+```
+
+Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammengefasst.
+
+---
+
+## 8. Layer: Grafiken schrittweise aufbauen
+
+Ein großer Vorteil von ggplot2 ist, dass Grafiken aus mehreren Layern bestehen können.
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  geom_smooth()
+```
+
+Hier werden zwei Darstellungen kombiniert:
+
+- `geom_point()` zeigt die einzelnen Beobachtungen.
+- `geom_smooth()` ergänzt eine geglättete Trendlinie.
+
+Da der Zusammenhang in den DNase-Daten nichtlinear ist, passt eine geglättete Linie oft besser zur Exploration als eine einfache Gerade.
+
+Zum Vergleich kann man trotzdem eine lineare Regressionsgerade einzeichnen:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+Das ist didaktisch interessant: Man sieht, dass die lineare Gerade den gekrümmten Verlauf nur unzureichend beschreibt.
+
+---
+
+## 9. Achsen und Transformationen
+
+Die Konzentration in den DNase-Daten nimmt Werte an, die nicht gleichmäßig über die Skala verteilt sind. In solchen Fällen kann eine logarithmische Achse sinnvoll sein.
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  scale_x_log10()
+```
+
+Mit einer logarithmischen x-Achse werden kleine Konzentrationen besser sichtbar. Wichtig ist: Die Daten selbst werden dadurch nicht verändert. Verändert wird die Darstellung der Achse.
+
+Eine häufige Variante kombiniert logarithmische Achse, Punkte und Glättung:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  scale_x_log10()
+```
+
+---
+
+## 10. Gruppierung mit Farbe
+
+Farbe sollte eine inhaltliche Funktion haben. In den DNase-Daten kann Farbe verwendet werden, um die einzelnen Versuchsläufe zu unterscheiden.
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run)) +
+  geom_point() +
+  scale_x_log10()
+```
+
+Man kann zusätzlich Linien pro Versuchslauf ergänzen:
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10()
+```
+
+Grundregeln für Farbe:
+
+- Verwenden Sie Farbe sparsam.
+- Verwenden Sie Farbe für Bedeutung, nicht nur zur Dekoration.
+- Achten Sie auf Lesbarkeit.
+- Nutzen Sie für Gruppen diskrete Farben.
+- Nutzen Sie für metrische Werte kontinuierliche Farbskalen.
+- Vermeiden Sie unnötig viele Gruppenfarben.
+
+---
+
+## 11. Eine zweite Beispieltabelle: biologische Gruppen
+
+Im Beispielkapitel wird zusätzlich ein komplexerer Datensatz aus der Entwicklungsbiologie verwendet. Damit Sie ähnliche Plots nachvollziehen können, ohne direkt ein Bioconductor-Paket installieren zu müssen, verwenden wir hier eine kleine manuell angelegte Gruppentabelle.
+
+```r
+groups <- data.frame(
+  sampleGroup = c(
+    "E3.25",
+    "E3.25 (FGF4-KO)",
+    "E3.5 (EPI)",
+    "E3.5 (FGF4-KO)",
+    "E3.5 (PE)",
+    "E4.5 (EPI)",
+    "E4.5 (FGF4-KO)",
+    "E4.5 (PE)"
+  ),
+  n = c(36, 17, 11, 8, 11, 4, 10, 4),
+  color = c(
+    "#CAB2D6",
+    "#FDBF6F",
+    "#A6CEE3",
+    "#FF7F00",
+    "#B2DF8A",
+    "#1F78B4",
+    "#E31A1C",
+    "#33A02C"
+  )
+)
+
+groups
+```
+
+Die Tabelle enthält:
+
+| Variable | Bedeutung |
+|---|---|
+| `sampleGroup` | biologische Gruppe |
+| `n` | Anzahl der Zellen in der Gruppe |
+| `color` | vordefinierte Farbe für die Gruppe |
+
+---
+
+## 12. Balkendiagramme mit bereits aggregierten Daten
+
+Die Gruppentabelle ist bereits aggregiert: Für jede Gruppe liegt die Anzahl `n` vor.
+
+Daher verwenden wir `geom_col()`:
+
+```r
+ggplot(groups, aes(x = sampleGroup, y = n)) +
+  geom_col()
+```
+
+Alternativ sieht man in älterem Code häufig:
+
+```r
+ggplot(groups, aes(x = sampleGroup, y = n)) +
+  geom_bar(stat = "identity")
+```
+
+Beide Varianten zeichnen hier Balken mit der gegebenen Höhe `n`. Für bereits aggregierte Daten ist `geom_col()` aber meist verständlicher.
+
+Die x-Achsenbeschriftungen sind lang. Deshalb rotieren wir sie:
+
+```r
+ggplot(groups, aes(x = sampleGroup, y = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+Eine oft noch lesbarere Alternative ist ein horizontales Balkendiagramm:
+
+```r
+ggplot(groups, aes(x = n, y = sampleGroup)) +
+  geom_col()
+```
+
+---
+
+## 13. Manuelle Farben
+
+Die Gruppentabelle enthält bereits passende Farben. Diese können wir in ggplot2 verwenden.
+
+Zunächst erstellen wir einen benannten Farbvektor:
+
+```r
+groupColor <- setNames(groups$color, groups$sampleGroup)
+
+groupColor
+```
+
+Dann verwenden wir ihn mit `scale_fill_manual()`:
+
+```r
+ggplot(groups, aes(x = sampleGroup, y = n, fill = sampleGroup)) +
+  geom_col() +
+  scale_fill_manual(values = groupColor, name = "Gruppe") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+Wenn die Farben bereits im Datensatz vorgegeben sind, ist eine manuelle Skala sinnvoll. Ohne `scale_fill_manual()` würde ggplot2 automatisch eigene Farben wählen.
+
+---
+
+## 14. Faceting: Teilgrafiken nach Gruppen
+
+Faceting erzeugt mehrere kleine Grafiken nach demselben Prinzip. Das ist besonders hilfreich, wenn man Gruppen vergleichen möchte.
+
+Bei den DNase-Daten können wir für jeden Versuchslauf eine eigene Teilgrafik erzeugen:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  geom_line() +
+  scale_x_log10() +
+  facet_wrap(~ Run)
+```
+
+Dadurch erkennt man besser, ob sich einzelne Versuchsläufe auffällig anders verhalten.
+
+Faceting ist oft besser als zu viele Farben in einer einzigen Grafik, weil es Überlagerungen reduziert.
+
+---
+
+## 15. Beschriftungen und Titel
+
+Eine gute Grafik braucht verständliche Beschriftungen.
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10() +
+  labs(
+    title = "DNase-Assay: Zusammenhang zwischen Konzentration und optischer Dichte",
+    subtitle = "Messungen aus mehreren Versuchsläufen",
+    x = "Konzentration (log10-Skala)",
+    y = "Optische Dichte",
+    color = "Versuchslauf"
+  )
+```
+
+Beschriftungen sollten nicht einfach Variablennamen wiederholen, sondern für Leserinnen und Leser verständlich sein.
+
+Schlecht:
+
+```r
+x = "conc"
+y = "density"
+```
+
+Besser:
+
+```r
+x = "Konzentration"
+y = "Optische Dichte"
+```
+
+---
+
+## 16. Themes: Gestaltung der Grafik
+
+Themes steuern das Aussehen einer Grafik.
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  theme_minimal()
+```
+
+Weitere häufige Themes:
+
+```r
+theme_bw()
+theme_classic()
+theme_light()
+theme_minimal()
+```
+
+Beispiel mit Anpassungen:
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10() +
+  labs(
+    title = "DNase-Assay",
+    x = "Konzentration (log10-Skala)",
+    y = "Optische Dichte",
+    color = "Versuchslauf"
+  ) +
+  theme_minimal()
+```
+
+Themes sollten die Lesbarkeit verbessern. Ein Theme ersetzt keine inhaltlich gute Grafik.
+
+---
+
+## 17. Typische Fehler bei ggplot2
+
+### Fehler 1: `+` vergessen
+
+Falsch:
+
+```r
+ggplot(DNase, aes(x = conc, y = density))
+  geom_point()
+```
+
+R betrachtet die erste Zeile als abgeschlossen.
+
+Richtig:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point()
+```
+
+### Fehler 2: Variable außerhalb von `aes()` verwenden
+
+Falsch, wenn die Farbe vom Versuchslauf abhängen soll:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point(color = Run)
+```
+
+Richtig:
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run)) +
+  geom_point()
+```
+
+### Fehler 3: Konstante Werte innerhalb von `aes()` setzen
+
+Möglich, aber meistens nicht gemeint:
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = "blue")) +
+  geom_point()
+```
+
+Besser:
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point(color = "blue")
+```
+
+### Fehler 4: `geom_bar()` und `geom_col()` verwechseln
+
+Für Rohdaten, bei denen Häufigkeiten gezählt werden sollen:
+
+```r
+ggplot(DNase, aes(x = Run)) +
+  geom_bar()
+```
+
+Für bereits aggregierte Daten:
+
+```r
+ggplot(groups, aes(x = sampleGroup, y = n)) +
+  geom_col()
+```
+
+---
+
+## 18. Grafiken speichern
+
+Grafiken können mit `ggsave()` gespeichert werden.
+
+```r
+p <- ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10() +
+  labs(
+    title = "DNase-Assay",
+    x = "Konzentration (log10-Skala)",
+    y = "Optische Dichte",
+    color = "Versuchslauf"
+  ) +
+  theme_minimal()
+
+ggsave("dnase_plot.pdf", plot = p, width = 7, height = 5)
+ggsave("dnase_plot.png", plot = p, width = 7, height = 5, dpi = 300)
+```
+
+Für Berichte und wissenschaftliche Arbeiten sind PDF-Dateien oft sinnvoll, weil sie vektorbasiert sind. Für Webseiten oder Präsentationen werden häufig PNG-Dateien verwendet.
+
+---
+
+## 19. Beispiel: Eine Grafik schrittweise verbessern
+
+### Schritt 1: Einfacher Scatterplot
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point()
+```
+
+### Schritt 2: Logarithmische x-Achse ergänzen
+
+```r
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  scale_x_log10()
+```
+
+### Schritt 3: Versuchsläufe farblich unterscheiden
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run)) +
+  geom_point() +
+  scale_x_log10()
+```
+
+### Schritt 4: Punkte pro Versuchslauf verbinden
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10()
+```
+
+### Schritt 5: Beschriftungen und Theme ergänzen
+
+```r
+ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10() +
+  labs(
+    title = "DNase-Assay: Konzentration und optische Dichte",
+    subtitle = "Mehrere Versuchsläufe im Vergleich",
+    x = "Konzentration (log10-Skala)",
+    y = "Optische Dichte",
+    color = "Versuchslauf"
+  ) +
+  theme_minimal()
+```
+
+---
+
+## 20. Optional: Arbeiten mit dem originalen Bioconductor-Datensatz
+
+Im Beispielkapitel wird der Bioconductor-Datensatz `Hiiragi2013` verwendet. Falls Sie mit den originalen Daten arbeiten möchten, können Sie das Paket installieren.
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+BiocManager::install("Hiiragi2013")
+```
+
+Danach können die Daten geladen werden:
+
+```r
+library(Hiiragi2013)
+data("x")
+```
+
+Die Expressionsmatrix kann mit `Biobase::exprs(x)` abgerufen werden:
+
+```r
+expr <- Biobase::exprs(x)
+dim(expr)
+```
+
+Die Metadaten der Proben stehen in:
+
+```r
+pd <- Biobase::pData(x)
+head(pd)
+```
+
+Eine Gruppentabelle lässt sich dann so erzeugen:
+
+```r
+library(dplyr)
+
+groups_original <- pd |>
+  group_by(sampleGroup) |>
+  summarise(
+    n = n(),
+    color = unique(sampleColour),
+    .groups = "drop"
+  )
+
+groups_original
+```
+
+Diese Tabelle entspricht der Idee der manuell angelegten Tabelle `groups` aus diesem Kapitel.
+
+---
+
+## 21. Zusammenfassung
+
+`ggplot2` ist ein mächtiges Werkzeug zur Datenvisualisierung in R. Der zentrale Gedanke ist, dass Grafiken aus wiederverwendbaren Bausteinen bestehen:
+
+```r
+ggplot(data = DATEN, aes(x = X, y = Y)) +
+  geom_...()
+```
+
+Die wichtigsten Konzepte sind:
+
+- Daten werden als Data Frame übergeben.
+- `aes()` beschreibt die Abbildung von Variablen auf visuelle Eigenschaften.
+- `geom_*()` legt fest, wie die Daten gezeichnet werden.
+- Layer können mit `+` kombiniert werden.
+- Farben, Facets, Skalen und Themes helfen, komplexere Aussagen sichtbar zu machen.
+- Gute Grafiken entstehen nicht durch möglichst viele Effekte, sondern durch klare Gestaltung und eine eindeutige Aussage.
+
+
