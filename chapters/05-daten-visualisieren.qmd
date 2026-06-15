@@ -106,7 +106,7 @@ Auch Histogramme und Boxplots sind mit Base R möglich:
 hist(Pima.tr$glu, breaks = 20, main = "Verteilung der Glukosewerte")
 ```
 
-Das Histogramm zeigt die Verteilung der Glukosewerte. Mit `breaks` beeinflusst man also, wie fein oder grob die Verteilung dargestellt wird.
+Das Histogramm zeigt die Verteilung der Glukosewerte. Mit `breaks` lässt ich beeinflussen, wie fein oder grob die Verteilung dargestellt wird.
 
 
 Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.
@@ -121,7 +121,7 @@ Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber 
 
 ## Von Base R zu ggplot2
 
-`ggplot2` verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, **welche Variablen wie dargestellt werden sollen**.
+[`ggplot2`](https://ggplot2-book.org/introduction.html) verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, **welche Variablen wie dargestellt werden sollen**.
 
 Zuerst laden wir das Paket:
 
@@ -147,7 +147,24 @@ Dieser Code bedeutet:
 
 ## Die Grundidee von ggplot2
 
-Das Paket `ggplot2` basiert auf der Idee der **Grammar of Graphics**. Eine Grafik besteht aus mehreren Komponenten.
+Das Paket `ggplot2` basiert auf der Idee der [Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.pdf). Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:
+
+> Aus welchen Bausteinen besteht eine Grafik?
+
+Vor der Grammar-of-Graphics-Idee wurden Grafiken häufig als feste Diagrammtypen verstanden, zum Beispiel als Balkendiagramm, Liniendiagramm, Streudiagramm oder Boxplot. Wilkinson schlug dagegen vor, Grafiken wie eine Sprache zu betrachten. So wie ein Satz aus Wörtern und grammatischen Regeln aufgebaut ist, kann auch eine Grafik aus einzelnen Komponenten zusammengesetzt werden.
+
+Eine statistische Grafik entsteht dabei durch die Kombination mehrerer Elemente:
+
+- Daten
+- Zuordnung von Variablen zu visuellen Eigenschaften
+- geometrische Objekte, zum Beispiel Punkte, Linien oder Balken
+- Skalen
+- Koordinatensysteme
+- Beschriftungen und Gestaltung
+
+`ggplot2` überträgt diese Idee auf R. Das Paket wurde von Hadley Wickham entwickelt und macht die Grammar of Graphics praktisch nutzbar. Eine Grafik wird dabei schrittweise aufgebaut. Man beginnt mit den Daten, legt dann fest, welche Variablen auf welche ästhetischen Eigenschaften abgebildet werden, und ergänzt anschließend die gewünschte Darstellungsform.
+
+Eine Grafik besteht nach der Grammar of Graphics aus den folgenden Komponenten: 
 
 | Komponente | Bedeutung |
 |---|---|
@@ -231,24 +248,48 @@ ggplot(Pima.tr, aes(x = age, y = glu)) +
 
 ## Geometrien: Wie sollen die Daten dargestellt werden?
 
-Die Geometrie legt fest, welche grafischen Objekte verwendet werden.
+Die Geometrie legt fest, welche grafischen Objekte verwendet werden. In `ggplot2` werden diese grafischen Objekte mit Funktionen beschrieben, die mit `geom_` beginnen. Beispiele sind `geom_point()` für Punkte, `geom_line()` für Linien, `geom_histogram()` für Histogramme oder `geom_boxplot()` für Boxplots.
+
+Als Beispieldatensatz verwenden wir im Folgenden den Datensatz `DNase`, der in R bereits enthalten ist. Der Datensatz speichert Messwerte aus einem biologischen Experiment zur Aktivität des Enzyms DNase. Dabei wurde untersucht, wie sich unterschiedliche Konzentrationen eines Stoffes auf die optische Dichte auswirken.
+
+Der Datensatz enthält drei zentrale Variablen:
+
+- Run: Kennzeichnung des Versuchslaufs
+- conc: Konzentration
+- density: gemessene optische Dichte
+
+Jede Zeile beschreibt eine Messung: Bei einer bestimmten Konzentration wurde in einem bestimmten Versuchslauf die optische Dichte gemessen.
+
+```{r, echo=TRUE}
+data(DNase)
+
+head(DNase)
+```
 
 ### Punktdiagramm
 
 Punktdiagramme eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point()
 ```
 
 Interpretation: Mit steigender Konzentration steigt tendenziell auch die optische Dichte. Der Zusammenhang ist aber nicht einfach linear, sondern flacht bei höheren Konzentrationen ab.
 
+Eine etwas bessere lesbare Variante verwendet eine logarithmische Skalierung der x-Achse, weil die Konzentrationen nicht gleichmäßig verteilt sind. 
+
+```{r, echo=TRUE}
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  scale_x_log10()
+```
+
 ### Liniendiagramm
 
 Da die Messungen innerhalb eines Versuchslaufs bei verschiedenen Konzentrationen durchgeführt wurden, kann man die Punkte pro Run auch verbinden.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density, group = Run)) +
   geom_line() +
   geom_point()
@@ -260,14 +301,14 @@ Hier ist `group = Run` wichtig: Dadurch weiß ggplot2, welche Punkte miteinander
 
 Ein Histogramm zeigt die Verteilung einer metrischen Variable.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = density)) +
   geom_histogram(bins = 25)
 ```
 
 Die Wahl der Klassenanzahl oder Klassenbreite beeinflusst die Darstellung. Eine zu feine Einteilung erzeugt ein unruhiges Bild, eine zu grobe Einteilung kann wichtige Muster verdecken.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = density)) +
   geom_histogram(binwidth = 0.1)
 ```
@@ -276,14 +317,14 @@ ggplot(DNase, aes(x = density)) +
 
 Ein Dichteplot ist eine geglättete Darstellung einer Verteilung.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = density)) +
   geom_density()
 ```
 
 Dichteplots eignen sich besonders, wenn man mehrere Verteilungen vergleichen möchte.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = density, color = Run)) +
   geom_density()
 ```
@@ -292,7 +333,7 @@ ggplot(DNase, aes(x = density, color = Run)) +
 
 Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = Run, y = density)) +
   geom_boxplot()
 ```
