@@ -18,6 +18,7 @@ book:
     - chapters/02-daten-repraesentieren.qmd
     - chapters/03-daten-transformieren.qmd
     - chapters/04-daten-vorverarbeiten.qmd
+    - chapters/05-daten-visualisieren.qmd
 
   search: true
 
