@@ -2,9 +2,6 @@
 title: Daten visualsieren mit ggplot
 ---
 
-## Überblick
-
-Dieses Kapitel orientiert sich am Kapitel *Data visualization* aus *Modern Statistics for Modern Biology*. Die Beispiele verwenden ähnliche beziehungsweise teilweise dieselben Daten: insbesondere den in R enthaltenen Datensatz `DNase` sowie eine kleine Gruppentabelle, die an die im Kapitel verwendeten Maus-Embryo-Gruppen angelehnt ist.
 
 ## Lernziele
 
@@ -20,7 +17,7 @@ Nach diesem Kapitel können Sie:
 
 ---
 
-## 1. Warum Daten visualisieren?
+## Warum Daten visualisieren?
 
 Datenvisualisierung hat in der Statistik und Datenanalyse zwei zentrale Aufgaben.
 
@@ -39,7 +36,7 @@ Beispielhafte Fragen, die man mit Visualisierungen untersuchen kann:
 
 ---
 
-## 2. Erstes Beispiel: Patientendaten aus der Medizin
+## Erstes Beispiel: Patientendaten aus der Medizin
 
 Für den Einstieg verwenden wir einen echten medizinischen Beispieldatensatz: `Pima.tr` aus dem Paket `MASS`. Der Datensatz enthält Gesundheitsdaten von Frauen des Pima-Volks nahe Phoenix. Er wird häufig für Beispiele zur Diabetesklassifikation verwendet.
 
@@ -80,7 +77,7 @@ Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um t
 
 ---
 
-## 3. Erste Grafiken mit Base R
+## Erste Grafiken mit Base R
 
 R besitzt eingebaute Grafikfunktionen, zum Beispiel `plot()`, `hist()` oder `boxplot()`.
 
@@ -117,7 +114,7 @@ Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber 
 
 ---
 
-## 4. Von Base R zu ggplot2
+## Von Base R zu ggplot2
 
 `ggplot2` verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, **welche Variablen wie dargestellt werden sollen**.
 
@@ -143,7 +140,7 @@ Dieser Code bedeutet:
 
 ---
 
-## 5. Die Grundidee von ggplot2
+## Die Grundidee von ggplot2
 
 Das Paket `ggplot2` basiert auf der Idee der **Grammar of Graphics**. Eine Grafik besteht aus mehreren Komponenten.
 
@@ -174,7 +171,7 @@ ggplot(data = Pima.tr, aes(x = age, y = glu)) +
 
 ---
 
-## 6. Ästhetiken: Variablen sichtbar machen
+## Ästhetiken: Variablen sichtbar machen
 
 Die Funktion `aes()` beschreibt, welche Variable auf welche visuelle Eigenschaft abgebildet wird.
 
@@ -227,7 +224,7 @@ ggplot(Pima.tr, aes(x = age, y = glu)) +
 ```
 
 
-## 7. Geometrien: Wie sollen die Daten dargestellt werden?
+## Geometrien: Wie sollen die Daten dargestellt werden?
 
 Die Geometrie legt fest, welche grafischen Objekte verwendet werden.
 
@@ -299,7 +296,7 @@ Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammeng
 
 ---
 
-## 8. Layer: Grafiken schrittweise aufbauen
+## Layer: Grafiken schrittweise aufbauen
 
 Ein großer Vorteil von ggplot2 ist, dass Grafiken aus mehreren Layern bestehen können.
 
@@ -328,7 +325,7 @@ Das ist didaktisch interessant: Man sieht, dass die lineare Gerade den gekrümmt
 
 ---
 
-## 9. Achsen und Transformationen
+## Achsen und Transformationen
 
 Die Konzentration in den DNase-Daten nimmt Werte an, die nicht gleichmäßig über die Skala verteilt sind. In solchen Fällen kann eine logarithmische Achse sinnvoll sein.
 
@@ -351,7 +348,7 @@ ggplot(DNase, aes(x = conc, y = density)) +
 
 ---
 
-## 10. Gruppierung mit Farbe
+## Gruppierung mit Farbe
 
 Farbe sollte eine inhaltliche Funktion haben. In den DNase-Daten kann Farbe verwendet werden, um die einzelnen Versuchsläufe zu unterscheiden.
 
@@ -381,7 +378,7 @@ Grundregeln für Farbe:
 
 ---
 
-## 11. Eine zweite Beispieltabelle: biologische Gruppen
+## Eine zweite Beispieltabelle: biologische Gruppen
 
 Im Beispielkapitel wird zusätzlich ein komplexerer Datensatz aus der Entwicklungsbiologie verwendet. Damit Sie ähnliche Plots nachvollziehen können, ohne direkt ein Bioconductor-Paket installieren zu müssen, verwenden wir hier eine kleine manuell angelegte Gruppentabelle.
 
@@ -423,7 +420,7 @@ Die Tabelle enthält:
 
 ---
 
-## 12. Balkendiagramme mit bereits aggregierten Daten
+## Balkendiagramme mit bereits aggregierten Daten
 
 Die Gruppentabelle ist bereits aggregiert: Für jede Gruppe liegt die Anzahl `n` vor.
 
@@ -460,7 +457,7 @@ ggplot(groups, aes(x = n, y = sampleGroup)) +
 
 ---
 
-## 13. Manuelle Farben
+## Manuelle Farben
 
 Die Gruppentabelle enthält bereits passende Farben. Diese können wir in ggplot2 verwenden.
 
@@ -485,7 +482,7 @@ Wenn die Farben bereits im Datensatz vorgegeben sind, ist eine manuelle Skala si
 
 ---
 
-## 14. Faceting: Teilgrafiken nach Gruppen
+## Faceting: Teilgrafiken nach Gruppen
 
 Faceting erzeugt mehrere kleine Grafiken nach demselben Prinzip. Das ist besonders hilfreich, wenn man Gruppen vergleichen möchte.
 
@@ -505,7 +502,7 @@ Faceting ist oft besser als zu viele Farben in einer einzigen Grafik, weil es Ü
 
 ---
 
-## 15. Beschriftungen und Titel
+## Beschriftungen und Titel
 
 Eine gute Grafik braucht verständliche Beschriftungen.
 
@@ -541,7 +538,7 @@ y = "Optische Dichte"
 
 ---
 
-## 16. Themes: Gestaltung der Grafik
+## Themes: Gestaltung der Grafik
 
 Themes steuern das Aussehen einer Grafik.
 
@@ -580,7 +577,7 @@ Themes sollten die Lesbarkeit verbessern. Ein Theme ersetzt keine inhaltlich gut
 
 ---
 
-## 17. Typische Fehler bei ggplot2
+## Typische Fehler bei ggplot2
 
 ### Fehler 1: `+` vergessen
 
@@ -650,7 +647,7 @@ ggplot(groups, aes(x = sampleGroup, y = n)) +
 
 ---
 
-## 18. Grafiken speichern
+## Grafiken speichern
 
 Grafiken können mit `ggsave()` gespeichert werden.
 
@@ -675,7 +672,7 @@ Für Berichte und wissenschaftliche Arbeiten sind PDF-Dateien oft sinnvoll, weil
 
 ---
 
-## 19. Beispiel: Eine Grafik schrittweise verbessern
+## Beispiel: Eine Grafik schrittweise verbessern
 
 ### Schritt 1: Einfacher Scatterplot
 
@@ -728,60 +725,7 @@ ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
 
 ---
 
-## 20. Optional: Arbeiten mit dem originalen Bioconductor-Datensatz
-
-Im Beispielkapitel wird der Bioconductor-Datensatz `Hiiragi2013` verwendet. Falls Sie mit den originalen Daten arbeiten möchten, können Sie das Paket installieren.
-
-```r
-if (!requireNamespace("BiocManager", quietly = TRUE)) {
-  install.packages("BiocManager")
-}
-
-BiocManager::install("Hiiragi2013")
-```
-
-Danach können die Daten geladen werden:
-
-```r
-library(Hiiragi2013)
-data("x")
-```
-
-Die Expressionsmatrix kann mit `Biobase::exprs(x)` abgerufen werden:
-
-```r
-expr <- Biobase::exprs(x)
-dim(expr)
-```
-
-Die Metadaten der Proben stehen in:
-
-```r
-pd <- Biobase::pData(x)
-head(pd)
-```
-
-Eine Gruppentabelle lässt sich dann so erzeugen:
-
-```r
-library(dplyr)
-
-groups_original <- pd |>
-  group_by(sampleGroup) |>
-  summarise(
-    n = n(),
-    color = unique(sampleColour),
-    .groups = "drop"
-  )
-
-groups_original
-```
-
-Diese Tabelle entspricht der Idee der manuell angelegten Tabelle `groups` aus diesem Kapitel.
-
----
-
-## 21. Zusammenfassung
+## Zusammenfassung
 
 `ggplot2` ist ein mächtiges Werkzeug zur Datenvisualisierung in R. Der zentrale Gedanke ist, dass Grafiken aus wiederverwendbaren Bausteinen bestehen:
 
@@ -798,5 +742,9 @@ Die wichtigsten Konzepte sind:
 - Layer können mit `+` kombiniert werden.
 - Farben, Facets, Skalen und Themes helfen, komplexere Aussagen sichtbar zu machen.
 - Gute Grafiken entstehen nicht durch möglichst viele Effekte, sondern durch klare Gestaltung und eine eindeutige Aussage.
+
+## Credits
+
+Dieses Kapitel orientiert sich am Kapitel *Data visualization* aus *Modern Statistics for Modern Biology*. 
 
 
