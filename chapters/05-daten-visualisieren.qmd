@@ -73,7 +73,7 @@ Eine typische Fragestellung lautet:
 
 > Gibt es in diesen Daten einen Zusammenhang zwischen Alter, Glukosewert und Diabetesstatus?
 
-Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln. Für die späteren Beispiele verwenden wir zusätzlich den Datensatz `DNase`, der in R enthalten ist und stärker an das Beispielkapitel angelehnt ist.
+Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln. 
 
 ---
 
@@ -103,12 +103,17 @@ plot(
 Auch Histogramme und Boxplots sind mit Base R möglich:
 
 ```{r, echo=TRUE}
-hist(Pima.tr$glu, breaks = 20, main = "")
-
-boxplot(glu ~ type, data = Pima.tr)
+hist(Pima.tr$glu, breaks = 20, main = "Verteilung der Glukosewerte")
 ```
 
-Das Histogramm zeigt die Verteilung der Glukosewerte. Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.
+Das Histogramm zeigt die Verteilung der Glukosewerte. Mit `breaks` beeinflusst man also, wie fein oder grob die Verteilung dargestellt wird.
+
+
+Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.
+
+```{r, echo=TRUE}
+boxplot(glu ~ type, data = Pima.tr)
+```
 
 Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber komplexer werden, zum Beispiel mit mehreren Gruppen, Farben, Legenden, Achsenanpassungen und Teilgrafiken, wird der Code oft unübersichtlich.
 

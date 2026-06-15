@@ -376,7 +376,7 @@ background-size: cover;
 <blockquote class="blockquote">
 <p>Gibt es in diesen Daten einen Zusammenhang zwischen Alter, Glukosewert und Diabetesstatus?</p>
 </blockquote>
-<p>Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln. Für die späteren Beispiele verwenden wir zusätzlich den Datensatz <code>DNase</code>, der in R enthalten ist und stärker an das Beispielkapitel angelehnt ist.</p>
+<p>Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln.</p>
 <hr>
 </section>
 <section id="erste-grafiken-mit-base-r" class="level2" data-number="6.4">
@@ -413,7 +413,7 @@ background-size: cover;
 </div>
 <p>Auch Histogramme und Boxplots sind mit Base R möglich:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>glu, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>glu, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">"Verteilung der Glukosewerte"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -421,22 +421,25 @@ background-size: cover;
 </figure>
 </div>
 </div>
+</div>
+<p>Das Histogramm zeigt die Verteilung der Glukosewerte. Mit <code>breaks</code> lässt ich beeinflussen, wie fein oder grob die Verteilung dargestellt wird.</p>
+<p>Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.</p>
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(glu <span class="sc">~</span> type, <span class="at">data =</span> Pima.tr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Das Histogramm zeigt die Verteilung der Glukosewerte. Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.</p>
 <p>Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber komplexer werden, zum Beispiel mit mehreren Gruppen, Farben, Legenden, Achsenanpassungen und Teilgrafiken, wird der Code oft unübersichtlich.</p>
 <hr>
 </section>
 <section id="von-base-r-zu-ggplot2" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="von-base-r-zu-ggplot2"><span class="header-section-number">6.5</span> Von Base R zu ggplot2</h2>
-<p><code>ggplot2</code> verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, <strong>welche Variablen wie dargestellt werden sollen</strong>.</p>
+<p><a href="https://ggplot2-book.org/introduction.html"><code>ggplot2</code></a> verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, <strong>welche Variablen wie dargestellt werden sollen</strong>.</p>
 <p>Zuerst laden wir das Paket:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -451,7 +454,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -467,7 +470,22 @@ background-size: cover;
 </section>
 <section id="die-grundidee-von-ggplot2" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="die-grundidee-von-ggplot2"><span class="header-section-number">6.6</span> Die Grundidee von ggplot2</h2>
-<p>Das Paket <code>ggplot2</code> basiert auf der Idee der <strong>Grammar of Graphics</strong>. Eine Grafik besteht aus mehreren Komponenten.</p>
+<p>Das Paket <code>ggplot2</code> basiert auf der Idee der <a href="https://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of Graphics</a>. Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:</p>
+<blockquote class="blockquote">
+<p>Aus welchen Bausteinen besteht eine Grafik?</p>
+</blockquote>
+<p>Vor der Grammar-of-Graphics-Idee wurden Grafiken häufig als feste Diagrammtypen verstanden, zum Beispiel als Balkendiagramm, Liniendiagramm, Streudiagramm oder Boxplot. Wilkinson schlug dagegen vor, Grafiken wie eine Sprache zu betrachten. So wie ein Satz aus Wörtern und grammatischen Regeln aufgebaut ist, kann auch eine Grafik aus einzelnen Komponenten zusammengesetzt werden.</p>
+<p>Eine statistische Grafik entsteht dabei durch die Kombination mehrerer Elemente:</p>
+<ul>
+<li>Daten</li>
+<li>Zuordnung von Variablen zu visuellen Eigenschaften</li>
+<li>geometrische Objekte, zum Beispiel Punkte, Linien oder Balken</li>
+<li>Skalen</li>
+<li>Koordinatensysteme</li>
+<li>Beschriftungen und Gestaltung</li>
+</ul>
+<p><code>ggplot2</code> überträgt diese Idee auf R. Das Paket wurde von Hadley Wickham entwickelt und macht die Grammar of Graphics praktisch nutzbar. Eine Grafik wird dabei schrittweise aufgebaut. Man beginnt mit den Daten, legt dann fest, welche Variablen auf welche ästhetischen Eigenschaften abgebildet werden, und ergänzt anschließend die gewünschte Darstellungsform.</p>
+<p>Eine Grafik besteht aus mehreren Komponenten.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -526,7 +544,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -542,7 +560,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -559,7 +577,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -616,7 +634,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -628,7 +646,7 @@ background-size: cover;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
