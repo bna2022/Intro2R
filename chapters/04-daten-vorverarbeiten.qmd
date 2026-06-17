@@ -65,6 +65,155 @@ Die folgende Tabelle gibt einen ersten Überblick über wichtige Pakete des Tidy
 
 Die Funktionen müssen an dieser Stelle noch nicht im Detail verstanden werden. Wichtig ist zunächst die Grundidee: Für viele typische Arbeitsschritte mit Daten gibt es im Tidyverse spezialisierte Pakete mit einer einheitlichen und gut kombinierbaren Syntax.
 
+## Datenverarbeitung mit dem Paket `dplyr`
+
+Bevor wir mit `dplyr` arbeiten, ist ein Begriff wichtig: **Tibble**.
+
+Ein **Tibble** ist eine moderne Variante eines Data Frames. Es bleibt eine tabellarische Datenstruktur: Jede Zeile beschreibt eine Beobachtung, jede Spalte eine Variable. Der Unterschied liegt vor allem in der Darstellung in der Konsole. Tibbles zeigen große Datensätze kompakter an und geben direkt Hinweise auf die Datentypen der Spalten.
+
+Viele Datensätze aus dem Tidyverse, zum Beispiel `gapminder`, liegen bereits als Tibble vor.
+
+```r
+gapminder
+```
+
+Die Ausgabe beginnt zum Beispiel mit:
+
+```r
+# A tibble: 1,704 × 6
+```
+
+Das bedeutet: Der Datensatz enthält **1.704 Zeilen** und **6 Spalten**.
+
+## Warum `dplyr`?
+
+In den vorherigen Kapiteln haben Sie bereits mit **Data Frames** gearbeitet. Sie können Spalten mit `$` auswählen, Zeilen mit eckigen Klammern filtern und einfache Berechnungen durchführen.
+
+Mit Base R ist also vieles möglich. Bei längeren Analysen wird der Code aber schnell unübersichtlich.
+
+Beispiel:
+
+```r
+gapminder[gapminder$country == "Germany" & gapminder$year >= 1990,
+          c("country", "year", "lifeExp", "gdpPercap")]
+```
+
+Der Code funktioniert, aber mehrere Dinge stehen gleichzeitig in einem Ausdruck:
+
+- Welche Zeilen sollen behalten werden?
+- Welche Spalten sollen angezeigt werden?
+- Welche Bedingungen gelten?
+- Was ist eigentlich der nächste Analyseschritt?
+
+Mit `dplyr` wird dieselbe Idee lesbarer formuliert:
+
+```r echo = TRUE
+gapminder |>
+  filter(country == "Germany", year >= 1990) |>
+  select(country, year, lifeExp, gdpPercap)
+```
+
+Das lässt sich fast wie eine kleine Analyseanweisung lesen:
+
+> Nimm den Datensatz `gapminder`, behalte nur Deutschland ab 1990 und wähle anschließend die interessierenden Spalten aus.
+
+`dplyr` ersetzt Data Frames also nicht. Es stellt eine übersichtliche Sprache bereit, um besser mit tabellarischen Daten zu arbeiten.
+
+## Grundidee von `dplyr`
+
+Viele Datenanalysen bestehen aus wiederkehrenden Arbeitsschritten:
+
+- Zeilen filtern
+- Spalten auswählen
+- Daten sortieren
+- neue Variablen berechnen
+- Gruppen bilden
+- Kennzahlen berechnen
+
+Für diese Arbeitsschritte stellt `dplyr` gut lesbare Funktionen bereit.
+
+| Fragestellung | `dplyr`-Funktion |
+|---|---|
+| Welche Zeilen brauche ich? | `filter()` |
+| Welche Spalten brauche ich? | `select()` |
+| Wie sortiere ich die Daten? | `arrange()` |
+| Wie berechne ich neue Variablen? | `mutate()` |
+| Wie fasse ich Daten nach Gruppen zusammen? | `group_by()` und `summarise()` |
+
+Dadurch wird Code leichter verständlich. Das ist nicht nur für Sie selbst hilfreich, sondern auch für andere Personen, die Ihre Analyse später nachvollziehen sollen.
+
+## Beispiel: Arbeitsschritte nacheinander lesen
+
+Mit Base R werden Zeilen- und Spaltenauswahl häufig in einer einzigen Klammer kombiniert:
+
+```r
+gapminder[zeilen, spalten]
+```
+
+Das ist mächtig, aber gerade am Anfang auch fehleranfällig. Man muss immer im Blick behalten, was vor und was nach dem Komma steht.
+
+Mit `dplyr` wird jeder Schritt explizit benannt:
+
+```r
+gapminder |>
+  filter(continent == "Africa") |>
+  select(country, year, lifeExp)
+```
+
+Hier ist klar:
+
+1. Zuerst werden die Zeilen gefiltert.
+2. Danach werden bestimmte Spalten ausgewählt.
+
+## Weniger Zwischenobjekte
+
+Ohne Pipe und ohne `dplyr` entstehen bei mehreren Arbeitsschritten oft viele Zwischenobjekte:
+
+```r
+africa <- gapminder[gapminder$continent == "Africa", ]
+africa_small <- africa[, c("country", "year", "lifeExp")]
+africa_2007 <- africa_small[africa_small$year == 2007, ]
+```
+
+Das funktioniert, aber der Workspace wird schnell unübersichtlich.
+
+Mit `dplyr` und der Pipe können dieselben Schritte kompakt verbunden werden:
+
+```r
+gapminder |>
+  filter(continent == "Africa") |>
+  select(country, year, lifeExp) |>
+  filter(year == 2007)
+```
+
+Die Analyse bleibt dadurch näher an der eigentlichen Fragestellung.
+
+## `dplyr` und Grafiken
+
+Ein weiterer Vorteil ist, dass sich `dplyr` gut mit anderen Paketen aus dem Tidyverse kombinieren lässt, zum Beispiel mit `ggplot2`.
+
+```r
+gapminder |>
+  filter(country == "Germany") |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line()
+```
+
+Hier steht die Datenaufbereitung direkt vor der Visualisierung. Dadurch bleibt nachvollziehbar, welche Daten tatsächlich in die Grafik eingehen.
+
+## Merke
+
+`dplyr` ist keine neue Datenstruktur, sondern eine Sammlung von Funktionen für die Arbeit mit tabellarischen Daten.
+
+Es hilft dabei,
+
+- Analyseschritte klar zu benennen,
+- Code lesbarer zu schreiben,
+- weniger Zwischenobjekte zu erzeugen,
+- Datenaufbereitung und Visualisierung besser zu verbinden.
+
+Bevor wir die wichtigsten `dplyr`-Funktionen im Detail kennenlernen, laden wir zunächst die benötigten Pakete und schauen uns den Beispieldatensatz `gapminder` genauer an.
+
 ## Motivation für `dplyr`
 
 In den vorherigen Übungen haben Sie bereits mit **Dataframes** gearbeitet. Ein Dataframe ist in R die zentrale Datenstruktur für tabellarische Daten. Sie wissen vermutlich schon, wie man Spalten mit `$` anspricht, Zeilen mit eckigen Klammern auswählt und einfache Zusammenfassungen berechnet.
