@@ -147,11 +147,25 @@ Dieser Code bedeutet:
 
 ## Die Grundidee von ggplot2
 
-Das Paket `ggplot2` basiert auf der Idee der [Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.pdf). Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:
+Das Paket `ggplot2` basiert auf der Idee der [Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.pdf) von Wilkinson. Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:
 
 > Aus welchen Bausteinen besteht eine Grafik?
 
-Vor der Grammar-of-Graphics-Idee wurden Grafiken häufig als feste Diagrammtypen verstanden, zum Beispiel als Balkendiagramm, Liniendiagramm, Streudiagramm oder Boxplot. Wilkinson schlug dagegen vor, Grafiken wie eine Sprache zu betrachten. So wie ein Satz aus Wörtern und grammatischen Regeln aufgebaut ist, kann auch eine Grafik aus einzelnen Komponenten zusammengesetzt werden.
+Vor der Grammar-of-Graphics-Idee wurden Grafiken häufig als feste Diagrammtypen verstanden, zum Beispiel als Balkendiagramm, Liniendiagramm, Streudiagramm oder Boxplot. Wilkinson schlug dagegen vor, Grafiken wie eine Sprache zu betrachten. So wie ein Satz aus Wörtern und grammatischen Regeln aufgebaut ist, kann auch eine Grafik aus einzelnen Komponenten zusammengesetzt werden. Wenn uns diese Elemente bekannt sind, können wir Grafiken besser verstehen und verändern. 
+
+
+Die **Grammar of Graphics** unterscheidet die folgenden Komponenten: 
+
+| Komponente | Bedeutung |
+|---|---|
+| Daten | Der Datensatz, der visualisiert werden soll |
+| Ästhetiken | Zuordnung von Variablen zu visuellen Eigenschaften |
+| Geometrien | Die Art der Darstellung, z. B. Punkte, Linien, Balken |
+| Statistiken | Berechnungen auf den Daten, z. B. Zählen, Glätten oder Binning |
+| Skalen | Umsetzung von Datenwerten in Achsen, Farben oder Größen |
+| Koordinaten | Koordinatensystem, meistens kartesisch |
+| Facetten | Aufteilung in mehrere Teilgrafiken |
+| Theme | Gestaltung, z. B. Schriftgrößen, Hintergrund, Legende |
 
 Eine statistische Grafik entsteht dabei durch die Kombination mehrerer Elemente:
 
@@ -164,18 +178,7 @@ Eine statistische Grafik entsteht dabei durch die Kombination mehrerer Elemente:
 
 `ggplot2` überträgt diese Idee auf R. Das Paket wurde von Hadley Wickham entwickelt und macht die Grammar of Graphics praktisch nutzbar. Eine Grafik wird dabei schrittweise aufgebaut. Man beginnt mit den Daten, legt dann fest, welche Variablen auf welche ästhetischen Eigenschaften abgebildet werden, und ergänzt anschließend die gewünschte Darstellungsform.
 
-Eine Grafik besteht nach der Grammar of Graphics aus den folgenden Komponenten: 
 
-| Komponente | Bedeutung |
-|---|---|
-| Daten | Der Datensatz, der visualisiert werden soll |
-| Ästhetiken | Zuordnung von Variablen zu visuellen Eigenschaften |
-| Geometrien | Die Art der Darstellung, z. B. Punkte, Linien, Balken |
-| Statistiken | Berechnungen auf den Daten, z. B. Zählen, Glätten oder Binning |
-| Skalen | Umsetzung von Datenwerten in Achsen, Farben oder Größen |
-| Koordinaten | Koordinatensystem, meistens kartesisch |
-| Facetten | Aufteilung in mehrere Teilgrafiken |
-| Theme | Gestaltung, z. B. Schriftgrößen, Hintergrund, Legende |
 
 Ein einfacher ggplot besteht meistens aus drei Teilen:
 
@@ -346,7 +349,7 @@ Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammeng
 
 Ein großer Vorteil von ggplot2 ist, dass Grafiken aus mehreren Layern bestehen können.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   geom_smooth()
@@ -361,13 +364,13 @@ Da der Zusammenhang in den DNase-Daten nichtlinear ist, passt eine geglättete L
 
 Zum Vergleich kann man trotzdem eine lineare Regressionsgerade einzeichnen:
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   geom_smooth(method = "lm")
 ```
 
-Das ist didaktisch interessant: Man sieht, dass die lineare Gerade den gekrümmten Verlauf nur unzureichend beschreibt.
+Man sieht, dass die lineare Gerade den gekrümmten Verlauf nur unzureichend beschreibt.
 
 ---
 
@@ -375,7 +378,7 @@ Das ist didaktisch interessant: Man sieht, dass die lineare Gerade den gekrümmt
 
 Die Konzentration in den DNase-Daten nimmt Werte an, die nicht gleichmäßig über die Skala verteilt sind. In solchen Fällen kann eine logarithmische Achse sinnvoll sein.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   scale_x_log10()
@@ -385,7 +388,7 @@ Mit einer logarithmischen x-Achse werden kleine Konzentrationen besser sichtbar.
 
 Eine häufige Variante kombiniert logarithmische Achse, Punkte und Glättung:
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   geom_smooth(se = FALSE) +
@@ -398,7 +401,7 @@ ggplot(DNase, aes(x = conc, y = density)) +
 
 Farbe sollte eine inhaltliche Funktion haben. In den DNase-Daten kann Farbe verwendet werden, um die einzelnen Versuchsläufe zu unterscheiden.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density, color = Run)) +
   geom_point() +
   scale_x_log10()
@@ -406,7 +409,7 @@ ggplot(DNase, aes(x = conc, y = density, color = Run)) +
 
 Man kann zusätzlich Linien pro Versuchslauf ergänzen:
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
   geom_line() +
   geom_point() +
@@ -424,11 +427,11 @@ Grundregeln für Farbe:
 
 ---
 
-## Eine zweite Beispieltabelle: biologische Gruppen
+## Beispieltabelle: biologische Gruppen
 
-Im Beispielkapitel wird zusätzlich ein komplexerer Datensatz aus der Entwicklungsbiologie verwendet. Damit Sie ähnliche Plots nachvollziehen können, ohne direkt ein Bioconductor-Paket installieren zu müssen, verwenden wir hier eine kleine manuell angelegte Gruppentabelle.
+Für die nächsten Beispiele verwenden wir eine kleine, manuell angelegte Gruppentabelle.
 
-```r
+```{r, echo=TRUE}
 groups <- data.frame(
   sampleGroup = c(
     "E3.25",
@@ -468,18 +471,18 @@ Die Tabelle enthält:
 
 ## Balkendiagramme mit bereits aggregierten Daten
 
-Die Gruppentabelle ist bereits aggregiert: Für jede Gruppe liegt die Anzahl `n` vor.
+Die Gruppentabelle ist bereits aggregiert: Für jede Gruppe liegt die Anzahl der Zellen `n` vor.
 
 Daher verwenden wir `geom_col()`:
 
-```r
+```{r, echo=TRUE}
 ggplot(groups, aes(x = sampleGroup, y = n)) +
   geom_col()
 ```
 
 Alternativ sieht man in älterem Code häufig:
 
-```r
+```{r, echo=TRUE}
 ggplot(groups, aes(x = sampleGroup, y = n)) +
   geom_bar(stat = "identity")
 ```
@@ -488,7 +491,7 @@ Beide Varianten zeichnen hier Balken mit der gegebenen Höhe `n`. Für bereits a
 
 Die x-Achsenbeschriftungen sind lang. Deshalb rotieren wir sie:
 
-```r
+```{r, echo=TRUE}
 ggplot(groups, aes(x = sampleGroup, y = n)) +
   geom_col() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
@@ -496,7 +499,7 @@ ggplot(groups, aes(x = sampleGroup, y = n)) +
 
 Eine oft noch lesbarere Alternative ist ein horizontales Balkendiagramm:
 
-```r
+```{r, echo=TRUE}
 ggplot(groups, aes(x = n, y = sampleGroup)) +
   geom_col()
 ```
@@ -509,7 +512,7 @@ Die Gruppentabelle enthält bereits passende Farben. Diese können wir in ggplot
 
 Zunächst erstellen wir einen benannten Farbvektor:
 
-```r
+```{r, echo=TRUE}
 groupColor <- setNames(groups$color, groups$sampleGroup)
 
 groupColor
@@ -517,7 +520,7 @@ groupColor
 
 Dann verwenden wir ihn mit `scale_fill_manual()`:
 
-```r
+```{r, echo=TRUE}
 ggplot(groups, aes(x = sampleGroup, y = n, fill = sampleGroup)) +
   geom_col() +
   scale_fill_manual(values = groupColor, name = "Gruppe") +
@@ -534,7 +537,7 @@ Faceting erzeugt mehrere kleine Grafiken nach demselben Prinzip. Das ist besonde
 
 Bei den DNase-Daten können wir für jeden Versuchslauf eine eigene Teilgrafik erzeugen:
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   geom_line() +
@@ -552,7 +555,7 @@ Faceting ist oft besser als zu viele Farben in einer einzigen Grafik, weil es Ü
 
 Eine gute Grafik braucht verständliche Beschriftungen.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
   geom_line() +
   geom_point() +
@@ -588,7 +591,7 @@ y = "Optische Dichte"
 
 Themes steuern das Aussehen einer Grafik.
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
   geom_point() +
   theme_minimal()
@@ -605,7 +608,7 @@ theme_minimal()
 
 Beispiel mit Anpassungen:
 
-```r
+```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
   geom_line() +
   geom_point() +
