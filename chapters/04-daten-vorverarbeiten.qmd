@@ -287,7 +287,7 @@ class(gapminder)     # Objektklasse
 
 Eine besonders praktische Funktion aus dem tidyverse ist `glimpse()`:
 
-```r
+```{r echo = TRUE}
 glimpse(gapminder)
 ```
 
@@ -299,7 +299,7 @@ glimpse(gapminder)
 
 Zum Vergleich können Sie auch `str()` verwenden:
 
-```r
+```{r echo = TRUE}
 str(gapminder)
 ```
 
@@ -804,8 +804,6 @@ Die Variablen stehen in eigenen Spalten:
 - `pop`: Bevölkerung
 - `gdpPercap`: BIP pro Kopf
 
-### Warum Daten trotzdem umformen?
-
 Obwohl `gapminder` bereits tidy ist, möchten wir Daten manchmal in eine andere Form bringen.
 
 Für Analysen mit `dplyr` ist häufig das **lange Format** praktisch:
@@ -823,7 +821,7 @@ Mit `pivot_wider()` machen wir eine Tabelle breiter. Werte aus einer Spalte werd
 
 Im folgenden Beispiel betrachten wir die Lebenserwartung ausgewählter Länder:
 
-```{r}
+```{r echo = TRUE}
 gapminder_klein <- gapminder |>
   filter(country %in% c("Germany", "France", "Italy")) |>
   select(country, year, lifeExp)
@@ -833,7 +831,7 @@ gapminder_klein
 
 Aktuell steht jedes Jahr in einer eigenen Zeile. Mit `pivot_wider()` können wir die Jahre zu Spalten machen:
 
-```{r}
+```{r echo = TRUE}
 gapminder_breit <- gapminder_klein |>
   pivot_wider(
     names_from = year,
@@ -896,11 +894,11 @@ gapminder_lang |>
 
 Jetzt ist `year` wieder eine Zahl.
 
-### Beispiel: Vergleich ausgewählter Jahre
+#### Beispiel: Vergleich ausgewählter Jahre
 
 Ein breites Format ist hilfreich, wenn wir Werte aus mehreren Jahren direkt nebeneinanderstellen möchten.
 
-```{r}
+```{r echo = TRUE}
 lifeExp_vergleich <- gapminder |>
   filter(year %in% c(1952, 2007)) |>
   select(country, continent, year, lifeExp) |>
@@ -915,7 +913,7 @@ lifeExp_vergleich
 
 Jetzt können wir die Veränderung zwischen 1952 und 2007 berechnen:
 
-```{r}
+```{r echo=TRUE}
 lifeExp_vergleich <- lifeExp_vergleich |>
   mutate(
     veraenderung = lifeExp_2007 - lifeExp_1952
@@ -1051,18 +1049,6 @@ laender_clean
 ```
 
 Die letzte Zeile `TRUE ~ country_clean` bedeutet: Wenn keine der vorherigen Bedingungen zutrifft, bleibt der ursprüngliche bereinigte Wert erhalten.
-
-### Warum ist das wichtig?
-
-Saubere Textwerte sind wichtig, weil R Zeichenketten exakt vergleicht. Für R sind diese Werte unterschiedlich:
-
-```{r}
-"Germany" == " Germany"
-"Germany" == "germany"
-"United Kingdom" == "United  Kingdom"
-```
-
-Solche Unterschiede können dazu führen, dass Filter, Gruppierungen oder Joins nicht wie erwartet funktionieren.
 
 ### Beispiel: Gruppieren nach bereinigten Ländernamen
 
