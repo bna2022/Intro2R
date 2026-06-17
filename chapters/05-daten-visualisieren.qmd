@@ -46,7 +46,6 @@ Jede Zeile beschreibt eine Person mit mehreren medizinischen Messwerten, darunte
 library(MASS)
 
 data(Pima.tr)
-
 head(Pima.tr)
 ```
 
@@ -147,7 +146,7 @@ Dieser Code bedeutet:
 
 ## Die Grundidee von ggplot2
 
-Das Paket `ggplot2` basiert auf der Idee der [Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.pdf) von Wilkinson. Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:
+Das Paket `ggplot2` basiert auf der Idee der [Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.pdf) von Leland Wilkinson. Die zentrale Frage dahinter lautet nicht: „Welchen Diagrammtyp möchte ich zeichnen?“, sondern:
 
 > Aus welchen Bausteinen besteht eine Grafik?
 
@@ -159,7 +158,7 @@ Die **Grammar of Graphics** unterscheidet die folgenden Komponenten:
 | Komponente | Bedeutung |
 |---|---|
 | Daten | Der Datensatz, der visualisiert werden soll |
-| Ästhetiken | Zuordnung von Variablen zu visuellen Eigenschaften |
+| Ästhetiken | Zuordnung von Datenvariablen zu visuellen Eigenschaften, z. B. Achsenposition, Farbe, Form |
 | Geometrien | Die Art der Darstellung, z. B. Punkte, Linien, Balken |
 | Statistiken | Berechnungen auf den Daten, z. B. Zählen, Glätten oder Binning |
 | Skalen | Umsetzung von Datenwerten in Achsen, Farben oder Größen |
@@ -167,18 +166,7 @@ Die **Grammar of Graphics** unterscheidet die folgenden Komponenten:
 | Facetten | Aufteilung in mehrere Teilgrafiken |
 | Theme | Gestaltung, z. B. Schriftgrößen, Hintergrund, Legende |
 
-Eine statistische Grafik entsteht dabei durch die Kombination mehrerer Elemente:
-
-- Daten
-- Zuordnung von Variablen zu visuellen Eigenschaften
-- geometrische Objekte, zum Beispiel Punkte, Linien oder Balken
-- Skalen
-- Koordinatensysteme
-- Beschriftungen und Gestaltung
-
 `ggplot2` überträgt diese Idee auf R. Das Paket wurde von Hadley Wickham entwickelt und macht die Grammar of Graphics praktisch nutzbar. Eine Grafik wird dabei schrittweise aufgebaut. Man beginnt mit den Daten, legt dann fest, welche Variablen auf welche ästhetischen Eigenschaften abgebildet werden, und ergänzt anschließend die gewünschte Darstellungsform.
-
-
 
 Ein einfacher ggplot besteht meistens aus drei Teilen:
 
@@ -325,23 +313,48 @@ ggplot(DNase, aes(x = density)) +
   geom_density()
 ```
 
-Dichteplots eignen sich besonders, wenn man mehrere Verteilungen vergleichen möchte.
+Dichteplots eignen sich gut, wenn man mehrere Verteilungen vergleichen möchte.
 
 ```{r, echo=TRUE}
 ggplot(DNase, aes(x = density, color = Run)) +
   geom_density()
 ```
 
-### Boxplot
-
-Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen.
+Das Argument `bw` der Funktion `geom_density()` erlaubt es, die Bandbreite eines Dichteplots manuell anzupassen. Standardmäßig wird eine automatische Regel zur Wahl der Bandbreite verwendet, was meistens eine gute Wahl ist. Die folgende Visualisierung zeigt einen Dichteplot mit einer kleiner gewählten Bandbreite. 
 
 ```{r, echo=TRUE}
-ggplot(DNase, aes(x = Run, y = density)) +
+ggplot(DNase, aes(x = density, color = Run)) +
+  geom_density(bw=0.06)
+```
+
+### Boxplot
+
+Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen. Sie zeigen den Median, die Quartile, und Extremwerte einer Verteilung. Eine gute Illustrierung und Erklärung gibt es hier [https://web.pdx.edu/~stipakb/download/PA551/boxplot.html](Boxplots).
+
+Jeder Boxplot hat Linien bei **Q1**, beim **Median** und bei **Q3**. Zusammen bilden diese Werte die **Box** des Boxplots. Ein weiteres wichtiges Merkmal eines Boxplots sind die **Whisker**. Diese werden mithilfe des **Interquartilsabstands** berechnet:
+
+$$IQR = Q3 - Q1$$
+
+Datenpunkte, die außerhalb des Bereichs $Q1 - 1{,}5 \times IQR$ bis $Q3 + 1{,}5 \times IQR$ liegen, werden als **Ausreißer** bezeichnet.
+
+```{r, echo=TRUE}
+ggplot(DNase, aes(x = factor(Run, levels = 1:11), y = density)) +
+  geom_boxplot() +
+  labs(
+    x = "Versuchslauf",
+    y = "Dichte",
+    title = "Dichtewerte nach Versuchslauf"
+  )
+```
+
+Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammengefasst. Damit die Versuchsläufe in der richtigen Reihenfolge angezeigt werden, kann `Run` in einen Faktor mit festgelegter Reihenfolge umgewandelt werden:
+
+```{r, echo=TRUE}
+ggplot(DNase, aes(x = factor(Run, levels = 1:11), y = density)) +
   geom_boxplot()
 ```
 
-Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammengefasst.
+`ggplot2` behandelt `Run` hier als **kategoriale Variable**. Mit `levels = 1:11` wird festgelegt, dass die Versuchsläufe auf der x-Achse in der Reihenfolge **1 bis 11** erscheinen.
 
 ---
 
@@ -370,7 +383,7 @@ ggplot(DNase, aes(x = conc, y = density)) +
   geom_smooth(method = "lm")
 ```
 
-Man sieht, dass die lineare Gerade den gekrümmten Verlauf nur unzureichend beschreibt.
+`lm` steht für linear model, also ein lineares Modell. Dabei wird eine Gerade berechnet, die den Zusammenhang zwischen x und y möglichst gut beschreibt. Man sieht, dass die lineare Gerade den gekrümmten Verlauf nur unzureichend beschreibt.
 
 ---
 
@@ -395,6 +408,15 @@ ggplot(DNase, aes(x = conc, y = density)) +
   scale_x_log10()
 ```
 
+`se = FALSE` bedeutet: Das Konfidenzintervall wird nicht angezeigt. Bei geom_smooth() wird normalerweise eine geglättete Linie plus graues Unsicherheitsband dargestellt. Dieses Band ist das Standard-Error-/Konfidenzintervall.
+
+```{r, echo=TRUE}
+ggplot(DNase, aes(x = conc, y = density)) +
+  geom_point() +
+  geom_smooth(se = TRUE) +
+  scale_x_log10()
+```
+
 ---
 
 ## Gruppierung mit Farbe
@@ -416,14 +438,18 @@ ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
   scale_x_log10()
 ```
 
-Grundregeln für Farbe:
+::: {.callout-note}
+## Farbe bewusst einsetzen
 
-- Verwenden Sie Farbe sparsam.
-- Verwenden Sie Farbe für Bedeutung, nicht nur zur Dekoration.
-- Achten Sie auf Lesbarkeit.
-- Nutzen Sie für Gruppen diskrete Farben.
-- Nutzen Sie für metrische Werte kontinuierliche Farbskalen.
-- Vermeiden Sie unnötig viele Gruppenfarben.
+Farben helfen dabei, Muster und Unterschiede sichtbar zu machen. Sie sollten aber gezielt eingesetzt werden.
+
+- **Sparsam verwenden:** Zu viele Farben machen Grafiken unübersichtlich.
+- **Bedeutung statt Dekoration:** Farbe sollte eine Information transportieren.
+- **Lesbarkeit beachten:** Farben müssen gut unterscheidbar sein.
+- **Gruppen:** Für Kategorien eignen sich diskrete Farben.
+- **Metrische Werte:** Für kontinuierliche Werte eignen sich Farbverläufe.
+- **Nicht zu viele Gruppenfarben:** Bei sehr vielen Kategorien wird Farbe schnell überfordernd.
+:::
 
 ---
 
