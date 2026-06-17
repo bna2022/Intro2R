@@ -20,13 +20,58 @@ In dieser Einheit lernen Sie, wie Sie Daten in R so vorbereiten, dass sie analys
 7. Zeichenketten mit Funktionen aus `stringr` bereinigen.
 :::
 
+
+## Tidyverse und Tidy Data
+
+Das **Tidyverse** kann als moderne Weiterentwicklung der Arbeit mit R verstanden werden. Es wurde wesentlich von Hadley Wickham geprägt. Wickham ist eng mit RStudio verbunden und hat viele zentrale Pakete des Tidyverse mitentwickelt.
+
+Ein wichtiges Grundlagenwerk zum Tidyverse ist das Buch „R for Data Science“ von Wickham und Grolemund. Es wird häufig kurz als R4DS bezeichnet und ist online frei verfügbar:
+
+<https://r4ds.hadley.nz/>
+
+Das Tidyverse orientiert sich stark am Prinzip der **Tidy Data**. Dieses Konzept wurde von Wickham beschrieben und legt fest, wie Daten übersichtlich und einheitlich strukturiert werden sollten.
+
+Nach dem Tidy-Data-Prinzip gilt:
+
+- Jede Beobachtung steht in einer eigenen Zeile.
+- Jede Variable steht in einer eigenen Spalte.
+- Jeder Wert steht in einer eigenen Zelle.
+
+Ein Datensatz ist also dann „tidy“, wenn jede Zeile einen einzelnen Fall beziehungsweise eine einzelne Beobachtung beschreibt. Auch wiederholte Messungen werden jeweils als eigene Zeilen erfasst. Die Merkmale oder Eigenschaften dieser Beobachtungen werden durch die Spalten dargestellt.
+
+## Pakete im Tidyverse
+
+Das Tidyverse ist nicht nur ein einzelnes Paket, sondern eine Sammlung mehrerer R-Pakete, die gut aufeinander abgestimmt sind. Gemeinsam unterstützen sie typische Schritte der Datenanalyse: Daten importieren, bereinigen, umformen, auswerten und visualisieren.
+
+In der Praxis installiert und lädt man häufig das Paket `tidyverse`. Dadurch werden die wichtigsten Pakete gemeinsam installiert und geladen.
+
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+Die folgende Tabelle gibt einen ersten Überblick über wichtige Pakete des Tidyverse und typische Funktionen.
+
+| Aufgabe | Paket | Typische Funktionen |
+|---|---|---|
+| Moderne Data Frames erstellen | `tibble` | `tibble()`, `as_tibble()` |
+| Daten importieren | `readr` | `read_csv()`, `read_tsv()`, `read_delim()`, `read_table()` |
+| Daten umformen und bereinigen | `tidyr` | `pivot_longer()`, `pivot_wider()`, `separate()`, `unite()`, `drop_na()`, `replace_na()`, `fill()`, `complete()`, `expand()` |
+| Faktoren bearbeiten | `forcats` | `as_factor()` |
+| Daten filtern, auswählen und zusammenfassen | `dplyr` | `arrange()`, `filter()`, `select()`, `pull()`, `mutate()`, `transmute()`, `rename()`, `summarise()`, `bind_cols()`, `bind_rows()` |
+| Funktionen wiederholt anwenden | `purrr` | `modify()`, `map()`, `reduce()`, `nest()` |
+| Texte bearbeiten | `stringr` | `str_sub()`, `str_locate()`, `str_extract()`, `str_count()`, `str_match()` |
+| Daten visualisieren | `ggplot2` | `ggplot()`, `qplot()` |
+
+Die Funktionen müssen an dieser Stelle noch nicht im Detail verstanden werden. Wichtig ist zunächst die Grundidee: Für viele typische Arbeitsschritte mit Daten gibt es im Tidyverse spezialisierte Pakete mit einer einheitlichen und gut kombinierbaren Syntax.
+
 ## Motivation für `dplyr`
 
-Sie haben bereits mit **Dataframes** gearbeitet. Das ist wichtig: Ein Dataframe ist in R die zentrale Datenstruktur für tabellarische Daten. Sie wissen vermutlich schon, wie man Spalten mit `$` anspricht, Zeilen mit eckigen Klammern auswählt und einfache Zusammenfassungen berechnet.
+In den vorherigen Übungen haben Sie bereits mit **Dataframes** gearbeitet. Ein Dataframe ist in R die zentrale Datenstruktur für tabellarische Daten. Sie wissen vermutlich schon, wie man Spalten mit `$` anspricht, Zeilen mit eckigen Klammern auswählt und einfache Zusammenfassungen berechnet.
 
 Warum lernen wir jetzt trotzdem noch `dplyr`?
 
-Weil Dataframes zwar die **Datenstruktur** sind, aber noch keine besonders gute **Sprache für Datenanalyse**. Mit base R kann man sehr viel machen, aber bei längeren Analysen wird Code schnell schwer lesbar:
+Weil Dataframes zwar die **Datenstruktur** sind, aber noch keine besonders gute Sprache für Datenanalyse. Mit base R kann man sehr viel machen, aber bei längeren Analysen wird Code schnell schwer lesbar:
 
 ```r
 gapminder[gapminder$country == "Germany" & gapminder$year >= 1990,
