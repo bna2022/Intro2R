@@ -46,9 +46,17 @@ Das Tidyverse ist nicht nur ein einzelnes Paket, sondern eine Sammlung mehrerer 
 In der Praxis installiert und lädt man häufig das Paket `tidyverse`. Dadurch werden die wichtigsten Pakete gemeinsam installiert und geladen.
 
 ```{r echo = TRUE}
-#install.packages("tidyverse")
+# Nur einmal nötig:
+# install.packages("tidyverse")
+
+# In jeder neuen Sitzung nötig:
 library(tidyverse)
 ```
+
+`tidyverse` lädt unter anderem `dplyr`, `ggplot2`, `tidyr`, `readr`, `stringr`, `forcats`, `purrr` und `tibble`.
+
+> **Hinweis**  
+> Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie den Paketnamen voranstellen, zum Beispiel `dplyr::select()`. Dadurch machen Sie eindeutig, welche Funktion gemeint ist.
 
 Die folgende Tabelle gibt einen ersten Überblick über wichtige Pakete des Tidyverse und typische Funktionen.
 
@@ -208,34 +216,14 @@ Für diese Arbeitsschritte stellt `dplyr` gut lesbare Funktionen bereit.
 | Wie berechne ich neue Variablen? | `mutate()` |
 | Wie fasse ich Daten nach Gruppen zusammen? | `group_by()` und `summarise()` |
 
-## Vorbereitung: Pakete laden
+### Den Gapminder-Datensatz kennenlernen
 
-In diesem Kapitel verwenden wir:
-
-- `dplyr` für Datenmanipulation,
-- `ggplot2` für Grafiken,
-- `gapminder` für den Beispieldatensatz.
-
-Diese Pakete müssen einmal installiert und in jeder neuen R-Sitzung geladen werden.
+In diesem Kapitel verwenden wir den `gapminder` Datensatz als Beispiel. Dieser muss zusätzlich zum Paket `tidyverse` geladen werden.  
 
 ```{r}
-# Nur einmal nötig:
-# install.packages("tidyverse")
 # install.packages("gapminder")
-
-# In jeder neuen Sitzung nötig:
-library(tidyverse)
 library(gapminder)
 ```
-
-`tidyverse` lädt unter anderem `dplyr`, `ggplot2`, `tidyr`, `readr`, `stringr`, `forcats`, `purrr` und `tibble`.
-
-> **Hinweis**  
-> Wenn Sie eine Funktion verwenden, die in mehreren Paketen vorkommt, können Sie den Paketnamen voranstellen, zum Beispiel `dplyr::select()`. Dadurch machen Sie eindeutig, welche Funktion gemeint ist.
-
----
-
-### Den Gapminder-Datensatz kennenlernen
 
 Bevor wir mit `dplyr` Daten verändern, sollten wir den Datensatz einmal in Ruhe kennenlernen. In einer echten Analyse ist dieser Schritt sehr wichtig: Wir wollen wissen, **welche Beobachtungen in den Zeilen stehen**, **welche Variablen in den Spalten stehen** und **welche Datentypen** R für diese Variablen verwendet.
 
@@ -247,16 +235,20 @@ Schauen wir uns den Datensatz zunächst einfach an:
 gapminder
 ```
 
-### Was bedeutet „tibble“?
-
-`gapminder` ist kein gewöhnlicher Dataframe, sondern ein **tibble**. Ein tibble ist eine moderne Variante eines Dataframes. Für unsere Arbeit bedeutet das:
+`gapminder` ist kein gewöhnlicher Dataframe, sondern ein **tibble**. Für unsere Analyse bedeutet das:
 
 - Ein tibble ist weiterhin tabellarisch aufgebaut: Zeilen sind Beobachtungen, Spalten sind Variablen.
 - Ein tibble kann mit den gleichen Grundideen wie ein Dataframe verwendet werden.
 - Die Ausgabe in der Konsole ist kompakter und übersichtlicher.
 - R zeigt nicht automatisch alle Zeilen und alle Spalten an, sondern nur einen sinnvollen Ausschnitt.
 
-Das ist besonders praktisch, wenn Datensätze größer werden. Bei einem klassischen Dataframe kann die Ausgabe schnell unübersichtlich werden, wenn viele Zeilen oder Spalten vorhanden sind. Ein tibble zeigt stattdessen zuerst eine kurze Zusammenfassung: Anzahl der Zeilen, Anzahl der Spalten, Spaltennamen und Datentypen.
+```{r echo = TRUE}
+class(gapminder)
+```
+
+Das bedeutet: `gapminder` ist gleichzeitig ein tibble **und** ein Dataframe. Die Bezeichnungen `tbl_df` und `tbl` zeigen die tibble-Eigenschaften. `data.frame` zeigt, dass R den Datensatz weiterhin als Dataframe behandeln kann.
+
+Für Sie ist das eine gute Nachricht: Alles, was Sie über Dataframes gelernt haben, bleibt nützlich. `dplyr` baut darauf auf und bietet eine besser lesbare Sprache für typische Arbeitsschritte.
 
 ### Zeilen, Spalten und Variablen
 
@@ -280,18 +272,6 @@ Die kleinen Angaben unter den Spaltennamen zeigen die Datentypen:
 | `<dbl>` | Double, also eine numerische Variable mit Dezimalstellen |
 
 Diese Informationen sind wichtig, weil viele Funktionen je nach Datentyp unterschiedlich arbeiten. Mit numerischen Variablen können wir zum Beispiel Mittelwerte berechnen. Bei kategorialen Variablen wie `continent` oder `country` interessieren uns eher Häufigkeiten oder Gruppenvergleiche.
-
-### Ist `gapminder` wirklich ein Dataframe?
-
-Ein tibble ist eine spezielle Form eines Dataframes. Das können wir mit `class()` prüfen:
-
-```{r echo = TRUE}
-class(gapminder)
-```
-
-Das bedeutet: `gapminder` ist gleichzeitig ein tibble **und** ein Dataframe. Die Bezeichnungen `tbl_df` und `tbl` zeigen die tibble-Eigenschaften. `data.frame` zeigt, dass R den Datensatz weiterhin als Dataframe behandeln kann.
-
-Für Sie ist das eine gute Nachricht: Alles, was Sie über Dataframes gelernt haben, bleibt nützlich. `dplyr` baut darauf auf und bietet eine besser lesbare Sprache für typische Arbeitsschritte.
 
 
 ### Den Datensatz kompakt untersuchen
