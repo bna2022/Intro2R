@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="04-daten-vorverarbeiten-slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="04-daten-vorverarbeiten-slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="04-daten-vorverarbeiten-slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="04-daten-vorverarbeiten-slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="04-daten-vorverarbeiten-slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="04-daten-vorverarbeiten-slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="04-daten-vorverarbeiten-slides_files/libs/quarto-html/quarto-syntax-highlighting-1d5e050edb13250d4f64432100cad504.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="dcterms.date" content="2026-05-28">
+  <title>04 Tidyverse</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="04-daten-vorverarbeiten-slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="04-daten-vorverarbeiten-slides_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="04-daten-vorverarbeiten-slides_files/libs/revealjs/dist/theme/quarto-5c0ac592d9a82a8a81a5c70fe1796313.css">
+  <link rel="stylesheet" href="slides.css">
+  <link href="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">04 Tidyverse</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-05-28</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/überblick" id="/toc-überblick">Überblick</a></li>
+<li><a href="#/tidyverse-und-tidy-data" id="/toc-tidyverse-und-tidy-data">Tidyverse und Tidy Data</a></li>
+<li><a href="#/vorbereitung" id="/toc-vorbereitung">Vorbereitung</a></li>
+<li><a href="#/daten-mit-dplyr-bearbeiten" id="/toc-daten-mit-dplyr-bearbeiten">Daten mit dplyr bearbeiten</a></li>
+<li><a href="#/zeilen-auswählen" id="/toc-zeilen-auswählen">Zeilen auswählen</a></li>
+<li><a href="#/spalten-auswählen" id="/toc-spalten-auswählen">Spalten auswählen</a></li>
+<li><a href="#/arbeitsschritte-verbinden" id="/toc-arbeitsschritte-verbinden">Arbeitsschritte verbinden</a></li>
+<li><a href="#/sortieren-und-neue-variablen" id="/toc-sortieren-und-neue-variablen">Sortieren und neue Variablen</a></li>
+<li><a href="#/daten-umformen-mit-tidyr" id="/toc-daten-umformen-mit-tidyr">Daten umformen mit tidyr</a></li>
+<li><a href="#/textdaten-bereinigen-mit-stringr" id="/toc-textdaten-bereinigen-mit-stringr">Textdaten bereinigen mit stringr</a></li>
+<li><a href="#/abschluss" id="/toc-abschluss">Abschluss</a></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="überblick" class="title-slide slide level1 center">
+<h1>Überblick</h1>
+
+</section>
+<section id="lernziele" class="slide level3">
+<h3>Lernziele</h3>
+<p>Nach dieser Einheit können Sie …</p>
+<ul>
+<li>Spalten mit <code>select()</code> auswählen oder ausschließen,</li>
+<li>Zeilen mit <code>filter()</code> anhand von Bedingungen auswählen,</li>
+<li>mehrere Arbeitsschritte mit <code>|&gt;</code> verbinden,</li>
+<li>Daten mit <code>arrange()</code> sortieren,</li>
+<li>neue Variablen mit <code>mutate()</code> berechnen,</li>
+<li>Gruppen mit <code>group_by()</code> und <code>summarise()</code> auswerten,</li>
+<li>Daten mit <code>pivot_wider()</code> und <code>pivot_longer()</code> umformen,</li>
+<li>Textwerte mit <code>stringr</code> bereinigen.</li>
+</ul>
+</section></section>
+<section>
+<section id="tidyverse-und-tidy-data" class="title-slide slide level1 center">
+<h1>Tidyverse und Tidy Data</h1>
+
+</section>
+<section id="was-ist-das-tidyverse" class="slide level3">
+<h3>Was ist das Tidyverse?</h3>
+<p>Das <code>tidyverse</code> ist eine Sammlung von R-Paketen für typische Schritte der Datenanalyse.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Aufgabe</th>
+<th>Paket</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Daten transformieren</td>
+<td><code>dplyr</code></td>
+<td><code>filter()</code>, <code>select()</code>, <code>mutate()</code></td>
+</tr>
+<tr class="even">
+<td>Daten umformen</td>
+<td><code>tidyr</code></td>
+<td><code>pivot_wider()</code>, <code>pivot_longer()</code></td>
+</tr>
+<tr class="odd">
+<td>Texte bearbeiten</td>
+<td><code>stringr</code></td>
+<td><code>str_trim()</code>, <code>str_detect()</code></td>
+</tr>
+<tr class="even">
+<td>Daten visualisieren</td>
+<td><code>ggplot2</code></td>
+<td><code>ggplot()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Die Pakete verwenden eine ähnliche Schreibweise und lassen sich gut kombinieren.</p>
+</div>
+</section>
+<section id="tidy-data" class="slide level3">
+<h3>Tidy Data</h3>
+<p>Eine Tabelle ist <strong>tidy</strong>, wenn sie drei Grundregeln erfüllt:</p>
+<ol type="1">
+<li>Jede Variable steht in einer eigenen Spalte.</li>
+<li>Jede Beobachtung steht in einer eigenen Zeile.</li>
+<li>Jeder Wert steht in einer eigenen Zelle.</li>
+</ol>
+<div class="fragment">
+<p>Beispiel: Eine Zeile in <code>gapminder</code> beschreibt ein Land in einem bestimmten Jahr.</p>
+</div>
+</section></section>
+<section>
+<section id="vorbereitung" class="title-slide slide level1 center">
+<h1>Vorbereitung</h1>
+
+</section>
+<section id="pakete-laden" class="slide level3">
+<h3>Pakete laden</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Nur einmal nötig:</span></span>
+<span id="cb1-2"><a href=""></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb1-3"><a href=""></a><span class="co"># install.packages("gapminder")</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="co"># In jeder neuen Sitzung nötig:</span></span>
+<span id="cb1-6"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href=""></a><span class="fu">library</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Wenn eine Funktion in mehreren Paketen vorkommt, kann der Paketname vorangestellt werden, zum Beispiel <code>dplyr::filter()</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="gapminder-kennenlernen" class="slide level3">
+<h3>Gapminder kennenlernen</h3>
+<p>Der Datensatz <code>gapminder</code> enthält Länderinformationen über mehrere Jahre.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>gapminder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Wichtige Variablen:</p>
+<ul>
+<li><code>country</code>: Land</li>
+<li><code>continent</code>: Kontinent</li>
+<li><code>year</code>: Jahr</li>
+<li><code>lifeExp</code>: Lebenserwartung</li>
+<li><code>pop</code>: Bevölkerung</li>
+<li><code>gdpPercap</code>: BIP pro Kopf</li>
+</ul>
+</section>
+<section id="tibble-oder-data-frame" class="slide level3">
+<h3>Tibble oder Data Frame?</h3>
+<p><code>gapminder</code> ist ein <strong>tibble</strong>.</p>
+<p>Ein tibble ist eine moderne Variante eines Data Frames:</p>
+<ul>
+<li>kompaktere Ausgabe,</li>
+<li>Anzeige von Datentypen,</li>
+<li>weiterhin ein normaler Data Frame.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">class</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Alles, was Sie über Data Frames gelernt haben, bleibt nützlich.</p>
+</div>
+</section>
+<section id="orientierung-im-datensatz" class="slide level3">
+<h3>Orientierung im Datensatz</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">nrow</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1704</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ncol</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">names</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">glimpse</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+</div>
+</div>
+<p><code>glimpse()</code> zeigt jede Variable in einer eigenen Zeile.</p>
+<p>Das ist besonders hilfreich bei breiten Tabellen mit vielen Spalten.</p>
+</section></section>
+<section>
+<section id="daten-mit-dplyr-bearbeiten" class="title-slide slide level1 center">
+<h1>Daten mit dplyr bearbeiten</h1>
+
+</section>
+<section id="warum-dplyr" class="slide level3">
+<h3>Warum dplyr?</h3>
+<p>Mit Base R ist vieles möglich:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Germany"</span> <span class="sc">&amp;</span> gapminder<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">1990</span>,</span>
+<span id="cb14-2"><a href=""></a>          <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>, <span class="st">"lifeExp"</span>, <span class="st">"gdpPercap"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  country  year lifeExp gdpPercap
+  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Germany  1992    76.1    26505.
+2 Germany  1997    77.3    27789.
+3 Germany  2002    78.7    30036.
+4 Germany  2007    79.4    32170.</code></pre>
+</div>
+</div>
+<p>Der Code funktioniert, aber mehrere Dinge stehen gleichzeitig in einem Ausdruck.</p>
+<div class="fragment">
+<p>Mit <code>dplyr</code> werden Analyseschritte klarer getrennt.</p>
+</div>
+</section>
+<section id="dieselbe-idee-mit-dplyr" class="slide level3">
+<h3>Dieselbe Idee mit dplyr</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>, year <span class="sc">&gt;=</span> <span class="dv">1990</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  country  year lifeExp gdpPercap
+  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Germany  1992    76.1    26505.
+2 Germany  1997    77.3    27789.
+3 Germany  2002    78.7    30036.
+4 Germany  2007    79.4    32170.</code></pre>
+</div>
+</div>
+</section>
+<section id="wichtige-dplyr-verben" class="slide level3">
+<h3>Wichtige dplyr-Verben</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Frage</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Welche Zeilen brauche ich?</td>
+<td><code>filter()</code></td>
+</tr>
+<tr class="even">
+<td>Welche Spalten brauche ich?</td>
+<td><code>select()</code></td>
+</tr>
+<tr class="odd">
+<td>Wie sortiere ich Daten?</td>
+<td><code>arrange()</code></td>
+</tr>
+<tr class="even">
+<td>Wie berechne ich neue Variablen?</td>
+<td><code>mutate()</code></td>
+</tr>
+<tr class="odd">
+<td>Wie fasse ich Gruppen zusammen?</td>
+<td><code>group_by()</code> + <code>summarise()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><code>dplyr</code> ist keine neue Datenstruktur, sondern eine lesbare Sprache für Data Frames und Tibbles.</p>
+</div>
+</section></section>
+<section>
+<section id="zeilen-auswählen" class="title-slide slide level1 center">
+<h1>Zeilen auswählen</h1>
+
+</section>
+<section id="zeilen-filtern-mit-filter" class="slide level3">
+<h3>Zeilen filtern mit filter()</h3>
+<p>Mit <code>filter()</code> wählen Sie Zeilen aus, die eine Bedingung erfüllen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Zum Vergleich in Base R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Germany"</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="mehrere-bedingungen" class="slide level3">
+<h3>Mehrere Bedingungen</h3>
+<p>Mehrere Bedingungen innerhalb von <code>filter()</code> werden wie ein logisches UND behandelt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>, year <span class="sc">&gt;=</span> <span class="dv">1990</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das ist gleichbedeutend mit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span> <span class="sc">&amp;</span> year <span class="sc">&gt;=</span> <span class="dv">1990</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="mehrere-mögliche-werte" class="slide level3">
+<h3>Mehrere mögliche Werte</h3>
+<p>Für mehrere mögliche Werte nutzen Sie <code>%in%</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Gelesen:</p>
+<blockquote>
+<p>Behalte alle Zeilen, bei denen <code>country</code> in dieser Liste vorkommt.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="spalten-auswählen" class="title-slide slide level1 center">
+<h1>Spalten auswählen</h1>
+
+</section>
+<section id="spalten-auswählen-mit-select" class="slide level3">
+<h3>Spalten auswählen mit select()</h3>
+<p>Mit <code>select()</code> wählen Sie Spalten aus.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">select</span>(country, year, lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   country      year lifeExp
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952    28.8
+ 2 Afghanistan  1957    30.3
+ 3 Afghanistan  1962    32.0
+ 4 Afghanistan  1967    34.0
+ 5 Afghanistan  1972    36.1
+ 6 Afghanistan  1977    38.4
+ 7 Afghanistan  1982    39.9
+ 8 Afghanistan  1987    40.8
+ 9 Afghanistan  1992    41.7
+10 Afghanistan  1997    41.8
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Das Ergebnis enthält nur die genannten Spalten.</p>
+</section>
+<section id="spalten-ausschließen" class="slide level3">
+<h3>Spalten ausschließen</h3>
+<p>Das Minuszeichen bedeutet: Diese Spalte wird entfernt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>pop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mehrere Spalten ausschließen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(pop, gdpPercap))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="spalten-umsortieren" class="slide level3">
+<h3>Spalten umsortieren</h3>
+<p><code>select()</code> kann Spalten auch in eine neue Reihenfolge bringen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">select</span>(year, country, continent, lifeExp, pop, gdpPercap)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+    year country     continent lifeExp      pop gdpPercap
+   &lt;int&gt; &lt;fct&gt;       &lt;fct&gt;       &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1  1952 Afghanistan Asia         28.8  8425333      779.
+ 2  1957 Afghanistan Asia         30.3  9240934      821.
+ 3  1962 Afghanistan Asia         32.0 10267083      853.
+ 4  1967 Afghanistan Asia         34.0 11537966      836.
+ 5  1972 Afghanistan Asia         36.1 13079460      740.
+ 6  1977 Afghanistan Asia         38.4 14880372      786.
+ 7  1982 Afghanistan Asia         39.9 12881816      978.
+ 8  1987 Afghanistan Asia         40.8 13867957      852.
+ 9  1992 Afghanistan Asia         41.7 16317921      649.
+10  1997 Afghanistan Asia         41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Das verändert die Reihenfolge der Spalten in der Ausgabe, nicht die inhaltlichen Werte.</p>
+</div>
+</section>
+<section id="hilfsfunktionen-in-select" class="slide level3">
+<h3>Hilfsfunktionen in select()</h3>
+<p>Bei vielen Spaltennamen sind Hilfsfunktionen praktisch.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"c"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 2
+   country     continent
+   &lt;fct&gt;       &lt;fct&gt;    
+ 1 Afghanistan Asia     
+ 2 Afghanistan Asia     
+ 3 Afghanistan Asia     
+ 4 Afghanistan Asia     
+ 5 Afghanistan Asia     
+ 6 Afghanistan Asia     
+ 7 Afghanistan Asia     
+ 8 Afghanistan Asia     
+ 9 Afghanistan Asia     
+10 Afghanistan Asia     
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"p"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   lifeExp      pop gdpPercap
+     &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1    28.8  8425333      779.
+ 2    30.3  9240934      821.
+ 3    32.0 10267083      853.
+ 4    34.0 11537966      836.
+ 5    36.1 13079460      740.
+ 6    38.4 14880372      786.
+ 7    39.9 12881816      978.
+ 8    40.8 13867957      852.
+ 9    41.7 16317921      649.
+10    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Weitere Beispiele: <code>ends_with()</code>, <code>everything()</code>, <code>where()</code>.</p>
+</section></section>
+<section>
+<section id="arbeitsschritte-verbinden" class="title-slide slide level1 center">
+<h1>Arbeitsschritte verbinden</h1>
+
+</section>
+<section id="der-pipe-operator" class="slide level3">
+<h3>Der Pipe-Operator |&gt;</h3>
+<p>Der Pipe-Operator <code>|&gt;</code> übergibt das Ergebnis eines Schrittes an den nächsten Schritt.</p>
+<p>Man kann ihn als <strong>dann</strong> lesen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href=""></a>  <span class="fu">select</span>(year, lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Lesen Sie den Code laut: Nimm <code>gapminder</code>, dann filtere Deutschland, dann wähle Jahr und Lebenserwartung.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="eine-typische-analysekette" class="slide level3">
+<h3>Eine typische Analysekette</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href=""></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Europe"</span>, year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href=""></a>  <span class="fu">select</span>(country, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb34-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dieser Code macht vier Dinge:</p>
+<ol type="1">
+<li>Datensatz nehmen,</li>
+<li>auf Europa und 2007 filtern,</li>
+<li>drei Spalten auswählen,</li>
+<li>absteigend nach Lebenserwartung sortieren.</li>
+</ol>
+</section>
+<section id="übung-pipe-ketten-lesen" class="slide level3">
+<h3>Übung: Pipe-Ketten lesen</h3>
+<p>Beschreiben Sie in eigenen Worten, was dieser Code macht:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href=""></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>, year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href=""></a>  <span class="fu">select</span>(country, pop, lifeExp) <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Schreiben Sie anschließend eine eigene Pipe-Kette für die Frage:</p>
+<blockquote>
+<p>Welche afrikanischen Länder hatten im Jahr 2007 die höchste Lebenserwartung?</p>
+</blockquote>
+</section></section>
+<section>
+<section id="sortieren-und-neue-variablen" class="title-slide slide level1 center">
+<h1>Sortieren und neue Variablen</h1>
+
+</section>
+<section id="daten-sortieren-mit-arrange" class="slide level3">
+<h3>Daten sortieren mit arrange()</h3>
+<p>Mit <code>arrange()</code> sortieren Sie Zeilen nach einer oder mehreren Variablen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country          continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Japan            Asia       2007    82.6 127467972    31656.
+ 2 Hong Kong, China Asia       2007    82.2   6980412    39725.
+ 3 Japan            Asia       2002    82   127065841    28605.
+ 4 Iceland          Europe     2007    81.8    301931    36181.
+ 5 Switzerland      Europe     2007    81.7   7554661    37506.
+ 6 Hong Kong, China Asia       2002    81.5   6762476    30209.
+ 7 Australia        Oceania    2007    81.2  20434176    34435.
+ 8 Spain            Europe     2007    80.9  40448191    28821.
+ 9 Sweden           Europe     2007    80.9   9031088    33860.
+10 Israel           Asia       2007    80.7   6426679    25523.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p><code>desc</code>: Die größten Werte stehen oben.</p>
+</section>
+<section id="sortieren-in-einer-analyse" class="slide level3">
+<h3>Sortieren in einer Analyse</h3>
+<p>Sortierte Tabellen sind übersichtlicher, wenn vorher wichtige Spalten ausgewählt werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a href=""></a>  <span class="fu">select</span>(country, continent, lifeExp) <span class="sc">|&gt;</span></span>
+<span id="cb38-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 3
+   country          continent lifeExp
+   &lt;fct&gt;            &lt;fct&gt;       &lt;dbl&gt;
+ 1 Japan            Asia         82.6
+ 2 Hong Kong, China Asia         82.2
+ 3 Iceland          Europe       81.8
+ 4 Switzerland      Europe       81.7
+ 5 Australia        Oceania      81.2
+ 6 Spain            Europe       80.9
+ 7 Sweden           Europe       80.9
+ 8 Israel           Asia         80.7
+ 9 France           Europe       80.7
+10 Canada           Americas     80.7
+# ℹ 132 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="neue-variablen-mit-mutate" class="slide level3">
+<h3>Neue Variablen mit mutate()</h3>
+<p>Mit <code>mutate()</code> erzeugen Sie neue Spalten oder verändern bestehende Spalten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pop_mio =</span> pop <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">select</span>(country, year, pop, pop_mio)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 4
+   country      year      pop pop_mio
+   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333    8.43
+ 2 Afghanistan  1957  9240934    9.24
+ 3 Afghanistan  1962 10267083   10.3 
+ 4 Afghanistan  1967 11537966   11.5 
+ 5 Afghanistan  1972 13079460   13.1 
+ 6 Afghanistan  1977 14880372   14.9 
+ 7 Afghanistan  1982 12881816   12.9 
+ 8 Afghanistan  1987 13867957   13.9 
+ 9 Afghanistan  1992 16317921   16.3 
+10 Afghanistan  1997 22227415   22.2 
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Die neue Spalte <code>pop_mio</code> enthält die Bevölkerung in Millionen.</p>
+</div>
+</section>
+<section id="bip-insgesamt-schätzen" class="slide level3">
+<h3>BIP insgesamt schätzen</h3>
+<p><code>gdpPercap</code> ist das BIP pro Kopf. Eine grobe Schätzung des gesamten BIP erhalten wir durch Multiplikation mit der Bevölkerung.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">gdp_total =</span> gdpPercap <span class="sc">*</span> pop) <span class="sc">|&gt;</span></span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">select</span>(country, year, pop, gdpPercap, gdp_total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 5
+   country      year      pop gdpPercap    gdp_total
+   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333      779.  6567086330.
+ 2 Afghanistan  1957  9240934      821.  7585448670.
+ 3 Afghanistan  1962 10267083      853.  8758855797.
+ 4 Afghanistan  1967 11537966      836.  9648014150.
+ 5 Afghanistan  1972 13079460      740.  9678553274.
+ 6 Afghanistan  1977 14880372      786. 11697659231.
+ 7 Afghanistan  1982 12881816      978. 12598563401.
+ 8 Afghanistan  1987 13867957      852. 11820990309.
+ 9 Afghanistan  1992 16317921      649. 10595901589.
+10 Afghanistan  1997 22227415      635. 14121995875.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="kategorien-mit-case_when" class="slide level3">
+<h3>Kategorien mit case_when()</h3>
+<p><code>case_when()</code> übersetzt mehrere Bedingungen in Kategorien.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">lifeExp_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb44-3"><a href=""></a>    lifeExp <span class="sc">&lt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"unter 50"</span>,</span>
+<span id="cb44-4"><a href=""></a>    lifeExp <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"50 bis unter 70"</span>,</span>
+<span id="cb44-5"><a href=""></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"70 und mehr"</span></span>
+<span id="cb44-6"><a href=""></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb44-7"><a href=""></a>  <span class="fu">select</span>(country, year, lifeExp, lifeExp_group)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 4
+   country      year lifeExp lifeExp_group
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;        
+ 1 Afghanistan  1952    28.8 unter 50     
+ 2 Afghanistan  1957    30.3 unter 50     
+ 3 Afghanistan  1962    32.0 unter 50     
+ 4 Afghanistan  1967    34.0 unter 50     
+ 5 Afghanistan  1972    36.1 unter 50     
+ 6 Afghanistan  1977    38.4 unter 50     
+ 7 Afghanistan  1982    39.9 unter 50     
+ 8 Afghanistan  1987    40.8 unter 50     
+ 9 Afghanistan  1992    41.7 unter 50     
+10 Afghanistan  1997    41.8 unter 50     
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="kategorien-mit-case_when-1" class="slide level3">
+<h3>Kategorien mit case_when()</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>TRUE ~ ...</code> ist die Auffangkategorie: Alle übrigen Fälle erhalten diesen Wert.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="gruppieren-und-zusammenfassen" class="slide level3">
+<h3>Gruppieren und zusammenfassen</h3>
+<p>Viele Fragen beziehen sich auf Gruppen:</p>
+<ul>
+<li>Wie hoch ist die durchschnittliche Lebenserwartung pro Kontinent?</li>
+<li>Wie groß ist die Bevölkerung pro Kontinent?</li>
+<li>Welche Gruppe hat den höchsten Mittelwert?</li>
+</ul>
+<p>Dafür kombinieren wir <code>group_by()</code> und <code>summarise()</code>.</p>
+</section>
+<section id="durchschnitt-pro-kontinent" class="slide level3">
+<h3>Durchschnitt pro Kontinent</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb46-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  continent mean_lifeExp
+  &lt;fct&gt;            &lt;dbl&gt;
+1 Africa            54.8
+2 Americas          73.6
+3 Asia              70.7
+4 Europe            77.6
+5 Oceania           80.7</code></pre>
+</div>
+</div>
+<p>Dieser Code bedeutet: 1. Behalte nur das Jahr 2007. 2. Gruppiere nach Kontinent. 3. Berechne pro Kontinent die mittlere Lebenserwartung.</p>
+</section>
+<section id="mehrere-kennzahlen-berechnen" class="slide level3">
+<h3>Mehrere Kennzahlen berechnen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb48-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb48-5"><a href=""></a>    <span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb48-6"><a href=""></a>    <span class="at">min_lifeExp =</span> <span class="fu">min</span>(lifeExp),</span>
+<span id="cb48-7"><a href=""></a>    <span class="at">max_lifeExp =</span> <span class="fu">max</span>(lifeExp),</span>
+<span id="cb48-8"><a href=""></a>    <span class="at">n_countries =</span> <span class="fu">n</span>()</span>
+<span id="cb48-9"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  continent mean_lifeExp min_lifeExp max_lifeExp n_countries
+  &lt;fct&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;
+1 Africa            54.8        39.6        76.4          52
+2 Americas          73.6        60.9        80.7          25
+3 Asia              70.7        43.8        82.6          33
+4 Europe            77.6        71.8        81.8          30
+5 Oceania           80.7        80.2        81.2           2</code></pre>
+</div>
+</div>
+<p><code>n()</code> zählt, wie viele Zeilen in jeder Gruppe enthalten sind.</p>
+</section>
+<section id="gruppierung-über-mehrere-variablen" class="slide level3">
+<h3>Gruppierung über mehrere Variablen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a href=""></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">|&gt;</span></span>
+<span id="cb50-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 60 × 3
+   continent  year mean_lifeExp
+   &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;
+ 1 Africa     1952         39.1
+ 2 Africa     1957         41.3
+ 3 Africa     1962         43.3
+ 4 Africa     1967         45.3
+ 5 Africa     1972         47.5
+ 6 Africa     1977         49.6
+ 7 Africa     1982         51.6
+ 8 Africa     1987         53.3
+ 9 Africa     1992         53.6
+10 Africa     1997         53.6
+# ℹ 50 more rows</code></pre>
+</div>
+</div>
+<p><code>.groups = "drop"</code> hebt die Gruppierung nach der Zusammenfassung wieder auf.</p>
+<div class="fragment">
+<p>Das verhindert, dass spätere Berechnungen versehentlich noch gruppiert ausgeführt werden.</p>
+</div>
+</section>
+<section id="übung" class="slide level3">
+<h3>Übung</h3>
+<p>Nutzen Sie den folgenden Datensatz.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb52-2"><a href=""></a></span>
+<span id="cb52-3"><a href=""></a>personen <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb52-4"><a href=""></a>  <span class="sc">~</span>Vorname, <span class="sc">~</span>Geschlecht, <span class="sc">~</span>Alter, <span class="sc">~</span>Wohnort, <span class="sc">~</span>Groesse, <span class="sc">~</span>Gewicht, <span class="sc">~</span>Rauchen,</span>
+<span id="cb52-5"><a href=""></a>  <span class="st">"Hannah"</span>, <span class="st">"weiblich"</span>, <span class="dv">25</span>, <span class="st">"Berlin"</span>,      <span class="fl">1.75</span>, <span class="dv">65</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb52-6"><a href=""></a>  <span class="st">"Max"</span>,    <span class="st">"maennlich"</span>, <span class="dv">30</span>, <span class="st">"Hamburg"</span>,     <span class="fl">1.85</span>, <span class="dv">75</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-7"><a href=""></a>  <span class="st">"Sophia"</span>, <span class="st">"weiblich"</span>, <span class="dv">20</span>, <span class="st">"Muenchen"</span>,    <span class="fl">1.65</span>, <span class="dv">55</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb52-8"><a href=""></a>  <span class="st">"Lukas"</span>,  <span class="st">"maennlich"</span>, <span class="dv">35</span>, <span class="st">"Frankfurt"</span>,   <span class="fl">1.95</span>, <span class="dv">85</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-9"><a href=""></a>  <span class="st">"Emma"</span>,   <span class="st">"weiblich"</span>, <span class="dv">18</span>, <span class="st">"Stuttgart"</span>,   <span class="fl">1.70</span>, <span class="dv">60</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb52-10"><a href=""></a>  <span class="st">"Jonas"</span>,  <span class="st">"maennlich"</span>, <span class="dv">40</span>, <span class="st">"Duesseldorf"</span>, <span class="fl">1.80</span>, <span class="dv">70</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-11"><a href=""></a>  <span class="st">"Lea"</span>,    <span class="st">"weiblich"</span>, <span class="dv">22</span>, <span class="st">"Hannover"</span>,    <span class="fl">1.60</span>, <span class="dv">50</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb52-12"><a href=""></a>  <span class="st">"Jan"</span>,    <span class="st">"divers"</span>,    <span class="dv">28</span>, <span class="st">"Nuernberg"</span>,   <span class="fl">1.90</span>, <span class="dv">80</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-13"><a href=""></a>  <span class="st">"Mia"</span>,    <span class="st">"weiblich"</span>, <span class="dv">24</span>, <span class="st">"Bremen"</span>,      <span class="fl">1.73</span>, <span class="dv">63</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb52-14"><a href=""></a>  <span class="st">"Luca"</span>,   <span class="st">"maennlich"</span>, <span class="dv">33</span>, <span class="st">"Gelsenkirchen"</span>, <span class="fl">1.88</span>, <span class="dv">78</span>, <span class="cn">TRUE</span></span>
+<span id="cb52-15"><a href=""></a>)</span>
+<span id="cb52-16"><a href=""></a></span>
+<span id="cb52-17"><a href=""></a>personen</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="übung-1" class="slide level3">
+<h3>Übung</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Aufgaben</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Lassen Sie sich die Struktur mit <code>glimpse()</code> ausgeben.</li>
+<li>Wandeln Sie mit <code>mutate()</code> die Variablen <code>Geschlecht</code> und <code>Wohnort</code> in Faktoren um.</li>
+<li>Filtern Sie alle Personen, die rauchen.</li>
+<li>Berechnen Sie Mittelwert, Standardabweichung und Median von <code>Alter</code> getrennt nach <code>Geschlecht</code>.</li>
+<li>Sortieren Sie den Datensatz alphabetisch nach <code>Wohnort</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="daten-umformen-mit-tidyr" class="title-slide slide level1 center">
+<h1>Daten umformen mit tidyr</h1>
+
+</section>
+<section id="warum-daten-umformen" class="slide level3">
+<h3>Warum Daten umformen?</h3>
+<p>Manchmal liegen Daten nicht in der Form vor, die wir für eine Analyse brauchen.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Messzeitpunkte stehen in mehreren Spalten.</li>
+<li>Variablennamen stehen als Werte in einer Spalte.</li>
+<li>Für Vergleiche sollen Werte nebeneinanderstehen.</li>
+</ul>
+<div class="fragment">
+<p><code>tidyr</code> hilft dabei, Daten in die passende Form zu bringen.</p>
+</div>
+</section>
+<section id="ist-dieser-datensatz-tidy" class="slide level3">
+<h3>Ist dieser Datensatz <code>tidy</code>?</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>lebenserwartung_breit <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb53-2"><a href=""></a>  <span class="at">land =</span> <span class="fu">c</span>(<span class="st">"Deutschland"</span>, <span class="st">"Frankreich"</span>, <span class="st">"Italien"</span>),</span>
+<span id="cb53-3"><a href=""></a>  <span class="st">`</span><span class="at">2000</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">78.0</span>, <span class="fl">79.1</span>, <span class="fl">79.8</span>),</span>
+<span id="cb53-4"><a href=""></a>  <span class="st">`</span><span class="at">2005</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">79.2</span>, <span class="fl">80.3</span>, <span class="fl">81.0</span>),</span>
+<span id="cb53-5"><a href=""></a>  <span class="st">`</span><span class="at">2010</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">80.1</span>, <span class="fl">81.6</span>, <span class="fl">82.0</span>)</span>
+<span id="cb53-6"><a href=""></a>)</span>
+<span id="cb53-7"><a href=""></a></span>
+<span id="cb53-8"><a href=""></a>lebenserwartung_breit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="langes-und-breites-format" class="slide level3">
+<h3>Langes und breites Format</h3>
+<p><strong>Langes Format:</strong> häufig praktisch für Analysen mit <code>dplyr</code> und Grafiken.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a href=""></a>  <span class="fu">select</span>(country, year, lifeExp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   country      year lifeExp
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952    28.8
+ 2 Afghanistan  1957    30.3
+ 3 Afghanistan  1962    32.0
+ 4 Afghanistan  1967    34.0
+ 5 Afghanistan  1972    36.1
+ 6 Afghanistan  1977    38.4
+ 7 Afghanistan  1982    39.9
+ 8 Afghanistan  1987    40.8
+ 9 Afghanistan  1992    41.7
+10 Afghanistan  1997    41.8
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="langes-und-breites-format-1" class="slide level3">
+<h3>Langes und breites Format</h3>
+<p><strong>Breites Format:</strong> praktisch für Tabellen und direkte Vergleiche.</p>
+<div class="fragment">
+<p>Beispiel: Die Jahre werden zu eigenen Spalten.</p>
+</div>
+</section>
+<section id="von-lang-nach-breit-pivot_wider" class="slide level3">
+<h3>Von lang nach breit: pivot_wider()</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a>gapminder_klein <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href=""></a>  <span class="fu">select</span>(country, year, lifeExp)</span>
+<span id="cb56-4"><a href=""></a></span>
+<span id="cb56-5"><a href=""></a> gapminder_breit <span class="ot">&lt;-</span> gapminder_klein <span class="sc">|&gt;</span></span>
+<span id="cb56-6"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb56-7"><a href=""></a>    <span class="at">names_from =</span> year,</span>
+<span id="cb56-8"><a href=""></a>    <span class="at">values_from =</span> lifeExp</span>
+<span id="cb56-9"><a href=""></a>  )</span>
+<span id="cb56-10"><a href=""></a></span>
+<span id="cb56-11"><a href=""></a>gapminder_breit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 13
+  country `1952` `1957` `1962` `1967` `1972` `1977` `1982` `1987` `1992` `1997`
+  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 France    67.4   68.9   70.5   71.6   72.4   73.8   74.9   76.3   77.5   78.6
+2 Germany   67.5   69.1   70.3   70.8   71     72.5   73.8   74.8   76.1   77.3
+3 Italy     65.9   67.8   69.2   71.1   72.2   73.5   75.0   76.4   77.4   78.8
+# ℹ 2 more variables: `2002` &lt;dbl&gt;, `2007` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="pivot_wider-die-argumente" class="slide level3">
+<h3>pivot_wider(): die Argumente</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">pivot_wider</span>(</span>
+<span id="cb58-2"><a href=""></a>  <span class="at">names_from =</span> year,</span>
+<span id="cb58-3"><a href=""></a>  <span class="at">values_from =</span> lifeExp</span>
+<span id="cb58-4"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>names_from = year</code>: Werte aus <code>year</code> werden neue Spaltennamen.</li>
+<li><code>values_from = lifeExp</code>: Werte aus <code>lifeExp</code> werden eingetragen.</li>
+</ul>
+<div class="fragment">
+<p>Das Ergebnis ist breiter: pro Land eine Zeile, pro Jahr eine Spalte.</p>
+</div>
+</section>
+<section id="von-breit-nach-lang-pivot_longer" class="slide level3">
+<h3>Von breit nach lang: pivot_longer()</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>gapminder_lang <span class="ot">&lt;-</span> gapminder_breit <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb59-3"><a href=""></a>    <span class="at">cols =</span> <span class="sc">-</span>country,</span>
+<span id="cb59-4"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb59-5"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"lifeExp"</span></span>
+<span id="cb59-6"><a href=""></a>  )</span>
+<span id="cb59-7"><a href=""></a></span>
+<span id="cb59-8"><a href=""></a>gapminder_lang</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 3
+   country year  lifeExp
+   &lt;fct&gt;   &lt;chr&gt;   &lt;dbl&gt;
+ 1 France  1952     67.4
+ 2 France  1957     68.9
+ 3 France  1962     70.5
+ 4 France  1967     71.6
+ 5 France  1972     72.4
+ 6 France  1977     73.8
+ 7 France  1982     74.9
+ 8 France  1987     76.3
+ 9 France  1992     77.5
+10 France  1997     78.6
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<p>Nach dem Umformen gibt es wieder ein Land und ein Jahr pro Zeile.</p>
+</section>
+<section id="datentypen-prüfen" class="slide level3">
+<h3>Datentypen prüfen</h3>
+<p>Nach dem Pivotieren sollten Datentypen geprüft werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>gapminder_lang <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href=""></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 36
+Columns: 3
+$ country &lt;fct&gt; "France", "France", "France", "France", "France", "France", "F…
+$ year    &lt;chr&gt; "1952", "1957", "1962", "1967", "1972", "1977", "1982", "1987"…
+$ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76.340…</code></pre>
+</div>
+</div>
+<p>Spaltennamen werden beim Pivotieren manchmal als Text interpretiert.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>gapminder_lang <span class="ot">&lt;-</span> gapminder_lang <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="beispiel-vergleich-1952-und-2007" class="slide level3">
+<h3>Beispiel: Vergleich 1952 und 2007</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>lifeExp_vergleich <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb64-3"><a href=""></a>  <span class="fu">select</span>(country, continent, year, lifeExp) <span class="sc">|&gt;</span></span>
+<span id="cb64-4"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb64-5"><a href=""></a>    <span class="at">names_from =</span> year,</span>
+<span id="cb64-6"><a href=""></a>    <span class="at">values_from =</span> lifeExp,</span>
+<span id="cb64-7"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"lifeExp_"</span></span>
+<span id="cb64-8"><a href=""></a>  )</span>
+<span id="cb64-9"><a href=""></a></span>
+<span id="cb64-10"><a href=""></a>lifeExp_vergleich</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 4
+   country     continent lifeExp_1952 lifeExp_2007
+   &lt;fct&gt;       &lt;fct&gt;            &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Afghanistan Asia              28.8         43.8
+ 2 Albania     Europe            55.2         76.4
+ 3 Algeria     Africa            43.1         72.3
+ 4 Angola      Africa            30.0         42.7
+ 5 Argentina   Americas          62.5         75.3
+ 6 Australia   Oceania           69.1         81.2
+ 7 Austria     Europe            66.8         79.8
+ 8 Bahrain     Asia              50.9         75.6
+ 9 Bangladesh  Asia              37.5         64.1
+10 Belgium     Europe            68           79.4
+# ℹ 132 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="veränderung-berechnen" class="slide level3">
+<h3>Veränderung berechnen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>lifeExp_vergleich <span class="ot">&lt;-</span> lifeExp_vergleich <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb66-3"><a href=""></a>    <span class="at">veraenderung =</span> lifeExp_2007 <span class="sc">-</span> lifeExp_1952</span>
+<span id="cb66-4"><a href=""></a>  )</span>
+<span id="cb66-5"><a href=""></a></span>
+<span id="cb66-6"><a href=""></a>lifeExp_vergleich <span class="sc">|&gt;</span></span>
+<span id="cb66-7"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(veraenderung))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 5
+   country            continent lifeExp_1952 lifeExp_2007 veraenderung
+   &lt;fct&gt;              &lt;fct&gt;            &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Oman               Asia              37.6         75.6         38.1
+ 2 Vietnam            Asia              40.4         74.2         33.8
+ 3 Indonesia          Asia              37.5         70.6         33.2
+ 4 Saudi Arabia       Asia              39.9         72.8         32.9
+ 5 Libya              Africa            42.7         74.0         31.2
+ 6 Korea, Rep.        Asia              47.5         78.6         31.2
+ 7 Nicaragua          Americas          42.3         72.9         30.6
+ 8 West Bank and Gaza Asia              43.2         73.4         30.3
+ 9 Yemen, Rep.        Asia              32.5         62.7         30.2
+10 Gambia             Africa            30           59.4         29.4
+# ℹ 132 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="übung-besucherzahlen-vergleichen" class="title-slide slide level2 center">
+<h2>Übung: Besucherzahlen vergleichen</h2>
+<p>Gegeben ist der folgende Datensatz:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb68-2"><a href=""></a></span>
+<span id="cb68-3"><a href=""></a>museen <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb68-4"><a href=""></a>  <span class="sc">~</span>museum,              <span class="sc">~</span>stadt,       <span class="sc">~</span>jahr, <span class="sc">~</span>besucher,</span>
+<span id="cb68-5"><a href=""></a>  <span class="st">"Stadtmuseum"</span>,        <span class="st">"München"</span>,    <span class="dv">2020</span>,  <span class="dv">42000</span>,</span>
+<span id="cb68-6"><a href=""></a>  <span class="st">"Stadtmuseum"</span>,        <span class="st">"München"</span>,    <span class="dv">2023</span>,  <span class="dv">68000</span>,</span>
+<span id="cb68-7"><a href=""></a>  <span class="st">"Technikmuseum"</span>,      <span class="st">"Berlin"</span>,     <span class="dv">2020</span>,  <span class="dv">95000</span>,</span>
+<span id="cb68-8"><a href=""></a>  <span class="st">"Technikmuseum"</span>,      <span class="st">"Berlin"</span>,     <span class="dv">2023</span>, <span class="dv">140000</span>,</span>
+<span id="cb68-9"><a href=""></a>  <span class="st">"Kunsthalle"</span>,         <span class="st">"Hamburg"</span>,    <span class="dv">2020</span>,  <span class="dv">58000</span>,</span>
+<span id="cb68-10"><a href=""></a>  <span class="st">"Kunsthalle"</span>,         <span class="st">"Hamburg"</span>,    <span class="dv">2023</span>,  <span class="dv">72000</span>,</span>
+<span id="cb68-11"><a href=""></a>  <span class="st">"Naturkundemuseum"</span>,   <span class="st">"Dresden"</span>,    <span class="dv">2020</span>,  <span class="dv">33000</span>,</span>
+<span id="cb68-12"><a href=""></a>  <span class="st">"Naturkundemuseum"</span>,   <span class="st">"Dresden"</span>,    <span class="dv">2023</span>,  <span class="dv">51000</span>,</span>
+<span id="cb68-13"><a href=""></a>  <span class="st">"Designmuseum"</span>,       <span class="st">"Köln"</span>,       <span class="dv">2020</span>,  <span class="dv">26000</span>,</span>
+<span id="cb68-14"><a href=""></a>  <span class="st">"Designmuseum"</span>,       <span class="st">"Köln"</span>,       <span class="dv">2023</span>,  <span class="dv">39000</span></span>
+<span id="cb68-15"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+
+<section id="übung-besucherzahlen-vergleichen-1" class="title-slide slide level2 center">
+<h2>Übung: Besucherzahlen vergleichen</h2>
+<p>Erstellen Sie eine Tabelle, in der für jedes Museum die Besucherzahlen der Jahre 2020 und 2023 nebeneinanderstehen.</p>
+<p>Nutzen Sie dafür:</p>
+<ul>
+<li><code>filter()</code></li>
+<li><code>select()</code></li>
+<li><code>pivot_wider()</code></li>
+<li><code>mutate()</code></li>
+</ul>
+<p>Berechnen Sie anschließend:</p>
+<ol type="1">
+<li>die absolute Veränderung der Besucherzahl zwischen 2020 und 2023,</li>
+<li>die prozentuale Veränderung der Besucherzahl zwischen 2020 und 2023.</li>
+</ol>
+<p>Sortieren Sie die Tabelle anschließend so, dass die Museen mit dem stärksten prozentualen Wachstum oben stehen.</p>
+</section>
+<section id="separate-eine-spalte-in-mehrere-spalten-aufteilen" class="slide level3">
+<h3><code>separate()</code>: Eine Spalte in mehrere Spalten aufteilen</h3>
+<p>Mit <code>separate()</code> können wir eine Spalte aufteilen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>personen <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb69-2"><a href=""></a>  <span class="sc">~</span>name,             <span class="sc">~</span>alter,</span>
+<span id="cb69-3"><a href=""></a>  <span class="st">"Müller, Anna"</span>,     <span class="dv">24</span>,</span>
+<span id="cb69-4"><a href=""></a>  <span class="st">"Schmidt, Ben"</span>,     <span class="dv">31</span>,</span>
+<span id="cb69-5"><a href=""></a>  <span class="st">"Kaya, Elif"</span>,       <span class="dv">28</span></span>
+<span id="cb69-6"><a href=""></a>)</span>
+<span id="cb69-7"><a href=""></a></span>
+<span id="cb69-8"><a href=""></a>personen <span class="sc">|&gt;</span></span>
+<span id="cb69-9"><a href=""></a>  <span class="fu">separate</span>(</span>
+<span id="cb69-10"><a href=""></a>    name,</span>
+<span id="cb69-11"><a href=""></a>    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"nachname"</span>, <span class="st">"vorname"</span>),</span>
+<span id="cb69-12"><a href=""></a>    <span class="at">sep =</span> <span class="st">", "</span></span>
+<span id="cb69-13"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  nachname vorname alter
+  &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;
+1 Müller   Anna       24
+2 Schmidt  Ben        31
+3 Kaya     Elif       28</code></pre>
+</div>
+</div>
+</section>
+<section id="drop_na-zeilen-mit-fehlenden-werten-entfernen" class="slide level3">
+<h3><code>drop_na()</code>: Zeilen mit fehlenden Werten entfernen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>messwerte <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb71-2"><a href=""></a>  <span class="at">person =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb71-3"><a href=""></a>  <span class="at">wert =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">15</span>)</span>
+<span id="cb71-4"><a href=""></a>)</span>
+<span id="cb71-5"><a href=""></a></span>
+<span id="cb71-6"><a href=""></a>messwerte <span class="sc">|&gt;</span></span>
+<span id="cb71-7"><a href=""></a>  <span class="fu">drop_na</span>(wert)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  person  wert
+  &lt;chr&gt;  &lt;dbl&gt;
+1 A         10
+2 C         15</code></pre>
+</div>
+</div>
+<p>Das entfernt alle Zeilen, in denen <code>wert</code> fehlt.</p>
+</section>
+<section id="replace_na-fehlende-werte-ersetzen" class="slide level3">
+<h3><code>replace_na()</code>: fehlende Werte ersetzen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>messwerte <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb73-2"><a href=""></a>  <span class="at">person =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb73-3"><a href=""></a>  <span class="at">wert =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">15</span>)</span>
+<span id="cb73-4"><a href=""></a>)</span>
+<span id="cb73-5"><a href=""></a></span>
+<span id="cb73-6"><a href=""></a>messwerte <span class="sc">|&gt;</span></span>
+<span id="cb73-7"><a href=""></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">wert =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  person  wert
+  &lt;chr&gt;  &lt;dbl&gt;
+1 A         10
+2 B          0
+3 C         15</code></pre>
+</div>
+</div>
+<p>Damit werden fehlende Werte in wert durch 0 ersetzt.</p>
+</section>
+</section>
+<section>
+<section id="textdaten-bereinigen-mit-stringr" class="title-slide slide level1 center">
+<h1>Textdaten bereinigen mit stringr</h1>
+
+</section>
+<section id="warum-textdaten-bereinigen" class="slide level3">
+<h3>Warum Textdaten bereinigen?</h3>
+<p>Manchmal liegt das Problem nicht in der Tabellenstruktur, sondern in den Textwerten.</p>
+<p>Typische Probleme:</p>
+<ul>
+<li>zusätzliche Leerzeichen,</li>
+<li>unterschiedliche Groß- und Kleinschreibung,</li>
+<li>uneinheitliche Schreibweisen,</li>
+<li>Werte, die nur teilweise gesucht oder ersetzt werden sollen.</li>
+</ul>
+</section>
+<section id="beispiel-uneinheitliche-ländernamen" class="slide level3">
+<h3>Beispiel: uneinheitliche Ländernamen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>laender_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb75-2"><a href=""></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">" Germany"</span>, <span class="st">"france"</span>, <span class="st">"ITALY "</span>,</span>
+<span id="cb75-3"><a href=""></a>              <span class="st">"United  Kingdom"</span>, <span class="st">"bosnia and herzegovina"</span>),</span>
+<span id="cb75-4"><a href=""></a>  <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>, <span class="dv">2007</span>),</span>
+<span id="cb75-5"><a href=""></a>  <span class="at">lifeExp =</span> <span class="fu">c</span>(<span class="fl">79.4</span>, <span class="fl">80.7</span>, <span class="fl">80.5</span>, <span class="fl">79.4</span>, <span class="fl">74.9</span>)</span>
+<span id="cb75-6"><a href=""></a>)</span>
+<span id="cb75-7"><a href=""></a></span>
+<span id="cb75-8"><a href=""></a>laender_roh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  country                   year lifeExp
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt;
+1 " Germany"                2007    79.4
+2 "france"                  2007    80.7
+3 "ITALY "                  2007    80.5
+4 "United  Kingdom"         2007    79.4
+5 "bosnia and herzegovina"  2007    74.9</code></pre>
+</div>
+</div>
+<p>Die Ländernamen sind absichtlich uneinheitlich geschrieben.</p>
+</section>
+<section id="leerzeichen-bereinigen" class="slide level3">
+<h3>Leerzeichen bereinigen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb77-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb77-3"><a href=""></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb77-4"><a href=""></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb77-5"><a href=""></a>      <span class="fu">str_squish</span>()</span>
+<span id="cb77-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 france                
+3 "ITALY "                  2007    80.5 ITALY                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 bosnia and herzegovina</code></pre>
+</div>
+</div>
+<ul>
+<li><code>str_trim()</code> entfernt Leerzeichen außen.</li>
+<li><code>str_squish()</code> reduziert mehrere Leerzeichen innerhalb eines Textes.</li>
+</ul>
+</section>
+<section id="groß--und-kleinschreibung-vereinheitlichen" class="slide level3">
+<h3>Groß- und Kleinschreibung vereinheitlichen</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>laender_clean <span class="ot">&lt;-</span> laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb79-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb79-3"><a href=""></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb79-4"><a href=""></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb79-5"><a href=""></a>      <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
+<span id="cb79-6"><a href=""></a>      <span class="fu">str_to_title</span>()</span>
+<span id="cb79-7"><a href=""></a>  )</span>
+<span id="cb79-8"><a href=""></a></span>
+<span id="cb79-9"><a href=""></a>laender_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 France                
+3 "ITALY "                  2007    80.5 Italy                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 Bosnia And Herzegovina</code></pre>
+</div>
+</div>
+<p><code>str_to_title()</code> bringt Text in eine einheitliche Schreibweise.</p>
+</section>
+<section id="textmuster-suchen-mit-str_detect" class="slide level3">
+<h3>Textmuster suchen mit str_detect()</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb81-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb81-3"><a href=""></a>    <span class="at">contains_united =</span> <span class="fu">str_detect</span>(country_clean, <span class="st">"United"</span>)</span>
+<span id="cb81-4"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  country                   year lifeExp country_clean          contains_united
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                  &lt;lgl&gt;          
+1 " Germany"                2007    79.4 Germany                FALSE          
+2 "france"                  2007    80.7 France                 FALSE          
+3 "ITALY "                  2007    80.5 Italy                  FALSE          
+4 "United  Kingdom"         2007    79.4 United Kingdom         TRUE           
+5 "bosnia and herzegovina"  2007    74.9 Bosnia And Herzegovina FALSE          </code></pre>
+</div>
+</div>
+<p>Das Ergebnis ist eine logische Spalte mit <code>TRUE</code> oder <code>FALSE</code>.</p>
+</section>
+<section id="textmuster-suchen-mit-str_detect-1" class="slide level3">
+<h3>Textmuster suchen mit str_detect()</h3>
+<p>Direkt filtern:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb83-2"><a href=""></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(country_clean, <span class="st">"United"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  country          year lifeExp country_clean 
+  &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         
+1 United  Kingdom  2007    79.4 United Kingdom</code></pre>
+</div>
+</div>
+</section>
+<section id="schreibweisen-gezielt-korrigieren" class="slide level3">
+<h3>Schreibweisen gezielt korrigieren</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a>laender_clean <span class="ot">&lt;-</span> laender_clean <span class="sc">|&gt;</span></span>
+<span id="cb85-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb85-3"><a href=""></a>    <span class="at">country_clean =</span> <span class="fu">case_when</span>(</span>
+<span id="cb85-4"><a href=""></a>      <span class="fu">str_detect</span>(country_clean, <span class="st">"Bosnia"</span>) <span class="sc">~</span> <span class="st">"Bosnia and Herzegovina"</span>,</span>
+<span id="cb85-5"><a href=""></a>      <span class="cn">TRUE</span> <span class="sc">~</span> country_clean</span>
+<span id="cb85-6"><a href=""></a>    )</span>
+<span id="cb85-7"><a href=""></a>  )</span>
+<span id="cb85-8"><a href=""></a></span>
+<span id="cb85-9"><a href=""></a>laender_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  country                   year lifeExp country_clean         
+  &lt;chr&gt;                    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                 
+1 " Germany"                2007    79.4 Germany               
+2 "france"                  2007    80.7 France                
+3 "ITALY "                  2007    80.5 Italy                 
+4 "United  Kingdom"         2007    79.4 United Kingdom        
+5 "bosnia and herzegovina"  2007    74.9 Bosnia and Herzegovina</code></pre>
+</div>
+</div>
+<p><code>TRUE ~ country_clean</code> bedeutet: Wenn keine Bedingung zutrifft, bleibt der Wert erhalten.</p>
+</section>
+<section id="warum-ist-das-wichtig" class="slide level3">
+<h3>Warum ist das wichtig?</h3>
+<p>R vergleicht Zeichenketten exakt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">" Germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">"germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="st">"United Kingdom"</span> <span class="sc">==</span> <span class="st">"United  Kingdom"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Solche Unterschiede können dazu führen, dass Filter, Gruppierungen oder Joins nicht wie erwartet funktionieren.</p>
+</section>
+<section id="übung-städtenamen-bereinigen" class="slide level3">
+<h3>Übung: Städtenamen bereinigen</h3>
+<p>Erstellen Sie eine kleine Tabelle mit uneinheitlichen Städtenamen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a>staedte_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb93-2"><a href=""></a>  <span class="at">stadt =</span> <span class="fu">c</span>(<span class="st">" berlin"</span>, <span class="st">"BERLIN "</span>, <span class="st">"münchen"</span>, <span class="st">" München  "</span>, <span class="st">"HAMBURG"</span>, <span class="st">"hamburg "</span>),</span>
+<span id="cb93-3"><a href=""></a>  <span class="at">messwert =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">22</span>)</span>
+<span id="cb93-4"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Bereinigen Sie die Spalte <code>stadt</code> so, dass daraus einheitliche Werte entstehen. Berechnen Sie anschließend für jede bereinigte Stadt den durchschnittlichen <code>messwert</code>.</p>
+</section></section>
+<section>
+<section id="abschluss" class="title-slide slide level1 center">
+<h1>Abschluss</h1>
+
+</section>
+<section id="merke-stringr" class="slide level3">
+<h3>Merke: stringr</h3>
+<p>Wichtige Funktionen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="fu">str_trim</span>(text)              <span class="co"># Leerzeichen außen entfernen</span></span>
+<span id="cb94-2"><a href=""></a><span class="fu">str_squish</span>(text)            <span class="co"># Mehrfache Leerzeichen reduzieren</span></span>
+<span id="cb94-3"><a href=""></a><span class="fu">str_to_title</span>(text)          <span class="co"># Groß-/Kleinschreibung vereinheitlichen</span></span>
+<span id="cb94-4"><a href=""></a><span class="fu">str_detect</span>(text, <span class="st">"Muster"</span>)  <span class="co"># Textmuster erkennen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="zusammenfassung" class="slide level3">
+<h3>Zusammenfassung</h3>
+<p>In dieser Einheit haben Sie gelernt:</p>
+<ul>
+<li><code>filter()</code> behält Zeilen nach Bedingungen.</li>
+<li><code>select()</code> wählt Spalten aus oder schließt sie aus.</li>
+<li><code>|&gt;</code> macht Analyseketten lesbarer.</li>
+<li><code>arrange()</code> sortiert Daten.</li>
+<li><code>mutate()</code> berechnet neue Variablen.</li>
+<li><code>group_by()</code> und <code>summarise()</code> berechnen gruppierte Kennzahlen.</li>
+<li><code>pivot_wider()</code> und <code>pivot_longer()</code> formen Daten um.</li>
+<li><code>stringr</code> bereinigt Textwerte.</li>
+</ul>
+</section>
+<section id="mini-abschlussfrage" class="slide level3">
+<h3>Mini-Abschlussfrage</h3>
+<p>Welche Funktion würden Sie verwenden?</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Ziel</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nur Länder aus Europa behalten</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Nur <code>country</code>, <code>year</code>, <code>lifeExp</code> anzeigen</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>Bevölkerung in Millionen berechnen</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Mittlere Lebenserwartung pro Kontinent</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>Jahre zu Spalten machen</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Leerzeichen in Texten entfernen</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Lösung: <code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>group_by()</code> + <code>summarise()</code>, <code>pivot_wider()</code>, <code>str_trim()</code> / <code>str_squish()</code>.</p>
+</div>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>04 Tidyverse</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="04-daten-vorverarbeiten-slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
