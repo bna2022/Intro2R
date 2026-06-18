@@ -1,0 +1,903 @@
+---
+title: "04 Tidyverse"
+subtitle: ""
+date: "2026-05-28"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 3
+    footer: "04 Tidyverse"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    resources:
+      - ../figures/*.png
+    format:
+  
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Überblick
+
+### Lernziele
+
+Nach dieser Einheit können Sie ...
+
+- Spalten mit `select()` auswählen oder ausschließen,
+- Zeilen mit `filter()` anhand von Bedingungen auswählen,
+- mehrere Arbeitsschritte mit `|>` verbinden,
+- Daten mit `arrange()` sortieren,
+- neue Variablen mit `mutate()` berechnen,
+- Gruppen mit `group_by()` und `summarise()` auswerten,
+- Daten mit `pivot_wider()` und `pivot_longer()` umformen,
+- Textwerte mit `stringr` bereinigen.
+
+# Tidyverse und Tidy Data
+
+### Was ist das Tidyverse?
+
+Das `tidyverse` ist eine Sammlung von R-Paketen für typische Schritte der
+Datenanalyse.
+
+| Aufgabe | Paket | Beispiele |
+|---|---|---|
+| Daten transformieren | `dplyr` | `filter()`, `select()`, `mutate()` |
+| Daten umformen | `tidyr` | `pivot_wider()`, `pivot_longer()` |
+| Texte bearbeiten | `stringr` | `str_trim()`, `str_detect()` |
+| Daten visualisieren | `ggplot2` | `ggplot()` |
+
+::: {.fragment}
+Die Pakete verwenden eine ähnliche Schreibweise und lassen sich gut
+kombinieren.
+:::
+
+### Tidy Data
+
+Eine Tabelle ist **tidy**, wenn sie drei Grundregeln erfüllt:
+
+1. Jede Variable steht in einer eigenen Spalte.
+2. Jede Beobachtung steht in einer eigenen Zeile.
+3. Jeder Wert steht in einer eigenen Zelle.
+
+::: {.fragment}
+Beispiel: Eine Zeile in `gapminder` beschreibt ein Land in einem bestimmten
+Jahr.
+:::
+
+# Vorbereitung
+
+### Pakete laden
+
+```{r echo=TRUE}
+# Nur einmal nötig:
+# install.packages("tidyverse")
+# install.packages("gapminder")
+
+# In jeder neuen Sitzung nötig:
+library(tidyverse)
+library(gapminder)
+```
+
+::: {.callout-note}
+Wenn eine Funktion in mehreren Paketen vorkommt, kann der Paketname
+vorangestellt werden, zum Beispiel `dplyr::filter()`.
+:::
+
+### Gapminder kennenlernen
+
+Der Datensatz `gapminder` enthält Länderinformationen über mehrere Jahre.
+
+```{r echo=TRUE}
+gapminder
+```
+
+Wichtige Variablen:
+
+- `country`: Land
+- `continent`: Kontinent
+- `year`: Jahr
+- `lifeExp`: Lebenserwartung
+- `pop`: Bevölkerung
+- `gdpPercap`: BIP pro Kopf
+
+### Tibble oder Data Frame?
+
+`gapminder` ist ein **tibble**.
+
+Ein tibble ist eine moderne Variante eines Data Frames:
+
+- kompaktere Ausgabe,
+- Anzeige von Datentypen,
+- weiterhin ein normaler Data Frame.
+
+```{r echo=TRUE}
+class(gapminder)
+```
+
+::: {.fragment}
+Alles, was Sie über Data Frames gelernt haben, bleibt nützlich.
+:::
+
+### Orientierung im Datensatz
+
+```{r echo=TRUE}
+nrow(gapminder)
+ncol(gapminder)
+names(gapminder)
+glimpse(gapminder)
+```
+
+`glimpse()` zeigt jede Variable in einer eigenen Zeile.
+
+Das ist besonders hilfreich bei breiten Tabellen mit vielen Spalten.
+
+# Daten mit dplyr bearbeiten
+
+### Warum dplyr?
+
+Mit Base R ist vieles möglich:
+
+```{r echo=TRUE}
+gapminder[gapminder$country == "Germany" & gapminder$year >= 1990,
+          c("country", "year", "lifeExp", "gdpPercap")]
+```
+
+Der Code funktioniert, aber mehrere Dinge stehen gleichzeitig in einem
+Ausdruck.
+
+::: {.fragment}
+Mit `dplyr` werden Analyseschritte klarer getrennt.
+:::
+
+### Dieselbe Idee mit dplyr
+
+```{r echo=TRUE}
+gapminder |>
+  filter(country == "Germany", year >= 1990) |>
+  select(country, year, lifeExp, gdpPercap)
+```
+
+
+### Wichtige dplyr-Verben
+
+| Frage | Funktion |
+|---|---|
+| Welche Zeilen brauche ich? | `filter()` |
+| Welche Spalten brauche ich? | `select()` |
+| Wie sortiere ich Daten? | `arrange()` |
+| Wie berechne ich neue Variablen? | `mutate()` |
+| Wie fasse ich Gruppen zusammen? | `group_by()` + `summarise()` |
+
+::: {.fragment}
+`dplyr` ist keine neue Datenstruktur, sondern eine lesbare Sprache für
+Data Frames und Tibbles.
+:::
+
+# Zeilen auswählen
+
+### Zeilen filtern mit filter()
+
+Mit `filter()` wählen Sie Zeilen aus, die eine Bedingung erfüllen.
+
+```r
+gapminder |>
+  filter(country == "Germany")
+```
+
+Zum Vergleich in Base R:
+
+```r
+gapminder[gapminder$country == "Germany", ]
+```
+
+### Mehrere Bedingungen
+
+Mehrere Bedingungen innerhalb von `filter()` werden wie ein logisches UND
+behandelt.
+
+```r
+gapminder |>
+  filter(country == "Germany", year >= 1990)
+```
+
+Das ist gleichbedeutend mit:
+
+```r
+gapminder |>
+  filter(country == "Germany" & year >= 1990)
+```
+
+### Mehrere mögliche Werte
+
+Für mehrere mögliche Werte nutzen Sie `%in%`.
+
+```r
+gapminder |>
+  filter(country %in% c("Germany", "France", "Italy"))
+```
+
+Gelesen:
+
+> Behalte alle Zeilen, bei denen `country` in dieser Liste vorkommt.
+
+
+# Spalten auswählen
+
+### Spalten auswählen mit select()
+
+Mit `select()` wählen Sie Spalten aus.
+
+```{r echo=TRUE}
+gapminder |>
+  select(country, year, lifeExp)
+```
+
+Das Ergebnis enthält nur die genannten Spalten.
+
+### Spalten ausschließen
+
+Das Minuszeichen bedeutet: Diese Spalte wird entfernt.
+
+```r
+gapminder |>
+  select(-pop)
+```
+
+Mehrere Spalten ausschließen:
+
+```r
+gapminder |>
+  select(-c(pop, gdpPercap))
+```
+
+### Spalten umsortieren
+
+`select()` kann Spalten auch in eine neue Reihenfolge bringen.
+
+```{r echo=TRUE}
+gapminder |>
+  select(year, country, continent, lifeExp, pop, gdpPercap)
+```
+
+::: {.fragment}
+Das verändert die Reihenfolge der Spalten in der Ausgabe, nicht die
+inhaltlichen Werte.
+:::
+
+### Hilfsfunktionen in select()
+
+Bei vielen Spaltennamen sind Hilfsfunktionen praktisch.
+
+```{r echo=TRUE}
+gapminder |>
+  select(starts_with("c"))
+```
+
+```{r echo=TRUE}
+gapminder |>
+  select(contains("p"))
+```
+
+Weitere Beispiele: `ends_with()`, `everything()`, `where()`.
+
+
+# Arbeitsschritte verbinden
+
+### Der Pipe-Operator |>
+
+Der Pipe-Operator `|>` übergibt das Ergebnis eines Schrittes an den nächsten
+Schritt.
+
+Man kann ihn als **dann** lesen.
+
+```r
+gapminder |>
+  filter(country == "Germany") |>
+  select(year, lifeExp)
+```
+
+::: {.callout-tip}
+Lesen Sie den Code laut: Nimm `gapminder`, dann filtere Deutschland, dann
+wähle Jahr und Lebenserwartung.
+:::
+
+### Eine typische Analysekette
+
+```r
+gapminder |>
+  filter(continent == "Europe", year == 2007) |>
+  select(country, lifeExp, gdpPercap) |>
+  arrange(desc(lifeExp))
+```
+
+Dieser Code macht vier Dinge:
+
+1. Datensatz nehmen,
+2. auf Europa und 2007 filtern,
+3. drei Spalten auswählen,
+4. absteigend nach Lebenserwartung sortieren.
+
+### Übung: Pipe-Ketten lesen
+
+Beschreiben Sie in eigenen Worten, was dieser Code macht:
+
+```r
+gapminder |>
+  filter(continent == "Asia", year == 2007) |>
+  select(country, pop, lifeExp) |>
+  arrange(desc(pop))
+```
+
+Schreiben Sie anschließend eine eigene Pipe-Kette für die Frage:
+
+> Welche afrikanischen Länder hatten im Jahr 2007 die höchste
+> Lebenserwartung?
+
+# Sortieren und neue Variablen
+
+### Daten sortieren mit arrange()
+
+Mit `arrange()` sortieren Sie Zeilen nach einer oder mehreren Variablen.
+
+```{r echo=TRUE}
+gapminder |>
+  arrange(desc(lifeExp))
+```
+
+`desc`: Die größten Werte stehen oben.
+
+### Sortieren in einer Analyse
+
+Sortierte Tabellen sind übersichtlicher, wenn vorher wichtige Spalten
+ausgewählt werden.
+
+```{r echo=TRUE}
+gapminder |>
+  filter(year == 2007) |>
+  select(country, continent, lifeExp) |>
+  arrange(desc(lifeExp))
+```
+
+
+### Neue Variablen mit mutate()
+
+Mit `mutate()` erzeugen Sie neue Spalten oder verändern bestehende Spalten.
+
+```{r echo=TRUE}
+gapminder |>
+  mutate(pop_mio = pop / 1000000) |>
+  select(country, year, pop, pop_mio)
+```
+
+::: {.fragment}
+Die neue Spalte `pop_mio` enthält die Bevölkerung in Millionen.
+:::
+
+### BIP insgesamt schätzen
+
+`gdpPercap` ist das BIP pro Kopf. Eine grobe Schätzung des gesamten BIP erhalten wir durch Multiplikation mit
+der Bevölkerung.
+
+```{r echo=TRUE}
+gapminder |>
+  mutate(gdp_total = gdpPercap * pop) |>
+  select(country, year, pop, gdpPercap, gdp_total)
+```
+
+### Kategorien mit case_when()
+
+`case_when()` übersetzt mehrere Bedingungen in Kategorien.
+
+```{r echo=TRUE}
+gapminder |>
+  mutate(lifeExp_group = case_when(
+    lifeExp < 50 ~ "unter 50",
+    lifeExp < 70 ~ "50 bis unter 70",
+    TRUE ~ "70 und mehr"
+  )) |>
+  select(country, year, lifeExp, lifeExp_group)
+```
+
+### Kategorien mit case_when()
+
+::: {.callout-note}
+`TRUE ~ ...` ist die Auffangkategorie: Alle übrigen Fälle erhalten diesen
+Wert.
+:::
+
+---
+
+
+### Gruppieren und zusammenfassen
+
+Viele Fragen beziehen sich auf Gruppen:
+
+- Wie hoch ist die durchschnittliche Lebenserwartung pro Kontinent?
+- Wie groß ist die Bevölkerung pro Kontinent?
+- Welche Gruppe hat den höchsten Mittelwert?
+
+Dafür kombinieren wir `group_by()` und `summarise()`.
+
+### Durchschnitt pro Kontinent
+
+```{r echo=TRUE}
+gapminder |>
+  filter(year == 2007) |>
+  group_by(continent) |>
+  summarise(mean_lifeExp = mean(lifeExp))
+```
+
+Dieser Code bedeutet:
+1. Behalte nur das Jahr 2007.
+2. Gruppiere nach Kontinent.
+3. Berechne pro Kontinent die mittlere Lebenserwartung.
+
+### Mehrere Kennzahlen berechnen
+
+```{r echo=TRUE}
+gapminder |>
+  filter(year == 2007) |>
+  group_by(continent) |>
+  summarise(
+    mean_lifeExp = mean(lifeExp),
+    min_lifeExp = min(lifeExp),
+    max_lifeExp = max(lifeExp),
+    n_countries = n()
+  )
+```
+
+`n()` zählt, wie viele Zeilen in jeder Gruppe enthalten sind.
+
+### Gruppierung über mehrere Variablen
+
+```{r echo=TRUE}
+gapminder |>
+  group_by(continent, year) |>
+  summarise(mean_lifeExp = mean(lifeExp), .groups = "drop")
+```
+
+`.groups = "drop"` hebt die Gruppierung nach der Zusammenfassung wieder auf.
+
+::: {.fragment}
+Das verhindert, dass spätere Berechnungen versehentlich noch gruppiert
+ausgeführt werden.
+:::
+
+### Übung
+
+Nutzen Sie den folgenden Datensatz. 
+
+```{r echo=TRUE, eval=FALSE}
+library(tidyverse)
+
+personen <- tribble(
+  ~Vorname, ~Geschlecht, ~Alter, ~Wohnort, ~Groesse, ~Gewicht, ~Rauchen,
+  "Hannah", "weiblich", 25, "Berlin",      1.75, 65, FALSE,
+  "Max",    "maennlich", 30, "Hamburg",     1.85, 75, TRUE,
+  "Sophia", "weiblich", 20, "Muenchen",    1.65, 55, FALSE,
+  "Lukas",  "maennlich", 35, "Frankfurt",   1.95, 85, TRUE,
+  "Emma",   "weiblich", 18, "Stuttgart",   1.70, 60, FALSE,
+  "Jonas",  "maennlich", 40, "Duesseldorf", 1.80, 70, TRUE,
+  "Lea",    "weiblich", 22, "Hannover",    1.60, 50, FALSE,
+  "Jan",    "divers",    28, "Nuernberg",   1.90, 80, TRUE,
+  "Mia",    "weiblich", 24, "Bremen",      1.73, 63, FALSE,
+  "Luca",   "maennlich", 33, "Gelsenkirchen", 1.88, 78, TRUE
+)
+
+personen
+```
+---
+
+### Übung
+
+:::{.callout-note}
+## Aufgaben
+
+- Lassen Sie sich die Struktur mit `glimpse()` ausgeben.
+- Wandeln Sie mit `mutate()` die Variablen `Geschlecht` und `Wohnort` in Faktoren um.
+- Filtern Sie alle Personen, die rauchen.
+- Berechnen Sie Mittelwert, Standardabweichung und Median von `Alter` getrennt nach `Geschlecht`.
+- Sortieren Sie den Datensatz alphabetisch nach `Wohnort`.
+:::
+
+# Daten umformen mit tidyr
+
+### Warum Daten umformen?
+
+Manchmal liegen Daten nicht in der Form vor, die wir für eine Analyse brauchen.
+
+Beispiele:
+
+- Messzeitpunkte stehen in mehreren Spalten.
+- Variablennamen stehen als Werte in einer Spalte.
+- Für Vergleiche sollen Werte nebeneinanderstehen.
+
+::: {.fragment}
+`tidyr` hilft dabei, Daten in die passende Form zu bringen.
+:::
+
+### Ist dieser Datensatz `tidy`? 
+
+```{r echo=TRUE, eval=FALSE}
+lebenserwartung_breit <- tibble(
+  land = c("Deutschland", "Frankreich", "Italien"),
+  `2000` = c(78.0, 79.1, 79.8),
+  `2005` = c(79.2, 80.3, 81.0),
+  `2010` = c(80.1, 81.6, 82.0)
+)
+
+lebenserwartung_breit
+```
+
+### Langes und breites Format
+
+**Langes Format:** häufig praktisch für Analysen mit `dplyr` und Grafiken.
+
+```{r echo=TRUE}
+gapminder |>
+  select(country, year, lifeExp)
+```
+
+### Langes und breites Format
+
+**Breites Format:** praktisch für Tabellen und direkte Vergleiche.
+
+::: {.fragment}
+Beispiel: Die Jahre werden zu eigenen Spalten.
+:::
+
+### Von lang nach breit: pivot_wider()
+
+```{r echo=TRUE}
+gapminder_klein <- gapminder |>
+  filter(country %in% c("Germany", "France", "Italy")) |>
+  select(country, year, lifeExp)
+
+ gapminder_breit <- gapminder_klein |>
+  pivot_wider(
+    names_from = year,
+    values_from = lifeExp
+  )
+
+gapminder_breit
+```
+
+### pivot_wider(): die Argumente
+
+```r
+pivot_wider(
+  names_from = year,
+  values_from = lifeExp
+)
+```
+
+- `names_from = year`: Werte aus `year` werden neue Spaltennamen.
+- `values_from = lifeExp`: Werte aus `lifeExp` werden eingetragen.
+
+::: {.fragment}
+Das Ergebnis ist breiter: pro Land eine Zeile, pro Jahr eine Spalte.
+:::
+
+### Von breit nach lang: pivot_longer()
+
+```{r echo=TRUE}
+gapminder_lang <- gapminder_breit |>
+  pivot_longer(
+    cols = -country,
+    names_to = "year",
+    values_to = "lifeExp"
+  )
+
+gapminder_lang
+```
+
+Nach dem Umformen gibt es wieder ein Land und ein Jahr pro Zeile.
+
+### Datentypen prüfen
+
+Nach dem Pivotieren sollten Datentypen geprüft werden.
+
+```{r echo=TRUE}
+gapminder_lang |>
+  glimpse()
+```
+
+Spaltennamen werden beim Pivotieren manchmal als Text interpretiert.
+
+```{r echo=TRUE}
+gapminder_lang <- gapminder_lang |>
+  mutate(year = as.integer(year))
+```
+
+### Beispiel: Vergleich 1952 und 2007
+
+```{r echo=TRUE}
+lifeExp_vergleich <- gapminder |>
+  filter(year %in% c(1952, 2007)) |>
+  select(country, continent, year, lifeExp) |>
+  pivot_wider(
+    names_from = year,
+    values_from = lifeExp,
+    names_prefix = "lifeExp_"
+  )
+
+lifeExp_vergleich
+```
+
+### Veränderung berechnen
+
+```{r echo=TRUE}
+lifeExp_vergleich <- lifeExp_vergleich |>
+  mutate(
+    veraenderung = lifeExp_2007 - lifeExp_1952
+  )
+
+lifeExp_vergleich |>
+  arrange(desc(veraenderung))
+```
+
+## Übung: Besucherzahlen vergleichen
+
+Gegeben ist der folgende Datensatz:
+
+```{r echo=TRUE}
+library(tidyverse)
+
+museen <- tribble(
+  ~museum,              ~stadt,       ~jahr, ~besucher,
+  "Stadtmuseum",        "München",    2020,  42000,
+  "Stadtmuseum",        "München",    2023,  68000,
+  "Technikmuseum",      "Berlin",     2020,  95000,
+  "Technikmuseum",      "Berlin",     2023, 140000,
+  "Kunsthalle",         "Hamburg",    2020,  58000,
+  "Kunsthalle",         "Hamburg",    2023,  72000,
+  "Naturkundemuseum",   "Dresden",    2020,  33000,
+  "Naturkundemuseum",   "Dresden",    2023,  51000,
+  "Designmuseum",       "Köln",       2020,  26000,
+  "Designmuseum",       "Köln",       2023,  39000
+)
+```
+
+## Übung: Besucherzahlen vergleichen
+
+Erstellen Sie eine Tabelle, in der für jedes Museum die Besucherzahlen der Jahre 2020 und 2023 nebeneinanderstehen.
+
+Nutzen Sie dafür:
+
+- `filter()`
+- `select()`
+- `pivot_wider()`
+- `mutate()`
+
+Berechnen Sie anschließend:
+
+1. die absolute Veränderung der Besucherzahl zwischen 2020 und 2023,
+2. die prozentuale Veränderung der Besucherzahl zwischen 2020 und 2023.
+
+Sortieren Sie die Tabelle anschließend so, dass die Museen mit dem stärksten prozentualen Wachstum oben stehen.
+
+### `separate()`: Eine Spalte in mehrere Spalten aufteilen
+
+Mit `separate()` können wir eine Spalte aufteilen.
+
+```{r echo=TRUE}
+
+personen <- tribble(
+  ~name,             ~alter,
+  "Müller, Anna",     24,
+  "Schmidt, Ben",     31,
+  "Kaya, Elif",       28
+)
+
+personen |>
+  separate(
+    name,
+    into = c("nachname", "vorname"),
+    sep = ", "
+  )
+
+```
+
+### `drop_na()`: Zeilen mit fehlenden Werten entfernen
+
+```{r echo=TRUE}
+
+messwerte <- tibble(
+  person = c("A", "B", "C"),
+  wert = c(10, NA, 15)
+)
+
+messwerte |>
+  drop_na(wert)
+
+```
+
+Das entfernt alle Zeilen, in denen `wert` fehlt.
+
+### `replace_na()`: fehlende Werte ersetzen
+
+```{r echo=TRUE}
+
+messwerte <- tibble(
+  person = c("A", "B", "C"),
+  wert = c(10, NA, 15)
+)
+
+messwerte |>
+  replace_na(list(wert = 0))
+
+```
+
+Damit werden fehlende Werte in wert durch 0 ersetzt.
+
+
+# Textdaten bereinigen mit stringr
+
+### Warum Textdaten bereinigen?
+
+Manchmal liegt das Problem nicht in der Tabellenstruktur, sondern in den
+Textwerten.
+
+Typische Probleme:
+
+- zusätzliche Leerzeichen,
+- unterschiedliche Groß- und Kleinschreibung,
+- uneinheitliche Schreibweisen,
+- Werte, die nur teilweise gesucht oder ersetzt werden sollen.
+
+### Beispiel: uneinheitliche Ländernamen
+
+```{r echo=TRUE}
+laender_roh <- tibble(
+  country = c(" Germany", "france", "ITALY ",
+              "United  Kingdom", "bosnia and herzegovina"),
+  year = c(2007, 2007, 2007, 2007, 2007),
+  lifeExp = c(79.4, 80.7, 80.5, 79.4, 74.9)
+)
+
+laender_roh
+```
+
+Die Ländernamen sind absichtlich uneinheitlich geschrieben.
+
+### Leerzeichen bereinigen
+
+```{r echo=TRUE}
+laender_roh |>
+  mutate(
+    country_clean = country |>
+      str_trim() |>
+      str_squish()
+  )
+```
+
+- `str_trim()` entfernt Leerzeichen außen.
+- `str_squish()` reduziert mehrere Leerzeichen innerhalb eines Textes.
+
+### Groß- und Kleinschreibung vereinheitlichen
+
+```{r echo=TRUE}
+laender_clean <- laender_roh |>
+  mutate(
+    country_clean = country |>
+      str_trim() |>
+      str_squish() |>
+      str_to_title()
+  )
+
+laender_clean
+```
+
+`str_to_title()` bringt Text in eine einheitliche Schreibweise.
+
+### Textmuster suchen mit str_detect()
+
+```{r echo=TRUE}
+laender_clean |>
+  mutate(
+    contains_united = str_detect(country_clean, "United")
+  )
+```
+
+Das Ergebnis ist eine logische Spalte mit `TRUE` oder `FALSE`.
+
+### Textmuster suchen mit str_detect()
+
+Direkt filtern:
+
+```{r echo=TRUE}
+laender_clean |>
+  filter(str_detect(country_clean, "United"))
+```
+
+### Schreibweisen gezielt korrigieren
+
+```{r echo=TRUE}
+laender_clean <- laender_clean |>
+  mutate(
+    country_clean = case_when(
+      str_detect(country_clean, "Bosnia") ~ "Bosnia and Herzegovina",
+      TRUE ~ country_clean
+    )
+  )
+
+laender_clean
+```
+
+`TRUE ~ country_clean` bedeutet: Wenn keine Bedingung zutrifft, bleibt der Wert
+erhalten.
+
+### Warum ist das wichtig?
+
+R vergleicht Zeichenketten exakt.
+
+```{r echo=TRUE}
+"Germany" == " Germany"
+"Germany" == "germany"
+"United Kingdom" == "United  Kingdom"
+```
+
+Solche Unterschiede können dazu führen, dass Filter, Gruppierungen oder Joins
+nicht wie erwartet funktionieren.
+
+### Übung: Städtenamen bereinigen
+
+Erstellen Sie eine kleine Tabelle mit uneinheitlichen Städtenamen:
+
+```{r echo=TRUE}
+staedte_roh <- tibble(
+  stadt = c(" berlin", "BERLIN ", "münchen", " München  ", "HAMBURG", "hamburg "),
+  messwert = c(12, 15, 20, 18, 25, 22)
+)
+```
+
+Bereinigen Sie die Spalte `stadt` so, dass daraus einheitliche Werte
+entstehen. Berechnen Sie anschließend für jede bereinigte Stadt den durchschnittlichen `messwert`.
+
+# Abschluss
+
+### Merke: stringr
+
+Wichtige Funktionen:
+
+```{r echo=TRUE, eval=FALSE}
+str_trim(text)              # Leerzeichen außen entfernen
+str_squish(text)            # Mehrfache Leerzeichen reduzieren
+str_to_title(text)          # Groß-/Kleinschreibung vereinheitlichen
+str_detect(text, "Muster")  # Textmuster erkennen
+```
+
+### Zusammenfassung
+
+In dieser Einheit haben Sie gelernt:
+
+- `filter()` behält Zeilen nach Bedingungen.
+- `select()` wählt Spalten aus oder schließt sie aus.
+- `|>` macht Analyseketten lesbarer.
+- `arrange()` sortiert Daten.
+- `mutate()` berechnet neue Variablen.
+- `group_by()` und `summarise()` berechnen gruppierte Kennzahlen.
+- `pivot_wider()` und `pivot_longer()` formen Daten um.
+- `stringr` bereinigt Textwerte.
+
+### Mini-Abschlussfrage
+
+Welche Funktion würden Sie verwenden?
+
+| Ziel | Funktion |
+|---|---|
+| Nur Länder aus Europa behalten | ? |
+| Nur `country`, `year`, `lifeExp` anzeigen | ? |
+| Bevölkerung in Millionen berechnen | ? |
+| Mittlere Lebenserwartung pro Kontinent | ? |
+| Jahre zu Spalten machen | ? |
+| Leerzeichen in Texten entfernen | ? |
+
+::: {.fragment}
+Lösung: `filter()`, `select()`, `mutate()`, `group_by()` + `summarise()`,
+`pivot_wider()`, `str_trim()` / `str_squish()`.
+:::
