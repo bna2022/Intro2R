@@ -1072,7 +1072,7 @@ Eine **Kante** steht für eine Beziehung zwischen zwei Knoten, zum Beispiel eine
 
 Im folgenden Beispiel betrachten wir ein kleines künstliches Netzwerk. Die Knoten sind Personen. Eine Kante bedeutet, dass zwei Personen miteinander verbunden sind.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 library(igraph)
 
 verbindungen <- data.frame(
@@ -1090,25 +1090,79 @@ Der Datensatz besteht aus zwei Spalten:
 
 Jede Zeile beschreibt also eine Verbindung zwischen zwei Personen.
 
+Eine solche Darstellung nennt man auch **Kantenliste**. Sie ist eine häufige Form, um Netzwerke in Tabellenform zu speichern.
+
+::: {.callout-note}
+## Kantenliste
+
+Eine **Kantenliste** beschreibt ein Netzwerk zeilenweise. Jede Zeile steht für eine Verbindung zwischen zwei Knoten.
+:::
+
 ### Netzwerkobjekt erstellen
 
 Damit R die Daten als Netzwerk interpretieren kann, erstellen wir zunächst ein Netzwerkobjekt.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 netzwerk <- graph_from_data_frame(verbindungen, directed = FALSE)
 
 netzwerk
 ```
 
-Das Argument `directed = FALSE` bedeutet, dass die Beziehungen **ungerichtet** sind. Eine Verbindung zwischen Anna und Ben wird also einfach als gegenseitige Verbindung betrachtet.
+Das Argument `directed = FALSE` bedeutet, dass die Beziehungen ungerichtet sind. Eine Verbindung zwischen Anna und Ben wird also einfach als gegenseitige Verbindung betrachtet.
 
-Bei gerichteten Netzwerken wäre die Richtung wichtig. Das wäre zum Beispiel bei Twitter/X-Followern oder Webseitenlinks der Fall.
+Bei gerichteten Netzwerken wäre die Richtung wichtig. Das wäre zum Beispiel bei Follower-Beziehungen oder Webseitenlinks der Fall.
+
+### Adjazenzmatrix: Netzwerke als Matrix darstellen
+
+Ein Netzwerk kann nicht nur als Kantenliste gespeichert werden, sondern auch als **Adjazenzmatrix**.
+
+Eine Adjazenzmatrix ist eine quadratische Matrix. Die Zeilen und Spalten entsprechen den Knoten des Netzwerks. In den Zellen steht, ob zwischen zwei Knoten eine Verbindung besteht.
+
+Bei einem ungewichteten Netzwerk gilt:
+
+- `1` bedeutet: Es gibt eine Kante zwischen zwei Knoten.
+- `0` bedeutet: Es gibt keine Kante zwischen zwei Knoten.
+
+Für unser soziales Netzwerk können wir die Adjazenzmatrix mit `as_adjacency_matrix()` erzeugen.
+
+```{r echo=TRUE}
+adjazenz <- as_adjacency_matrix(netzwerk, sparse = FALSE)
+
+adjazenz
+```
+
+Das Ergebnis ist eine Matrix. Die Zeilen und Spalten sind die Personen im Netzwerk.
+
+Steht zum Beispiel in der Zeile `Anna` und der Spalte `Ben` der Wert `1`, dann gibt es eine Verbindung zwischen Anna und Ben.
+
+```{r echo=TRUE}
+adjazenz["Anna", "Ben"]
+```
+
+Da unser Netzwerk ungerichtet ist, ist die Matrix symmetrisch. Wenn Anna mit Ben verbunden ist, dann ist auch Ben mit Anna verbunden.
+
+```{r echo=TRUE}
+adjazenz["Anna", "Ben"]
+adjazenz["Ben", "Anna"]
+```
+
+Beide Abfragen liefern denselben Wert.
+
+::: {.callout-note}
+## Kantenliste und Adjazenzmatrix
+
+Eine **Kantenliste** beschreibt ein Netzwerk zeilenweise: Jede Zeile steht für eine Verbindung.
+
+Eine **Adjazenzmatrix** beschreibt ein Netzwerk als Matrix: Jede Zelle zeigt, ob zwei Knoten verbunden sind.
+
+Kantenlisten sind oft übersichtlicher für die Eingabe von Netzwerken. Adjazenzmatrizen sind hilfreich, um Netzwerke als Matrix zu verstehen oder rechnerisch weiterzuverarbeiten.
+:::
 
 ### Einfache Netzwerkvisualisierung
 
 Mit `plot()` kann das Netzwerk direkt visualisiert werden.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 plot(netzwerk)
 ```
 
@@ -1120,7 +1174,7 @@ Allerdings ist diese erste Version noch sehr schlicht. Wie bei anderen Diagramme
 
 Zunächst können wir die Größe der Knoten, die Farbe und die Beschriftungen anpassen.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 plot(
   netzwerk,
   vertex.size = 30,
@@ -1138,7 +1192,8 @@ Die wichtigsten Argumente sind:
 - `vertex.color`: Farbe der Knoten,
 - `vertex.label.color`: Farbe der Beschriftung,
 - `vertex.label.cex`: Größe der Beschriftung,
-- `edge.color`: Farbe der Kanten.
+- `edge.color`: Farbe der Kanten,
+- `main`: Titel der Grafik.
 
 ### Zentrale Knoten hervorheben
 
@@ -1146,7 +1201,7 @@ In Netzwerken ist häufig interessant, welche Knoten besonders gut verbunden sin
 
 Der Grad gibt an, mit wie vielen anderen Knoten ein Knoten verbunden ist.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 grad <- degree(netzwerk)
 
 grad
@@ -1154,7 +1209,7 @@ grad
 
 Nun können wir die Knotengröße vom Grad abhängig machen. Personen mit vielen Verbindungen erscheinen dadurch größer.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 plot(
   netzwerk,
   vertex.size = grad * 8,
@@ -1168,21 +1223,13 @@ plot(
 
 In dieser Grafik werden stärker vernetzte Personen visuell hervorgehoben. Das kann helfen, zentrale Akteure in einem Netzwerk schneller zu erkennen.
 
-::: {.callout-tip}
-## Merke
-
-Bei Netzwerkvisualisierungen sollte die Gestaltung eine inhaltliche Bedeutung haben.
-
-Wenn Knoten unterschiedlich groß dargestellt werden, sollte diese Größe etwas ausdrücken, zum Beispiel die Anzahl der Verbindungen oder eine andere Kennzahl.
-:::
-
 ### Layouts verändern
 
 Bei Netzwerkvisualisierungen gibt es meist keine feste x- oder y-Achse. Die Position der Knoten wird durch ein sogenanntes **Layout** bestimmt.
 
 Ein Layout legt fest, wie die Knoten im Raum angeordnet werden.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 plot(
   netzwerk,
   layout = layout_with_fr(netzwerk),
@@ -1195,15 +1242,15 @@ plot(
 )
 ```
 
-Das Layout `layout_with_fr()` ist ein sogenanntes force-directed Layout. Dabei werden verbundene Knoten eher näher beieinander platziert, während nicht direkt verbundene Knoten stärker auseinanderliegen.
+Das Layout `layout_with_fr()` ist ein sogenanntes **force-directed Layout**. Dabei werden verbundene Knoten eher näher beieinander platziert, während nicht direkt verbundene Knoten stärker auseinanderliegen.
 
 Dadurch entstehen häufig gut lesbare Netzwerkstrukturen.
 
-### Netzwerk mit `ggraph`
+### Netzwerk mit `ggraph` (optional)
 
 Für modernere Netzwerkvisualisierungen kann das Paket `ggraph` verwendet werden. Es orientiert sich an der Logik von `ggplot2`, ist aber speziell für Graphen und Netzwerke gedacht.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 library(ggraph)
 
 ggraph(netzwerk, layout = "fr") +
@@ -1227,9 +1274,9 @@ Das Theme `theme_void()` entfernt Achsen, Gitterlinien und Hintergrundelemente. 
 
 ### Knoten nach Grad einfärben
 
-Auch mit `ggraph` können Netzwerke schrittweise informativer gestaltet werden. Im folgenden Beispiel wird der Grad eines Knotens berechnet und anschließend für die Farbe der Knoten verwendet.
+Auch mit `ggraph` können Netzwerke schrittweise informativer gestaltet werden. Im folgenden Beispiel wird der Grad eines Knotens berechnet und anschließend für die Farbe und Größe der Knoten verwendet.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 V(netzwerk)$grad <- degree(netzwerk)
 
 ggraph(netzwerk, layout = "fr") +
@@ -1261,7 +1308,7 @@ Beispiele:
 
 In solchen Fällen kann ein gerichtetes Netzwerk verwendet werden.
 
-```{r, echo=TRUE}
+```{r echo=TRUE}
 links <- data.frame(
   von = c("Startseite", "Startseite", "Kurs", "Kurs", "Material", "Übung"),
   zu  = c("Kurs", "Material", "Übung", "Prüfung", "Übung", "Prüfung")
@@ -1282,9 +1329,36 @@ plot(
 
 Die Pfeile zeigen die Richtung der Beziehung. Dadurch erkennt man, von welchem Knoten eine Verbindung ausgeht und wohin sie führt.
 
+Auch für gerichtete Netzwerke können wir eine Adjazenzmatrix erzeugen.
+
+```{r echo=TRUE}
+web_adj <- as_adjacency_matrix(webnetz, sparse = FALSE)
+
+web_adj
+```
+
+Bei gerichteten Netzwerken muss die Adjazenzmatrix nicht symmetrisch sein.
+
+Ein Wert in der Zeile `Startseite` und der Spalte `Kurs` bedeutet: Es gibt eine gerichtete Kante von `Startseite` zu `Kurs`.
+
+```{r echo=TRUE}
+web_adj["Startseite", "Kurs"]
+web_adj["Kurs", "Startseite"]
+```
+
+Die beiden Werte können unterschiedlich sein. Das liegt daran, dass ein Link von `Startseite` zu `Kurs` nicht automatisch bedeutet, dass auch ein Link von `Kurs` zurück zur `Startseite` existiert.
+
+::: {.callout-note}
+## Ungerichtet vs. gerichtet
+
+Bei einem **ungerichteten Netzwerk** beschreibt eine Kante eine gegenseitige Beziehung. Die Adjazenzmatrix ist symmetrisch.
+
+Bei einem **gerichteten Netzwerk** beschreibt eine Kante eine Beziehung mit Richtung. Die Adjazenzmatrix muss nicht symmetrisch sein.
+:::
+
 ### Wann sind Netzwerkvisualisierungen sinnvoll?
 
-Netzwerkvisualisierungen eignen sich besonders dann, wenn die **Beziehungen zwischen Objekten** im Mittelpunkt stehen.
+Netzwerkvisualisierungen eignen sich besonders dann, wenn die Beziehungen zwischen Objekten im Mittelpunkt stehen.
 
 Sie sind weniger geeignet, wenn nur einzelne Variablen verglichen werden sollen. Für Verteilungen, Mittelwerte oder Zusammenhänge zwischen zwei metrischen Variablen sind Histogramme, Boxplots oder Streudiagramme meist besser geeignet.
 
@@ -1321,6 +1395,32 @@ Netzwerkvisualisierungen sind besonders nützlich, wenn Beziehungen zwischen Obj
 
 Sie zeigen nicht nur einzelne Werte, sondern Strukturen: Verbindungen, zentrale Knoten, Gruppen und mögliche Muster im Netzwerk.
 :::
+
+### Übung
+
+Erstellen Sie ein kleines Netzwerk aus mindestens sechs Knoten und acht Kanten. Sie können zum Beispiel Personen, Webseiten, Städte oder Kurse als Knoten verwenden.
+
+Bearbeiten Sie anschließend die folgenden Aufgaben:
+
+1. Speichern Sie die Kanten als Data Frame mit den Spalten `von` und `zu`.
+2. Erstellen Sie mit `graph_from_data_frame()` ein Netzwerkobjekt.
+3. Visualisieren Sie das Netzwerk mit `plot()`.
+4. Erzeugen Sie eine Adjazenzmatrix mit `as_adjacency_matrix()`.
+5. Berechnen Sie den Grad der Knoten mit `degree()`.
+6. Erstellen Sie eine zweite Visualisierung, in der zentrale Knoten größer dargestellt werden.
+
+Beispielstruktur:
+
+```{r echo=TRUE, eval=FALSE}
+meine_kanten <- data.frame(
+  von = c("A", "A", "B", "C"),
+  zu  = c("B", "C", "D", "D")
+)
+
+mein_netzwerk <- graph_from_data_frame(meine_kanten, directed = FALSE)
+plot(mein_netzwerk)
+```
+
 
 ## Credits
 
