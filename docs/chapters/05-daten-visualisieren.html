@@ -244,17 +244,29 @@ window.Quarto = {
   <li><a href="#lernziele" id="toc-lernziele" class="nav-link active" data-scroll-target="#lernziele"><span class="header-section-number">6.1</span> Lernziele</a></li>
   <li><a href="#warum-daten-visualisieren" id="toc-warum-daten-visualisieren" class="nav-link" data-scroll-target="#warum-daten-visualisieren"><span class="header-section-number">6.2</span> Warum Daten visualisieren?</a></li>
   <li><a href="#erstes-beispiel-patientendaten-aus-der-medizin" id="toc-erstes-beispiel-patientendaten-aus-der-medizin" class="nav-link" data-scroll-target="#erstes-beispiel-patientendaten-aus-der-medizin"><span class="header-section-number">6.3</span> Erstes Beispiel: Patientendaten aus der Medizin</a></li>
-  <li><a href="#erste-grafiken-mit-base-r" id="toc-erste-grafiken-mit-base-r" class="nav-link" data-scroll-target="#erste-grafiken-mit-base-r"><span class="header-section-number">6.4</span> Erste Grafiken mit Base R</a></li>
+  <li><a href="#weitere-grafiken-mit-base-r" id="toc-weitere-grafiken-mit-base-r" class="nav-link" data-scroll-target="#weitere-grafiken-mit-base-r"><span class="header-section-number">6.4</span> Weitere Grafiken mit Base R</a>
+  <ul class="collapse">
+  <li><a href="#histogramm" id="toc-histogramm" class="nav-link" data-scroll-target="#histogramm"><span class="header-section-number">6.4.1</span> Histogramm</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">6.4.2</span> Boxplot</a></li>
+  <li><a href="#streudiagramm" id="toc-streudiagramm" class="nav-link" data-scroll-target="#streudiagramm"><span class="header-section-number">6.4.3</span> Streudiagramm</a></li>
+  <li><a href="#streudiagramm-mit-gruppenfarben" id="toc-streudiagramm-mit-gruppenfarben" class="nav-link" data-scroll-target="#streudiagramm-mit-gruppenfarben"><span class="header-section-number">6.4.4</span> Streudiagramm mit Gruppenfarben</a></li>
+  <li><a href="#dichteplot" id="toc-dichteplot" class="nav-link" data-scroll-target="#dichteplot"><span class="header-section-number">6.4.5</span> Dichteplot</a></li>
+  <li><a href="#mehrere-histogramme-nebeneinander" id="toc-mehrere-histogramme-nebeneinander" class="nav-link" data-scroll-target="#mehrere-histogramme-nebeneinander"><span class="header-section-number">6.4.6</span> Mehrere Histogramme nebeneinander</a></li>
+  <li><a href="#scatterplot-matrix" id="toc-scatterplot-matrix" class="nav-link" data-scroll-target="#scatterplot-matrix"><span class="header-section-number">6.4.7</span> Scatterplot-Matrix</a></li>
+  <li><a href="#korrelationsmatrix" id="toc-korrelationsmatrix" class="nav-link" data-scroll-target="#korrelationsmatrix"><span class="header-section-number">6.4.8</span> Korrelationsmatrix</a></li>
+  <li><a href="#heatmap-der-korrelationsmatrix-optional" id="toc-heatmap-der-korrelationsmatrix-optional" class="nav-link" data-scroll-target="#heatmap-der-korrelationsmatrix-optional"><span class="header-section-number">6.4.9</span> Heatmap der Korrelationsmatrix (optional)</a></li>
+  <li><a href="#einfachere-heatmap-ohne-umordnung-optional" id="toc-einfachere-heatmap-ohne-umordnung-optional" class="nav-link" data-scroll-target="#einfachere-heatmap-ohne-umordnung-optional"><span class="header-section-number">6.4.10</span> Einfachere Heatmap ohne Umordnung (Optional)</a></li>
+  </ul></li>
   <li><a href="#von-base-r-zu-ggplot2" id="toc-von-base-r-zu-ggplot2" class="nav-link" data-scroll-target="#von-base-r-zu-ggplot2"><span class="header-section-number">6.5</span> Von Base R zu ggplot2</a></li>
   <li><a href="#die-grundidee-von-ggplot2" id="toc-die-grundidee-von-ggplot2" class="nav-link" data-scroll-target="#die-grundidee-von-ggplot2"><span class="header-section-number">6.6</span> Die Grundidee von ggplot2</a></li>
   <li><a href="#ästhetiken-variablen-sichtbar-machen" id="toc-ästhetiken-variablen-sichtbar-machen" class="nav-link" data-scroll-target="#ästhetiken-variablen-sichtbar-machen"><span class="header-section-number">6.7</span> Ästhetiken: Variablen sichtbar machen</a></li>
   <li><a href="#geometrien-wie-sollen-die-daten-dargestellt-werden" id="toc-geometrien-wie-sollen-die-daten-dargestellt-werden" class="nav-link" data-scroll-target="#geometrien-wie-sollen-die-daten-dargestellt-werden"><span class="header-section-number">6.8</span> Geometrien: Wie sollen die Daten dargestellt werden?</a>
   <ul class="collapse">
-  <li><a href="#punktdiagramm" id="toc-punktdiagramm" class="nav-link" data-scroll-target="#punktdiagramm"><span class="header-section-number">6.8.1</span> Punktdiagramm</a></li>
+  <li><a href="#punktdiagramm-scatterplots" id="toc-punktdiagramm-scatterplots" class="nav-link" data-scroll-target="#punktdiagramm-scatterplots"><span class="header-section-number">6.8.1</span> Punktdiagramm (Scatterplots)</a></li>
   <li><a href="#liniendiagramm" id="toc-liniendiagramm" class="nav-link" data-scroll-target="#liniendiagramm"><span class="header-section-number">6.8.2</span> Liniendiagramm</a></li>
-  <li><a href="#histogramm" id="toc-histogramm" class="nav-link" data-scroll-target="#histogramm"><span class="header-section-number">6.8.3</span> Histogramm</a></li>
-  <li><a href="#dichteplot" id="toc-dichteplot" class="nav-link" data-scroll-target="#dichteplot"><span class="header-section-number">6.8.4</span> Dichteplot</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">6.8.5</span> Boxplot</a></li>
+  <li><a href="#histogramm-1" id="toc-histogramm-1" class="nav-link" data-scroll-target="#histogramm-1"><span class="header-section-number">6.8.3</span> Histogramm</a></li>
+  <li><a href="#dichteplot-1" id="toc-dichteplot-1" class="nav-link" data-scroll-target="#dichteplot-1"><span class="header-section-number">6.8.4</span> Dichteplot</a></li>
+  <li><a href="#boxplot-1" id="toc-boxplot-1" class="nav-link" data-scroll-target="#boxplot-1"><span class="header-section-number">6.8.5</span> Boxplot</a></li>
   </ul></li>
   <li><a href="#layer-grafiken-schrittweise-aufbauen" id="toc-layer-grafiken-schrittweise-aufbauen" class="nav-link" data-scroll-target="#layer-grafiken-schrittweise-aufbauen"><span class="header-section-number">6.9</span> Layer: Grafiken schrittweise aufbauen</a></li>
   <li><a href="#achsen-und-transformationen" id="toc-achsen-und-transformationen" class="nav-link" data-scroll-target="#achsen-und-transformationen"><span class="header-section-number">6.10</span> Achsen und Transformationen</a></li>
@@ -275,11 +287,15 @@ window.Quarto = {
   <li><a href="#grafiken-speichern" id="toc-grafiken-speichern" class="nav-link" data-scroll-target="#grafiken-speichern"><span class="header-section-number">6.19</span> Grafiken speichern</a></li>
   <li><a href="#beispiel-eine-grafik-schrittweise-verbessern" id="toc-beispiel-eine-grafik-schrittweise-verbessern" class="nav-link" data-scroll-target="#beispiel-eine-grafik-schrittweise-verbessern"><span class="header-section-number">6.20</span> Beispiel: Eine Grafik schrittweise verbessern</a>
   <ul class="collapse">
-  <li><a href="#schritt-1-einfacher-scatterplot" id="toc-schritt-1-einfacher-scatterplot" class="nav-link" data-scroll-target="#schritt-1-einfacher-scatterplot"><span class="header-section-number">6.20.1</span> Schritt 1: Einfacher Scatterplot</a></li>
-  <li><a href="#schritt-2-logarithmische-x-achse-ergänzen" id="toc-schritt-2-logarithmische-x-achse-ergänzen" class="nav-link" data-scroll-target="#schritt-2-logarithmische-x-achse-ergänzen"><span class="header-section-number">6.20.2</span> Schritt 2: Logarithmische x-Achse ergänzen</a></li>
-  <li><a href="#schritt-3-versuchsläufe-farblich-unterscheiden" id="toc-schritt-3-versuchsläufe-farblich-unterscheiden" class="nav-link" data-scroll-target="#schritt-3-versuchsläufe-farblich-unterscheiden"><span class="header-section-number">6.20.3</span> Schritt 3: Versuchsläufe farblich unterscheiden</a></li>
-  <li><a href="#schritt-4-punkte-pro-versuchslauf-verbinden" id="toc-schritt-4-punkte-pro-versuchslauf-verbinden" class="nav-link" data-scroll-target="#schritt-4-punkte-pro-versuchslauf-verbinden"><span class="header-section-number">6.20.4</span> Schritt 4: Punkte pro Versuchslauf verbinden</a></li>
-  <li><a href="#schritt-5-beschriftungen-und-theme-ergänzen" id="toc-schritt-5-beschriftungen-und-theme-ergänzen" class="nav-link" data-scroll-target="#schritt-5-beschriftungen-und-theme-ergänzen"><span class="header-section-number">6.20.5</span> Schritt 5: Beschriftungen und Theme ergänzen</a></li>
+  <li><a href="#schritt-1-einfaches-streudiagramm" id="toc-schritt-1-einfaches-streudiagramm" class="nav-link" data-scroll-target="#schritt-1-einfaches-streudiagramm"><span class="header-section-number">6.20.1</span> Schritt 1: Einfaches Streudiagramm</a></li>
+  <li><a href="#schritt-2-punkte-transparenter-darstellen" id="toc-schritt-2-punkte-transparenter-darstellen" class="nav-link" data-scroll-target="#schritt-2-punkte-transparenter-darstellen"><span class="header-section-number">6.20.2</span> Schritt 2: Punkte transparenter darstellen</a></li>
+  <li><a href="#schritt-3-diabetesstatus-farblich-darstellen" id="toc-schritt-3-diabetesstatus-farblich-darstellen" class="nav-link" data-scroll-target="#schritt-3-diabetesstatus-farblich-darstellen"><span class="header-section-number">6.20.3</span> Schritt 3: Diabetesstatus farblich darstellen</a></li>
+  <li><a href="#schritt-4-punkte-größer-darstellen" id="toc-schritt-4-punkte-größer-darstellen" class="nav-link" data-scroll-target="#schritt-4-punkte-größer-darstellen"><span class="header-section-number">6.20.4</span> Schritt 4: Punkte größer darstellen</a></li>
+  <li><a href="#schritt-5-achsen-und-titel-beschriften" id="toc-schritt-5-achsen-und-titel-beschriften" class="nav-link" data-scroll-target="#schritt-5-achsen-und-titel-beschriften"><span class="header-section-number">6.20.5</span> Schritt 5: Achsen und Titel beschriften</a></li>
+  <li><a href="#schritt-6-theme-anpassen" id="toc-schritt-6-theme-anpassen" class="nav-link" data-scroll-target="#schritt-6-theme-anpassen"><span class="header-section-number">6.20.6</span> Schritt 6: Theme anpassen</a></li>
+  <li><a href="#schritt-7-gruppen-getrennt-betrachten-mit-facetten" id="toc-schritt-7-gruppen-getrennt-betrachten-mit-facetten" class="nav-link" data-scroll-target="#schritt-7-gruppen-getrennt-betrachten-mit-facetten"><span class="header-section-number">6.20.7</span> Schritt 7: Gruppen getrennt betrachten mit Facetten</a></li>
+  <li><a href="#schritt-8-farben-manuell-anpassen" id="toc-schritt-8-farben-manuell-anpassen" class="nav-link" data-scroll-target="#schritt-8-farben-manuell-anpassen"><span class="header-section-number">6.20.8</span> Schritt 8: Farben manuell anpassen</a></li>
+  <li><a href="#finale-version-der-grafik" id="toc-finale-version-der-grafik" class="nav-link" data-scroll-target="#finale-version-der-grafik"><span class="header-section-number">6.20.9</span> Finale Version der Grafik</a></li>
   </ul></li>
   <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">6.21</span> Zusammenfassung</a></li>
   <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits"><span class="header-section-number">6.22</span> Credits</a></li>
@@ -407,11 +423,18 @@ window.Quarto = {
 <p>Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um typische Visualisierungsfragen aus der medizinischen Datenanalyse zu behandeln.</p>
 <hr>
 </section>
-<section id="erste-grafiken-mit-base-r" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="erste-grafiken-mit-base-r"><span class="header-section-number">6.4</span> Erste Grafiken mit Base R</h2>
-<p>R besitzt eingebaute Grafikfunktionen, zum Beispiel <code>plot()</code>, <code>hist()</code> oder <code>boxplot()</code>.</p>
+<section id="weitere-grafiken-mit-base-r" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="weitere-grafiken-mit-base-r"><span class="header-section-number">6.4</span> Weitere Grafiken mit Base R</h2>
+<p>Base R enthält bereits viele Funktionen, um Daten schnell explorativ zu visualisieren. Im Folgenden werden einige Beispiele mit dem Datensatz <code>Pima.tr</code> gezeigt.</p>
+<section id="histogramm" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="histogramm"><span class="header-section-number">6.4.1</span> Histogramm</h3>
+<p>Ein Histogramm zeigt die Verteilung einer metrischen Variable. Hier wird untersucht, wie die Glukosewerte verteilt sind.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Pima.tr<span class="sc">$</span>age, Pima.tr<span class="sc">$</span>glu)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>glu,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Verteilung der Glukosewerte"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Häufigkeit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -420,17 +443,16 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Dieser Plot zeigt den Zusammenhang zwischen Alter und Glukosewert. Die Darstellung ist schnell erstellt, aber noch wenig beschriftet.</p>
-<p>Eine etwas bessere Variante ist:</p>
+</section>
+<section id="boxplot" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">6.4.2</span> Boxplot</h3>
+<p>Ein Boxplot zeigt Median, Quartile und mögliche Ausreißer. Hier werden die Glukosewerte getrennt nach Diabetes-Status dargestellt.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  Pima.tr<span class="sc">$</span>age,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  Pima.tr<span class="sc">$</span>glu,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Alter in Jahren"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Glukosekonzentration"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"blue"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(glu <span class="sc">~</span> type,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> Pima.tr,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Glukosewerte nach Diabetes-Status"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Diabetes-Status"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Glukosewert"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -439,9 +461,16 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Auch Histogramme und Boxplots sind mit Base R möglich:</p>
+</section>
+<section id="streudiagramm" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="streudiagramm"><span class="header-section-number">6.4.3</span> Streudiagramm</h3>
+<p>Ein Streudiagramm eignet sich, um den Zusammenhang zwischen zwei metrischen Variablen zu betrachten.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>glu, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">"Verteilung der Glukosewerte"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Pima.tr<span class="sc">$</span>bmi, Pima.tr<span class="sc">$</span>glu,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Zusammenhang zwischen BMI und Glukosewert"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"BMI"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -450,10 +479,22 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Das Histogramm zeigt die Verteilung der Glukosewerte. Mit <code>breaks</code> lässt ich beeinflussen, wie fein oder grob die Verteilung dargestellt wird.</p>
-<p>Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.</p>
+</section>
+<section id="streudiagramm-mit-gruppenfarben" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="streudiagramm-mit-gruppenfarben"><span class="header-section-number">6.4.4</span> Streudiagramm mit Gruppenfarben</h3>
+<p>Die Punkte können nach Diabetes-Status eingefärbt werden. Dadurch sieht man, ob sich Gruppen im Diagramm unterschiedlich verteilen.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(glu <span class="sc">~</span> type, <span class="at">data =</span> Pima.tr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Pima.tr<span class="sc">$</span>bmi, Pima.tr<span class="sc">$</span>glu,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"BMI und Glukosewert nach Diabetes-Status"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"BMI"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">ifelse</span>(Pima.tr<span class="sc">$</span>type <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Diabetes: Yes"</span>, <span class="st">"Diabetes: No"</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -462,27 +503,146 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber komplexer werden, zum Beispiel mit mehreren Gruppen, Farben, Legenden, Achsenanpassungen und Teilgrafiken, wird der Code oft unübersichtlich.</p>
+</section>
+<section id="dichteplot" class="level3" data-number="6.4.5">
+<h3 data-number="6.4.5" class="anchored" data-anchor-id="dichteplot"><span class="header-section-number">6.4.5</span> Dichteplot</h3>
+<p>Ein Dichteplot ist eine geglättete Alternative zum Histogramm. Er zeigt ebenfalls die Verteilung einer metrischen Variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(Pima.tr<span class="sc">$</span>glu),</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Dichte der Glukosewerte"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Glukosewert"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="mehrere-histogramme-nebeneinander" class="level3" data-number="6.4.6">
+<h3 data-number="6.4.6" class="anchored" data-anchor-id="mehrere-histogramme-nebeneinander"><span class="header-section-number">6.4.6</span> Mehrere Histogramme nebeneinander</h3>
+<p>Mit <code>par(mfrow = c(...))</code> können mehrere Grafiken in einem gemeinsamen Grafikbereich dargestellt werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>glu,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Glukose"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Glukosewert"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Pima.tr<span class="sc">$</span>bmi,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"BMI"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"BMI"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="scatterplot-matrix" class="level3" data-number="6.4.7">
+<h3 data-number="6.4.7" class="anchored" data-anchor-id="scatterplot-matrix"><span class="header-section-number">6.4.7</span> Scatterplot-Matrix</h3>
+<p>Eine Scatterplot-Matrix zeigt paarweise Streudiagramme mehrerer metrischer Variablen. Dadurch lassen sich mögliche Zusammenhänge schnell erkennen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Pima.tr[, <span class="fu">c</span>(<span class="st">"npreg"</span>, <span class="st">"glu"</span>, <span class="st">"bp"</span>, <span class="st">"bmi"</span>, <span class="st">"age"</span>)],</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">"Scatterplot-Matrix ausgewählter Variablen"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="korrelationsmatrix" class="level3" data-number="6.4.8">
+<h3 data-number="6.4.8" class="anchored" data-anchor-id="korrelationsmatrix"><span class="header-section-number">6.4.8</span> Korrelationsmatrix</h3>
+<p>Eine Korrelationsmatrix zeigt, wie stark metrische Variablen linear miteinander zusammenhängen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>korrelationen <span class="ot">&lt;-</span> <span class="fu">cor</span>(Pima.tr[, <span class="fu">c</span>(<span class="st">"npreg"</span>, <span class="st">"glu"</span>, <span class="st">"bp"</span>, <span class="st">"skin"</span>, <span class="st">"bmi"</span>, <span class="st">"ped"</span>, <span class="st">"age"</span>)])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>korrelationen</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            npreg        glu          bp      skin        bmi         ped
+npreg  1.00000000 0.17052466  0.25206108 0.1090493 0.05833606 -0.11947275
+glu    0.17052466 1.00000000  0.26938132 0.2175965 0.21678987  0.06071011
+bp     0.25206108 0.26938132  1.00000000 0.2649635 0.23882134 -0.04739958
+skin   0.10904927 0.21759652  0.26496347 1.0000000 0.65903563  0.09540270
+bmi    0.05833606 0.21678987  0.23882134 0.6590356 1.00000000  0.19055065
+ped   -0.11947275 0.06071011 -0.04739958 0.0954027 0.19055065  1.00000000
+age    0.59892236 0.34340695  0.39107336 0.2519257 0.13191956 -0.07140965
+              age
+npreg  0.59892236
+glu    0.34340695
+bp     0.39107336
+skin   0.25192574
+bmi    0.13191956
+ped   -0.07140965
+age    1.00000000</code></pre>
+</div>
+</div>
+</section>
+<section id="heatmap-der-korrelationsmatrix-optional" class="level3" data-number="6.4.9">
+<h3 data-number="6.4.9" class="anchored" data-anchor-id="heatmap-der-korrelationsmatrix-optional"><span class="header-section-number">6.4.9</span> Heatmap der Korrelationsmatrix (optional)</h3>
+<p>Eine Heatmap stellt Werte farblich dar. Hier wird sie verwendet, um die Korrelationsmatrix zu visualisieren. Stärkere Zusammenhänge werden dadurch schneller sichtbar.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>korrelationen <span class="ot">&lt;-</span> <span class="fu">cor</span>(Pima.tr[, <span class="fu">c</span>(<span class="st">"npreg"</span>, <span class="st">"glu"</span>, <span class="st">"bp"</span>, <span class="st">"skin"</span>, <span class="st">"bmi"</span>, <span class="st">"ped"</span>, <span class="st">"age"</span>)])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(korrelationen,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Heatmap der Korrelationen"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">symm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="einfachere-heatmap-ohne-umordnung-optional" class="level3" data-number="6.4.10">
+<h3 data-number="6.4.10" class="anchored" data-anchor-id="einfachere-heatmap-ohne-umordnung-optional"><span class="header-section-number">6.4.10</span> Einfachere Heatmap ohne Umordnung (Optional)</h3>
+<p>Standardmäßig ordnet <code>heatmap()</code> die Zeilen und Spalten nach Ähnlichkeit um. Für den Einstieg kann es verständlicher sein, diese Umordnung auszuschalten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(korrelationen,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Heatmap der Korrelationen ohne Umordnung"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">symm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">Rowv =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">Colv =</span> <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="von-base-r-zu-ggplot2" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="von-base-r-zu-ggplot2"><span class="header-section-number">6.5</span> Von Base R zu ggplot2</h2>
 <p><a href="https://ggplot2-book.org/introduction.html"><code>ggplot2</code></a> verfolgt einen anderen Ansatz. Man beschreibt nicht Schritt für Schritt, wo etwas gezeichnet wird, sondern formuliert, <strong>welche Variablen wie dargestellt werden sollen</strong>.</p>
 <p>Zuerst laden wir das Paket:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Paket 'ggplot2' wurde unter R Version 4.4.3 erstellt</code></pre>
 </div>
 </div>
 <p>Der einfache Scatterplot aus Base R sieht in ggplot2 so aus:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -553,17 +713,17 @@ window.Quarto = {
 <p><code>ggplot2</code> überträgt diese Idee auf R. Das Paket wurde von Hadley Wickham entwickelt und macht die Grammar of Graphics praktisch nutzbar. Eine Grafik wird dabei schrittweise aufgebaut. Man beginnt mit den Daten, legt dann fest, welche Variablen auf welche ästhetischen Eigenschaften abgebildet werden, und ergänzt anschließend die gewünschte Darstellungsform.</p>
 <p>Ein einfacher ggplot besteht meistens aus drei Teilen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATENSATZ, <span class="fu">aes</span>(<span class="at">x =</span> VARIABLE1, <span class="at">y =</span> VARIABLE2)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATENSATZ, <span class="fu">aes</span>(<span class="at">x =</span> VARIABLE1, <span class="at">y =</span> VARIABLE2)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Beispiel:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -574,12 +734,12 @@ window.Quarto = {
 <h2 data-number="6.7" class="anchored" data-anchor-id="ästhetiken-variablen-sichtbar-machen"><span class="header-section-number">6.7</span> Ästhetiken: Variablen sichtbar machen</h2>
 <p>Die Funktion <code>aes()</code> beschreibt, welche Variable auf welche visuelle Eigenschaft abgebildet wird.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -591,12 +751,12 @@ window.Quarto = {
 </ul>
 <p>Zusätzlich kann eine dritte Variable über Farbe dargestellt werden:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -648,24 +808,24 @@ window.Quarto = {
 <p>Wichtig ist die Unterscheidung zwischen Eigenschaften innerhalb und außerhalb von <code>aes()</code>.</p>
 <p>Wenn eine Eigenschaft von einer Variable abhängen soll, steht sie innerhalb von <code>aes()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Wenn eine Eigenschaft für alle Punkte gleich sein soll, steht sie außerhalb von <code>aes()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -683,9 +843,9 @@ window.Quarto = {
 </ul>
 <p>Jede Zeile beschreibt eine Messung: Bei einer bestimmten Konzentration wurde in einem bestimmten Versuchslauf die optische Dichte gemessen.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DNase)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DNase)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DNase)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DNase)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Run       conc density
 1   1 0.04882812   0.017
@@ -696,97 +856,12 @@ window.Quarto = {
 6   1 0.39062500   0.215</code></pre>
 </div>
 </div>
-<section id="punktdiagramm" class="level3" data-number="6.8.1">
-<h3 data-number="6.8.1" class="anchored" data-anchor-id="punktdiagramm"><span class="header-section-number">6.8.1</span> Punktdiagramm</h3>
-<p>Punktdiagramme eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.</p>
+<section id="punktdiagramm-scatterplots" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="punktdiagramm-scatterplots"><span class="header-section-number">6.8.1</span> Punktdiagramm (Scatterplots)</h3>
+<p>Punktdiagramme (Scatterplots, Streudiagramme) eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Interpretation: Mit steigender Konzentration steigt tendenziell auch die optische Dichte. Der Zusammenhang ist aber nicht einfach linear, sondern flacht bei höheren Konzentrationen ab.</p>
-<p>Eine etwas bessere lesbare Variante verwendet eine logarithmische Skalierung der x-Achse, weil die Konzentrationen nicht gleichmäßig verteilt sind.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="liniendiagramm" class="level3" data-number="6.8.2">
-<h3 data-number="6.8.2" class="anchored" data-anchor-id="liniendiagramm"><span class="header-section-number">6.8.2</span> Liniendiagramm</h3>
-<p>Da die Messungen innerhalb eines Versuchslaufs bei verschiedenen Konzentrationen durchgeführt wurden, kann man die Punkte pro Run auch verbinden.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Hier ist <code>group = Run</code> wichtig: Dadurch weiß ggplot2, welche Punkte miteinander verbunden werden sollen.</p>
-</section>
-<section id="histogramm" class="level3" data-number="6.8.3">
-<h3 data-number="6.8.3" class="anchored" data-anchor-id="histogramm"><span class="header-section-number">6.8.3</span> Histogramm</h3>
-<p>Ein Histogramm zeigt die Verteilung einer metrischen Variable.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Die Wahl der Klassenanzahl oder Klassenbreite beeinflusst die Darstellung. Eine zu feine Einteilung erzeugt ein unruhiges Bild, eine zu grobe Einteilung kann wichtige Muster verdecken.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="dichteplot" class="level3" data-number="6.8.4">
-<h3 data-number="6.8.4" class="anchored" data-anchor-id="dichteplot"><span class="header-section-number">6.8.4</span> Dichteplot</h3>
-<p>Ein Dichteplot ist eine geglättete Darstellung einer Verteilung.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Dichteplots eignen sich gut, wenn man mehrere Verteilungen vergleichen möchte.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -795,10 +870,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Das Argument <code>bw</code> der Funktion <code>geom_density()</code> erlaubt es, die Bandbreite eines Dichteplots manuell anzupassen. Standardmäßig wird eine automatische Regel zur Wahl der Bandbreite verwendet, was meistens eine gute Wahl ist. Die folgende Visualisierung zeigt einen Dichteplot mit einer kleiner gewählten Bandbreite.</p>
+<p>Interpretation: Mit steigender Konzentration steigt tendenziell auch die optische Dichte. Der Zusammenhang ist aber nicht einfach linear, sondern flacht bei höheren Konzentrationen ab.</p>
+<p>Eine etwas bessere lesbare Variante verwendet eine logarithmische Skalierung der x-Achse, weil die Konzentrationen nicht gleichmäßig verteilt sind.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">bw=</span><span class="fl">0.06</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -808,20 +885,13 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="boxplot" class="level3" data-number="6.8.5">
-<h3 data-number="6.8.5" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">6.8.5</span> Boxplot</h3>
-<p>Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen. Sie zeigen den Median, die Quartile, und Extremwerte einer Verteilung. Eine gute Illustrierung und Erklärung gibt es hier <a href="Boxplots">https://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a>.</p>
-<p>Jeder Boxplot hat Linien bei <strong>Q1</strong>, beim <strong>Median</strong> und bei <strong>Q3</strong>. Zusammen bilden diese Werte die <strong>Box</strong> des Boxplots. Ein weiteres wichtiges Merkmal eines Boxplots sind die <strong>Whisker</strong>. Diese werden mithilfe des <strong>Interquartilsabstands</strong> berechnet:</p>
-<p><span class="math display">\[IQR = Q3 - Q1\]</span></p>
-<p>Datenpunkte, die außerhalb des Bereichs <span class="math inline">\(Q1 - 1{,}5 \times IQR\)</span> bis <span class="math inline">\(Q3 + 1{,}5 \times IQR\)</span> liegen, werden als <strong>Ausreißer</strong> bezeichnet.</p>
+<section id="liniendiagramm" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="liniendiagramm"><span class="header-section-number">6.8.2</span> Liniendiagramm</h3>
+<p>Da die Messungen innerhalb eines Versuchslaufs bei verschiedenen Konzentrationen durchgeführt wurden, kann man die Punkte pro Run auch verbinden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Run, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>), <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Versuchslauf"</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Dichte"</span>,</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Dichtewerte nach Versuchslauf"</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -830,14 +900,104 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammengefasst. Damit die Versuchsläufe in der richtigen Reihenfolge angezeigt werden, kann <code>Run</code> in einen Faktor mit festgelegter Reihenfolge umgewandelt werden:</p>
+<p>Hier ist <code>group = Run</code> wichtig: Dadurch weiß ggplot2, welche Punkte miteinander verbunden werden sollen.</p>
+</section>
+<section id="histogramm-1" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="histogramm-1"><span class="header-section-number">6.8.3</span> Histogramm</h3>
+<p>Ein Histogramm zeigt die Verteilung einer metrischen Variable.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Run, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>), <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Wahl der Klassenanzahl oder Klassenbreite beeinflusst die Darstellung. Eine zu feine Einteilung erzeugt ein unruhiges Bild, eine zu grobe Einteilung kann wichtige Muster verdecken.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dichteplot-1" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="dichteplot-1"><span class="header-section-number">6.8.4</span> Dichteplot</h3>
+<p>Ein Dichteplot ist eine geglättete Darstellung einer Verteilung.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dichteplots eignen sich gut, wenn man mehrere Verteilungen vergleichen möchte.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das Argument <code>bw</code> der Funktion <code>geom_density()</code> erlaubt es, die Bandbreite eines Dichteplots manuell anzupassen. Standardmäßig wird eine automatische Regel zur Wahl der Bandbreite verwendet, was meistens eine gute Wahl ist. Die folgende Visualisierung zeigt einen Dichteplot mit einer kleiner gewählten Bandbreite.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">bw=</span><span class="fl">0.06</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot-1" class="level3" data-number="6.8.5">
+<h3 data-number="6.8.5" class="anchored" data-anchor-id="boxplot-1"><span class="header-section-number">6.8.5</span> Boxplot</h3>
+<p>Boxplots eignen sich, um Verteilungen zwischen Gruppen zu vergleichen. Sie zeigen den Median, die Quartile, und Extremwerte einer Verteilung. Eine gute Illustrierung und Erklärung gibt es hier <a href="Boxplots">https://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a>.</p>
+<p>Jeder Boxplot hat Linien bei <strong>Q1</strong>, beim <strong>Median</strong> und bei <strong>Q3</strong>. Zusammen bilden diese Werte die <strong>Box</strong> des Boxplots. Ein weiteres wichtiges Merkmal eines Boxplots sind die <strong>Whisker</strong>. Diese werden mithilfe des <strong>Interquartilsabstands</strong> berechnet:</p>
+<p><span class="math display">\[IQR = Q3 - Q1\]</span></p>
+<p>Datenpunkte, die außerhalb des Bereichs <span class="math inline">\(Q1 - 1{,}5 \times IQR\)</span> bis <span class="math inline">\(Q3 + 1{,}5 \times IQR\)</span> liegen, werden als <strong>Ausreißer</strong> bezeichnet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Run, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>), <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Versuchslauf"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Dichte"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Dichtewerte nach Versuchslauf"</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dabei wird für jeden Versuchslauf die Verteilung der optischen Dichte zusammengefasst. Damit die Versuchsläufe in der richtigen Reihenfolge angezeigt werden, kann <code>Run</code> in einen Faktor mit festgelegter Reihenfolge umgewandelt werden:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Run, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>), <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -850,16 +1010,16 @@ window.Quarto = {
 <h2 data-number="6.9" class="anchored" data-anchor-id="layer-grafiken-schrittweise-aufbauen"><span class="header-section-number">6.9</span> Layer: Grafiken schrittweise aufbauen</h2>
 <p>Ein großer Vorteil von ggplot2 ist, dass Grafiken aus mehreren Layern bestehen können.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -872,16 +1032,16 @@ window.Quarto = {
 <p>Da der Zusammenhang in den DNase-Daten nichtlinear ist, passt eine geglättete Linie oft besser zur Exploration als eine einfache Gerade.</p>
 <p>Zum Vergleich kann man trotzdem eine lineare Regressionsgerade einzeichnen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -893,13 +1053,13 @@ window.Quarto = {
 <h2 data-number="6.10" class="anchored" data-anchor-id="achsen-und-transformationen"><span class="header-section-number">6.10</span> Achsen und Transformationen</h2>
 <p>Die Konzentration in den DNase-Daten nimmt Werte an, die nicht gleichmäßig über die Skala verteilt sind. In solchen Fällen kann eine logarithmische Achse sinnvoll sein.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -907,34 +1067,34 @@ window.Quarto = {
 <p>Mit einer logarithmischen x-Achse werden kleine Konzentrationen besser sichtbar. Wichtig ist: Die Daten selbst werden dadurch nicht verändert. Verändert wird die Darstellung der Achse.</p>
 <p>Eine häufige Variante kombiniert logarithmische Achse, Punkte und Glättung:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><code>se = FALSE</code> bedeutet: Das Konfidenzintervall wird nicht angezeigt. Bei geom_smooth() wird normalerweise eine geglättete Linie plus graues Unsicherheitsband dargestellt. Dieses Band ist das Standard-Error-/Konfidenzintervall.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -945,27 +1105,27 @@ window.Quarto = {
 <h2 data-number="6.11" class="anchored" data-anchor-id="gruppierung-mit-farbe"><span class="header-section-number">6.11</span> Gruppierung mit Farbe</h2>
 <p>Farbe sollte eine inhaltliche Funktion haben. In den DNase-Daten kann Farbe verwendet werden, um die einzelnen Versuchsläufe zu unterscheiden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Man kann zusätzlich Linien pro Versuchslauf ergänzen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -997,31 +1157,31 @@ window.Quarto = {
 <h2 data-number="6.12" class="anchored" data-anchor-id="beispieltabelle-biologische-gruppen"><span class="header-section-number">6.12</span> Beispieltabelle: biologische Gruppen</h2>
 <p>Für die nächsten Beispiele verwenden wir eine kleine, manuell angelegte Gruppentabelle.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sampleGroup =</span> <span class="fu">c</span>(</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.25"</span>,</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.25 (FGF4-KO)"</span>,</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (EPI)"</span>,</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (FGF4-KO)"</span>,</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (PE)"</span>,</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (EPI)"</span>,</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (FGF4-KO)"</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (PE)"</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">17</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">4</span>),</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#CAB2D6"</span>,</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#FDBF6F"</span>,</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#A6CEE3"</span>,</span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#FF7F00"</span>,</span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#B2DF8A"</span>,</span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#1F78B4"</span>,</span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#E31A1C"</span>,</span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#33A02C"</span></span>
-<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>groups</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sampleGroup =</span> <span class="fu">c</span>(</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.25"</span>,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.25 (FGF4-KO)"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (EPI)"</span>,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (FGF4-KO)"</span>,</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E3.5 (PE)"</span>,</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (EPI)"</span>,</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (FGF4-KO)"</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E4.5 (PE)"</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">17</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">4</span>),</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#CAB2D6"</span>,</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#FDBF6F"</span>,</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#A6CEE3"</span>,</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#FF7F00"</span>,</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#B2DF8A"</span>,</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#1F78B4"</span>,</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#E31A1C"</span>,</span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#33A02C"</span></span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>groups</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sampleGroup  n   color
 1           E3.25 36 #CAB2D6
@@ -1064,24 +1224,24 @@ window.Quarto = {
 <p>Die Gruppentabelle ist bereits aggregiert: Für jede Gruppe liegt die Anzahl der Zellen <code>n</code> vor.</p>
 <p>Daher verwenden wir <code>geom_col()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Alternativ sieht man in älterem Code häufig:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1089,25 +1249,25 @@ window.Quarto = {
 <p>Beide Varianten zeichnen hier Balken mit der gegebenen Höhe <code>n</code>. Für bereits aggregierte Daten ist <code>geom_col()</code> aber meist verständlicher.</p>
 <p>Die x-Achsenbeschriftungen sind lang. Deshalb rotieren wir sie:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Eine oft noch lesbarere Alternative ist ein horizontales Balkendiagramm:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> sampleGroup)) <span class="sc">+</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> sampleGroup)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1119,9 +1279,9 @@ window.Quarto = {
 <p>Die Gruppentabelle enthält bereits passende Farben. Diese können wir in ggplot2 verwenden.</p>
 <p>Zunächst erstellen wir einen benannten Farbvektor:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>groupColor <span class="ot">&lt;-</span> <span class="fu">setNames</span>(groups<span class="sc">$</span>color, groups<span class="sc">$</span>sampleGroup)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>groupColor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>groupColor <span class="ot">&lt;-</span> <span class="fu">setNames</span>(groups<span class="sc">$</span>color, groups<span class="sc">$</span>sampleGroup)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>groupColor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          E3.25 E3.25 (FGF4-KO)      E3.5 (EPI)  E3.5 (FGF4-KO)       E3.5 (PE) 
       "#CAB2D6"       "#FDBF6F"       "#A6CEE3"       "#FF7F00"       "#B2DF8A" 
@@ -1131,14 +1291,14 @@ window.Quarto = {
 </div>
 <p>Dann verwenden wir ihn mit <code>scale_fill_manual()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n, <span class="at">fill =</span> sampleGroup)) <span class="sc">+</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> groupColor, <span class="at">name =</span> <span class="st">"Gruppe"</span>) <span class="sc">+</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n, <span class="at">fill =</span> sampleGroup)) <span class="sc">+</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> groupColor, <span class="at">name =</span> <span class="st">"Gruppe"</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1151,15 +1311,15 @@ window.Quarto = {
 <p>Faceting erzeugt mehrere kleine Grafiken nach demselben Prinzip. Das ist besonders hilfreich, wenn man Gruppen vergleichen möchte.</p>
 <p>Bei den DNase-Daten können wir für jeden Versuchslauf eine eigene Teilgrafik erzeugen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Run)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Run)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1172,71 +1332,71 @@ window.Quarto = {
 <h2 data-number="6.16" class="anchored" data-anchor-id="beschriftungen-und-titel"><span class="header-section-number">6.16</span> Beschriftungen und Titel</h2>
 <p>Eine gute Grafik braucht verständliche Beschriftungen.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay: Zusammenhang zwischen Konzentration und optischer Dichte"</span>,</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Messungen aus mehreren Versuchsläufen"</span>,</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay: Zusammenhang zwischen Konzentration und optischer Dichte"</span>,</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Messungen aus mehreren Versuchsläufen"</span>,</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Beschriftungen sollten nicht einfach Variablennamen wiederholen, sondern für Leserinnen und Leser verständlich sein.</p>
 <p>Schlecht:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="st">"conc"</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="st">"density"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="st">"conc"</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="st">"density"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Besser:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="st">"Konzentration"</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="st">"Optische Dichte"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="st">"Konzentration"</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="st">"Optische Dichte"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="themes-gestaltung-der-grafik" class="level2" data-number="6.17">
 <h2 data-number="6.17" class="anchored" data-anchor-id="themes-gestaltung-der-grafik"><span class="header-section-number">6.17</span> Themes: Gestaltung der Grafik</h2>
 <p>Themes steuern das Aussehen einer Grafik.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Weitere häufige Themes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>()</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_light</span>()</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>()</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>()</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_light</span>()</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Beispiel mit Anpassungen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay"</span>,</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay"</span>,</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1249,110 +1409,293 @@ window.Quarto = {
 <section id="fehler-1-vergessen" class="level3" data-number="6.18.1">
 <h3 data-number="6.18.1" class="anchored" data-anchor-id="fehler-1-vergessen"><span class="header-section-number">6.18.1</span> Fehler 1: <code>+</code> vergessen</h3>
 <p>Falsch:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density))</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density))</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>R betrachtet die erste Zeile als abgeschlossen.</p>
 <p>Richtig:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fehler-2-variable-außerhalb-von-aes-verwenden" class="level3" data-number="6.18.2">
 <h3 data-number="6.18.2" class="anchored" data-anchor-id="fehler-2-variable-außerhalb-von-aes-verwenden"><span class="header-section-number">6.18.2</span> Fehler 2: Variable außerhalb von <code>aes()</code> verwenden</h3>
 <p>Falsch, wenn die Farbe vom Versuchslauf abhängen soll:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> Run)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> Run)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Richtig:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fehler-3-konstante-werte-innerhalb-von-aes-setzen" class="level3" data-number="6.18.3">
 <h3 data-number="6.18.3" class="anchored" data-anchor-id="fehler-3-konstante-werte-innerhalb-von-aes-setzen"><span class="header-section-number">6.18.3</span> Fehler 3: Konstante Werte innerhalb von <code>aes()</code> setzen</h3>
 <p>Möglich, aber meistens nicht gemeint:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> <span class="st">"blue"</span>)) <span class="sc">+</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Besser:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fehler-4-geom_bar-und-geom_col-verwechseln" class="level3" data-number="6.18.4">
 <h3 data-number="6.18.4" class="anchored" data-anchor-id="fehler-4-geom_bar-und-geom_col-verwechseln"><span class="header-section-number">6.18.4</span> Fehler 4: <code>geom_bar()</code> und <code>geom_col()</code> verwechseln</h3>
 <p>Für Rohdaten, bei denen Häufigkeiten gezählt werden sollen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> Run)) <span class="sc">+</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> Run)) <span class="sc">+</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Für bereits aggregierte Daten:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(groups, <span class="fu">aes</span>(<span class="at">x =</span> sampleGroup, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
 <section id="grafiken-speichern" class="level2" data-number="6.19">
 <h2 data-number="6.19" class="anchored" data-anchor-id="grafiken-speichern"><span class="header-section-number">6.19</span> Grafiken speichern</h2>
 <p>Grafiken können mit <code>ggsave()</code> gespeichert werden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay"</span>,</span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
-<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
-<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
-<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dnase_plot.pdf"</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
-<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dnase_plot.png"</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay"</span>,</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dnase_plot.pdf"</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dnase_plot.png"</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Für Berichte und wissenschaftliche Arbeiten sind PDF-Dateien oft sinnvoll, weil sie vektorbasiert sind. Für Webseiten oder Präsentationen werden häufig PNG-Dateien verwendet.</p>
 <hr>
 </section>
 <section id="beispiel-eine-grafik-schrittweise-verbessern" class="level2" data-number="6.20">
 <h2 data-number="6.20" class="anchored" data-anchor-id="beispiel-eine-grafik-schrittweise-verbessern"><span class="header-section-number">6.20</span> Beispiel: Eine Grafik schrittweise verbessern</h2>
-<section id="schritt-1-einfacher-scatterplot" class="level3" data-number="6.20.1">
-<h3 data-number="6.20.1" class="anchored" data-anchor-id="schritt-1-einfacher-scatterplot"><span class="header-section-number">6.20.1</span> Schritt 1: Einfacher Scatterplot</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="schritt-2-logarithmische-x-achse-ergänzen" class="level3" data-number="6.20.2">
-<h3 data-number="6.20.2" class="anchored" data-anchor-id="schritt-2-logarithmische-x-achse-ergänzen"><span class="header-section-number">6.20.2</span> Schritt 2: Logarithmische x-Achse ergänzen</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density)) <span class="sc">+</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="schritt-3-versuchsläufe-farblich-unterscheiden" class="level3" data-number="6.20.3">
-<h3 data-number="6.20.3" class="anchored" data-anchor-id="schritt-3-versuchsläufe-farblich-unterscheiden"><span class="header-section-number">6.20.3</span> Schritt 3: Versuchsläufe farblich unterscheiden</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run)) <span class="sc">+</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="schritt-4-punkte-pro-versuchslauf-verbinden" class="level3" data-number="6.20.4">
-<h3 data-number="6.20.4" class="anchored" data-anchor-id="schritt-4-punkte-pro-versuchslauf-verbinden"><span class="header-section-number">6.20.4</span> Schritt 4: Punkte pro Versuchslauf verbinden</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="schritt-5-beschriftungen-und-theme-ergänzen" class="level3" data-number="6.20.5">
-<h3 data-number="6.20.5" class="anchored" data-anchor-id="schritt-5-beschriftungen-und-theme-ergänzen"><span class="header-section-number">6.20.5</span> Schritt 5: Beschriftungen und Theme ergänzen</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DNase, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> density, <span class="at">color =</span> Run, <span class="at">group =</span> Run)) <span class="sc">+</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"DNase-Assay: Konzentration und optische Dichte"</span>,</span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Mehrere Versuchsläufe im Vergleich"</span>,</span>
-<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Konzentration (log10-Skala)"</span>,</span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Optische Dichte"</span>,</span>
-<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Versuchslauf"</span></span>
-<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In diesem Abschnitt wird gezeigt, wie eine Grafik in <code>ggplot2</code> Schritt für Schritt verbessert werden kann. Als Beispiel verwenden wir den schon bekannten Datensatz <code>Pima.tr</code> aus dem Paket <code>MASS</code>.</p>
+<p>Wir untersuchen die Frage:</p>
+<blockquote class="blockquote">
+<p>Wie unterscheiden sich Glukosewerte und BMI zwischen Personen mit und ohne Diabetes?</p>
+</blockquote>
+<p>Dazu betrachten wir zunächst ein einfaches Streudiagramm und ergänzen anschließend weitere Informationen und Gestaltungselemente.</p>
 <hr>
+<section id="schritt-1-einfaches-streudiagramm" class="level3" data-number="6.20.1">
+<h3 data-number="6.20.1" class="anchored" data-anchor-id="schritt-1-einfaches-streudiagramm"><span class="header-section-number">6.20.1</span> Schritt 1: Einfaches Streudiagramm</h3>
+<p>Zunächst erstellen wir ein einfaches Streudiagramm. Auf der x-Achse wird der BMI dargestellt, auf der y-Achse der Glukosewert.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Jeder Punkt steht für eine Person im Datensatz. Die Grafik zeigt, dass es Personen mit sehr unterschiedlichen BMI- und Glukosewerten gibt.</p>
+<p>Noch ist aber nicht sichtbar, welche Personen einen positiven oder negativen Diabetesstatus haben.</p>
+<hr>
+</section>
+<section id="schritt-2-punkte-transparenter-darstellen" class="level3" data-number="6.20.2">
+<h3 data-number="6.20.2" class="anchored" data-anchor-id="schritt-2-punkte-transparenter-darstellen"><span class="header-section-number">6.20.2</span> Schritt 2: Punkte transparenter darstellen</h3>
+<p>Wenn viele Punkte nah beieinanderliegen, können sie sich überdecken. Mit <code>alpha</code> kann die Transparenz der Punkte angepasst werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Durch die Transparenz erkennt man besser, in welchen Bereichen sich mehrere Beobachtungen häufen.</p>
+<hr>
+</section>
+<section id="schritt-3-diabetesstatus-farblich-darstellen" class="level3" data-number="6.20.3">
+<h3 data-number="6.20.3" class="anchored" data-anchor-id="schritt-3-diabetesstatus-farblich-darstellen"><span class="header-section-number">6.20.3</span> Schritt 3: Diabetesstatus farblich darstellen</h3>
+<p>Nun wird der Diabetesstatus über die Farbe sichtbar gemacht. Dazu wird <code>type</code> innerhalb von <code>aes()</code> auf die ästhetische Eigenschaft <code>color</code> abgebildet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Farbe ist hier nicht nur Dekoration, sondern trägt eine inhaltliche Bedeutung. Sie zeigt, ob bei einer Person Diabetes vorliegt oder nicht.</p>
+<hr>
+</section>
+<section id="schritt-4-punkte-größer-darstellen" class="level3" data-number="6.20.4">
+<h3 data-number="6.20.4" class="anchored" data-anchor-id="schritt-4-punkte-größer-darstellen"><span class="header-section-number">6.20.4</span> Schritt 4: Punkte größer darstellen</h3>
+<p>Damit die Punkte besser sichtbar sind, kann ihre Größe angepasst werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das Argument <code>size</code> verändert die Größe der Punkte. Gerade bei Präsentationen kann das die Lesbarkeit verbessern.</p>
+<hr>
+</section>
+<section id="schritt-5-achsen-und-titel-beschriften" class="level3" data-number="6.20.5">
+<h3 data-number="6.20.5" class="anchored" data-anchor-id="schritt-5-achsen-und-titel-beschriften"><span class="header-section-number">6.20.5</span> Schritt 5: Achsen und Titel beschriften</h3>
+<p>Eine gute Grafik sollte auch ohne den Quellcode verständlich sein. Deshalb ergänzen wir Achsenbeschriftungen, einen Titel, einen Untertitel und eine Beschriftung für die Legende.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BMI und Glukosewert im Vergleich"</span>,</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Jeder Punkt steht für eine Person im Datensatz"</span>,</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Body-Mass-Index (BMI)"</span>,</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Diabetesstatus"</span></span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Grafik ist nun deutlich besser interpretierbar. Titel und Untertitel erklären, worum es geht. Die Achsenbeschriftungen machen klar, welche Variablen dargestellt werden.</p>
+<hr>
+</section>
+<section id="schritt-6-theme-anpassen" class="level3" data-number="6.20.6">
+<h3 data-number="6.20.6" class="anchored" data-anchor-id="schritt-6-theme-anpassen"><span class="header-section-number">6.20.6</span> Schritt 6: Theme anpassen</h3>
+<p>Zum Schluss kann das Aussehen der Grafik angepasst werden. Themes verändern nicht die Daten, sondern die Gestaltung der Grafik.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BMI und Glukosewert im Vergleich"</span>,</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Jeder Punkt steht für eine Person im Datensatz"</span>,</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Body-Mass-Index (BMI)"</span>,</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Diabetesstatus"</span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>theme_minimal()</code> erzeugt eine reduzierte Darstellung mit wenig visueller Ablenkung. Die Daten stehen dadurch stärker im Vordergrund.</p>
+<hr>
+</section>
+<section id="schritt-7-gruppen-getrennt-betrachten-mit-facetten" class="level3" data-number="6.20.7">
+<h3 data-number="6.20.7" class="anchored" data-anchor-id="schritt-7-gruppen-getrennt-betrachten-mit-facetten"><span class="header-section-number">6.20.7</span> Schritt 7: Gruppen getrennt betrachten mit Facetten</h3>
+<p>Eine weitere Möglichkeit besteht darin, die beiden Gruppen in getrennten Teilgrafiken darzustellen. Dafür wird <code>facet_wrap()</code> verwendet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu)) <span class="sc">+</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type) <span class="sc">+</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BMI und Glukosewert nach Diabetesstatus"</span>,</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Jede Teilgrafik zeigt eine Gruppe"</span>,</span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Body-Mass-Index (BMI)"</span>,</span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Glukosewert"</span></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Facetten sind besonders hilfreich, wenn Gruppen separat betrachtet werden sollen. Die beiden Teilgrafiken verwenden dieselben Achsen, sodass die Gruppen gut vergleichbar bleiben.</p>
+<hr>
+</section>
+<section id="schritt-8-farben-manuell-anpassen" class="level3" data-number="6.20.8">
+<h3 data-number="6.20.8" class="anchored" data-anchor-id="schritt-8-farben-manuell-anpassen"><span class="header-section-number">6.20.8</span> Schritt 8: Farben manuell anpassen</h3>
+<p>Die Standardfarben von <code>ggplot2</code> sind für viele Zwecke ausreichend. Manchmal möchte man Farben aber bewusst festlegen, zum Beispiel um Gruppen klarer zu unterscheiden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"firebrick"</span>),</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"kein Diabetes"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"Diabetes"</span>)</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BMI und Glukosewert im Vergleich"</span>,</span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Farblich unterschieden nach Diabetesstatus"</span>,</span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Body-Mass-Index (BMI)"</span>,</span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Diabetesstatus"</span></span>
+<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Mit <code>scale_color_manual()</code> wird festgelegt, welche Farbe für welche Gruppe verwendet wird. Außerdem können die Beschriftungen in der Legende angepasst werden.</p>
+<hr>
+</section>
+<section id="finale-version-der-grafik" class="level3" data-number="6.20.9">
+<h3 data-number="6.20.9" class="anchored" data-anchor-id="finale-version-der-grafik"><span class="header-section-number">6.20.9</span> Finale Version der Grafik</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Pima.tr, <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> glu, <span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"firebrick"</span>),</span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"kein Diabetes"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"Diabetes"</span>)</span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"BMI und Glukosewert im Vergleich"</span>,</span>
+<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Personen mit Diabetes weisen tendenziell höhere Glukosewerte auf"</span>,</span>
+<span id="cb82-10"><a href="#cb82-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Body-Mass-Index (BMI)"</span>,</span>
+<span id="cb82-11"><a href="#cb82-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Glukosewert"</span>,</span>
+<span id="cb82-12"><a href="#cb82-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Diabetesstatus"</span></span>
+<span id="cb82-13"><a href="#cb82-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb82-14"><a href="#cb82-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Diese finale Version ist deutlich aussagekräftiger als die erste einfache Grafik. Sie zeigt nicht nur den Zusammenhang zwischen BMI und Glukosewert, sondern macht auch den Diabetesstatus sichtbar.</p>
+<hr>
+<p>Die Grafik deutet darauf hin, dass Personen mit Diabetes tendenziell höhere Glukosewerte aufweisen. Der BMI allein trennt die Gruppen jedoch nicht eindeutig. Es gibt also keinen einfachen deterministischen Zusammenhang.</p>
+<p>Die schrittweise Verbesserung zeigt, dass eine Grafik nicht durch möglichst viele Elemente besser wird, sondern durch gezielte Ergänzungen. Farbe, Beschriftungen, Transparenz und Theme helfen hier, die Daten besser zu verstehen.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Merke: Gute Grafiken sind zielgerichtet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine Grafik wird nicht besser, weil sie möglichst viele Gestaltungselemente enthält. Sie wird besser, wenn jedes zusätzliche Element das Verständnis der Daten unterstützt.</p>
+<p>Dazu gehören zum Beispiel verständliche Achsenbeschriftungen, ein erklärender Titel, eine klare Legende, passende Farben, Transparenz bei vielen Punkten, Facetten für Gruppenvergleiche und ein zurückhaltendes Theme.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="zusammenfassung" class="level2" data-number="6.21">
 <h2 data-number="6.21" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">6.21</span> Zusammenfassung</h2>
 <p><code>ggplot2</code> ist ein mächtiges Werkzeug zur Datenvisualisierung in R. Der zentrale Gedanke ist, dass Grafiken aus wiederverwendbaren Bausteinen bestehen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATEN, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y)) <span class="sc">+</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATEN, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y)) <span class="sc">+</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Die wichtigsten Konzepte sind:</p>
 <ul>
 <li>Daten werden als Data Frame übergeben.</li>

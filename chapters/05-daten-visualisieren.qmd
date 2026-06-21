@@ -2,7 +2,6 @@
 title: Daten visualsieren mit ggplot
 ---
 
-
 ## Lernziele
 
 Nach diesem Kapitel können Sie:
@@ -76,46 +75,136 @@ Dieser Datensatz ist klein genug für den Einstieg, aber realistisch genug, um t
 
 ---
 
-## Erste Grafiken mit Base R
+## Weitere Grafiken mit Base R
 
-R besitzt eingebaute Grafikfunktionen, zum Beispiel `plot()`, `hist()` oder `boxplot()`.
+Base R enthält bereits viele Funktionen, um Daten schnell explorativ zu visualisieren. Im Folgenden werden einige Beispiele mit dem Datensatz `Pima.tr` gezeigt.
 
-```{r, echo=TRUE}
-plot(Pima.tr$age, Pima.tr$glu)
-```
+### Histogramm
 
-Dieser Plot zeigt den Zusammenhang zwischen Alter und Glukosewert. Die Darstellung ist schnell erstellt, aber noch wenig beschriftet.
-
-Eine etwas bessere Variante ist:
+Ein Histogramm zeigt die Verteilung einer metrischen Variable. Hier wird untersucht, wie die Glukosewerte verteilt sind.
 
 ```{r, echo=TRUE}
-plot(
-  Pima.tr$age,
-  Pima.tr$glu,
-  xlab = "Alter in Jahren",
-  ylab = "Glukosekonzentration",
-  pch = 19,
-  col = "blue"
-)
+hist(Pima.tr$glu,
+     breaks = 20,
+     main = "Verteilung der Glukosewerte",
+     xlab = "Glukosewert",
+     ylab = "Häufigkeit")
 ```
 
-Auch Histogramme und Boxplots sind mit Base R möglich:
+### Boxplot
+
+Ein Boxplot zeigt Median, Quartile und mögliche Ausreißer. Hier werden die Glukosewerte getrennt nach Diabetes-Status dargestellt.
 
 ```{r, echo=TRUE}
-hist(Pima.tr$glu, breaks = 20, main = "Verteilung der Glukosewerte")
+boxplot(glu ~ type,
+        data = Pima.tr,
+        main = "Glukosewerte nach Diabetes-Status",
+        xlab = "Diabetes-Status",
+        ylab = "Glukosewert")
 ```
 
-Das Histogramm zeigt die Verteilung der Glukosewerte. Mit `breaks` lässt ich beeinflussen, wie fein oder grob die Verteilung dargestellt wird.
+### Streudiagramm
 
-
-Der Boxplot vergleicht die Glukosewerte zwischen Personen mit und ohne Diabetesdiagnose.
+Ein Streudiagramm eignet sich, um den Zusammenhang zwischen zwei metrischen Variablen zu betrachten.
 
 ```{r, echo=TRUE}
-boxplot(glu ~ type, data = Pima.tr)
+plot(Pima.tr$bmi, Pima.tr$glu,
+     main = "Zusammenhang zwischen BMI und Glukosewert",
+     xlab = "BMI",
+     ylab = "Glukosewert",
+     pch = 19)
 ```
 
-Base R eignet sich gut für schnelle explorative Grafiken. Sobald Grafiken aber komplexer werden, zum Beispiel mit mehreren Gruppen, Farben, Legenden, Achsenanpassungen und Teilgrafiken, wird der Code oft unübersichtlich.
+### Streudiagramm mit Gruppenfarben
 
+Die Punkte können nach Diabetes-Status eingefärbt werden. Dadurch sieht man, ob sich Gruppen im Diagramm unterschiedlich verteilen.
+
+```{r, echo=TRUE}
+plot(Pima.tr$bmi, Pima.tr$glu,
+     main = "BMI und Glukosewert nach Diabetes-Status",
+     xlab = "BMI",
+     ylab = "Glukosewert",
+     pch = 19,
+     col = ifelse(Pima.tr$type == "Yes", "red", "blue"))
+
+legend("topleft",
+       legend = c("Diabetes: Yes", "Diabetes: No"),
+       col = c("red", "blue"),
+       pch = 19)
+```
+
+### Dichteplot
+
+Ein Dichteplot ist eine geglättete Alternative zum Histogramm. Er zeigt ebenfalls die Verteilung einer metrischen Variable.
+
+```{r, echo=TRUE}
+plot(density(Pima.tr$glu),
+     main = "Dichte der Glukosewerte",
+     xlab = "Glukosewert")
+```
+
+### Mehrere Histogramme nebeneinander
+
+Mit `par(mfrow = c(...))` können mehrere Grafiken in einem gemeinsamen Grafikbereich dargestellt werden.
+
+```{r, echo=TRUE}
+par(mfrow = c(1, 2))
+
+hist(Pima.tr$glu,
+     breaks = 20,
+     main = "Glukose",
+     xlab = "Glukosewert")
+
+hist(Pima.tr$bmi,
+     breaks = 20,
+     main = "BMI",
+     xlab = "BMI")
+
+par(mfrow = c(1, 1))
+```
+
+### Scatterplot-Matrix
+
+Eine Scatterplot-Matrix zeigt paarweise Streudiagramme mehrerer metrischer Variablen. Dadurch lassen sich mögliche Zusammenhänge schnell erkennen.
+
+```{r, echo=TRUE}
+pairs(Pima.tr[, c("npreg", "glu", "bp", "bmi", "age")],
+      main = "Scatterplot-Matrix ausgewählter Variablen")
+```
+
+### Korrelationsmatrix
+
+Eine Korrelationsmatrix zeigt, wie stark metrische Variablen linear miteinander zusammenhängen.
+
+```{r, echo=TRUE}
+korrelationen <- cor(Pima.tr[, c("npreg", "glu", "bp", "skin", "bmi", "ped", "age")])
+
+korrelationen
+```
+
+### Heatmap der Korrelationsmatrix (optional)
+
+Eine Heatmap stellt Werte farblich dar. Hier wird sie verwendet, um die Korrelationsmatrix zu visualisieren. Stärkere Zusammenhänge werden dadurch schneller sichtbar.
+
+```{r, echo=TRUE}
+korrelationen <- cor(Pima.tr[, c("npreg", "glu", "bp", "skin", "bmi", "ped", "age")])
+
+heatmap(korrelationen,
+        main = "Heatmap der Korrelationen",
+        symm = TRUE)
+```
+
+### Einfachere Heatmap ohne Umordnung (Optional)
+
+Standardmäßig ordnet `heatmap()` die Zeilen und Spalten nach Ähnlichkeit um. Für den Einstieg kann es verständlicher sein, diese Umordnung auszuschalten.
+
+```{r, echo=TRUE}
+heatmap(korrelationen,
+        main = "Heatmap der Korrelationen ohne Umordnung",
+        symm = TRUE,
+        Rowv = NA,
+        Colv = NA)
+```
 ---
 
 ## Von Base R zu ggplot2
@@ -257,9 +346,9 @@ data(DNase)
 head(DNase)
 ```
 
-### Punktdiagramm
+### Punktdiagramm (Scatterplots)
 
-Punktdiagramme eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.
+Punktdiagramme (Scatterplots, Streudiagramme) eignen sich gut, um den Zusammenhang zwischen zwei metrischen Variablen zu untersuchen.
 
 ```{r, echo=TRUE}
 ggplot(DNase, aes(x = conc, y = density)) +
@@ -749,58 +838,194 @@ Für Berichte und wissenschaftliche Arbeiten sind PDF-Dateien oft sinnvoll, weil
 
 ## Beispiel: Eine Grafik schrittweise verbessern
 
-### Schritt 1: Einfacher Scatterplot
+In diesem Abschnitt wird gezeigt, wie eine Grafik in `ggplot2` Schritt für Schritt verbessert werden kann. Als Beispiel verwenden wir den schon bekannten Datensatz `Pima.tr` aus dem Paket `MASS`.
 
-```r
-ggplot(DNase, aes(x = conc, y = density)) +
+Wir untersuchen die Frage:
+
+> Wie unterscheiden sich Glukosewerte und BMI zwischen Personen mit und ohne Diabetes?
+
+Dazu betrachten wir zunächst ein einfaches Streudiagramm und ergänzen anschließend weitere Informationen und Gestaltungselemente.
+
+---
+
+### Schritt 1: Einfaches Streudiagramm
+
+Zunächst erstellen wir ein einfaches Streudiagramm. Auf der x-Achse wird der BMI dargestellt, auf der y-Achse der Glukosewert.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
   geom_point()
 ```
 
-### Schritt 2: Logarithmische x-Achse ergänzen
+Jeder Punkt steht für eine Person im Datensatz. Die Grafik zeigt, dass es Personen mit sehr unterschiedlichen BMI- und Glukosewerten gibt.
 
-```r
-ggplot(DNase, aes(x = conc, y = density)) +
-  geom_point() +
-  scale_x_log10()
+Noch ist aber nicht sichtbar, welche Personen einen positiven oder negativen Diabetesstatus haben.
+
+---
+
+### Schritt 2: Punkte transparenter darstellen
+
+Wenn viele Punkte nah beieinanderliegen, können sie sich überdecken. Mit `alpha` kann die Transparenz der Punkte angepasst werden.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point(alpha = 0.6)
 ```
 
-### Schritt 3: Versuchsläufe farblich unterscheiden
+Durch die Transparenz erkennt man besser, in welchen Bereichen sich mehrere Beobachtungen häufen.
 
-```r
-ggplot(DNase, aes(x = conc, y = density, color = Run)) +
-  geom_point() +
-  scale_x_log10()
+---
+
+### Schritt 3: Diabetesstatus farblich darstellen
+
+Nun wird der Diabetesstatus über die Farbe sichtbar gemacht. Dazu wird `type` innerhalb von `aes()` auf die ästhetische Eigenschaft `color` abgebildet.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.7)
 ```
 
-### Schritt 4: Punkte pro Versuchslauf verbinden
+Die Farbe ist hier nicht nur Dekoration, sondern trägt eine inhaltliche Bedeutung. Sie zeigt, ob bei einer Person Diabetes vorliegt oder nicht.
 
-```r
-ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
-  geom_line() +
-  geom_point() +
-  scale_x_log10()
+---
+
+### Schritt 4: Punkte größer darstellen
+
+Damit die Punkte besser sichtbar sind, kann ihre Größe angepasst werden.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.7, size = 2)
 ```
 
-### Schritt 5: Beschriftungen und Theme ergänzen
+Das Argument `size` verändert die Größe der Punkte. Gerade bei Präsentationen kann das die Lesbarkeit verbessern.
 
-```r
-ggplot(DNase, aes(x = conc, y = density, color = Run, group = Run)) +
-  geom_line() +
-  geom_point() +
-  scale_x_log10() +
+---
+
+### Schritt 5: Achsen und Titel beschriften
+
+Eine gute Grafik sollte auch ohne den Quellcode verständlich sein. Deshalb ergänzen wir Achsenbeschriftungen, einen Titel, einen Untertitel und eine Beschriftung für die Legende.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.7, size = 2) +
   labs(
-    title = "DNase-Assay: Konzentration und optische Dichte",
-    subtitle = "Mehrere Versuchsläufe im Vergleich",
-    x = "Konzentration (log10-Skala)",
-    y = "Optische Dichte",
-    color = "Versuchslauf"
+    title = "BMI und Glukosewert im Vergleich",
+    subtitle = "Jeder Punkt steht für eine Person im Datensatz",
+    x = "Body-Mass-Index (BMI)",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  )
+```
+
+Die Grafik ist nun deutlich besser interpretierbar. Titel und Untertitel erklären, worum es geht. Die Achsenbeschriftungen machen klar, welche Variablen dargestellt werden.
+
+---
+
+### Schritt 6: Theme anpassen
+
+Zum Schluss kann das Aussehen der Grafik angepasst werden. Themes verändern nicht die Daten, sondern die Gestaltung der Grafik.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.7, size = 2) +
+  labs(
+    title = "BMI und Glukosewert im Vergleich",
+    subtitle = "Jeder Punkt steht für eine Person im Datensatz",
+    x = "Body-Mass-Index (BMI)",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
   ) +
   theme_minimal()
 ```
 
+`theme_minimal()` erzeugt eine reduzierte Darstellung mit wenig visueller Ablenkung. Die Daten stehen dadurch stärker im Vordergrund.
+
 ---
 
-## Zusammenfassung
+### Schritt 7: Gruppen getrennt betrachten mit Facetten
+
+Eine weitere Möglichkeit besteht darin, die beiden Gruppen in getrennten Teilgrafiken darzustellen. Dafür wird `facet_wrap()` verwendet.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point(alpha = 0.7, size = 2) +
+  facet_wrap(~ type) +
+  labs(
+    title = "BMI und Glukosewert nach Diabetesstatus",
+    subtitle = "Jede Teilgrafik zeigt eine Gruppe",
+    x = "Body-Mass-Index (BMI)",
+    y = "Glukosewert"
+  ) +
+  theme_minimal()
+```
+
+Facetten sind besonders hilfreich, wenn Gruppen separat betrachtet werden sollen. Die beiden Teilgrafiken verwenden dieselben Achsen, sodass die Gruppen gut vergleichbar bleiben.
+
+---
+
+### Schritt 8: Farben manuell anpassen
+
+Die Standardfarben von `ggplot2` sind für viele Zwecke ausreichend. Manchmal möchte man Farben aber bewusst festlegen, zum Beispiel um Gruppen klarer zu unterscheiden.
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.7, size = 2) +
+  scale_color_manual(
+    values = c("No" = "steelblue", "Yes" = "firebrick"),
+    labels = c("No" = "kein Diabetes", "Yes" = "Diabetes")
+  ) +
+  labs(
+    title = "BMI und Glukosewert im Vergleich",
+    subtitle = "Farblich unterschieden nach Diabetesstatus",
+    x = "Body-Mass-Index (BMI)",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  ) +
+  theme_minimal()
+```
+
+Mit `scale_color_manual()` wird festgelegt, welche Farbe für welche Gruppe verwendet wird. Außerdem können die Beschriftungen in der Legende angepasst werden.
+
+---
+
+### Finale Version der Grafik
+
+```{r, echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(alpha = 0.75, size = 2) +
+  scale_color_manual(
+    values = c("No" = "steelblue", "Yes" = "firebrick"),
+    labels = c("No" = "kein Diabetes", "Yes" = "Diabetes")
+  ) +
+  labs(
+    title = "BMI und Glukosewert im Vergleich",
+    subtitle = "Personen mit Diabetes weisen tendenziell höhere Glukosewerte auf",
+    x = "Body-Mass-Index (BMI)",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  ) +
+  theme_minimal()
+```
+
+Diese finale Version ist deutlich aussagekräftiger als die erste einfache Grafik. Sie zeigt nicht nur den Zusammenhang zwischen BMI und Glukosewert, sondern macht auch den Diabetesstatus sichtbar.
+
+---
+
+Die Grafik deutet darauf hin, dass Personen mit Diabetes tendenziell höhere Glukosewerte aufweisen. Der BMI allein trennt die Gruppen jedoch nicht eindeutig. Es gibt also keinen einfachen deterministischen Zusammenhang.
+
+Die schrittweise Verbesserung zeigt, dass eine Grafik nicht durch möglichst viele Elemente besser wird, sondern durch gezielte Ergänzungen. Farbe, Beschriftungen, Transparenz und Theme helfen hier, die Daten besser zu verstehen.
+
+::: {.callout-note}
+## Merke: Gute Grafiken sind zielgerichtet
+
+Eine Grafik wird nicht besser, weil sie möglichst viele Gestaltungselemente enthält. Sie wird besser, wenn jedes zusätzliche Element das Verständnis der Daten unterstützt.
+
+Dazu gehören zum Beispiel verständliche Achsenbeschriftungen, ein erklärender Titel, eine klare Legende, passende Farben, Transparenz bei vielen Punkten, Facetten für Gruppenvergleiche und ein zurückhaltendes Theme.
+
+:::
+
+### Zusammenfassung GGplot
 
 `ggplot2` ist ein mächtiges Werkzeug zur Datenvisualisierung in R. Der zentrale Gedanke ist, dass Grafiken aus wiederverwendbaren Bausteinen bestehen:
 
@@ -817,6 +1042,285 @@ Die wichtigsten Konzepte sind:
 - Layer können mit `+` kombiniert werden.
 - Farben, Facets, Skalen und Themes helfen, komplexere Aussagen sichtbar zu machen.
 - Gute Grafiken entstehen nicht durch möglichst viele Effekte, sondern durch klare Gestaltung und eine eindeutige Aussage.
+
+## Netzwerkvisualisierung
+
+Bisher haben wir vor allem klassische Diagramme betrachtet, zum Beispiel Histogramme, Boxplots oder Streudiagramme. Diese Diagramme eignen sich gut, wenn einzelne Variablen oder Zusammenhänge zwischen zwei metrischen Variablen untersucht werden sollen.
+
+Manche Daten haben jedoch eine andere Struktur: Sie bestehen aus **Objekten** und **Beziehungen zwischen diesen Objekten**. Solche Daten können als Netzwerk dargestellt werden.
+
+Typische Beispiele sind:
+
+- Personen und ihre Freundschaften,
+- Webseiten und ihre Links,
+- Flughäfen und Flugverbindungen,
+- Begriffe und ihre gemeinsamen Vorkommen,
+- Unternehmen und ihre Geschäftsbeziehungen,
+- Gene und ihre Interaktionen.
+
+In einer Netzwerkvisualisierung werden die Objekte als **Knoten** dargestellt. Die Beziehungen zwischen ihnen werden als **Kanten** dargestellt.
+
+::: {.callout-note}
+## Begriffe
+
+Ein **Knoten** steht für ein Objekt, zum Beispiel eine Person, eine Webseite oder einen Ort.
+
+Eine **Kante** steht für eine Beziehung zwischen zwei Knoten, zum Beispiel eine Freundschaft, eine Verbindung oder eine Interaktion.
+:::
+
+### Beispiel: Ein kleines soziales Netzwerk
+
+Im folgenden Beispiel betrachten wir ein kleines künstliches Netzwerk. Die Knoten sind Personen. Eine Kante bedeutet, dass zwei Personen miteinander verbunden sind.
+
+```{r, echo=TRUE}
+library(igraph)
+
+verbindungen <- data.frame(
+  von = c("Anna", "Anna", "Ben", "Ben", "Clara", "David", "Eva", "Eva", "Fatima"),
+  zu  = c("Ben", "Clara", "Clara", "David", "Eva", "Eva", "Fatima", "Gustav", "Gustav")
+)
+
+verbindungen
+```
+
+Der Datensatz besteht aus zwei Spalten:
+
+- `von`: Startknoten der Beziehung,
+- `zu`: Zielknoten der Beziehung.
+
+Jede Zeile beschreibt also eine Verbindung zwischen zwei Personen.
+
+### Netzwerkobjekt erstellen
+
+Damit R die Daten als Netzwerk interpretieren kann, erstellen wir zunächst ein Netzwerkobjekt.
+
+```{r, echo=TRUE}
+netzwerk <- graph_from_data_frame(verbindungen, directed = FALSE)
+
+netzwerk
+```
+
+Das Argument `directed = FALSE` bedeutet, dass die Beziehungen **ungerichtet** sind. Eine Verbindung zwischen Anna und Ben wird also einfach als gegenseitige Verbindung betrachtet.
+
+Bei gerichteten Netzwerken wäre die Richtung wichtig. Das wäre zum Beispiel bei Twitter/X-Followern oder Webseitenlinks der Fall.
+
+### Einfache Netzwerkvisualisierung
+
+Mit `plot()` kann das Netzwerk direkt visualisiert werden.
+
+```{r, echo=TRUE}
+plot(netzwerk)
+```
+
+Die Darstellung zeigt die Personen als Knoten und die Verbindungen als Linien zwischen den Knoten.
+
+Allerdings ist diese erste Version noch sehr schlicht. Wie bei anderen Diagrammen können wir die Grafik Schritt für Schritt verbessern.
+
+### Knoten und Beschriftungen anpassen
+
+Zunächst können wir die Größe der Knoten, die Farbe und die Beschriftungen anpassen.
+
+```{r, echo=TRUE}
+plot(
+  netzwerk,
+  vertex.size = 30,
+  vertex.color = "lightblue",
+  vertex.label.color = "black",
+  vertex.label.cex = 0.9,
+  edge.color = "gray60",
+  main = "Ein kleines soziales Netzwerk"
+)
+```
+
+Die wichtigsten Argumente sind:
+
+- `vertex.size`: Größe der Knoten,
+- `vertex.color`: Farbe der Knoten,
+- `vertex.label.color`: Farbe der Beschriftung,
+- `vertex.label.cex`: Größe der Beschriftung,
+- `edge.color`: Farbe der Kanten.
+
+### Zentrale Knoten hervorheben
+
+In Netzwerken ist häufig interessant, welche Knoten besonders gut verbunden sind. Eine einfache Kennzahl dafür ist der **Grad** eines Knotens.
+
+Der Grad gibt an, mit wie vielen anderen Knoten ein Knoten verbunden ist.
+
+```{r, echo=TRUE}
+grad <- degree(netzwerk)
+
+grad
+```
+
+Nun können wir die Knotengröße vom Grad abhängig machen. Personen mit vielen Verbindungen erscheinen dadurch größer.
+
+```{r, echo=TRUE}
+plot(
+  netzwerk,
+  vertex.size = grad * 8,
+  vertex.color = "lightblue",
+  vertex.label.color = "black",
+  vertex.label.cex = 0.9,
+  edge.color = "gray60",
+  main = "Knotengröße nach Anzahl der Verbindungen"
+)
+```
+
+In dieser Grafik werden stärker vernetzte Personen visuell hervorgehoben. Das kann helfen, zentrale Akteure in einem Netzwerk schneller zu erkennen.
+
+::: {.callout-tip}
+## Merke
+
+Bei Netzwerkvisualisierungen sollte die Gestaltung eine inhaltliche Bedeutung haben.
+
+Wenn Knoten unterschiedlich groß dargestellt werden, sollte diese Größe etwas ausdrücken, zum Beispiel die Anzahl der Verbindungen oder eine andere Kennzahl.
+:::
+
+### Layouts verändern
+
+Bei Netzwerkvisualisierungen gibt es meist keine feste x- oder y-Achse. Die Position der Knoten wird durch ein sogenanntes **Layout** bestimmt.
+
+Ein Layout legt fest, wie die Knoten im Raum angeordnet werden.
+
+```{r, echo=TRUE}
+plot(
+  netzwerk,
+  layout = layout_with_fr(netzwerk),
+  vertex.size = grad * 8,
+  vertex.color = "lightblue",
+  vertex.label.color = "black",
+  vertex.label.cex = 0.9,
+  edge.color = "gray60",
+  main = "Netzwerk mit Force-Directed Layout"
+)
+```
+
+Das Layout `layout_with_fr()` ist ein sogenanntes force-directed Layout. Dabei werden verbundene Knoten eher näher beieinander platziert, während nicht direkt verbundene Knoten stärker auseinanderliegen.
+
+Dadurch entstehen häufig gut lesbare Netzwerkstrukturen.
+
+### Netzwerk mit `ggraph`
+
+Für modernere Netzwerkvisualisierungen kann das Paket `ggraph` verwendet werden. Es orientiert sich an der Logik von `ggplot2`, ist aber speziell für Graphen und Netzwerke gedacht.
+
+```{r, echo=TRUE}
+library(ggraph)
+
+ggraph(netzwerk, layout = "fr") +
+  geom_edge_link(color = "gray70") +
+  geom_node_point(size = 6, color = "lightblue") +
+  geom_node_text(aes(label = name), repel = TRUE) +
+  labs(
+    title = "Ein kleines soziales Netzwerk",
+    subtitle = "Knoten stehen für Personen, Kanten für Verbindungen"
+  ) +
+  theme_void()
+```
+
+Hier werden drei zentrale Bausteine verwendet:
+
+- `geom_edge_link()` zeichnet die Kanten,
+- `geom_node_point()` zeichnet die Knoten,
+- `geom_node_text()` ergänzt die Knotennamen.
+
+Das Theme `theme_void()` entfernt Achsen, Gitterlinien und Hintergrundelemente. Das ist bei Netzwerkvisualisierungen oft sinnvoll, weil die Achsen keine inhaltliche Bedeutung haben.
+
+### Knoten nach Grad einfärben
+
+Auch mit `ggraph` können Netzwerke schrittweise informativer gestaltet werden. Im folgenden Beispiel wird der Grad eines Knotens berechnet und anschließend für die Farbe der Knoten verwendet.
+
+```{r, echo=TRUE}
+V(netzwerk)$grad <- degree(netzwerk)
+
+ggraph(netzwerk, layout = "fr") +
+  geom_edge_link(color = "gray75") +
+  geom_node_point(aes(size = grad, color = grad)) +
+  geom_node_text(aes(label = name), repel = TRUE) +
+  scale_size_continuous(range = c(4, 10)) +
+  labs(
+    title = "Zentrale Knoten im Netzwerk",
+    subtitle = "Größere und dunklere Knoten haben mehr Verbindungen",
+    size = "Anzahl Verbindungen",
+    color = "Anzahl Verbindungen"
+  ) +
+  theme_void()
+```
+
+Diese Darstellung zeigt nicht nur, wer mit wem verbunden ist. Sie macht zusätzlich sichtbar, welche Personen besonders viele Verbindungen haben.
+
+### Gerichtete Netzwerke
+
+Nicht alle Netzwerke sind ungerichtet. Manchmal hat eine Beziehung eine Richtung.
+
+Beispiele:
+
+- Eine Webseite verlinkt auf eine andere Webseite.
+- Eine Person folgt einer anderen Person.
+- Ein Paket wird von einem Ort zu einem anderen transportiert.
+- Eine E-Mail wird von einer Person an eine andere gesendet.
+
+In solchen Fällen kann ein gerichtetes Netzwerk verwendet werden.
+
+```{r, echo=TRUE}
+links <- data.frame(
+  von = c("Startseite", "Startseite", "Kurs", "Kurs", "Material", "Übung"),
+  zu  = c("Kurs", "Material", "Übung", "Prüfung", "Übung", "Prüfung")
+)
+
+webnetz <- graph_from_data_frame(links, directed = TRUE)
+
+plot(
+  webnetz,
+  vertex.size = 35,
+  vertex.color = "lightyellow",
+  vertex.label.color = "black",
+  edge.arrow.size = 0.5,
+  edge.color = "gray50",
+  main = "Beispiel für ein gerichtetes Netzwerk"
+)
+```
+
+Die Pfeile zeigen die Richtung der Beziehung. Dadurch erkennt man, von welchem Knoten eine Verbindung ausgeht und wohin sie führt.
+
+### Wann sind Netzwerkvisualisierungen sinnvoll?
+
+Netzwerkvisualisierungen eignen sich besonders dann, wenn die **Beziehungen zwischen Objekten** im Mittelpunkt stehen.
+
+Sie sind weniger geeignet, wenn nur einzelne Variablen verglichen werden sollen. Für Verteilungen, Mittelwerte oder Zusammenhänge zwischen zwei metrischen Variablen sind Histogramme, Boxplots oder Streudiagramme meist besser geeignet.
+
+::: {.callout-note}
+## Netzwerkvisualisierung
+
+Eine Netzwerkvisualisierung beantwortet vor allem Fragen wie:
+
+- Welche Objekte sind miteinander verbunden?
+- Welche Knoten sind besonders zentral?
+- Gibt es Gruppen oder Cluster?
+- Gibt es isolierte oder schwach verbundene Knoten?
+- Gibt es gerichtete Beziehungen?
+:::
+
+### Grenzen von Netzwerkvisualisierungen
+
+Netzwerkdiagramme können schnell unübersichtlich werden. Schon bei einigen hundert Knoten und Kanten kann eine Darstellung schwer lesbar sein.
+
+Typische Probleme sind:
+
+- zu viele Knoten,
+- zu viele Kanten,
+- überlappende Beschriftungen,
+- unklare Farben,
+- zu viele visuelle Kodierungen gleichzeitig.
+
+Deshalb sollten Netzwerkvisualisierungen besonders sorgfältig gestaltet werden.
+
+::: {.callout-tip}
+## Merke
+
+Netzwerkvisualisierungen sind besonders nützlich, wenn Beziehungen zwischen Objekten untersucht werden sollen.
+
+Sie zeigen nicht nur einzelne Werte, sondern Strukturen: Verbindungen, zentrale Knoten, Gruppen und mögliche Muster im Netzwerk.
+:::
 
 ## Credits
 
