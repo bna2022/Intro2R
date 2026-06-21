@@ -15,21 +15,7 @@ format:
     resources:
       - ../figures/*.png
     format:
-  
-  beamer:
-    slide-level: 2
-    keep-tex: true
-    toc: true
-    toc-depth: 1
-    aspectratio: 169
-    highlight-style: pygments
-    theme: default
 
-    include-in-header:
-      text: |
-        \input{beamerthemeBHT.sty}
-
-    fontsize: 10pt
 
 editor_options:
   markdown:
