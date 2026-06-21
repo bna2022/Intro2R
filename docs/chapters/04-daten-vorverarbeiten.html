@@ -286,10 +286,9 @@ background-size: cover;
   <li><a href="#groß--und-kleinschreibung-vereinheitlichen" id="toc-groß--und-kleinschreibung-vereinheitlichen" class="nav-link" data-scroll-target="#groß--und-kleinschreibung-vereinheitlichen"><span class="header-section-number">5.15.3</span> Groß- und Kleinschreibung vereinheitlichen</a></li>
   <li><a href="#textmuster-suchen-mit-str_detect" id="toc-textmuster-suchen-mit-str_detect" class="nav-link" data-scroll-target="#textmuster-suchen-mit-str_detect"><span class="header-section-number">5.15.4</span> Textmuster suchen mit <code>str_detect()</code></a></li>
   <li><a href="#schreibweisen-gezielt-korrigieren" id="toc-schreibweisen-gezielt-korrigieren" class="nav-link" data-scroll-target="#schreibweisen-gezielt-korrigieren"><span class="header-section-number">5.15.5</span> Schreibweisen gezielt korrigieren</a></li>
-  <li><a href="#warum-ist-das-wichtig" id="toc-warum-ist-das-wichtig" class="nav-link" data-scroll-target="#warum-ist-das-wichtig"><span class="header-section-number">5.15.6</span> Warum ist das wichtig?</a></li>
-  <li><a href="#beispiel-gruppieren-nach-bereinigten-ländernamen" id="toc-beispiel-gruppieren-nach-bereinigten-ländernamen" class="nav-link" data-scroll-target="#beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.15.7</span> Beispiel: Gruppieren nach bereinigten Ländernamen</a></li>
-  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">5.15.8</span> Übung</a></li>
-  <li><a href="#merke" id="toc-merke" class="nav-link" data-scroll-target="#merke"><span class="header-section-number">5.15.9</span> Merke</a></li>
+  <li><a href="#beispiel-gruppieren-nach-bereinigten-ländernamen" id="toc-beispiel-gruppieren-nach-bereinigten-ländernamen" class="nav-link" data-scroll-target="#beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.15.6</span> Beispiel: Gruppieren nach bereinigten Ländernamen</a></li>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">5.15.7</span> Übung</a></li>
+  <li><a href="#merke" id="toc-merke" class="nav-link" data-scroll-target="#merke"><span class="header-section-number">5.15.8</span> Merke</a></li>
   </ul></li>
   <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">5.16</span> Zusammenfassung</a></li>
   </ul>
@@ -1577,40 +1576,21 @@ $ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76
 </div>
 <p>Die letzte Zeile <code>TRUE ~ country_clean</code> bedeutet: Wenn keine der vorherigen Bedingungen zutrifft, bleibt der ursprüngliche bereinigte Wert erhalten.</p>
 </section>
-<section id="warum-ist-das-wichtig" class="level3" data-number="5.15.6">
-<h3 data-number="5.15.6" class="anchored" data-anchor-id="warum-ist-das-wichtig"><span class="header-section-number">5.15.6</span> Warum ist das wichtig?</h3>
-<p>Saubere Textwerte sind wichtig, weil R Zeichenketten exakt vergleicht. Für R sind diese Werte unterschiedlich:</p>
+<section id="beispiel-gruppieren-nach-bereinigten-ländernamen" class="level3" data-number="5.15.6">
+<h3 data-number="5.15.6" class="anchored" data-anchor-id="beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.15.6</span> Beispiel: Gruppieren nach bereinigten Ländernamen</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">" Germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Germany"</span> <span class="sc">==</span> <span class="st">"germany"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="st">"United Kingdom"</span> <span class="sc">==</span> <span class="st">"United  Kingdom"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
-<p>Solche Unterschiede können dazu führen, dass Filter, Gruppierungen oder Joins nicht wie erwartet funktionieren.</p>
-</section>
-<section id="beispiel-gruppieren-nach-bereinigten-ländernamen" class="level3" data-number="5.15.7">
-<h3 data-number="5.15.7" class="anchored" data-anchor-id="beispiel-gruppieren-nach-bereinigten-ländernamen"><span class="header-section-number">5.15.7</span> Beispiel: Gruppieren nach bereinigten Ländernamen</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>laender_roh <span class="sc">|&gt;</span></span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
-<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
-<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_to_title</span>()</span>
-<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country_clean) <span class="sc">|&gt;</span></span>
-<span id="cb111-9"><a href="#cb111-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb111-10"><a href="#cb111-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
-<span id="cb111-11"><a href="#cb111-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb111-12"><a href="#cb111-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>laender_roh <span class="sc">|&gt;</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">country_clean =</span> country <span class="sc">|&gt;</span></span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_to_title</span>()</span>
+<span id="cb105-7"><a href="#cb105-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb105-8"><a href="#cb105-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country_clean) <span class="sc">|&gt;</span></span>
+<span id="cb105-9"><a href="#cb105-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb105-10"><a href="#cb105-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb105-11"><a href="#cb105-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb105-12"><a href="#cb105-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   country_clean          mean_lifeExp
@@ -1624,14 +1604,14 @@ $ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76
 </div>
 <p>Hier sorgt die Bereinigung dafür, dass gleiche Länder nicht versehentlich als verschiedene Gruppen behandelt werden.</p>
 </section>
-<section id="übung" class="level3" data-number="5.15.8">
-<h3 data-number="5.15.8" class="anchored" data-anchor-id="übung"><span class="header-section-number">5.15.8</span> Übung</h3>
+<section id="übung" class="level3" data-number="5.15.7">
+<h3 data-number="5.15.7" class="anchored" data-anchor-id="übung"><span class="header-section-number">5.15.7</span> Übung</h3>
 <p>Erstellen Sie eine kleine Tabelle mit uneinheitlichen Kontinentnamen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>kontinente_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">continent =</span> <span class="fu">c</span>(<span class="st">" europe"</span>, <span class="st">"Europe "</span>, <span class="st">"EUROPE"</span>, <span class="st">"asia"</span>, <span class="st">"Asia  "</span>),</span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>kontinente_roh <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">continent =</span> <span class="fu">c</span>(<span class="st">" europe"</span>, <span class="st">"Europe "</span>, <span class="st">"EUROPE"</span>, <span class="st">"asia"</span>, <span class="st">"Asia  "</span>),</span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bereinigen Sie die Spalte <code>continent</code> so, dass daraus einheitliche Werte entstehen.</p>
 <p>Nutzen Sie dafür:</p>
@@ -1641,15 +1621,15 @@ $ lifeExp &lt;dbl&gt; 67.410, 68.930, 70.510, 71.550, 72.380, 73.830, 74.890, 76
 <li><code>str_to_title()</code></li>
 </ul>
 </section>
-<section id="merke" class="level3" data-number="5.15.9">
-<h3 data-number="5.15.9" class="anchored" data-anchor-id="merke"><span class="header-section-number">5.15.9</span> Merke</h3>
+<section id="merke" class="level3" data-number="5.15.8">
+<h3 data-number="5.15.8" class="anchored" data-anchor-id="merke"><span class="header-section-number">5.15.8</span> Merke</h3>
 <p><code>stringr</code> hilft uns, Textwerte zu bereinigen und zu durchsuchen.</p>
 <p>Wichtige Funktionen sind:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_trim</span>(text)       <span class="co"># Leerzeichen am Anfang und Ende entfernen</span></span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_squish</span>(text)     <span class="co"># Mehrfache Leerzeichen reduzieren</span></span>
-<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(text)   <span class="co"># Einheitliche Groß-/Kleinschreibung</span></span>
-<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(text, <span class="st">"Muster"</span>)  <span class="co"># Textmuster erkennen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_trim</span>(text)       <span class="co"># Leerzeichen am Anfang und Ende entfernen</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_squish</span>(text)     <span class="co"># Mehrfache Leerzeichen reduzieren</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(text)   <span class="co"># Einheitliche Groß-/Kleinschreibung</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(text, <span class="st">"Muster"</span>)  <span class="co"># Textmuster erkennen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>

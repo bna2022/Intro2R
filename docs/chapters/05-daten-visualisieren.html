@@ -296,8 +296,22 @@ window.Quarto = {
   <li><a href="#schritt-7-gruppen-getrennt-betrachten-mit-facetten" id="toc-schritt-7-gruppen-getrennt-betrachten-mit-facetten" class="nav-link" data-scroll-target="#schritt-7-gruppen-getrennt-betrachten-mit-facetten"><span class="header-section-number">6.20.7</span> Schritt 7: Gruppen getrennt betrachten mit Facetten</a></li>
   <li><a href="#schritt-8-farben-manuell-anpassen" id="toc-schritt-8-farben-manuell-anpassen" class="nav-link" data-scroll-target="#schritt-8-farben-manuell-anpassen"><span class="header-section-number">6.20.8</span> Schritt 8: Farben manuell anpassen</a></li>
   <li><a href="#finale-version-der-grafik" id="toc-finale-version-der-grafik" class="nav-link" data-scroll-target="#finale-version-der-grafik"><span class="header-section-number">6.20.9</span> Finale Version der Grafik</a></li>
+  <li><a href="#zusammenfassung-ggplot" id="toc-zusammenfassung-ggplot" class="nav-link" data-scroll-target="#zusammenfassung-ggplot"><span class="header-section-number">6.20.10</span> Zusammenfassung GGplot</a></li>
   </ul></li>
-  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">6.21</span> Zusammenfassung</a></li>
+  <li><a href="#netzwerkvisualisierung" id="toc-netzwerkvisualisierung" class="nav-link" data-scroll-target="#netzwerkvisualisierung"><span class="header-section-number">6.21</span> Netzwerkvisualisierung</a>
+  <ul class="collapse">
+  <li><a href="#beispiel-ein-kleines-soziales-netzwerk" id="toc-beispiel-ein-kleines-soziales-netzwerk" class="nav-link" data-scroll-target="#beispiel-ein-kleines-soziales-netzwerk"><span class="header-section-number">6.21.1</span> Beispiel: Ein kleines soziales Netzwerk</a></li>
+  <li><a href="#netzwerkobjekt-erstellen" id="toc-netzwerkobjekt-erstellen" class="nav-link" data-scroll-target="#netzwerkobjekt-erstellen"><span class="header-section-number">6.21.2</span> Netzwerkobjekt erstellen</a></li>
+  <li><a href="#einfache-netzwerkvisualisierung" id="toc-einfache-netzwerkvisualisierung" class="nav-link" data-scroll-target="#einfache-netzwerkvisualisierung"><span class="header-section-number">6.21.3</span> Einfache Netzwerkvisualisierung</a></li>
+  <li><a href="#knoten-und-beschriftungen-anpassen" id="toc-knoten-und-beschriftungen-anpassen" class="nav-link" data-scroll-target="#knoten-und-beschriftungen-anpassen"><span class="header-section-number">6.21.4</span> Knoten und Beschriftungen anpassen</a></li>
+  <li><a href="#zentrale-knoten-hervorheben" id="toc-zentrale-knoten-hervorheben" class="nav-link" data-scroll-target="#zentrale-knoten-hervorheben"><span class="header-section-number">6.21.5</span> Zentrale Knoten hervorheben</a></li>
+  <li><a href="#layouts-verändern" id="toc-layouts-verändern" class="nav-link" data-scroll-target="#layouts-verändern"><span class="header-section-number">6.21.6</span> Layouts verändern</a></li>
+  <li><a href="#netzwerk-mit-ggraph" id="toc-netzwerk-mit-ggraph" class="nav-link" data-scroll-target="#netzwerk-mit-ggraph"><span class="header-section-number">6.21.7</span> Netzwerk mit <code>ggraph</code></a></li>
+  <li><a href="#knoten-nach-grad-einfärben" id="toc-knoten-nach-grad-einfärben" class="nav-link" data-scroll-target="#knoten-nach-grad-einfärben"><span class="header-section-number">6.21.8</span> Knoten nach Grad einfärben</a></li>
+  <li><a href="#gerichtete-netzwerke" id="toc-gerichtete-netzwerke" class="nav-link" data-scroll-target="#gerichtete-netzwerke"><span class="header-section-number">6.21.9</span> Gerichtete Netzwerke</a></li>
+  <li><a href="#wann-sind-netzwerkvisualisierungen-sinnvoll" id="toc-wann-sind-netzwerkvisualisierungen-sinnvoll" class="nav-link" data-scroll-target="#wann-sind-netzwerkvisualisierungen-sinnvoll"><span class="header-section-number">6.21.10</span> Wann sind Netzwerkvisualisierungen sinnvoll?</a></li>
+  <li><a href="#grenzen-von-netzwerkvisualisierungen" id="toc-grenzen-von-netzwerkvisualisierungen" class="nav-link" data-scroll-target="#grenzen-von-netzwerkvisualisierungen"><span class="header-section-number">6.21.11</span> Grenzen von Netzwerkvisualisierungen</a></li>
+  </ul></li>
   <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits"><span class="header-section-number">6.22</span> Credits</a></li>
   </ul>
 </nav>
@@ -1690,9 +1704,8 @@ age    1.00000000</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="zusammenfassung" class="level2" data-number="6.21">
-<h2 data-number="6.21" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">6.21</span> Zusammenfassung</h2>
+<section id="zusammenfassung-ggplot" class="level3" data-number="6.20.10">
+<h3 data-number="6.20.10" class="anchored" data-anchor-id="zusammenfassung-ggplot"><span class="header-section-number">6.20.10</span> Zusammenfassung GGplot</h3>
 <p><code>ggplot2</code> ist ein mächtiges Werkzeug zur Datenvisualisierung in R. Der zentrale Gedanke ist, dass Grafiken aus wiederverwendbaren Bausteinen bestehen:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATEN, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y)) <span class="sc">+</span></span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1705,6 +1718,373 @@ age    1.00000000</code></pre>
 <li>Farben, Facets, Skalen und Themes helfen, komplexere Aussagen sichtbar zu machen.</li>
 <li>Gute Grafiken entstehen nicht durch möglichst viele Effekte, sondern durch klare Gestaltung und eine eindeutige Aussage.</li>
 </ul>
+</section>
+</section>
+<section id="netzwerkvisualisierung" class="level2" data-number="6.21">
+<h2 data-number="6.21" class="anchored" data-anchor-id="netzwerkvisualisierung"><span class="header-section-number">6.21</span> Netzwerkvisualisierung</h2>
+<p>Bisher haben wir vor allem klassische Diagramme betrachtet, zum Beispiel Histogramme, Boxplots oder Streudiagramme. Diese Diagramme eignen sich gut, wenn einzelne Variablen oder Zusammenhänge zwischen zwei metrischen Variablen untersucht werden sollen.</p>
+<p>Manche Daten haben jedoch eine andere Struktur: Sie bestehen aus <strong>Objekten</strong> und <strong>Beziehungen zwischen diesen Objekten</strong>. Solche Daten können als Netzwerk dargestellt werden.</p>
+<p>Typische Beispiele sind:</p>
+<ul>
+<li>Personen und ihre Freundschaften,</li>
+<li>Webseiten und ihre Links,</li>
+<li>Flughäfen und Flugverbindungen,</li>
+<li>Begriffe und ihre gemeinsamen Vorkommen,</li>
+<li>Unternehmen und ihre Geschäftsbeziehungen,</li>
+<li>Gene und ihre Interaktionen.</li>
+</ul>
+<p>In einer Netzwerkvisualisierung werden die Objekte als <strong>Knoten</strong> dargestellt. Die Beziehungen zwischen ihnen werden als <strong>Kanten</strong> dargestellt.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Begriffe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein <strong>Knoten</strong> steht für ein Objekt, zum Beispiel eine Person, eine Webseite oder einen Ort.</p>
+<p>Eine <strong>Kante</strong> steht für eine Beziehung zwischen zwei Knoten, zum Beispiel eine Freundschaft, eine Verbindung oder eine Interaktion.</p>
+</div>
+</div>
+<section id="beispiel-ein-kleines-soziales-netzwerk" class="level3" data-number="6.21.1">
+<h3 data-number="6.21.1" class="anchored" data-anchor-id="beispiel-ein-kleines-soziales-netzwerk"><span class="header-section-number">6.21.1</span> Beispiel: Ein kleines soziales Netzwerk</h3>
+<p>Im folgenden Beispiel betrachten wir ein kleines künstliches Netzwerk. Die Knoten sind Personen. Eine Kante bedeutet, dass zwei Personen miteinander verbunden sind.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'igraph' wurde unter R Version 4.4.3 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'igraph'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:stats':
+
+    decompose, spectrum</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Das folgende Objekt ist maskiert 'package:base':
+
+    union</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>verbindungen <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">von =</span> <span class="fu">c</span>(<span class="st">"Anna"</span>, <span class="st">"Anna"</span>, <span class="st">"Ben"</span>, <span class="st">"Ben"</span>, <span class="st">"Clara"</span>, <span class="st">"David"</span>, <span class="st">"Eva"</span>, <span class="st">"Eva"</span>, <span class="st">"Fatima"</span>),</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">zu  =</span> <span class="fu">c</span>(<span class="st">"Ben"</span>, <span class="st">"Clara"</span>, <span class="st">"Clara"</span>, <span class="st">"David"</span>, <span class="st">"Eva"</span>, <span class="st">"Eva"</span>, <span class="st">"Fatima"</span>, <span class="st">"Gustav"</span>, <span class="st">"Gustav"</span>)</span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>verbindungen</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     von     zu
+1   Anna    Ben
+2   Anna  Clara
+3    Ben  Clara
+4    Ben  David
+5  Clara    Eva
+6  David    Eva
+7    Eva Fatima
+8    Eva Gustav
+9 Fatima Gustav</code></pre>
+</div>
+</div>
+<p>Der Datensatz besteht aus zwei Spalten:</p>
+<ul>
+<li><code>von</code>: Startknoten der Beziehung,</li>
+<li><code>zu</code>: Zielknoten der Beziehung.</li>
+</ul>
+<p>Jede Zeile beschreibt also eine Verbindung zwischen zwei Personen.</p>
+</section>
+<section id="netzwerkobjekt-erstellen" class="level3" data-number="6.21.2">
+<h3 data-number="6.21.2" class="anchored" data-anchor-id="netzwerkobjekt-erstellen"><span class="header-section-number">6.21.2</span> Netzwerkobjekt erstellen</h3>
+<p>Damit R die Daten als Netzwerk interpretieren kann, erstellen wir zunächst ein Netzwerkobjekt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>netzwerk <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(verbindungen, <span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>netzwerk</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>IGRAPH fc22725 UN-- 7 9 -- 
++ attr: name (v/c)
++ edges from fc22725 (vertex names):
+[1] Anna  --Ben    Anna  --Clara  Ben   --Clara  Ben   --David  Clara --Eva   
+[6] David --Eva    Eva   --Fatima Eva   --Gustav Fatima--Gustav</code></pre>
+</div>
+</div>
+<p>Das Argument <code>directed = FALSE</code> bedeutet, dass die Beziehungen <strong>ungerichtet</strong> sind. Eine Verbindung zwischen Anna und Ben wird also einfach als gegenseitige Verbindung betrachtet.</p>
+<p>Bei gerichteten Netzwerken wäre die Richtung wichtig. Das wäre zum Beispiel bei Twitter/X-Followern oder Webseitenlinks der Fall.</p>
+</section>
+<section id="einfache-netzwerkvisualisierung" class="level3" data-number="6.21.3">
+<h3 data-number="6.21.3" class="anchored" data-anchor-id="einfache-netzwerkvisualisierung"><span class="header-section-number">6.21.3</span> Einfache Netzwerkvisualisierung</h3>
+<p>Mit <code>plot()</code> kann das Netzwerk direkt visualisiert werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(netzwerk)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Darstellung zeigt die Personen als Knoten und die Verbindungen als Linien zwischen den Knoten.</p>
+<p>Allerdings ist diese erste Version noch sehr schlicht. Wie bei anderen Diagrammen können wir die Grafik Schritt für Schritt verbessern.</p>
+</section>
+<section id="knoten-und-beschriftungen-anpassen" class="level3" data-number="6.21.4">
+<h3 data-number="6.21.4" class="anchored" data-anchor-id="knoten-und-beschriftungen-anpassen"><span class="header-section-number">6.21.4</span> Knoten und Beschriftungen anpassen</h3>
+<p>Zunächst können wir die Größe der Knoten, die Farbe und die Beschriftungen anpassen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  netzwerk,</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.size =</span> <span class="dv">30</span>,</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.color =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.cex =</span> <span class="fl">0.9</span>,</span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">edge.color =</span> <span class="st">"gray60"</span>,</span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Ein kleines soziales Netzwerk"</span></span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die wichtigsten Argumente sind:</p>
+<ul>
+<li><code>vertex.size</code>: Größe der Knoten,</li>
+<li><code>vertex.color</code>: Farbe der Knoten,</li>
+<li><code>vertex.label.color</code>: Farbe der Beschriftung,</li>
+<li><code>vertex.label.cex</code>: Größe der Beschriftung,</li>
+<li><code>edge.color</code>: Farbe der Kanten.</li>
+</ul>
+</section>
+<section id="zentrale-knoten-hervorheben" class="level3" data-number="6.21.5">
+<h3 data-number="6.21.5" class="anchored" data-anchor-id="zentrale-knoten-hervorheben"><span class="header-section-number">6.21.5</span> Zentrale Knoten hervorheben</h3>
+<p>In Netzwerken ist häufig interessant, welche Knoten besonders gut verbunden sind. Eine einfache Kennzahl dafür ist der <strong>Grad</strong> eines Knotens.</p>
+<p>Der Grad gibt an, mit wie vielen anderen Knoten ein Knoten verbunden ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>grad <span class="ot">&lt;-</span> <span class="fu">degree</span>(netzwerk)</span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>grad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Anna    Ben  Clara  David    Eva Fatima Gustav 
+     2      3      3      2      4      2      2 </code></pre>
+</div>
+</div>
+<p>Nun können wir die Knotengröße vom Grad abhängig machen. Personen mit vielen Verbindungen erscheinen dadurch größer.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  netzwerk,</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.size =</span> grad <span class="sc">*</span> <span class="dv">8</span>,</span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.color =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.cex =</span> <span class="fl">0.9</span>,</span>
+<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">edge.color =</span> <span class="st">"gray60"</span>,</span>
+<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Knotengröße nach Anzahl der Verbindungen"</span></span>
+<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In dieser Grafik werden stärker vernetzte Personen visuell hervorgehoben. Das kann helfen, zentrale Akteure in einem Netzwerk schneller zu erkennen.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Merke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bei Netzwerkvisualisierungen sollte die Gestaltung eine inhaltliche Bedeutung haben.</p>
+<p>Wenn Knoten unterschiedlich groß dargestellt werden, sollte diese Größe etwas ausdrücken, zum Beispiel die Anzahl der Verbindungen oder eine andere Kennzahl.</p>
+</div>
+</div>
+</section>
+<section id="layouts-verändern" class="level3" data-number="6.21.6">
+<h3 data-number="6.21.6" class="anchored" data-anchor-id="layouts-verändern"><span class="header-section-number">6.21.6</span> Layouts verändern</h3>
+<p>Bei Netzwerkvisualisierungen gibt es meist keine feste x- oder y-Achse. Die Position der Knoten wird durch ein sogenanntes <strong>Layout</strong> bestimmt.</p>
+<p>Ein Layout legt fest, wie die Knoten im Raum angeordnet werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  netzwerk,</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">layout =</span> <span class="fu">layout_with_fr</span>(netzwerk),</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.size =</span> grad <span class="sc">*</span> <span class="dv">8</span>,</span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.color =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.cex =</span> <span class="fl">0.9</span>,</span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">edge.color =</span> <span class="st">"gray60"</span>,</span>
+<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Netzwerk mit Force-Directed Layout"</span></span>
+<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Das Layout <code>layout_with_fr()</code> ist ein sogenanntes force-directed Layout. Dabei werden verbundene Knoten eher näher beieinander platziert, während nicht direkt verbundene Knoten stärker auseinanderliegen.</p>
+<p>Dadurch entstehen häufig gut lesbare Netzwerkstrukturen.</p>
+</section>
+<section id="netzwerk-mit-ggraph" class="level3" data-number="6.21.7">
+<h3 data-number="6.21.7" class="anchored" data-anchor-id="netzwerk-mit-ggraph"><span class="header-section-number">6.21.7</span> Netzwerk mit <code>ggraph</code></h3>
+<p>Für modernere Netzwerkvisualisierungen kann das Paket <code>ggraph</code> verwendet werden. Es orientiert sich an der Logik von <code>ggplot2</code>, ist aber speziell für Graphen und Netzwerke gedacht.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'ggraph' wurde unter R Version 4.4.3 erstellt</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(netzwerk, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">color =</span> <span class="st">"gray70"</span>) <span class="sc">+</span></span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ein kleines soziales Netzwerk"</span>,</span>
+<span id="cb101-7"><a href="#cb101-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Knoten stehen für Personen, Kanten für Verbindungen"</span></span>
+<span id="cb101-8"><a href="#cb101-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb101-9"><a href="#cb101-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hier werden drei zentrale Bausteine verwendet:</p>
+<ul>
+<li><code>geom_edge_link()</code> zeichnet die Kanten,</li>
+<li><code>geom_node_point()</code> zeichnet die Knoten,</li>
+<li><code>geom_node_text()</code> ergänzt die Knotennamen.</li>
+</ul>
+<p>Das Theme <code>theme_void()</code> entfernt Achsen, Gitterlinien und Hintergrundelemente. Das ist bei Netzwerkvisualisierungen oft sinnvoll, weil die Achsen keine inhaltliche Bedeutung haben.</p>
+</section>
+<section id="knoten-nach-grad-einfärben" class="level3" data-number="6.21.8">
+<h3 data-number="6.21.8" class="anchored" data-anchor-id="knoten-nach-grad-einfärben"><span class="header-section-number">6.21.8</span> Knoten nach Grad einfärben</h3>
+<p>Auch mit <code>ggraph</code> können Netzwerke schrittweise informativer gestaltet werden. Im folgenden Beispiel wird der Grad eines Knotens berechnet und anschließend für die Farbe der Knoten verwendet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(netzwerk)<span class="sc">$</span>grad <span class="ot">&lt;-</span> <span class="fu">degree</span>(netzwerk)</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(netzwerk, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">color =</span> <span class="st">"gray75"</span>) <span class="sc">+</span></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> grad, <span class="at">color =</span> grad)) <span class="sc">+</span></span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Zentrale Knoten im Netzwerk"</span>,</span>
+<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Größere und dunklere Knoten haben mehr Verbindungen"</span>,</span>
+<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Anzahl Verbindungen"</span>,</span>
+<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Anzahl Verbindungen"</span></span>
+<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb102-14"><a href="#cb102-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Diese Darstellung zeigt nicht nur, wer mit wem verbunden ist. Sie macht zusätzlich sichtbar, welche Personen besonders viele Verbindungen haben.</p>
+</section>
+<section id="gerichtete-netzwerke" class="level3" data-number="6.21.9">
+<h3 data-number="6.21.9" class="anchored" data-anchor-id="gerichtete-netzwerke"><span class="header-section-number">6.21.9</span> Gerichtete Netzwerke</h3>
+<p>Nicht alle Netzwerke sind ungerichtet. Manchmal hat eine Beziehung eine Richtung.</p>
+<p>Beispiele:</p>
+<ul>
+<li>Eine Webseite verlinkt auf eine andere Webseite.</li>
+<li>Eine Person folgt einer anderen Person.</li>
+<li>Ein Paket wird von einem Ort zu einem anderen transportiert.</li>
+<li>Eine E-Mail wird von einer Person an eine andere gesendet.</li>
+</ul>
+<p>In solchen Fällen kann ein gerichtetes Netzwerk verwendet werden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>links <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">von =</span> <span class="fu">c</span>(<span class="st">"Startseite"</span>, <span class="st">"Startseite"</span>, <span class="st">"Kurs"</span>, <span class="st">"Kurs"</span>, <span class="st">"Material"</span>, <span class="st">"Übung"</span>),</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">zu  =</span> <span class="fu">c</span>(<span class="st">"Kurs"</span>, <span class="st">"Material"</span>, <span class="st">"Übung"</span>, <span class="st">"Prüfung"</span>, <span class="st">"Übung"</span>, <span class="st">"Prüfung"</span>)</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>webnetz <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(links, <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-8"><a href="#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb103-9"><a href="#cb103-9" aria-hidden="true" tabindex="-1"></a>  webnetz,</span>
+<span id="cb103-10"><a href="#cb103-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.size =</span> <span class="dv">35</span>,</span>
+<span id="cb103-11"><a href="#cb103-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.color =</span> <span class="st">"lightyellow"</span>,</span>
+<span id="cb103-12"><a href="#cb103-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">vertex.label.color =</span> <span class="st">"black"</span>,</span>
+<span id="cb103-13"><a href="#cb103-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">edge.arrow.size =</span> <span class="fl">0.5</span>,</span>
+<span id="cb103-14"><a href="#cb103-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">edge.color =</span> <span class="st">"gray50"</span>,</span>
+<span id="cb103-15"><a href="#cb103-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Beispiel für ein gerichtetes Netzwerk"</span></span>
+<span id="cb103-16"><a href="#cb103-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-daten-visualisieren_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Pfeile zeigen die Richtung der Beziehung. Dadurch erkennt man, von welchem Knoten eine Verbindung ausgeht und wohin sie führt.</p>
+</section>
+<section id="wann-sind-netzwerkvisualisierungen-sinnvoll" class="level3" data-number="6.21.10">
+<h3 data-number="6.21.10" class="anchored" data-anchor-id="wann-sind-netzwerkvisualisierungen-sinnvoll"><span class="header-section-number">6.21.10</span> Wann sind Netzwerkvisualisierungen sinnvoll?</h3>
+<p>Netzwerkvisualisierungen eignen sich besonders dann, wenn die <strong>Beziehungen zwischen Objekten</strong> im Mittelpunkt stehen.</p>
+<p>Sie sind weniger geeignet, wenn nur einzelne Variablen verglichen werden sollen. Für Verteilungen, Mittelwerte oder Zusammenhänge zwischen zwei metrischen Variablen sind Histogramme, Boxplots oder Streudiagramme meist besser geeignet.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Netzwerkvisualisierung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine Netzwerkvisualisierung beantwortet vor allem Fragen wie:</p>
+<ul>
+<li>Welche Objekte sind miteinander verbunden?</li>
+<li>Welche Knoten sind besonders zentral?</li>
+<li>Gibt es Gruppen oder Cluster?</li>
+<li>Gibt es isolierte oder schwach verbundene Knoten?</li>
+<li>Gibt es gerichtete Beziehungen?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="grenzen-von-netzwerkvisualisierungen" class="level3" data-number="6.21.11">
+<h3 data-number="6.21.11" class="anchored" data-anchor-id="grenzen-von-netzwerkvisualisierungen"><span class="header-section-number">6.21.11</span> Grenzen von Netzwerkvisualisierungen</h3>
+<p>Netzwerkdiagramme können schnell unübersichtlich werden. Schon bei einigen hundert Knoten und Kanten kann eine Darstellung schwer lesbar sein.</p>
+<p>Typische Probleme sind:</p>
+<ul>
+<li>zu viele Knoten,</li>
+<li>zu viele Kanten,</li>
+<li>überlappende Beschriftungen,</li>
+<li>unklare Farben,</li>
+<li>zu viele visuelle Kodierungen gleichzeitig.</li>
+</ul>
+<p>Deshalb sollten Netzwerkvisualisierungen besonders sorgfältig gestaltet werden.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Merke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Netzwerkvisualisierungen sind besonders nützlich, wenn Beziehungen zwischen Objekten untersucht werden sollen.</p>
+<p>Sie zeigen nicht nur einzelne Werte, sondern Strukturen: Verbindungen, zentrale Knoten, Gruppen und mögliche Muster im Netzwerk.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="credits" class="level2" data-number="6.22">
 <h2 data-number="6.22" class="anchored" data-anchor-id="credits"><span class="header-section-number">6.22</span> Credits</h2>
