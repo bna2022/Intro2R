@@ -1,0 +1,837 @@
+---
+title: "05 Daten visualisieren"
+subtitle: ""
+date: "2026-06-22"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 3
+    footer: "05 Daten visualisieren"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    resources:
+      - ../figures/*.png
+    format:
+  
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+### Lernziele
+
+Nach diesem Kapitel können Sie ...
+
+- einfache Grafiken mit **Base R** und **ggplot2** erstellen,
+- den Unterschied zwischen explorativer und erklärender Visualisierung
+  beschreiben,
+- die Grundidee der **Grammar of Graphics** erklären,
+- Variablen auf visuelle Eigenschaften abbilden,
+- passende Diagrammtypen auswählen,
+- Farben, Facetten, Achsen, Themes und Speichern gezielt einsetzen,
+- einfache Netzwerkvisualisierungen erstellen.
+
+### Warum Daten visualisieren?
+
+Visualisierungen helfen bei zwei Aufgaben:
+
+1.  **Exploration**\
+    Muster, Ausreißer, Gruppenunterschiede und Zusammenhänge erkennen.
+
+2.  **Kommunikation**\
+    Eine Datenbotschaft klar, verständlich und ehrlich darstellen.
+
+### Warum Daten visualisieren?
+
+Beispiele
+
+<https://jumpingrivers.github.io/datasauRus/index.html>
+
+[https://de.wikipedia.org/wiki/Anscombe-Quartett#/media/Datei:Anscombe's_quartet_3.svg](https://de.wikipedia.org/wiki/Anscombe-Quartett#/media/Datei:Anscombe's_quartet_3.svg)
+
+### Typische Fragen an Daten
+
+- Wie ist eine Variable verteilt?
+- Gibt es Ausreißer?
+- Hängen zwei Variablen zusammen?
+- Unterscheiden sich Gruppen?
+- Gibt es nichtlineare Muster?
+- Gibt es Strukturen, die in Tabellen schwer erkennbar sind?
+
+### Beispieldatensatz: `Pima.tr`
+
+Wir verwenden den Datensatz `Pima.tr` aus dem Paket `MASS`.
+
+Er enthält medizinische Messwerte, unter anderem:
+
+| Variable | Bedeutung       |
+|----------|-----------------|
+| `glu`    | Glukosewert     |
+| `bp`     | Blutdruck       |
+| `bmi`    | Body-Mass-Index |
+| `age`    | Alter           |
+| `type`   | Diabetesstatus  |
+
+### Daten laden
+
+```{r echo=TRUE}
+library(MASS)
+data(Pima.tr)
+head(Pima.tr)
+```
+
+### Struktur prüfen
+
+```{r echo=TRUE}
+str(Pima.tr)
+```
+
+::: callout-note
+Bevor eine Grafik erstellt wird, sollte immer klar sein: Welche
+Variablen sind metrisch? Welche sind kategorial?
+:::
+
+### Ausgangsfrage
+
+> Gibt es in diesen Daten einen Zusammenhang zwischen Alter, Glukosewert
+> und Diabetesstatus?
+
+Diese Frage lässt sich mit Tabellen nur schwer schnell beantworten.
+
+Visualisierungen helfen, erste Muster sichtbar zu machen.
+
+# Base R
+
+### Base R: schnelle Explorationsgrafiken
+
+Base R enthält bereits viele Grafikfunktionen.
+
+Vorteile:
+
+- direkt verfügbar,
+- schnell für erste explorative Analysen,
+- gut für einfache Standardgrafiken.
+
+Grenze:
+
+- komplexere Grafiken werden schnell schwer lesbar im Code.
+
+### Base R: Histogramm
+
+Ein Histogramm zeigt die Verteilung einer metrischen Variable.
+
+```{r echo=TRUE}
+hist(Pima.tr$glu,
+     breaks = 20,
+     main = "Verteilung der Glukosewerte",
+     xlab = "Glukosewert",
+     ylab = "Häufigkeit")
+```
+
+### Base R: Boxplot
+
+Ein Boxplot zeigt Median, Quartile und mögliche Ausreißer.
+
+```{r echo=TRUE}
+boxplot(glu ~ type,
+        data = Pima.tr,
+        main = "Glukosewerte nach Diabetes-Status",
+        xlab = "Diabetes-Status",
+        ylab = "Glukosewert")
+```
+
+### Base R: Streudiagramm
+
+Ein Streudiagramm zeigt den Zusammenhang zwischen zwei metrischen
+Variablen.
+
+```{r echo=TRUE}
+plot(Pima.tr$bmi, Pima.tr$glu,
+     main = "Zusammenhang zwischen BMI und Glukosewert",
+     xlab = "BMI",
+     ylab = "Glukosewert",
+     pch = 19)
+```
+
+### Base R: Gruppen farblich markieren
+
+```{r echo=TRUE}
+plot(Pima.tr$bmi, Pima.tr$glu,
+     main = "BMI und Glukosewert nach Diabetes-Status",
+     xlab = "BMI",
+     ylab = "Glukosewert",
+     pch = 19,
+     col = ifelse(Pima.tr$type == "Yes", "red", "blue"))
+
+legend("topleft",
+       legend = c("Diabetes: Yes", "Diabetes: No"),
+       col = c("red", "blue"),
+       pch = 19)
+```
+
+### Base R: Dichteplot
+
+Ein Dichteplot ist eine geglättete Alternative zum Histogramm.
+
+```{r echo=TRUE}
+plot(density(Pima.tr$glu),
+     main = "Dichte der Glukosewerte",
+     xlab = "Glukosewert")
+```
+
+### Base R: mehrere Grafiken nebeneinander
+
+```{r echo=TRUE}
+par(mfrow = c(1, 2))
+
+hist(Pima.tr$glu,
+     breaks = 20,
+     main = "Glukose",
+     xlab = "Glukosewert")
+hist(Pima.tr$bmi,
+     breaks = 20,
+     main = "BMI",
+     xlab = "BMI")
+par(mfrow = c(1, 1))
+```
+
+### Base R: Korrelationsmatrix
+
+Eine Korrelationsmatrix zeigt lineare Zusammenhänge zwischen metrischen
+Variablen.
+
+```{r echo=TRUE}
+korrelationen <- cor(Pima.tr[, c("npreg", "glu", "bp", "skin", "bmi", "ped", "age")])
+
+round(korrelationen, 2)
+```
+
+### Base R: Heatmap der Korrelationen
+
+```{r echo=TRUE}
+heatmap(korrelationen,
+        main = "Heatmap der Korrelationen",
+        symm = TRUE)
+```
+
+### Übung: Base R
+
+Nutzen Sie `Pima.tr`.
+
+1.  Erstellen Sie ein Histogramm für `age`.
+2.  Erstellen Sie einen Boxplot für `bmi` nach `type`.
+3.  Erstellen Sie ein Streudiagramm für `age` und `glu`.
+4.  Färben Sie die Punkte nach `type` ein.
+5.  Berechnen Sie eine Korrelationsmatrix für alle metrischen Variablen.
+
+# ggplot2
+
+### Von Base R zu ggplot2
+
+Base R beschreibt häufig, **wie** etwas gezeichnet wird.
+
+`ggplot2` beschreibt stärker, welche Variablen wie dargestellt werden.
+
+Grundidee:
+
+> Eine Grafik wird aus Bausteinen zusammengesetzt.
+
+### ggplot2 laden
+
+```{r echo=TRUE}
+library(ggplot2)
+```
+
+Ein einfaches Streudiagramm:
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point()
+```
+
+### Grammar of Graphics
+
+Eine Grafik besteht aus mehreren Komponenten:
+
+| Komponente | Bedeutung                                          |
+|------------|----------------------------------------------------|
+| Daten      | Datensatz                                          |
+| Ästhetiken | Zuordnung von Variablen zu visuellen Eigenschaften |
+| Geometrien | Punkte, Linien, Balken, Boxplots ...               |
+| Skalen     | Achsen, Farben, Größen                             |
+| Facetten   | Teilgrafiken nach Gruppen                          |
+| Theme      | Gestaltung der Grafik                              |
+
+### Grundform von ggplot2
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = DATENSATZ,
+       aes(x = VARIABLE1, y = VARIABLE2)) +
+  geom_...()
+```
+
+### Grundform von ggplot2
+
+Beispiel:
+
+```{r echo=TRUE}
+ggplot(data = Pima.tr,
+       aes(x = age, y = glu)) +
+  geom_point()
+```
+
+### Ästhetiken: `aes()`
+
+`aes()` legt fest, welche Variable auf welche visuelle Eigenschaft
+abgebildet wird.
+
+```{r echo=TRUE}
+p <- ggplot(Pima.tr, aes(x = age, y = glu, color = type)) +
+  geom_point(size = 2)
+```
+
+### Ergebnis
+
+```{r echo=FALSE, fig.width=6, fig.height=3, out.width="70%"}
+p
+```
+
+### Innerhalb oder außerhalb von `aes()`?
+
+Variable Farbe nach Gruppe:
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu, color = type)) +
+  geom_point()
+```
+
+Konstante Farbe für alle Punkte:
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point(color = "steelblue")
+```
+
+### Geometrien: Darstellungsform wählen
+
+| Ziel                                     | Geometrie          |
+|------------------------------------------|--------------------|
+| Zusammenhang zweier metrischer Variablen | `geom_point()`     |
+| Verlauf über eine geordnete Variable     | `geom_line()`      |
+| Verteilung einer Variable                | `geom_histogram()` |
+| geglättete Verteilung                    | `geom_density()`   |
+| Gruppenvergleich metrischer Werte        | `geom_boxplot()`   |
+| Häufigkeiten                             | `geom_bar()`       |
+| bereits aggregierte Werte                | `geom_col()`       |
+
+### Punktdiagramm
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point()
+```
+
+Interpretation: Jeder Punkt steht für eine Person.
+
+### Histogramm mit ggplot2
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = glu)) +
+  geom_histogram(bins = 20)
+```
+
+### Histogramm mit ggplot2
+
+`bins` legt fest, in wie viele Klassen die Werte eingeteilt werden.
+
+### Boxplot mit ggplot2
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = type, y = glu)) +
+  geom_boxplot()
+```
+
+
+### Layer: Grafiken schrittweise aufbauen
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+### Layer: Grafiken schrittweise aufbauen
+::: callout-note
+Jede zusätzliche Ebene sollte eine inhaltliche Funktion haben.
+:::
+
+### Achsen und Transformationen
+
+Manchmal sind transformierte Achsen besser lesbar.
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point() +
+  scale_y_continuous(
+  name = "Glukosewert",
+  limits = c(0, 250),
+  breaks = seq(0, 250, 50)
+) +
+  scale_x_continuous(name = "Alter")
+```
+
+`scale_y_continuous()` passt die y-Achse für numerische Werte an, zum Beispiel die Beschriftung, den Wertebereich oder die Achsenmarkierungen.
+
+### Achsen und Transformationen
+
+```{r echo=FALSE, eval=TRUE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point() +
+  scale_y_continuous(
+  name = "Glukosewert",
+  limits = c(0, 250),
+  breaks = seq(0, 250, 50)
+) +
+  scale_x_continuous(name = "Alter")
+```
+
+
+
+### Gruppierung mit Farbe
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.8)
+```
+
+`alpha` steuert die Transparenz der Punkte.
+
+### Balkendiagramme
+
+Häufigkeiten zählen:
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = type)) +
+  geom_bar()
+```
+
+
+### Balkendiagramm mit aggregierten Daten
+
+```{r echo=TRUE}
+mittelwerte <- aggregate(glu ~ type, data = Pima.tr, mean)
+
+mittelwerte
+```
+
+### Balkendiagramm mit aggregierten Daten
+
+```{r echo=TRUE, eval=FALSE}
+library(dplyr)
+
+mittelwerte <- Pima.tr %>%
+  group_by(type) %>%
+  summarise(
+    mittlerer_glukosewert = mean(glu)
+  )
+```
+
+### Balkendiagramm mit aggregierten Daten
+
+```{r echo=TRUE}
+ggplot(mittelwerte, aes(x = type, y = glu)) +
+  geom_col()
+```
+
+
+### Balkendiagramme
+::: callout-warning
+`geom_bar()` zählt Beobachtungen.\
+`geom_col()` nutzt bereits vorhandene y-Werte.
+:::
+
+### Faceting
+
+Facetten teilen eine Grafik in mehrere Teilgrafiken auf.
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point() +
+  facet_wrap(~ type)
+```
+
+Gut geeignet, wenn Gruppen getrennt betrachtet werden sollen.
+
+### Beschriftungen und Titel
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.8) +
+  labs(
+    title = "Zusammenhang zwischen BMI und Glukosewert",
+    subtitle = "Pima.tr-Datensatz",
+    x = "Body-Mass-Index",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  )
+```
+
+### Beschriftungen und Titel
+
+```{r echo=FALSE, eval=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.8) +
+  labs(
+    title = "Zusammenhang zwischen BMI und Glukosewert",
+    subtitle = "Pima.tr-Datensatz",
+    x = "Body-Mass-Index",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  )
+```
+
+
+### Themes
+
+Themes verändern das Erscheinungsbild einer Grafik.
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.8) +
+  theme_minimal()
+```
+
+### Wichtige Themes in `ggplot2`
+
+Beispiele:
+
+- `theme_minimal()` → schlicht und modern
+- `theme_classic()` → klassische Achsen ohne Hintergrundgitter
+- `theme_bw()` → weißer Hintergrund mit Gitternetz
+- `theme_light()` → helles, dezentes Theme
+- `theme_void()` → fast keine Achsen oder Beschriftungen
+
+:::{.fragment}
+**Wichtig:** Themes verändern nur das Aussehen, nicht die Daten.
+:::
+
+# Eine Grafik schrittweise verbessern
+
+### Eine Grafik schrittweise verbessern
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu)) +
+  geom_point()
+```
+
+Erste Version: Die Daten sind sichtbar, aber noch wenig erklärt.
+
+### Schrittweise verbessern: Farbe und Transparenz
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.7)
+```
+
+Jetzt werden Gruppenunterschiede sichtbarer.
+
+### Finale Version
+
+```{r echo=TRUE}
+ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point(size = 3, alpha = 0.7) +
+  facet_wrap(~ type) +
+  labs(
+    title = "BMI und Glukosewert nach Diabetesstatus",
+    x = "Body-Mass-Index",
+    y = "Glukosewert",
+    color = "Diabetesstatus"
+  ) +
+  theme_minimal()
+```
+
+### Was macht eine gute Grafik aus?
+
+::: callout-tip
+Eine gute Grafik sollte nicht überladen sein.
+Jedes zusätzliche Element sollte eine Funktion haben.
+:::
+
+Sinnvolle Verbesserungen sind zum Beispiel:
+- aussagekräftige Achsenbeschriftungen,
+- erklärender Titel,
+- verständliche Legende,
+- passende Farben,
+- Transparenz bei vielen Punkten,
+- Facetten für Gruppenvergleiche,
+- zurückhaltendes Theme.
+
+# ggplot2 Fehler
+
+### Typische Fehler bei ggplot2
+
+Fehler 1: `+` vergessen
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = age, y = glu))
+  geom_point()
+```
+
+Richtig:
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point()
+```
+
+### Typische Fehler: `aes()` falsch verwenden
+
+Variable innerhalb von `aes()`:
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = age, y = glu, color = type)) +
+  geom_point()
+```
+
+Konstante außerhalb von `aes()`:
+
+```{r echo=TRUE, eval=FALSE}
+ggplot(Pima.tr, aes(x = age, y = glu)) +
+  geom_point(color = "blue")
+```
+
+### Typische Fehler: `geom_bar()` vs. `geom_col()`
+
+```{r echo=TRUE, eval=FALSE}
+# zählt Beobachtungen pro Gruppe
+ggplot(Pima.tr, aes(x = type)) +
+  geom_bar()
+
+# nutzt vorhandene y-Werte
+ggplot(mittelwerte, aes(x = type, y = glu)) +
+  geom_col()
+```
+
+### Grafiken speichern
+
+```{r echo=TRUE, eval=FALSE}
+p <- ggplot(Pima.tr, aes(x = bmi, y = glu, color = type)) +
+  geom_point() +
+  theme_minimal()
+
+ggsave("pima_bmi_glukose.png", plot = p,
+       width = 8, height = 5, dpi = 300)
+```
+
+::: callout-note
+Für Abgaben oder Berichte sollten Grafiken reproduzierbar gespeichert
+werden.
+:::
+
+### Übung: ggplot2
+
+Erstellen Sie mit `ggplot2` Grafiken zum Datensatz `Pima.tr`.
+
+1.  Streudiagramm: `age` gegen `glu`.
+2.  Färben Sie die Punkte nach `type`.
+3.  Verändern Sie Punktgröße und Transparenz.
+4.  Ergänzen Sie Titel und Achsenbeschriftungen.
+5.  Teilen Sie die Grafik mit `facet_wrap(~ type)` auf.
+6.  Speichern Sie die finale Grafik mit `ggsave()`.
+
+# Netzwerkvisualisierung
+
+### Netzwerkvisualisierung
+
+Netzwerke bestehen aus:
+
+- **Knoten**: Objekte, Personen, Webseiten, Stationen
+- **Kanten**: Beziehungen zwischen diesen Knoten
+
+Beispiel:
+
+> Wer kennt wen?
+
+### Beispiel: Kleines Netzwerk
+
+```{r echo=TRUE}
+library(igraph)
+
+kanten <- data.frame(
+  von = c("Anna", "Anna", "Ben", "Clara", "David", "Eva"),
+  zu  = c("Ben", "Clara", "David", "David", "Eva", "Anna")
+)
+
+kanten
+```
+
+
+### Netzwerkobjekt erstellen
+
+```{r echo=TRUE}
+netz <- graph_from_data_frame(
+  d = kanten,
+  directed = FALSE
+)
+
+netz
+```
+
+:::{.fragment}
+`graph_from_data_frame()` erzeugt aus einer Kantenliste ein Netzwerkobjekt.
+:::
+
+
+### Zwei Darstellungen desselben Netzwerks
+
+Ein Netzwerk kann unterschiedlich gespeichert werden:
+
+| Darstellung | Idee |
+|---|---|
+| Kantenliste | Jede Zeile beschreibt eine Verbindung |
+| Adjazenzmatrix | Zeilen und Spalten sind Knoten |
+| Visualisierung | Knoten und Kanten werden gezeichnet |
+
+:::{.fragment}
+Die Datenstruktur und die Grafik sind nicht dasselbe.
+:::
+
+
+### Adjazenzmatrix
+
+Eine **Adjazenzmatrix** zeigt, welche Knoten miteinander verbunden sind.
+
+```{r echo=TRUE}
+as_adjacency_matrix(netz, sparse = FALSE)
+```
+
+Interpretation:
+
+- `1` bedeutet: Es gibt eine Verbindung.
+- `0` bedeutet: Es gibt keine Verbindung.
+- Zeilen und Spalten stehen für dieselben Knoten.
+
+### Netzwerk visualisieren
+
+```{r echo=TRUE}
+plot(netz)
+```
+
+Die Grafik zeigt dieselben Informationen wie die Adjazenzmatrix, aber visuell.
+
+:::{.fragment}
+Die Adjazenzmatrix ist gut für Berechnungen.  
+Die Netzwerkvisualisierung ist gut für Muster und Strukturen.
+:::
+
+
+### Netzwerk schöner darstellen
+
+```{r echo=TRUE}
+plot(
+  netz,
+  vertex.color = "lightblue",
+  vertex.size = 30,
+  vertex.label.cex = 1.1,
+  edge.width = 2
+)
+```
+
+Wichtige Argumente:
+
+- `vertex.color`: Farbe der Knoten
+- `vertex.size`: Größe der Knoten
+- `vertex.label.cex`: Größe der Beschriftung
+- `edge.width`: Dicke der Kanten
+
+### Zentrale Knoten erkennen
+
+Ein einfacher Zentralitätswert ist der **Grad**.
+
+```{r echo=TRUE}
+grad <- degree(netz)
+
+grad
+```
+
+Der Grad zählt, wie viele Verbindungen ein Knoten hat.
+
+### Zentrale Knoten hervorheben
+
+```{r echo=TRUE}
+plot(
+  netz,
+  vertex.size = grad * 8,
+  vertex.color = "lightblue",
+  vertex.label.cex = 1.1,
+  edge.width = 2
+)
+```
+
+:::{.fragment}
+Größere Knoten haben mehr Verbindungen.
+:::
+
+### Layouts verändern
+
+Das Layout bestimmt, **wo** die Knoten gezeichnet werden.
+
+```{r echo=TRUE}
+plot(
+  netz,
+  layout = layout_with_fr(netz),
+  vertex.size = grad * 8,
+  vertex.color = "lightblue",
+  edge.width = 2
+)
+```
+
+`layout_with_fr()` versucht, verbundene Knoten näher zusammen zu platzieren.
+
+
+### Wann sind Netzwerkvisualisierungen sinnvoll?
+
+Netzwerkvisualisierungen helfen, wenn Beziehungen im Mittelpunkt stehen.
+
+Beispiele:
+
+- soziale Netzwerke
+- Webseiten und Links
+- Verkehrsnetze
+- Kommunikationsnetzwerke
+- gemeinsame Auftreten von Begriffen
+
+:::{.fragment}
+Nicht einzelne Variablen stehen im Vordergrund, sondern Beziehungen.
+:::
+
+
+### Grenzen von Netzwerkvisualisierungen
+
+Netzwerke können schnell unübersichtlich werden.
+
+Problematisch sind:
+
+- sehr viele Knoten
+- sehr viele Kanten
+- überlappende Beschriftungen
+- Layouts, die unterschiedlich aussehen können
+
+:::{.fragment}
+Bei großen Netzwerken sind Kennzahlen oft wichtiger als die reine Grafik.
+:::
+
+### Übung: Netzwerkvisualisierung
+
+Erstellen Sie mit `igraph` ein kleines Netzwerk.
+
+1. Erstellen Sie eine Kantenliste mit mindestens sechs Kanten.
+2. Erzeugen Sie daraus ein Netzwerkobjekt mit `graph_from_data_frame()`.
+3. Geben Sie die Adjazenzmatrix aus.
+4. Visualisieren Sie das Netzwerk mit `plot()`.
+5. Berechnen Sie den Grad der Knoten mit `degree()`.
+6. Stellen Sie zentrale Knoten größer dar.
+7. Probieren Sie mindestens zwei Layouts aus.
