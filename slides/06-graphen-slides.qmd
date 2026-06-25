@@ -1,0 +1,578 @@
+---
+title: "06 Graphen"
+subtitle: "Netzwerk-Repräsentationen, Adjazenzmatrizen und Visualisierung mit igraph"
+author: ""
+date: "2026-06-25"
+fontsize: 10pt
+
+format:
+  revealjs:
+    slide-level: 3
+    footer: "06 Graphen"
+    highlight-style: pygments
+    toc: true
+    toc-depth: 1
+    theme: simple
+    format:
+  
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+### Lernziele
+
+Nach dieser Einheit können Sie:
+
+- erklären, was **Knoten** und **Kanten** sind,
+- Netzwerke als **Kantenliste**, **Knotenliste** und **Adjazenzmatrix** darstellen,
+- aus Tabellen ein `igraph`-Objekt erzeugen,
+- mit Adjazenzmatrizen einfache Erreichbarkeitsfragen beantworten,
+- Netzwerke mit `plot()` visualisieren und gestalten.
+
+# Einführung
+
+### Setup
+
+Für die Beispiele verwenden wir vor allem `igraph`.
+
+```{r echo=TRUE}
+library(igraph)
+```
+
+::: {.callout-note}
+`igraph` verbindet drei Dinge: Netzwerkdaten speichern, Netzwerke analysieren und Netzwerke visualisieren.
+:::
+
+---
+
+### Was ist ein Netzwerk?
+
+Manche Daten bestehen nicht nur aus einzelnen Beobachtungen, sondern aus **Objekten** und **Beziehungen**.
+
+Beispiele:
+
+- Personen und Freundschaften
+- Figuren und Beziehungen
+- Webseiten und Links
+- Gene und Interaktionen
+- Patient:innen und Kontakte
+
+---
+
+### Was ist ein Netzwerk?
+::: {.callout-tip}
+Ein **Knoten** steht für ein Objekt.  
+Eine **Kante** steht für eine Beziehung zwischen zwei Objekten.
+:::
+
+---
+
+# Netzwerk-Repräsentationen
+### Netzwerk-Repräsentationen
+
+Ein Netzwerk kann unterschiedlich gespeichert werden:
+
+| Repräsentation | Idee |
+|---|---|
+| Kantenliste | Jede Zeile ist eine Beziehung |
+| Knotenliste | Zusatzinformationen zu den Knoten |
+| Adjazenzmatrix | Zeilen und Spalten sind Knoten |
+| `igraph`-Objekt | Netzwerkstruktur für Analyse und Plot |
+
+---
+### Kantenliste
+
+Eine Kantenliste beschreibt, welche Knoten miteinander verbunden sind.
+
+```{r echo=TRUE}
+verbindungen <- data.frame(
+  von = c("Anna", "Anna", "Ben", "Ben", "Clara", "David"),
+  zu  = c("Ben", "Clara", "Clara", "David", "Eva", "Eva")
+)
+
+verbindungen
+```
+
+### Aus Kantenliste wird Graph
+
+```{r echo=TRUE}
+g_klein <- graph_from_data_frame(
+  d = verbindungen,
+  directed = FALSE
+)
+
+g_klein
+```
+
+::: {.callout-tip}
+Eine Kantenliste ist oft die einfachste Form, ein Netzwerk tabellarisch zu speichern.
+:::
+
+### Gerichtete und ungerichtete Graphen
+
+Bei einem **ungerichteten Graphen** zählt nur, dass eine Verbindung existiert.
+
+```{r echo=TRUE}
+g_ungerichtet <- graph_from_data_frame(
+  verbindungen,
+  directed = FALSE
+)
+```
+
+Bei einem **gerichteten Graphen** hat jede Kante eine Richtung.
+
+```{r echo=TRUE}
+g_gerichtet <- graph_from_data_frame(
+  verbindungen,
+  directed = TRUE
+)
+```
+
+### Visualisierung: ungerichtet
+
+```{r echo=TRUE}
+plot(g_ungerichtet)
+```
+
+### Visualisierung: gerichtet
+
+```{r echo=TRUE}
+plot(g_gerichtet)
+```
+
+### Mini-Übung 1: kleinen Graphen selbst erstellen
+
+Erstellen Sie mit `igraph` ein kleines Netzwerk.
+
+1. Erstellen Sie eine Kantenliste mit mindestens sechs Kanten.
+2. Erzeugen Sie daraus ein Netzwerkobjekt mit `graph_from_data_frame()`.
+3. Visualisieren Sie den Graphen mit `plot()`.
+4. Probieren Sie einmal `directed = TRUE` und einmal `directed = FALSE` aus.
+
+### Knotenliste
+
+Eine Knotenliste enthält Zusatzinformationen zu den Knoten.
+
+```{r echo=TRUE}
+personen <- data.frame(
+  name   = c("Anna", "Ben", "Clara", "David", "Eva"),
+  gruppe = c("A", "A", "A", "B", "B"),
+  alter  = c(22, 24, 21, 25, 23)
+)
+
+personen
+```
+
+### Kantenliste + Knotenliste
+
+Die erste Spalte der Knotenliste muss zu den Knotennamen in der Kantenliste passen.
+
+```{r echo=TRUE}
+g_attr <- graph_from_data_frame(
+  d = verbindungen,
+  vertices = personen,
+  directed = FALSE
+)
+
+V(g_attr)$gruppe
+V(g_attr)$alter
+```
+
+::: {.callout-important}
+Die Knotenliste ergänzt Attribute. Die Kantenliste definiert die Beziehungen.
+:::
+
+### Adjazenzmatrix
+
+Eine Adjazenzmatrix ist eine Matrixdarstellung eines Netzwerks.
+
+- Zeilen: Startknoten
+- Spalten: Zielknoten
+- `1`: Kante vorhanden
+- `0`: keine Kante vorhanden
+
+```{r echo=TRUE}
+A <- as_adjacency_matrix(g_klein, sparse = FALSE)
+A
+```
+
+### Aus Matrix wird Graph
+
+```{r echo=TRUE}
+g_aus_matrix <- graph_from_adjacency_matrix(
+  A,
+  mode = "undirected",
+  diag = FALSE
+)
+
+plot(g_aus_matrix)
+```
+
+### Rechnen mit Adjazenzmatrizen
+
+Die Matrix `A` zeigt direkte Verbindungen.
+
+Die Matrix `A %*% A` zählt Wege der Länge 2.
+
+```{r echo=TRUE}
+A2 <- A %*% A
+A2
+```
+
+::: {.callout-note}
+Wenn in `A2[i, j]` ein Wert größer als `0` steht, gibt es mindestens einen Weg von Knoten `i` nach Knoten `j` über genau einen Zwischenknoten.
+:::
+
+### Erreichbarkeit
+
+Für kleine Graphen kann man Erreichbarkeit über Matrixpotenzen prüfen.
+
+```{r echo=TRUE}
+# Gewichtete Adjazenzmatrix in eine 0/1-Matrix umwandeln
+A_bin <- ifelse(A > 0, 1, 0)
+
+# Wege mit Länge 1, 2 und 3 berechnen
+wege_1 <- A_bin
+wege_2 <- A_bin %*% A_bin
+wege_3 <- A_bin %*% A_bin %*% A_bin
+
+# Prüfen, ob mindestens ein Weg existiert
+R <- (wege_1 + wege_2 + wege_3) > 0
+
+# TRUE/FALSE in 1/0 umwandeln
+ifelse(R, 1, 0)
+```
+
+### Erreichbarkeit
+::: {.callout-tip}
+Die Erreichbarkeitsmatrix zeigt, ob Knoten über Wege bis zu einer bestimmten Länge verbunden sind.
+:::
+
+### Mini-Übung 2: Adjazenzmatrix und Erreichbarkeit
+
+Gegeben ist die folgende gerichtete Adjazenzmatrix.
+
+```{r echo=TRUE}
+A <- matrix(
+  c(0, 1, 0, 0,
+    0, 0, 1, 1,
+    0, 0, 0, 1,
+    0, 0, 0, 0),
+  nrow = 4,
+  byrow = TRUE
+)
+rownames(A) <- colnames(A) <- c("A", "B", "C", "D")
+A
+```
+
+### Mini-Übung 2: Adjazenzmatrix und Erreichbarkeit
+Bearbeiten Sie:
+
+1. Berechnen Sie `A %*% A`.
+2. Interpretieren Sie den Eintrag in Zeile `A`, Spalte `C`.
+3. Welche Knoten sind von `A` über höchstens zwei Schritte erreichbar?
+
+
+
+
+# Netzwerkdaten einlesen
+
+### Harry-Potter-Daten einlesen
+
+In echten Projekten liegen Netzwerkdaten häufig in Dateien.
+
+```{r echo=TRUE, eval=FALSE}
+characters <- read.csv("characters.csv", header = TRUE, as.is = TRUE)
+relations  <- read.csv("relations.csv",  header = TRUE, as.is = TRUE)
+```
+
+Die Daten bestehen aus:
+
+- `characters.csv`: Knoten, also Figuren
+- `relations.csv`: Kanten, also Beziehungen
+
+::: {.callout-note}
+Im Harry-Potter-Beispiel steht `+` für positive und `-` für negative Beziehungen.
+:::
+
+### Daten prüfen
+
+Vor dem Erzeugen des Graphen sollten die Daten geprüft werden.
+
+```{r echo=TRUE, eval=FALSE}
+nrow(characters)
+length(unique(characters$id))
+
+nrow(relations)
+nrow(unique(relations[, c("source", "target")]))
+
+knoten_ids <- as.character(characters$id)
+kanten_ids <- as.character(unique(c(relations$source, relations$target)))
+setdiff(kanten_ids, knoten_ids)
+```
+
+::: {.callout-tip}
+Wenn `setdiff()` leer ist, verweisen alle Kanten auf vorhandene Knoten.
+:::
+
+### Doppelte Kanten verdichten
+
+Zwischen denselben Figuren können mehrere Beziehungen vorkommen.
+
+```{r echo=TRUE, eval=FALSE}
+relations_gewichtet <- aggregate(
+  x = list(weight = rep(1, nrow(relations))),
+  by = list(
+    source = relations$source,
+    target = relations$target,
+    type   = relations$type
+  ),
+  FUN = sum
+)
+
+relations_gewichtet$source <- as.character(relations_gewichtet$source)
+relations_gewichtet$target <- as.character(relations_gewichtet$target)
+
+head(relations_gewichtet)
+```
+
+::: {.callout-note}
+Die Spalte `weight` zählt, wie häufig eine bestimmte Beziehung vorkommt.
+:::
+
+### Knotendaten für igraph vorbereiten
+
+`igraph` verwendet das Attribut `name` als Knoten-ID.
+
+```{r echo=TRUE, eval=FALSE}
+characters_igraph <- data.frame(
+  name      = as.character(characters$id),
+  character = characters$name,
+  bio       = characters$bio,
+  house     = trimws(characters$house),
+  alive     = trimws(characters$alive)
+)
+
+head(characters_igraph)
+```
+
+### Harry-Potter-Netzwerk erzeugen
+
+```{r echo=TRUE, eval=FALSE}
+g_hp <- graph_from_data_frame(
+  d = relations_gewichtet,
+  vertices = characters_igraph,
+  directed = TRUE
+)
+
+g_hp
+```
+### Harry-Potter-Netzwerk erzeugen
+
+Das Netzwerk enthält:
+
+- Figuren als Knoten
+- Beziehungen als gerichtete Kanten
+- Attribute wie `house`, `type` und `weight`
+
+### Attribute auslesen
+
+```{r echo=TRUE, eval=FALSE}
+V(g_hp)$character[1:10]
+V(g_hp)$house[1:10]
+
+E(g_hp)$type[1:10]
+E(g_hp)$weight[1:10]
+```
+
+::: {.callout-tip}
+Mit `V(g)` greifen Sie auf Knoten zu.  
+Mit `E(g)` greifen Sie auf Kanten zu.
+:::
+
+### Adjazenzmatrix aus Harry-Potter-Netzwerk
+
+```{r echo=TRUE, eval=FALSE}
+A_hp <- as_adjacency_matrix(
+  g_hp,
+  attr = "weight",
+  sparse = FALSE
+)
+
+A_hp[1:6, 1:6]
+```
+
+::: {.callout-note}
+Wenn `attr = "weight"` gesetzt ist, enthält die Matrix Kantengewichte statt nur `0` und `1`.
+:::
+
+### Mini-Übung 3: Harry-Potter-Netzwerk
+
+Arbeiten Sie mit `characters.csv` und `relations.csv`.
+
+1. Lesen Sie beide Dateien ein.
+2. Prüfen Sie, ob alle Kanten auf vorhandene Figuren verweisen.
+3. Verdichten Sie doppelte Kanten zu gewichteten Kanten.
+4. Erzeugen Sie ein gerichtetes `igraph`-Objekt.
+5. Geben Sie die zehn Figuren mit dem höchsten Grad aus.
+6. Visualisieren Sie die zehn Figuren. 
+
+# Netzwerk-Visualisierung
+
+### Netzwerk-Visualisierung
+
+Die einfachste Visualisierung entsteht mit `plot()`.
+
+```{r echo=TRUE, eval=FALSE}
+plot(g_hp)
+```
+
+::: {.callout-important}
+Die erste Netzwerkvisualisierung ist oft unübersichtlich. Das ist normal. Gute Netzwerkvisualisierung entsteht schrittweise.
+:::
+
+### Labels reduzieren
+
+Bei größeren Netzwerken überlappen Labels schnell.
+
+```{r echo=TRUE, eval=FALSE}
+plot(
+  g_hp,
+  vertex.label = NA,
+  vertex.size = 6,
+  edge.arrow.size = 0.3
+)
+```
+
+::: {.callout-tip}
+Nicht jeder Knoten muss beschriftet werden.
+:::
+
+### Layouts
+
+Ein Layout bestimmt, wo Knoten im Plot platziert werden.
+
+```{r echo=TRUE, eval=FALSE}
+set.seed(123)
+layout_hp <- layout_with_fr(g_hp)
+
+plot(
+  g_hp,
+  layout = layout_hp,
+  vertex.label = NA,
+  vertex.size = 6,
+  edge.arrow.size = 0.3
+)
+```
+
+### Layouts
+::: {.callout-note}
+Viele Layouts enthalten Zufall. Für reproduzierbare Grafiken: `set.seed()` setzen oder das Layout speichern. Eine Übersicht über Layout-Funktionen findet sich in der
+[`igraph`-Dokumentation zu Layouts](https://r.igraph.org/articles/igraph.html#layouts-and-plotting).
+:::
+
+### Knoten nach Attribut einfärben
+
+```{r echo=TRUE, eval=FALSE}
+house_farbe <- c(
+  "Gryffindor" = "firebrick",
+  "Slytherin" = "darkgreen",
+  "Ravenclaw" = "steelblue",
+  "Hufflepuff" = "goldenrod",
+  "no information" = "grey80"
+)
+
+V(g_hp)$color <- unname(house_farbe[V(g_hp)$house])
+V(g_hp)$color[is.na(V(g_hp)$color)] <- "grey80"
+```
+
+### Plot mit Farben und Legende
+
+```{r echo=TRUE, eval=FALSE}
+plot(
+  g_hp,
+  layout = layout_hp,
+  vertex.label = NA,
+  vertex.size = 7,
+  edge.arrow.size = 0.3
+)
+
+legend(
+  "topleft",
+  legend = names(house_farbe),
+  col = house_farbe,
+  pch = 19,
+  bty = "n"
+)
+```
+
+### Knotengröße nach Grad
+
+Der Grad beschreibt, mit wie vielen Kanten ein Knoten verbunden ist.
+
+```{r echo=TRUE, eval=FALSE}
+grad_gesamt <- degree(g_hp, mode = "all")
+V(g_hp)$size <- 4 + grad_gesamt * 0.6
+
+plot(
+  g_hp,
+  layout = layout_hp,
+  vertex.label = NA,
+  vertex.size = V(g_hp)$size,
+  edge.arrow.size = 0.3
+)
+```
+
+### Kanten nach Beziehungstyp gestalten
+
+```{r echo=TRUE, eval=FALSE}
+E(g_hp)$color <- ifelse(E(g_hp)$type == "+", "darkblue", "firebrick")
+E(g_hp)$lty   <- ifelse(E(g_hp)$type == "+", 1, 2)
+E(g_hp)$width <- 1 + E(g_hp)$weight
+
+plot(
+  g_hp,
+  layout = layout_hp,
+  vertex.label = NA,
+  vertex.size = V(g_hp)$size,
+  edge.arrow.size = 0.3,
+  edge.curved = 0.2
+)
+```
+
+### Teilnetzwerk visualisieren
+
+Bei größeren Netzwerken ist ein Ausschnitt oft lesbarer.
+
+```{r echo=TRUE, eval=FALSE}
+g_gryffindor <- induced_subgraph(
+  g_hp,
+  vids = V(g_hp)[house == "Gryffindor"]
+)
+
+plot(
+  g_gryffindor,
+  layout = layout_with_fr(g_gryffindor),
+  vertex.label = V(g_gryffindor)$character,
+  vertex.label.cex = 0.7,
+  vertex.size = 6 + degree(g_gryffindor, mode = "all"),
+  edge.arrow.size = 0.4,
+  edge.curved = 0.2,
+  main = "Teilnetzwerk: Gryffindor"
+)
+```
+
+### Zusammenfassung
+
+- Netzwerke bestehen aus **Knoten** und **Kanten**.
+- Kantenlisten sind praktisch zum Speichern und Einlesen.
+- Knotenlisten ergänzen Attribute.
+- Adjazenzmatrizen sind nützlich für rechnerische Fragen.
+- Matrixprodukte zeigen Wege über mehrere Schritte.
+- Gute Netzwerkplots entstehen iterativ: Layout, Labels, Farben, Größen und Kanten gestalten.
+
+### Quellen
+
+Grundlage: Kapitel „Daten visualisieren mit igraph“ aus dem R-Programmierung-Skript:  
+<https://bna2022.github.io/Intro2R/chapters/06-graphen.html>
