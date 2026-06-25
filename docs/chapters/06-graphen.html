@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Daten visualisieren mit igraph</title>
+<title>7&nbsp; Daten visualisieren mit igraph – R Programmierung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,59 +58,223 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="06-graphen-harry-potter-fixed_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/popper.min.js"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="06-graphen-harry-potter-fixed_files/libs/quarto-html/anchor.min.js"></script>
-<link href="06-graphen-harry-potter-fixed_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06-graphen-harry-potter-fixed_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="06-graphen-harry-potter-fixed_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="06-graphen-harry-potter-fixed_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="06-graphen-harry-potter-fixed_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="06-graphen-harry-potter-fixed_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/05-daten-visualisieren.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
 
-<script src="06-graphen-harry-potter-fixed_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+      .quarto-title-block .quarto-title-banner {
+        background-image: url(../figures/r-banner.png);
+background-size: cover;
+      }
+</style>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 
-<link href="06-graphen-harry-potter-fixed_files/libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 
-<script src="06-graphen-harry-potter-fixed_files/libs/vis-9.1.0/vis-network.min.js"></script>
+<link href="../site_libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
 
-<script src="06-graphen-harry-potter-fixed_files/libs/visNetwork-binding-2.1.4/visNetwork.js"></script>
+<script src="../site_libs/vis-9.1.0/vis-network.min.js"></script>
+
+<script src="../site_libs/visNetwork-binding-2.1.4/visNetwork.js"></script>
 
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Daten visualisieren mit igraph</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-graphen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Daten visualisieren mit igraph</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Daten visualisieren mit igraph</span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R Programmierung</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Willkommen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Erste Schritte mit R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-daten-repraesentieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten repräsentieren</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-daten-transformieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten transformieren</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-daten-vorverarbeiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Daten aufbereiten mit <code>dplyr</code>, <code>tidyr</code> und <code>stringr</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-daten-visualisieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten visualsieren mit ggplot</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-graphen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Daten visualisieren mit igraph</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lernziele" id="toc-lernziele" class="nav-link active" data-scroll-target="#lernziele"><span class="header-section-number">7.1</span> Lernziele</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">7.2</span> Setup</a></li>
+  <li><a href="#netzwerk-repräsentationen" id="toc-netzwerk-repräsentationen" class="nav-link" data-scroll-target="#netzwerk-repräsentationen"><span class="header-section-number">8</span> Netzwerk-Repräsentationen</a>
+  <ul class="collapse">
+  <li><a href="#kantenliste" id="toc-kantenliste" class="nav-link" data-scroll-target="#kantenliste"><span class="header-section-number">8.1</span> Kantenliste</a></li>
+  <li><a href="#gerichtete-und-ungerichtete-netzwerke" id="toc-gerichtete-und-ungerichtete-netzwerke" class="nav-link" data-scroll-target="#gerichtete-und-ungerichtete-netzwerke"><span class="header-section-number">8.2</span> Gerichtete und ungerichtete Netzwerke</a></li>
+  <li><a href="#knotenliste" id="toc-knotenliste" class="nav-link" data-scroll-target="#knotenliste"><span class="header-section-number">8.3</span> Knotenliste</a></li>
+  <li><a href="#adjazenzmatrix" id="toc-adjazenzmatrix" class="nav-link" data-scroll-target="#adjazenzmatrix"><span class="header-section-number">8.4</span> Adjazenzmatrix</a></li>
+  <li><a href="#netzwerke-aus-dateien-einlesen" id="toc-netzwerke-aus-dateien-einlesen" class="nav-link" data-scroll-target="#netzwerke-aus-dateien-einlesen"><span class="header-section-number">8.5</span> Netzwerke aus Dateien einlesen</a></li>
+  <li><a href="#knoten-und-kanten-prüfen" id="toc-knoten-und-kanten-prüfen" class="nav-link" data-scroll-target="#knoten-und-kanten-prüfen"><span class="header-section-number">8.6</span> Knoten und Kanten prüfen</a></li>
+  <li><a href="#doppelte-kanten-verdichten" id="toc-doppelte-kanten-verdichten" class="nav-link" data-scroll-target="#doppelte-kanten-verdichten"><span class="header-section-number">8.7</span> Doppelte Kanten verdichten</a></li>
+  <li><a href="#knotendaten-vorbereiten" id="toc-knotendaten-vorbereiten" class="nav-link" data-scroll-target="#knotendaten-vorbereiten"><span class="header-section-number">8.8</span> Knotendaten vorbereiten</a></li>
+  <li><a href="#attribute-auslesen" id="toc-attribute-auslesen" class="nav-link" data-scroll-target="#attribute-auslesen"><span class="header-section-number">8.9</span> Attribute auslesen</a></li>
+  <li><a href="#netzwerk-wieder-als-tabelle-oder-matrix-ausgeben" id="toc-netzwerk-wieder-als-tabelle-oder-matrix-ausgeben" class="nav-link" data-scroll-target="#netzwerk-wieder-als-tabelle-oder-matrix-ausgeben"><span class="header-section-number">8.10</span> Netzwerk wieder als Tabelle oder Matrix ausgeben</a></li>
+  </ul></li>
+  <li><a href="#netzwerk-visualisierungen" id="toc-netzwerk-visualisierungen" class="nav-link" data-scroll-target="#netzwerk-visualisierungen"><span class="header-section-number">9</span> Netzwerk-Visualisierungen</a>
+  <ul class="collapse">
+  <li><a href="#labels-anpassen" id="toc-labels-anpassen" class="nav-link" data-scroll-target="#labels-anpassen"><span class="header-section-number">9.1</span> Labels anpassen</a></li>
+  <li><a href="#layouts" id="toc-layouts" class="nav-link" data-scroll-target="#layouts"><span class="header-section-number">9.2</span> Layouts</a></li>
+  <li><a href="#knoten-nach-attributen-einfärben" id="toc-knoten-nach-attributen-einfärben" class="nav-link" data-scroll-target="#knoten-nach-attributen-einfärben"><span class="header-section-number">9.3</span> Knoten nach Attributen einfärben</a></li>
+  <li><a href="#knoten-nach-grad-skalieren" id="toc-knoten-nach-grad-skalieren" class="nav-link" data-scroll-target="#knoten-nach-grad-skalieren"><span class="header-section-number">9.4</span> Knoten nach Grad skalieren</a></li>
+  <li><a href="#kanten-nach-beziehungstyp-gestalten" id="toc-kanten-nach-beziehungstyp-gestalten" class="nav-link" data-scroll-target="#kanten-nach-beziehungstyp-gestalten"><span class="header-section-number">9.5</span> Kanten nach Beziehungstyp gestalten</a></li>
+  <li><a href="#teilnetzwerk-visualisieren" id="toc-teilnetzwerk-visualisieren" class="nav-link" data-scroll-target="#teilnetzwerk-visualisieren"><span class="header-section-number">9.6</span> Teilnetzwerk visualisieren</a></li>
+  <li><a href="#alternative-netzwerkvisualisierung-mit-ggraph" id="toc-alternative-netzwerkvisualisierung-mit-ggraph" class="nav-link" data-scroll-target="#alternative-netzwerkvisualisierung-mit-ggraph"><span class="header-section-number">9.7</span> Alternative: Netzwerkvisualisierung mit <code>ggraph</code></a></li>
+  <li><a href="#alternative-interaktive-netzwerkvisualisierung" id="toc-alternative-interaktive-netzwerkvisualisierung" class="nav-link" data-scroll-target="#alternative-interaktive-netzwerkvisualisierung"><span class="header-section-number">9.8</span> Alternative: Interaktive Netzwerkvisualisierung</a>
+  <ul class="collapse">
+  <li><a href="#vorbereitung-der-knotentabelle" id="toc-vorbereitung-der-knotentabelle" class="nav-link" data-scroll-target="#vorbereitung-der-knotentabelle"><span class="header-section-number">9.8.1</span> Vorbereitung der Knotentabelle</a></li>
+  <li><a href="#vorbereitung-der-kantentabelle" id="toc-vorbereitung-der-kantentabelle" class="nav-link" data-scroll-target="#vorbereitung-der-kantentabelle"><span class="header-section-number">9.8.2</span> Vorbereitung der Kantentabelle</a></li>
+  <li><a href="#interaktive-visualisierung" id="toc-interaktive-visualisierung" class="nav-link" data-scroll-target="#interaktive-visualisierung"><span class="header-section-number">9.8.3</span> Interaktive Visualisierung</a></li>
+  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">9.8.4</span> Zusammenfassung</a></li>
+  </ul></li>
+  <li><a href="#übung-netzwerkdaten-aus-csv-dateien-einlesen" id="toc-übung-netzwerkdaten-aus-csv-dateien-einlesen" class="nav-link" data-scroll-target="#übung-netzwerkdaten-aus-csv-dateien-einlesen"><span class="header-section-number">9.9</span> Übung: Netzwerkdaten aus CSV-Dateien einlesen</a></li>
+  <li><a href="#lösungsskizze" id="toc-lösungsskizze" class="nav-link" data-scroll-target="#lösungsskizze"><span class="header-section-number">9.10</span> Lösungsskizze</a></li>
+  <li><a href="#zusammenfassung-1" id="toc-zusammenfassung-1" class="nav-link" data-scroll-target="#zusammenfassung-1"><span class="header-section-number">9.11</span> Zusammenfassung</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<section id="lernziele" class="level2">
-<h2 class="anchored" data-anchor-id="lernziele">Lernziele</h2>
+
+
+
+<section id="lernziele" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="lernziele"><span class="header-section-number">7.1</span> Lernziele</h2>
 <p>Nach diesem Kapitel können Sie:</p>
 <ul>
 <li>erklären, was Knoten und Kanten in einem Netzwerk bedeuten,</li>
@@ -123,8 +287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>einfache Netzwerkkennzahlen wie den Grad für Visualisierungen nutzen.</li>
 </ul>
 </section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="setup" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="setup"><span class="header-section-number">7.2</span> Setup</h2>
 <p>Für die folgenden Beispiele verwenden wir das Paket <code>igraph</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -143,8 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="netzwerk-repräsentationen" class="level1">
-<h1>Netzwerk-Repräsentationen</h1>
+<section id="netzwerk-repräsentationen" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Netzwerk-Repräsentationen</h1>
 <p>Bisher haben wir vor allem klassische Diagramme betrachtet, zum Beispiel Histogramme, Boxplots oder Streudiagramme. Diese Diagramme eignen sich gut, wenn einzelne Variablen oder Zusammenhänge zwischen zwei metrischen Variablen untersucht werden sollen.</p>
 <p>Manche Daten haben jedoch eine andere Struktur: Sie bestehen aus <strong>Objekten</strong> und <strong>Beziehungen zwischen diesen Objekten</strong>. Solche Daten können als Netzwerk dargestellt werden.</p>
 <p>Typische Beispiele sind:</p>
@@ -171,8 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Eine <strong>Kante</strong> steht für eine Beziehung zwischen zwei Knoten, zum Beispiel eine Freundschaft, eine Verbindung oder eine Interaktion.</p>
 </div>
 </div>
-<section id="kantenliste" class="level2">
-<h2 class="anchored" data-anchor-id="kantenliste">Kantenliste</h2>
+<section id="kantenliste" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="kantenliste"><span class="header-section-number">8.1</span> Kantenliste</h2>
 <p>Eine häufige Repräsentation eines Netzwerks ist die <strong>Kantenliste</strong>. Dabei beschreibt jede Zeile eine Verbindung zwischen zwei Knoten.</p>
 <p>Im folgenden Beispiel betrachten wir ein kleines soziales Netzwerk. Die Knoten sind Personen. Eine Kante bedeutet, dass zwei Personen miteinander verbunden sind.</p>
 <div class="cell">
@@ -206,9 +370,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>g_klein</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4ad6693 UN-- 7 9 -- 
+<pre><code>IGRAPH 404e67f UN-- 7 9 -- 
 + attr: name (v/c)
-+ edges from 4ad6693 (vertex names):
++ edges from 404e67f (vertex names):
 [1] Anna  --Ben    Anna  --Clara  Ben   --Clara  Ben   --David  Clara --Eva   
 [6] David --Eva    Eva   --Fatima Eva   --Gustav Fatima--Gustav</code></pre>
 </div>
@@ -227,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="gerichtete-und-ungerichtete-netzwerke" class="level2">
-<h2 class="anchored" data-anchor-id="gerichtete-und-ungerichtete-netzwerke">Gerichtete und ungerichtete Netzwerke</h2>
+<section id="gerichtete-und-ungerichtete-netzwerke" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="gerichtete-und-ungerichtete-netzwerke"><span class="header-section-number">8.2</span> Gerichtete und ungerichtete Netzwerke</h2>
 <p>Bei einem <strong>ungerichteten Netzwerk</strong> ist nur wichtig, dass zwei Knoten verbunden sind. Die Richtung spielt keine Rolle.</p>
 <p>Beispiel: Wenn Anna mit Ben befreundet ist, wird meist angenommen, dass Ben auch mit Anna befreundet ist.</p>
 <div class="cell">
@@ -237,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -250,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -270,8 +434,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="knotenliste" class="level2">
-<h2 class="anchored" data-anchor-id="knotenliste">Knotenliste</h2>
+<section id="knotenliste" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="knotenliste"><span class="header-section-number">8.3</span> Knotenliste</h2>
 <p>Neben der Kantenliste kann es eine <strong>Knotenliste</strong> geben. Sie enthält Zusatzinformationen über die Knoten.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>personen <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -323,8 +487,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="adjazenzmatrix" class="level2">
-<h2 class="anchored" data-anchor-id="adjazenzmatrix">Adjazenzmatrix</h2>
+<section id="adjazenzmatrix" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="adjazenzmatrix"><span class="header-section-number">8.4</span> Adjazenzmatrix</h2>
 <p>Eine andere Repräsentation eines Netzwerks ist die <strong>Adjazenzmatrix</strong>. Dabei stehen die Knoten sowohl in den Zeilen als auch in den Spalten. Eine <code>1</code> bedeutet: Es gibt eine Kante. Eine <code>0</code> bedeutet: Es gibt keine Kante.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">as_adjacency_matrix</span>(g_klein, <span class="at">sparse =</span> <span class="cn">FALSE</span>)</span>
@@ -350,9 +514,9 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>g_aus_matrix</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4b192b6 UN-- 7 9 -- 
+<pre><code>IGRAPH 409090f UN-- 7 9 -- 
 + attr: name (v/c)
-+ edges from 4b192b6 (vertex names):
++ edges from 409090f (vertex names):
 [1] Anna  --Ben    Anna  --Clara  Ben   --Clara  Ben   --David  Clara --Eva   
 [6] David --Eva    Eva   --Fatima Eva   --Gustav Fatima--Gustav</code></pre>
 </div>
@@ -371,8 +535,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="netzwerke-aus-dateien-einlesen" class="level2">
-<h2 class="anchored" data-anchor-id="netzwerke-aus-dateien-einlesen">Netzwerke aus Dateien einlesen</h2>
+<section id="netzwerke-aus-dateien-einlesen" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="netzwerke-aus-dateien-einlesen"><span class="header-section-number">8.5</span> Netzwerke aus Dateien einlesen</h2>
 <p>In echten Projekten werden Netzwerke meist nicht direkt im R-Skript erzeugt. Stattdessen liegen die Daten in Dateien vor. Häufig gibt es eine Datei mit Knoten und eine Datei mit Kanten.</p>
 <p>Dieses Vorgehen orientiert sich an der typischen Struktur aus Netzwerk-Tutorials mit <code>igraph</code>: Zuerst werden eine Knoten-Datei und eine Kanten-Datei mit <code>read.csv()</code> eingelesen. Danach werden die Daten geprüft, doppelte Kanten verdichtet und schließlich mit <code>graph_from_data_frame()</code> in ein <code>igraph</code>-Objekt umgewandelt.</p>
 <p>In diesem Kapitel verwenden wir zwei CSV-Dateien:</p>
@@ -445,8 +609,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="knoten-und-kanten-prüfen" class="level2">
-<h2 class="anchored" data-anchor-id="knoten-und-kanten-prüfen">Knoten und Kanten prüfen</h2>
+<section id="knoten-und-kanten-prüfen" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="knoten-und-kanten-prüfen"><span class="header-section-number">8.6</span> Knoten und Kanten prüfen</h2>
 <p>Bevor ein Netzwerkobjekt erzeugt wird, sollten die Daten geprüft werden. Besonders wichtig ist:</p>
 <ul>
 <li>Gibt es jede Knoten-ID nur einmal?</li>
@@ -497,8 +661,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="doppelte-kanten-verdichten" class="level2">
-<h2 class="anchored" data-anchor-id="doppelte-kanten-verdichten">Doppelte Kanten verdichten</h2>
+<section id="doppelte-kanten-verdichten" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="doppelte-kanten-verdichten"><span class="header-section-number">8.7</span> Doppelte Kanten verdichten</h2>
 <p>In den Daten kann es mehrere Beziehungen zwischen denselben Figuren geben. Außerdem kann eine Beziehung positiv oder negativ sein. Deshalb verdichten wir doppelte Kanten nicht nur nach <code>source</code> und <code>target</code>, sondern zusätzlich nach <code>type</code>.</p>
 <p>Dadurch bleiben positive und negative Beziehungen getrennt.</p>
 <div class="cell">
@@ -553,8 +717,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="knotendaten-vorbereiten" class="level2">
-<h2 class="anchored" data-anchor-id="knotendaten-vorbereiten">Knotendaten vorbereiten</h2>
+<section id="knotendaten-vorbereiten" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="knotendaten-vorbereiten"><span class="header-section-number">8.8</span> Knotendaten vorbereiten</h2>
 <p>Für <code>igraph</code> muss die erste Spalte der Knotenliste die Knoten eindeutig identifizieren. Diese Spalte sollte <code>name</code> heißen.</p>
 <p>In der Datei heißt die ID-Spalte <code>id</code>. Deshalb erzeugen wir für <code>igraph</code> eine neue Tabelle, in der <code>id</code> als <code>name</code> verwendet wird. Die ursprüngliche Figurenspalte <code>name</code> nennen wir in <code>character</code> um. So vermeiden wir einen Konflikt mit dem internen <code>igraph</code>-Attribut <code>name</code>.</p>
 <div class="cell">
@@ -601,10 +765,10 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>g_hp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4b41395 DNW- 65 459 -- 
+<pre><code>IGRAPH 40be3be DNW- 65 459 -- 
 + attr: name (v/c), character (v/c), bio (v/c), house (v/c), alive
 | (v/c), type (e/c), weight (e/n)
-+ edges from 4b41395 (vertex names):
++ edges from 40be3be (vertex names):
  [1] 0 -&gt;1  0 -&gt;25 0 -&gt;45 1 -&gt;0  1 -&gt;11 1 -&gt;21 1 -&gt;25 1 -&gt;31 1 -&gt;33 1 -&gt;34
 [11] 1 -&gt;36 1 -&gt;37 1 -&gt;38 1 -&gt;39 1 -&gt;40 1 -&gt;41 1 -&gt;45 1 -&gt;47 1 -&gt;48 1 -&gt;50
 [21] 1 -&gt;53 1 -&gt;54 1 -&gt;55 1 -&gt;58 2 -&gt;21 2 -&gt;28 2 -&gt;58 3 -&gt;9  3 -&gt;16 3 -&gt;21
@@ -617,8 +781,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 <p>Das Netzwerk ist gerichtet, weil <code>source</code> und <code>target</code> eine Richtung festlegen: Die Beziehung geht von <code>source</code> nach <code>target</code>.</p>
 </section>
-<section id="attribute-auslesen" class="level2">
-<h2 class="anchored" data-anchor-id="attribute-auslesen">Attribute auslesen</h2>
+<section id="attribute-auslesen" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="attribute-auslesen"><span class="header-section-number">8.9</span> Attribute auslesen</h2>
 <p>Knoten- und Kantenattribute können direkt aus dem Netzwerkobjekt ausgelesen werden.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(g_hp)<span class="sc">$</span>character[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -652,8 +816,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <li>Gewicht als Kantenattribut <code>weight</code>.</li>
 </ul>
 </section>
-<section id="netzwerk-wieder-als-tabelle-oder-matrix-ausgeben" class="level2">
-<h2 class="anchored" data-anchor-id="netzwerk-wieder-als-tabelle-oder-matrix-ausgeben">Netzwerk wieder als Tabelle oder Matrix ausgeben</h2>
+<section id="netzwerk-wieder-als-tabelle-oder-matrix-ausgeben" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="netzwerk-wieder-als-tabelle-oder-matrix-ausgeben"><span class="header-section-number">8.10</span> Netzwerk wieder als Tabelle oder Matrix ausgeben</h2>
 <p>Ein <code>igraph</code>-Objekt kann wieder in tabellarische Repräsentationen umgewandelt werden.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_data_frame</span>(g_hp, <span class="at">what =</span> <span class="st">"vertices"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -720,22 +884,22 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </section>
 </section>
-<section id="netzwerk-visualisierungen" class="level1">
-<h1>Netzwerk-Visualisierungen</h1>
+<section id="netzwerk-visualisierungen" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Netzwerk-Visualisierungen</h1>
 <p>Nachdem das Netzwerk als <code>igraph</code>-Objekt vorliegt, kann es visualisiert werden. Die einfachste Visualisierung entsteht mit <code>plot()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g_hp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Diese erste Visualisierung ist oft noch unübersichtlich. Das ist normal. Netzwerkvisualisierung ist ein iterativer Prozess: Man startet mit einer einfachen Darstellung und verbessert dann Layout, Labels, Knotenfarben, Knotengrößen und Kanteneigenschaften.</p>
-<section id="labels-anpassen" class="level2">
-<h2 class="anchored" data-anchor-id="labels-anpassen">Labels anpassen</h2>
+<section id="labels-anpassen" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="labels-anpassen"><span class="header-section-number">9.1</span> Labels anpassen</h2>
 <p>Bei größeren Netzwerken überlappen Labels schnell. Deshalb ist es oft sinnvoll, zunächst keine Labels oder nur kurze Labels zu verwenden.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
@@ -747,7 +911,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -764,14 +928,14 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="layouts" class="level2">
-<h2 class="anchored" data-anchor-id="layouts">Layouts</h2>
+<section id="layouts" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="layouts"><span class="header-section-number">9.2</span> Layouts</h2>
 <p>Ein Layout legt fest, wo die Knoten im Diagramm platziert werden. Unterschiedliche Layouts können denselben Graphen sehr unterschiedlich aussehen lassen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
@@ -785,7 +949,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -802,7 +966,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -819,7 +983,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -851,14 +1015,14 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="knoten-nach-attributen-einfärben" class="level2">
-<h2 class="anchored" data-anchor-id="knoten-nach-attributen-einfärben">Knoten nach Attributen einfärben</h2>
+<section id="knoten-nach-attributen-einfärben" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="knoten-nach-attributen-einfärben"><span class="header-section-number">9.3</span> Knoten nach Attributen einfärben</h2>
 <p>Die Figuren haben ein Attribut <code>house</code>. Dieses können wir verwenden, um die Knoten einzufärben.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>house_farbe <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
@@ -885,7 +1049,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -911,14 +1075,14 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="knoten-nach-grad-skalieren" class="level2">
-<h2 class="anchored" data-anchor-id="knoten-nach-grad-skalieren">Knoten nach Grad skalieren</h2>
+<section id="knoten-nach-grad-skalieren" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="knoten-nach-grad-skalieren"><span class="header-section-number">9.4</span> Knoten nach Grad skalieren</h2>
 <p>Der <strong>Grad</strong> eines Knotens gibt an, mit wie vielen Kanten ein Knoten verbunden ist. In gerichteten Netzwerken kann man zwischen eingehenden und ausgehenden Kanten unterscheiden.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>grad_gesamt <span class="ot">&lt;-</span> <span class="fu">degree</span>(g_hp, <span class="at">mode =</span> <span class="st">"all"</span>)</span>
@@ -945,7 +1109,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -976,8 +1140,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="kanten-nach-beziehungstyp-gestalten" class="level2">
-<h2 class="anchored" data-anchor-id="kanten-nach-beziehungstyp-gestalten">Kanten nach Beziehungstyp gestalten</h2>
+<section id="kanten-nach-beziehungstyp-gestalten" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="kanten-nach-beziehungstyp-gestalten"><span class="header-section-number">9.5</span> Kanten nach Beziehungstyp gestalten</h2>
 <p>Die Kanten haben ein Attribut <code>type</code>. Positive und negative Beziehungen können unterschiedlich dargestellt werden.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(g_hp)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">E</span>(g_hp)<span class="sc">$</span>type <span class="sc">==</span> <span class="st">"+"</span>, <span class="st">"darkgreen"</span>, <span class="st">"firebrick"</span>)</span>
@@ -1004,7 +1168,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1023,8 +1187,8 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 </div>
 </div>
 </section>
-<section id="teilnetzwerk-visualisieren" class="level2">
-<h2 class="anchored" data-anchor-id="teilnetzwerk-visualisieren">Teilnetzwerk visualisieren</h2>
+<section id="teilnetzwerk-visualisieren" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="teilnetzwerk-visualisieren"><span class="header-section-number">9.6</span> Teilnetzwerk visualisieren</h2>
 <p>Bei größeren Netzwerken ist es oft hilfreich, nur einen Ausschnitt zu betrachten. Zum Beispiel können wir die Figuren anzeigen, die zu Gryffindor gehören oder stark mit Gryffindor-Figuren verbunden sind.</p>
 <p>Zunächst erzeugen wir ein Teilnetzwerk mit allen Figuren aus Gryffindor.</p>
 <div class="cell">
@@ -1035,11 +1199,11 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>g_gryffindor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4e52b7e DNW- 22 146 -- 
+<pre><code>IGRAPH 4385cd3 DNW- 22 146 -- 
 + attr: name (v/c), character (v/c), bio (v/c), house (v/c), alive
 | (v/c), color (v/c), size (v/n), type (e/c), weight (e/n), color
 | (e/c), lty (e/n), width (e/n)
-+ edges from 4e52b7e (vertex names):
++ edges from 4385cd3 (vertex names):
  [1] 1 -&gt;21 1 -&gt;31 1 -&gt;36 1 -&gt;39 1 -&gt;40 1 -&gt;41 1 -&gt;48 1 -&gt;50 1 -&gt;53 1 -&gt;54
 [11] 1 -&gt;55 1 -&gt;58 2 -&gt;21 2 -&gt;28 2 -&gt;58 21-&gt;28 21-&gt;36 21-&gt;39 21-&gt;50 21-&gt;51
 [21] 21-&gt;52 21-&gt;54 21-&gt;56 21-&gt;58 22-&gt;21 22-&gt;28 22-&gt;36 22-&gt;39 22-&gt;58 26-&gt;27
@@ -1064,7 +1228,7 @@ Gustav    0   0     0     0   1      1      0</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1100,7 +1264,7 @@ Anschließend wird für das reduzierte Netzwerk erneut der Knotengrad berechnet 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1119,8 +1283,8 @@ Anschließend wird für das reduzierte Netzwerk erneut der Knotengrad berechnet 
 </div>
 </div>
 </section>
-<section id="alternative-netzwerkvisualisierung-mit-ggraph" class="level2">
-<h2 class="anchored" data-anchor-id="alternative-netzwerkvisualisierung-mit-ggraph">Alternative: Netzwerkvisualisierung mit <code>ggraph</code></h2>
+<section id="alternative-netzwerkvisualisierung-mit-ggraph" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="alternative-netzwerkvisualisierung-mit-ggraph"><span class="header-section-number">9.7</span> Alternative: Netzwerkvisualisierung mit <code>ggraph</code></h2>
 <p>Neben der Basisfunktion <code>plot()</code> aus <code>igraph</code> können Netzwerke auch mit Paketen aus dem <code>ggplot2</code>-Umfeld visualisiert werden.<br>
 Dafür eignet sich besonders das Paket <code>ggraph</code>.</p>
 <p>Der Vorteil ist, dass die Visualisierung ähnlich wie bei <code>ggplot2</code> schrittweise aufgebaut und leichter gestaltet werden kann.</p>
@@ -1174,7 +1338,7 @@ Dafür eignet sich besonders das Paket <code>ggraph</code>.</p>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1206,8 +1370,8 @@ Dafür eignet sich besonders das Paket <code>ggraph</code>.</p>
 </div>
 </div>
 </section>
-<section id="alternative-interaktive-netzwerkvisualisierung" class="level2">
-<h2 class="anchored" data-anchor-id="alternative-interaktive-netzwerkvisualisierung">Alternative: Interaktive Netzwerkvisualisierung</h2>
+<section id="alternative-interaktive-netzwerkvisualisierung" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="alternative-interaktive-netzwerkvisualisierung"><span class="header-section-number">9.8</span> Alternative: Interaktive Netzwerkvisualisierung</h2>
 <p>Statische Netzwerkvisualisierungen werden bei größeren Netzwerken schnell unübersichtlich.<br>
 Ein Grund dafür ist, dass viele Knoten, Kanten und Beschriftungen gleichzeitig angezeigt werden.</p>
 <p>Eine Alternative sind <strong>interaktive Netzwerkvisualisierungen</strong>.<br>
@@ -1220,8 +1384,8 @@ Dabei müssen nicht alle Informationen dauerhaft sichtbar sein. Stattdessen kön
 <pre><code>Warning: Paket 'visNetwork' wurde unter R Version 4.4.3 erstellt</code></pre>
 </div>
 </div>
-<section id="vorbereitung-der-knotentabelle" class="level3">
-<h3 class="anchored" data-anchor-id="vorbereitung-der-knotentabelle">Vorbereitung der Knotentabelle</h3>
+<section id="vorbereitung-der-knotentabelle" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="vorbereitung-der-knotentabelle"><span class="header-section-number">9.8.1</span> Vorbereitung der Knotentabelle</h3>
 <p><code>visNetwork</code> benötigt zwei Tabellen:</p>
 <ul>
 <li>eine Tabelle für die Knoten,</li>
@@ -1271,8 +1435,8 @@ Dieser erscheint erst, wenn man mit der Maus über einen Knoten fährt.</p>
 </div>
 </div>
 </section>
-<section id="vorbereitung-der-kantentabelle" class="level3">
-<h3 class="anchored" data-anchor-id="vorbereitung-der-kantentabelle">Vorbereitung der Kantentabelle</h3>
+<section id="vorbereitung-der-kantentabelle" class="level3" data-number="9.8.2">
+<h3 data-number="9.8.2" class="anchored" data-anchor-id="vorbereitung-der-kantentabelle"><span class="header-section-number">9.8.2</span> Vorbereitung der Kantentabelle</h3>
 <p>Nun wird aus dem <code>igraph</code>-Objekt eine Kantentabelle erzeugt.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kantentabelle aus dem igraph-Objekt erzeugen</span></span>
@@ -1292,8 +1456,8 @@ Dieser erscheint erst, wenn man mit der Maus über einen Knoten fährt.</p>
 </div>
 <p>Die Spalte <code>value</code> kann von <code>visNetwork</code> genutzt werden, um stärkere Kanten größer oder auffälliger darzustellen.</p>
 </section>
-<section id="interaktive-visualisierung" class="level3">
-<h3 class="anchored" data-anchor-id="interaktive-visualisierung">Interaktive Visualisierung</h3>
+<section id="interaktive-visualisierung" class="level3" data-number="9.8.3">
+<h3 data-number="9.8.3" class="anchored" data-anchor-id="interaktive-visualisierung"><span class="header-section-number">9.8.3</span> Interaktive Visualisierung</h3>
 <p>Nun können Knoten- und Kantentabelle an <code>visNetwork()</code> übergeben werden.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Hinweis">
 <div class="callout-header d-flex align-content-center">
@@ -1352,13 +1516,13 @@ Dadurch bewegen sich die Knoten zunächst, bis das Netzwerk eine stabile Anordnu
 </div>
 </div>
 </section>
-<section id="zusammenfassung" class="level3">
-<h3 class="anchored" data-anchor-id="zusammenfassung">Zusammenfassung</h3>
+<section id="zusammenfassung" class="level3" data-number="9.8.4">
+<h3 data-number="9.8.4" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">9.8.4</span> Zusammenfassung</h3>
 <p>Interaktive Netzwerkvisualisierungen sind besonders hilfreich, wenn ein Netzwerk viele Knoten oder Kanten enthält.Sie ersetzen nicht die analytische Auswertung des Netzwerks, können aber helfen, Strukturen explorativ zu untersuchen.</p>
 </section>
 </section>
-<section id="übung-netzwerkdaten-aus-csv-dateien-einlesen" class="level2">
-<h2 class="anchored" data-anchor-id="übung-netzwerkdaten-aus-csv-dateien-einlesen">Übung: Netzwerkdaten aus CSV-Dateien einlesen</h2>
+<section id="übung-netzwerkdaten-aus-csv-dateien-einlesen" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="übung-netzwerkdaten-aus-csv-dateien-einlesen"><span class="header-section-number">9.9</span> Übung: Netzwerkdaten aus CSV-Dateien einlesen</h2>
 <p>Verwenden Sie die Dateien <code>characters.csv</code> und <code>relations.csv</code>.</p>
 <ol type="1">
 <li>Lesen Sie beide Dateien mit <code>read.csv()</code> ein.</li>
@@ -1373,8 +1537,8 @@ Dadurch bewegen sich die Knoten zunächst, bis das Netzwerk eine stabile Anordnu
 <li>Stellen Sie Knoten mit hohem Grad größer dar.</li>
 </ol>
 </section>
-<section id="lösungsskizze" class="level2">
-<h2 class="anchored" data-anchor-id="lösungsskizze">Lösungsskizze</h2>
+<section id="lösungsskizze" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="lösungsskizze"><span class="header-section-number">9.10</span> Lösungsskizze</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten einlesen</span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"characters.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">as.is =</span> <span class="cn">TRUE</span>)</span>
@@ -1496,14 +1660,14 @@ Dadurch bewegen sich die Knoten zunächst, bis das Netzwerk eine stabile Anordnu
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-graphen-harry-potter-fixed_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="06-graphen_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="zusammenfassung-1" class="level2">
-<h2 class="anchored" data-anchor-id="zusammenfassung-1">Zusammenfassung</h2>
+<section id="zusammenfassung-1" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="zusammenfassung-1"><span class="header-section-number">9.11</span> Zusammenfassung</h2>
 <p>Netzwerkdaten können auf verschiedene Arten repräsentiert werden. Für das Einlesen aus Dateien ist die Kombination aus Knotenliste und Kantenliste besonders wichtig.</p>
 <p>Die typische Verarbeitungskette lautet:</p>
 <ol type="1">
@@ -1528,11 +1692,12 @@ Dadurch bewegen sich die Knoten zunächst, bis das Netzwerk eine stabile Anordnu
 <p>Eine gute Netzwerkvisualisierung beginnt nicht mit <code>plot()</code>, sondern mit sauber vorbereiteten Netzwerkdaten.</p>
 </div>
 </div>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1933,6 +2098,15 @@ Dadurch bewegen sich die Knoten zunächst, bis das Netzwerk eine stabile Anordnu
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/05-daten-visualisieren.html" class="pagination-link" aria-label="Daten visualsieren mit ggplot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Daten visualsieren mit ggplot</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
