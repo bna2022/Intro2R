@@ -870,109 +870,6 @@ visNetwork(nodes, edges) |>
 Wenn ein interaktives Netzwerk „wackelt“, liegt das meist an der aktivierten Physik-Simulation. Durch Stabilisierung und anschließendes Ausschalten der Physik bleibt die Darstellung ruhig.
 :::
 
-### Zusammenfassung
-
-Interaktive Netzwerkvisualisierungen sind besonders hilfreich, wenn ein Netzwerk viele Knoten oder Kanten enthält.Sie ersetzen nicht die analytische Auswertung des Netzwerks, können aber helfen, Strukturen explorativ zu untersuchen. 
-
-## Übung: Netzwerkdaten aus CSV-Dateien einlesen
-
-Verwenden Sie die Dateien `characters.csv` und `relations.csv`.
-
-1. Lesen Sie beide Dateien mit `read.csv()` ein.
-2. Geben Sie mit `head()` die ersten Zeilen beider Tabellen aus.
-3. Prüfen Sie, ob alle IDs in der Kantendatei auch in der Knotendatei vorkommen.
-4. Prüfen Sie, ob es doppelte Kanten gibt.
-5. Verdichten Sie doppelte Kanten nach `source`, `target` und `type`.
-6. Erzeugen Sie mit `graph_from_data_frame()` ein gerichtetes `igraph`-Objekt.
-7. Speichern Sie ein Layout mit `layout_with_fr()`.
-8. Visualisieren Sie das Netzwerk ohne Labels.
-9. Färben Sie positive und negative Kanten unterschiedlich ein.
-10. Stellen Sie Knoten mit hohem Grad größer dar.
-
-## Lösungsskizze
-
-```{r}
-#| echo: true
-# Daten einlesen
-characters <- read.csv("characters.csv", header = TRUE, as.is = TRUE)
-relations  <- read.csv("relations.csv",  header = TRUE, as.is = TRUE)
-
-characters$house <- trimws(characters$house)
-characters$alive <- trimws(characters$alive)
-relations$type   <- trimws(relations$type)
-
-# Daten prüfen
-head(characters)
-head(relations)
-
-setdiff(
-  as.character(unique(c(relations$source, relations$target))),
-  as.character(characters$id)
-)
-
-nrow(relations)
-nrow(unique(relations[, c("source", "target")]))
-
-# Doppelte Kanten verdichten
-relations_gewichtet <- aggregate(
-  x = list(weight = rep(1, nrow(relations))),
-  by = list(
-    source = relations$source,
-    target = relations$target,
-    type   = relations$type
-  ),
-  FUN = sum
-)
-
-# Knotendaten vorbereiten
-characters_igraph <- data.frame(
-  name      = as.character(characters$id),
-  character = characters$name,
-  bio       = characters$bio,
-  house     = characters$house,
-  alive     = characters$alive
-)
-
-relations_gewichtet$source <- as.character(relations_gewichtet$source)
-relations_gewichtet$target <- as.character(relations_gewichtet$target)
-
-# Netzwerk erzeugen
-g_hp <- graph_from_data_frame(
-  d = relations_gewichtet,
-  vertices = characters_igraph,
-  directed = TRUE
-)
-
-# Gestaltung
-set.seed(123)
-layout_hp <- layout_with_fr(g_hp)
-
-grad_gesamt <- degree(g_hp, mode = "all")
-V(g_hp)$size <- 4 + grad_gesamt * 0.6
-
-E(g_hp)$color <- ifelse(E(g_hp)$type == "+", "darkgreen", "firebrick")
-E(g_hp)$lty   <- ifelse(E(g_hp)$type == "+", 1, 2)
-E(g_hp)$width <- 1 + E(g_hp)$weight
-
-# Visualisierung
-plot(
-  g_hp,
-  layout = layout_hp,
-  vertex.label = NA,
-  vertex.size = V(g_hp)$size,
-  edge.arrow.size = 0.3,
-  edge.curved = 0.2
-)
-
-legend(
-  "topleft",
-  legend = c("positive Beziehung", "negative Beziehung"),
-  col = c("darkgreen", "firebrick"),
-  lty = c(1, 2),
-  lwd = 2,
-  bty = "n"
-)
-```
 
 ## Zusammenfassung
 
@@ -988,8 +885,4 @@ Die typische Verarbeitungskette lautet:
 6. Layout berechnen,
 7. Netzwerk visualisieren und interpretieren.
 
-::: {.callout-tip}
-## Merksatz
 
-Eine gute Netzwerkvisualisierung beginnt nicht mit `plot()`, sondern mit sauber vorbereiteten Netzwerkdaten.
-:::
