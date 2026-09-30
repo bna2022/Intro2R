@@ -317,14 +317,11 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Lernziele dieses Kapitels sind:</p>
 <ul>
-<li>R und RStudio erfolgreich zu installieren und erste Tests der Installation durchzuführen</li>
-<li>wesentliche Bereiche der RStudio-Oberfläche (Konsole, Editor, Environment/History, Plots/Help/Packages) zu identifizieren und zu nutzen</li>
-<li>zu wissen, wie man R-Pakete installiert und in einer Sitzung lädt</li>
-<li>gute Gewohnheiten für Workflow-Dokumentation und sauberen, lesbaren R-Code zu entwickeln</li>
-<li>R als interaktiven Taschenrechner zu verwenden und arithmetische Ausdrücke korrekt einzugeben</li>
-<li>die allgemeine Struktur eines Funktionsaufrufs (Funktionsname und Argumente) zu verstehen</li>
+<li>R und RStudio installieren</li>
+<li>wesentliche Bereiche der RStudio-Oberfläche kennenlernen</li>
+<li>Umgang mit R-Paketen</li>
+<li>R als interaktiven Taschenrechner zu verwenden</li>
 <li>Hilfe zu Funktionen mit <code>?</code> oder <code>help()</code> aufzurufen und zu interpretieren</li>
-<li>einfache Berechnungen systematisch und reproduzierbar durchzuführen</li>
 </ul>
 </div>
 </div>
@@ -746,7 +743,7 @@ Dabei gilt:</p>
 </div>
 <p>Standardmäßig wird auf eine ganze Zahl gerundet. Im Beispiel ergibt sich für <code>7/3</code> der Wert 2. Die Genauigkeit der Rundung kann mit dem Argument <code>digits</code> gesteuert werden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">7</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.333</code></pre>
 </div>
@@ -1039,7 +1036,7 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <li>Benannte Parameter besitzen Standard-Werte</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">6</span>)</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
@@ -1049,8 +1046,8 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <li>Benannte Parameter müssen mit “=” abgetrennt werden</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">6</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.5</code></pre>
 </div>
@@ -1186,10 +1183,10 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition der Funktion</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(kathete_1, kathete_2) {</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    hypo_quadrat <span class="ot">&lt;-</span> kathete_1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> kathete_2<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    hypothenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_quadrat)  <span class="co"># sqrt() zieht die Quadratwurzel</span></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(hypothenuse)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(kathete_1, kathete_2){</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  hypo_quadrat <span class="ot">&lt;-</span> kathete_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> kathete_2<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  hypothenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_quadrat) <span class="co"># sqrt() zieht die Quadratwurzel</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypothenuse)</span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufruf der Funktion</span></span>
@@ -1206,8 +1203,8 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    x</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  x</span>
 <span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1228,7 +1225,7 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <p>Diese Variable ist überall verfügbar, solange sie nicht lokal überschrieben wird. Auf äußere Variablen kann auch innerhalb einer Funktion zugegriffen werden ohne das diese als Parameter übergeben wird.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>    patienten <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  patienten <span class="sc">*</span> <span class="dv">2</span></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1251,7 +1248,7 @@ Figure&nbsp;2.5: Beispiel für eine Funktion
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> <span class="dv">99</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;&lt;-</span> <span class="dv">99</span></span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span>
