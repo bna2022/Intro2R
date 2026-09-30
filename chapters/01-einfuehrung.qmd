@@ -5,14 +5,11 @@ title: "Erste Schritte mit R"
 ::: {.callout-tip title="Lernziele"}
 Lernziele dieses Kapitels sind:
 
-- R und RStudio erfolgreich zu installieren und erste Tests der Installation durchzuführen
-- wesentliche Bereiche der RStudio-Oberfläche (Konsole, Editor, Environment/History, Plots/Help/Packages) zu identifizieren und zu nutzen
-- zu wissen, wie man R-Pakete installiert und in einer Sitzung lädt
-- gute Gewohnheiten für Workflow-Dokumentation und sauberen, lesbaren R-Code zu entwickeln
-- R als interaktiven Taschenrechner zu verwenden und arithmetische Ausdrücke korrekt einzugeben
-- die allgemeine Struktur eines Funktionsaufrufs (Funktionsname und Argumente) zu verstehen
+- R und RStudio installieren
+- wesentliche Bereiche der RStudio-Oberfläche kennenlernen
+- Umgang mit R-Paketen 
+- R als interaktiven Taschenrechner zu verwenden
 - Hilfe zu Funktionen mit `?` oder `help()` aufzurufen und zu interpretieren
-- einfache Berechnungen systematisch und reproduzierbar durchzuführen
 :::
 
 ## Mit R starten
